@@ -25,6 +25,10 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             var distinctList = _context.LawBooks.ToList().Where(a => a.title.StartsWith("ACCOUNTS")).GroupBy(x => new { x.department, x.title }).Select(group => group.First()); ;
             return View(distinctList);
         }
+        public async Task<IActionResult> GithubTest()
+        {
+            return View();
+        }
 
         //This Method refer to
         public async Task<IActionResult> AccountsLawBook(string id, string title, string date)

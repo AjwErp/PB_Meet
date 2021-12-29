@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\AJWManagementPortal\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
+    "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\29-12-2021\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\AJWManagementPortal\\AJWManagementPortal\\AJWManagementPortal.csproj": {
+    "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\29-12-2021\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\AJWManagementPortal\\AJWManagementPortal\\AJWManagementPortal.csproj",
+        "projectUniqueName": "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\29-12-2021\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
         "projectName": "AJWManagementPortal",
-        "projectPath": "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\AJWManagementPortal\\AJWManagementPortal\\AJWManagementPortal.csproj",
+        "projectPath": "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\29-12-2021\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
         "packagesPath": "C:\\Users\\A J W\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\AJWManagementPortal\\AJWManagementPortal\\obj\\",
+        "outputPath": "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\29-12-2021\\PB_Meet\\AJWManagementPortal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\A J W\\AppData\\Roaming\\NuGet\\NuGet.Config",

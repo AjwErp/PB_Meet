@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JmH4F8RB+HRHvafCrk8UoVi2oSqYbA+sKf639NkHgkaLaWGvy1B/WmMDlrIvfblUmxKInk0DnhL9nbDIDNeZlg==",
+  "dgSpecHash": "+KQg43rM1Ca6iQASbPmu5AkpvTRnODelPBT3JJK+v2oUYC9Cbde7rCfh71h0gMuvSKWxGqQ38BLu2UNxnkV0sg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\AJWManagementPortal\\AJWManagementPortal\\AJWManagementPortal.csproj",
+  "projectFilePath": "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\29-12-2021\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\A J W\\.nuget\\packages\\dinktopdf\\1.0.8\\dinktopdf.1.0.8.nupkg.sha512",
     "C:\\Users\\A J W\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.13\\microsoft.aspnetcore.cryptography.internal.3.1.13.nupkg.sha512",
