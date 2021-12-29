@@ -417,7 +417,7 @@
                 //Send the JSON array to Controller using AJAX.
                 $.ajax({
                     type: "POST",
-                    url: "/Account/DailyAccountReport/InsertSuppliers",
+                    url: "/Account/DailyAccountReport/InsertSuppliers1",
                     data: { data: DailySuppliers, id: dateV },
                     success: function (r) {
                         alert(r + " record(s) inserted.");
