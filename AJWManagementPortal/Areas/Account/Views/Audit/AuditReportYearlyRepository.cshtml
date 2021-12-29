@@ -1,0 +1,87 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "AuditReportYearlyRepository";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+@*<div class="container">
+    <div class="row">*@
+<form class="tabled" style="font-family:'Jameel Noori Nastaleeq';font-size:x-large">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="text-right">
+                <th class="bg-white text-dark" scope="col" colspan="10">
+                    <a type="button" class="btn btn-primary" asp-area="Account" asp-controller="MonthlyAccountsReport" asp-action="MonthlyAccountsReport" style="font-family:'Jameel Noori Nastaleeq';font-size:large"><i class="fas fa-plus"> @Localizer["Create New Yearly Accounts Audit Report"]</i> </a>
+                </th>
+            </tr>
+            <tr>
+                <th class="bg-secondary text-white" scope="col" colspan="10" style="font-family:'Jameel Noori Nastaleeq';font-size:xx-large">@Localizer["Yearly Accounts Audit Report List"]</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th class="text-center bg-secondary text-white" scope="col">@Localizer["CRUD Operation"] </th>
+                <th class="text-center bg-secondary text-white" scope="col">@Localizer["Date"]</th>
+                <th class="text-center bg-secondary text-white" scope="col">@Localizer["Title"]</th>
+                <th class="text-center bg-secondary text-white" scope="col">@Localizer["ID#"]</th>
+            </tr>
+            <tr>
+                <th scope="row" style="width:150px" class="bg-secondary">
+
+                    <div class="btn-group bg-secondary text-white" role="group">
+                        <a class="btn btn-warning text-white" @*asp-action="DeleteByDate" asp-route-Id="@item.ValueDate.ToString("dd-MM-yyyy")" asp-route-redirect="DailyContinueReportList"*@>
+                            <i class="fas fa-upload"></i>
+                        </a>
+                        <a class="btn btn-primary text-white" @*asp-action="IndexByName" asp-route-Id="@item.ValueDate.ToString("dd-MM-yyyy")" asp-route-hide="false"*@>
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a class="btn btn-success text-white" @*asp-action="IndexByName" asp-route-Id="@item.ValueDate.ToString("dd-MM-yyyy")" asp-route-hide="true"*@>
+                            <i class="fas fa-list-alt"></i>
+                        </a>
+                        <a class="btn btn-danger text-white" @*asp-action="DeleteByDate" asp-route-Id="@item.ValueDate.ToString("dd-MM-yyyy")" asp-route-redirect="DailyContinueReportList"*@>
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </div>
+                </th>
+                <th class="text-center  text-dark" scope="col">@*@item.ValueDate*@ </th>
+                <th class="text-center  text-dark" scope="col">@Localizer["Yearly Accounts Audit Report"] </th>
+                <th class="text-center  text-dark" scope="col">@*@item.Id*@</th>
+            </tr>
+            @*}*@
+
+        </tbody>
+    </table>
+</form>
+@*</div>
+    </div>*@
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    .tabled {
+        position: center;
+        align-content: center;
+        text-align: center;
+        /*margin-left: -200px;*/
+    }
+
+    .signt {
+        position: center;
+        align-content: center;
+        text-align: center;
+        /*  margin-left: -120px;*/
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@
+

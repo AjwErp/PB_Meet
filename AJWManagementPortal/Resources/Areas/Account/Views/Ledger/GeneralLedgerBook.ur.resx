@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Accessory Material" xml:space="preserve">
+    <value>ا سسری میٹریل</value>
+  </data>
+  <data name="Accessory Repairing" xml:space="preserve">
+    <value>ا سسری ریپیرنگ</value>
+  </data>
+  <data name="Account Manager" xml:space="preserve">
+    <value>اکاؤنٹ مینیجر</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>ایکشن</value>
+  </data>
+  <data name="Add Row" xml:space="preserve">
+    <value>روشامل کریں</value>
+  </data>
+  <data name="AJW AGRO INDUSTRY" xml:space="preserve">
+    <value>اے جے ڈبلیو ایگرو انڈسٹری</value>
+  </data>
+  <data name="Ali Sanitary Store(MianChannu)" xml:space="preserve">
+    <value>علی سینیٹری اسٹور (میاں چنوں)</value>
+  </data>
+  <data name="Asim Sahib Special Budget" xml:space="preserve">
+    <value>عاصم صاحب خصوصی بجٹ</value>
+  </data>
+  <data name="Ayoub Petrolium Service(Tulamba)" xml:space="preserve">
+    <value>ایوب پٹرولیم سروس (تلمبہ)</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>لسٹ پر واپس جائیں</value>
+  </data>
+  <data name="Balance" xml:space="preserve">
+    <value> بیلنس</value>
+  </data>
+  <data name="Bhutta Agro Hardware(MianChannu)" xml:space="preserve">
+    <value>بھٹہ ایگرو ہارڈ ویئر (میاں چنوں)</value>
+  </data>
+  <data name="C.E.O" xml:space="preserve">
+    <value>سی ای او</value>
+  </data>
+  <data name="Checq-No" xml:space="preserve">
+    <value>چیک نمبر</value>
+  </data>
+  <data name="Civil Work Material" xml:space="preserve">
+    <value>سول ورک میٹریل</value>
+  </data>
+  <data name="Closing Balance + Bank" xml:space="preserve">
+    <value>کلوزنگ بیلنس + بینک</value>
+  </data>
+  <data name="Credit" xml:space="preserve">
+    <value>کریڈٹ</value>
+  </data>
+  <data name="D.G.M" xml:space="preserve">
+    <value>ڈی جی ایم</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="Debit" xml:space="preserve">
+    <value>ڈیبٹ</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>تفصیل</value>
+  </data>
+  <data name="Electric Material" xml:space="preserve">
+    <value>الیکٹرک میٹریل</value>
+  </data>
+  <data name="Employee Monthly Salary(Bank Account)" xml:space="preserve">
+    <value>ملازم ماہانہ تنخواہ (بینک اکاؤنٹ)</value>
+  </data>
+  <data name="Employee Monthly Salary(Internal Account)" xml:space="preserve">
+    <value>ملازم ماہانہ تنخواہ (انٹرنل اکاؤنٹ)</value>
+  </data>
+  <data name="EOBI Monthly Fee" xml:space="preserve">
+    <value>عی او بی ای ماہانہ فیس</value>
+  </data>
+  <data name="G.M" xml:space="preserve">
+    <value>جی ایم</value>
+  </data>
+  <data name="Gate Pass Expense" xml:space="preserve">
+    <value>گیٹ پاس خرچ</value>
+  </data>
+  <data name="General Ledger Report-Account Office" xml:space="preserve">
+    <value>ڈیلی جنرل لیجر رپورٹ اکاؤنٹ آفس</value>
+  </data>
+  <data name="ID#" xml:space="preserve">
+    <value>نمبر</value>
+  </data>
+  <data name="Industry Electric Bill" xml:space="preserve">
+    <value>انڈسٹری الیکٹرک بل</value>
+  </data>
+  <data name="Industry Internet Package" xml:space="preserve">
+    <value>انڈسٹری انٹرنیٹ پیکیج</value>
+  </data>
+  <data name="Industry Kitchen Material" xml:space="preserve">
+    <value>انڈسٹری کچن میٹریل</value>
+  </data>
+  <data name="Industry Milk Bill" xml:space="preserve">
+    <value>انڈسٹری دودھ بل</value>
+  </data>
+  <data name="Industry Mobile Balance" xml:space="preserve">
+    <value>انڈسٹری موبائل بیلنس</value>
+  </data>
+  <data name="Industry Motorcycle Service" xml:space="preserve">
+    <value>انڈسٹری موٹرسائیکل سروس</value>
+  </data>
+  <data name="Internal Account Closing Balance Receipt" xml:space="preserve">
+    <value>انٹرنل اکاؤنٹ کلوزنگ بیلنس رسید</value>
+  </data>
+  <data name="Khursheed Iron Store(MianChannu)" xml:space="preserve">
+    <value>خورشید آئرن اسٹور (میاں چنوں)</value>
+  </data>
+  <data name="Labour Wages" xml:space="preserve">
+    <value>لیبر مزدوری</value>
+  </data>
+  <data name="Ledger Type" xml:space="preserve">
+    <value>لیجر کی قسم</value>
+  </data>
+  <data name="Live Up Water Supply(Tulamba)" xml:space="preserve">
+    <value>لائیو اپ واٹر سپلائی (تلمبہ)</value>
+  </data>
+  <data name="Meezan Bank Account" xml:space="preserve">
+    <value>میزان بینک اکاؤنٹ</value>
+  </data>
+  <data name="Mughal Interiors(CNC Plasma Machine)" xml:space="preserve">
+    <value>مغل انٹيریرس (سی ان سی پلازما مشین)</value>
+  </data>
+  <data name="Mughal Iron Store(Tulamba)" xml:space="preserve">
+    <value>مغل آئرن اسٹور (تلمبہ)</value>
+  </data>
+  <data name="Mutafariq" xml:space="preserve">
+    <value>متفر ق</value>
+  </data>
+  <data name="Nadeem Jawaid Bearing(MianChannu)" xml:space="preserve">
+    <value>ندیم جاوید بیرنگ (میاں چنوں)</value>
+  </data>
+  <data name="P-Order" xml:space="preserve">
+    <value>پی-آرڈر</value>
+  </data>
+  <data name="Petty Cash Account" xml:space="preserve">
+    <value>پیٹی کیش اکاؤنٹ</value>
+  </data>
+  <data name="Petty Cash Expense(Internal Account)" xml:space="preserve">
+    <value>پیٹی کيش خرچ (انٹرنل اکاؤنٹ)</value>
+  </data>
+  <data name="Punjab Bank Account" xml:space="preserve">
+    <value>پنجاب بینک اکاؤنٹ</value>
+  </data>
+  <data name="Rafiq Iron(MianChannu)" xml:space="preserve">
+    <value>رفیق آئرن (میاں چنوں)</value>
+  </data>
+  <data name="Remarks" xml:space="preserve">
+    <value>ریمارکس</value>
+  </data>
+  <data name="Rooba digital(MianChannu)" xml:space="preserve">
+    <value>روبہ ڈیجیٹل (میاں چنوں)</value>
+  </data>
+  <data name="Sadiq Aluminium(MakhdoomPur)" xml:space="preserve">
+    <value>صادق ایلومینیم (مخدوم پور)</value>
+  </data>
+  <data name="Saeed Electric Store(MianChannu)" xml:space="preserve">
+    <value>سعید الیکٹرک اسٹور (میاں چنوں)</value>
+  </data>
+  <data name="Salamat Paint House" xml:space="preserve">
+    <value>سلامت پینٹ ہاؤس</value>
+  </data>
+  <data name="Select Ledger Type" xml:space="preserve">
+    <value>سلیکٹ لیجر قسم منتخب کریں</value>
+  </data>
+  <data name="Select Ledger Type ..." xml:space="preserve">
+    <value>لیجر کی قسم منتخب کریں ...</value>
+  </data>
+  <data name="Signature" xml:space="preserve">
+    <value>دستخط</value>
+  </data>
+  <data name="Social Security Fee" xml:space="preserve">
+    <value>سوشل سیکورٹی فيس</value>
+  </data>
+  <data name="Staff Advance" xml:space="preserve">
+    <value>اسٹاف ایڈوانس</value>
+  </data>
+  <data name="Staff Loan" xml:space="preserve">
+    <value>اسٹاف لون</value>
+  </data>
+  <data name="Stationary Material" xml:space="preserve">
+    <value>اسٹیشنری میٹریل</value>
+  </data>
+  <data name="Store Material" xml:space="preserve">
+    <value>اسٹور میٹریل</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value />
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="String11" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Tariq Autos(Tulamba)" xml:space="preserve">
+    <value>طارق آٹوز (تلمبہ)</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>ٹوٹل</value>
+  </data>
+  <data name="Transportation" xml:space="preserve">
+    <value>ٹرانسپورٹیشن</value>
+  </data>
+</root>

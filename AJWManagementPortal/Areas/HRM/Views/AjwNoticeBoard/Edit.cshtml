@@ -1,0 +1,215 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@*---Language Tranlator--Localizer*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@model AJWManagementPortal.Models.AJWNoticeBoardHrm
+
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutHrm.cshtml";
+}
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+
+@*---This HTML is ::Edit View for Notice Board::---*@
+<br />
+<form class="backgroundWhiteBorder10Padding" method="post" asp-action="Edit">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th class="" scope="col" colspan="6"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+            </tr>
+            <tr>
+                <th class="titleHrmofficeReport" scope="col" colspan="6">@Localizer["AJW NOTICE BOARD"]</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th class="text-center" colspan="4" scope="col">
+                    <input asp-for="Date" class="form-control" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </th>
+                <th class="text-center" colspan="2">Date</th>
+            </tr>
+            <tr>
+                <th class="titleHrmofficeReport" scope="col" colspan="6">@Localizer["TITLE"]</th>
+            </tr>
+            <tr>
+                <th scope="row" colspan="6">
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </th>
+            </tr>
+            <tr>
+                <th class="titleHrmofficeReport" colspan="6">@Localizer["DESCRIPTION"]</th>
+            </tr>
+
+            <tr>
+                <th colspan="6">
+                    <textarea class="" style="height:200px;width:1000px;border:hidden;" asp-for="Description"> @Html.DisplayFor(model => model.Description)</textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </th>
+            </tr>
+
+
+            @*<tr class="bg-dark text-white">
+                    <td colspan="4">
+                        <h2>
+                            دستخط
+                        </h2>
+                    </td>
+                </tr>*@
+            <!--<tr class="bg-dark text-white">
+                <th class="text-center">
+                    Account Manager
+                </th>
+
+                <th class="text-center" colspan="2">
+                    C.E.O
+                </th>
+                <th class="text-center">
+                    G.M
+                </th>
+
+
+            </tr>
+            <!--<tr class="bg-dark text-white">
+                <td>
+                    <input type="file" name="ifile" asp-for="SignImg" class="form-control" />
+                    <input type="submit" value="Uplod.." />-->
+            <!--@*<input type="file" id="myFile" name="filename" asp-for="SignImg"><br />*@
+                    @*<img src="~/Image/yok.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="136">*@
+                    @*<img src="~/Image/@Model.SignImg" height="80" width="120" />*@
+                </td>
+
+                <td colspan="2">
+                    <input type="file" id="myFile" name="filename"><br />
+                    <img src="~/Image/yok.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+                </td>
+                <td>
+                    <input type="file" id="myFile" name="filename"><br />
+                    <img src="~/Image/yok.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+                </td>
+
+            </tr>-->
+
+            <tr class="text-center">
+                <td colspan="6">
+                    @*<partial name="_EditAndBackToListButton" model="Model.Id" />*@
+                    <div class="btn-group">
+                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @Localizer["Action"]
+                        </button>
+                        <div class="dropdown-menu">
+                            <input type="submit" class="btn form-control" asp-route-id="@Model.Id" value="Update" />
+                            <a asp-action="Index" class="btn form-control">Back to List</a>
+                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Download"]</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}
+@*@section Scripts{
+        <script>
+            $(document).ready(function () {
+                $('#AjwNoticeBoard').DataTable({
+                    "sPaginationType": "full_numbers"
+                });
+            });
+        </script>
+    }*@
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    .titleHrmofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+
+    .header {
+        overflow: hidden;
+        padding: 10px 10px;
+        font-size: 40px;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+    }
+
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+
+    body {
+        font: 90%/1.45em "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        background-color: #fff;
+    }
+
+    .Createbtn {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: large;
+        text-align: right;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+
+    .Subhdr {
+        color: white;
+        text-align: center;
+        background-color: slategrey;
+    }
+
+    .tabbody {
+        text-align: center;
+        color: black;
+    }
+
+    .lang_btn {
+        font-family: "ProximaNova";
+        color: #fff;
+        font-size: 15px;
+        text-transform: uppercase;
+        text-decoration: none !important;
+        background-color: #C82333;
+        text-transform: uppercase;
+        margin-top: 1.7%;
+        text-decoration: none !important;
+        width: 65px;
+        text-align: center;
+        height: 39px;
+        border: solid 1px #C82333;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

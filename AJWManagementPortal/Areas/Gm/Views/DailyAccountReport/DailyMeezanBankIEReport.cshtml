@@ -1,0 +1,546 @@
+﻿@model IEnumerable<AJWManagementPortal.Models.MeezanBankIEReport>
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "MeezanbankIEReport";
+    Layout = "~/Views/Shared/_LayoutGm.cshtml";
+    float p = 0;
+    float openingBalan = 0;
+    float debit = 0;
+    float vredit = 0;
+    float vlosingBalanve = 0;
+    if (ViewBag.hide == null)
+    {
+        ViewBag.hide = "false";
+    }
+}
+@{
+    MeezanBankIEReport teswp = new MeezanBankIEReport();
+}
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+<br />
+<head>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+
+        .tabled {
+            position: center;
+            align-content: center;
+            text-align: center;
+            /*margin-left: -200px;*/
+        }
+
+        table {
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+
+        .signt {
+            position: center;
+            align-content: center;
+            text-align: center;
+            /*  margin-left: -120px;*/
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Transaction Sheet</title>
+</head>
+<body>
+    <div class="container-fluid backgroundWhiteBorder10Padding">
+        <div class="row">
+            <form class="col-sm-12 ">
+                <div class="BackToList">
+                    <a type="button" asp-action="AllDailyAccountsReports" asp-area="Gm" asp-controller="DailyAccountReport" class="btn btn-primary hover btn-block form-control btn-sm"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
+                </div>
+                <div class="PrintP">
+                    <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                </div>
+                @*main table*@
+                <div class="table-responsive">
+                    <table id="tblcustomers" class="table table-hover table-bordered table-hover table-striped table-responsive-sm SubH">
+                        <thead>
+                            <tr>
+                                <th colspan="10"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+                            </tr>
+                            <tr>
+                                <th class="titleAccountofficeReport" colspan="10">@Localizer["Daily Meezan Bank Income/Expence Report"]</th>
+                            </tr>
+                            <tr>
+                                <th class="text-left" colspan="10"> <input type="date" id=" " name="">  :<span class=""> @Localizer["Sheet Date"]</span> </th>
+                            </tr>
+                            <tr>
+                                <th class="text-center bg-dark text-white" scope="col"></th>
+
+                                <th colspan="2" scope="col">@Localizer["Action"] </th>
+                                <th scope="col">@Localizer["Balance"]</th>
+                                <th scope="col">@Localizer["Credit"]</th>
+                                <th scope="col">@Localizer["Debit"]</th>
+                                <th scope="col">@Localizer["O-Online"]<br>@Localizer["D-Slip"]<br>@Localizer["Checq No"]</th>
+                                <th scope="col">@Localizer["Date"]</th>
+                                <th scope="col" colspan="3">@Localizer["Description"]</th>
+                                <th scope="col">@Localizer["ID#"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                teswp.ValueDate = @item.ValueDate;
+                                teswp.Remarks = @item.Remarks;
+                                teswp.SignPManager = @item.SignPManager;
+                                teswp.PManagerRemarks = @item.PManagerRemarks;
+                                teswp.SignGM = item.SignGM;
+                                teswp.GMRemarks = @item.GMRemarks;
+                                teswp.SignCeo = @item.SignCeo;
+                                teswp.CeoRemarks = @item.CeoRemarks;
+                                teswp.Status = item.Status;
+
+                                <tr>
+                                    @{
+
+                                        if (ViewBag.hide != null)
+                                            if (!Boolean.Parse(ViewBag.hide))
+                                            {
+                                                <td><input type="button" class="btn btn-success" value="Remove" onclick="Remove(this)" /></td>
+
+
+                                                <td colspan="2">
+
+
+                                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td></td>
+                                                <td colspan="2"></td>
+                                            }
+                                    }
+                                    <td>
+                                        @{
+                                            openingBalan += item.Balance;
+                                            debit += item.Debit;
+                                            vredit += item.Cradit;
+                                            p += item.Balance + debit - vredit;
+                                            vlosingBalanve = p;
+                                        }
+                                        @p
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cradit)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Debit)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CDO)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ValueDate)
+                                    </td>
+                                    <td colspan="3">
+                                        @Html.DisplayFor(modelItem => item.Description)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Id)
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+
+                            <tr id="total">
+                                <th></th>
+                                <th colspan="2">ٹوٹل</th>
+                                <th id="t1"></th>
+                                <th id="t2"></th>
+                                <th id="t3"></th>
+                                <th id=""></th>
+                                <th></th>
+                                <th id="" colspan="3"></th>
+                            </tr>
+                            @{
+                                if (ViewBag.hide != null)
+                                    if (!Boolean.Parse(ViewBag.hide))
+                                    {
+                                        <tr class="">
+                                            <th colspan="1"><input type="button" id="btnAdd" value="Add" class="btn btn-primary form-control" /></th>
+                                            <th colspan="2"></th>
+
+                                            <th colspan="1"><input type="text" id="balance" /></th>
+                                            <th colspan="1"><input type="text" id="credit" /></th>
+                                            <th colspan="1"><input type="text" id="debit" /></th>
+                                            <th colspan="1"><input type="text" id="online" /></th>
+                                            <th colspan="1"><input type="text" id="date" /></th>
+                                            <th colspan="3"><input type="text" id="desc" /></th>
+                                            <th><input type="text" id="id" /></th>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center text-white " colspan="12">   <button type="button" id="btnSave" value="Save All" class="btn btn-primary btn-sm btn-block form-control fas fa-save"> Save All Rows</button></td>
+                                        </tr>
+                                    } }
+                            <tr>
+                                <th colspan="10"></th>
+                            </tr>
+                            <tr>
+                                <th colspan="2" rowspan="5" scope="row"></th>
+                                <th colspan="3" scope="row">@openingBalan</th>
+                                <th colspan="3" scope="row">@Localizer["Opening balance"]</th>
+                                <th colspan="2" rowspan="5" scope="row"></th>
+                            </tr>
+                            <tr>
+                                <th colspan="3" scope="row">@debit</th>
+                                <th colspan="3" scope="row"> @Localizer["Today's total income"]</th>
+                            </tr>
+                            <tr>
+                                <th colspan="3" scope="row">@vredit</th>
+                                <th colspan="3" scope="row">@Localizer["Today's total expenses"]</th>
+                            </tr>
+                            <tr>
+                                <th colspan="3" scope="row">00</th>
+                                <th colspan="3" scope="row">@Localizer["Income tax deduction"]</th>
+                            </tr>
+                            <tr>
+                                <th colspan="3" scope="row">@vlosingBalanve</th>
+                                <th colspan="3" scope="row">@Localizer["Closing balance"]</th>
+                            </tr>
+                            <tr>
+                                <th colspan="10" scope="col">@Localizer["Signature"]</th>
+                            </tr>
+                            <tr>
+                                <th scope="row" colspan="3">@Localizer["Account Manager"]</th>
+                                <th colspan="4">@Localizer["D.G.M"]</th>
+                                <th colspan="3">@Localizer["G.M"]</th>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="txtpmsign" name="txtpmsign" value="@teswp.SignPManager" class="form-control" />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="txtpmremarks" name="txtpmremarks" value="@teswp.PManagerRemarks" class="form-control" />
+                                </td>
+                                <td colspan="4">
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="txtgmsign" name="txtgmsign" class="form-control" value="@teswp.SignGM" />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="txtgmremarks" name="txtgmremarks" value="@teswp.GMRemarks" class="form-control" />
+                                </td>
+                                <td colspan="3">
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="txtceosign" name="txtceosign" class="form-control" value="@teswp.SignCeo" />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="txtceoremarks" name="txtceoremarks" class="form-control" value="@teswp.CeoRemarks" />
+                                    <input type="hidden" id="status" name="status" class="form-control" value="@teswp.Status" />
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td scope="row" colspan="10" class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-save"></i> @Localizer["Save File"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore"></i> @Localizer["Clear Sheet"]</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+<!-- back to top button-->
+<a id="button"></a>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+        $("body").ready(function () {
+
+            debugger;
+            var debit = 0, credit = 0;
+            var balance = 0;
+            $("#tblcustomers TBODY TR").each(function () {
+                var row = $(this);
+
+
+                debit += parseInt(row.find("TD").eq(2).text());
+                credit += parseInt(row.find("TD").eq(3).text());
+                balance += parseInt(row.find("TD").eq(4).text());
+
+            });
+            $("#total #t1").append(debit);
+            $("#total #t2").append(credit);
+            $("#total #t3").append(balance);
+        });
+
+
+        $("body").on("click", "#btnAdd", function () {
+
+            //Reference the Name and Country TextBoxes.
+            var balance = $("#balance");
+            var credit = $("#credit");
+            var debit = $("#debit");
+            var online = $("#online");
+            var date = $("#date");
+            var desc = $("#desc");
+            //Get the reference of the Table's TBODY element.
+            var tBody = $("#tblcustomers > TBODY")[0];
+
+            //Add Row.
+            var row = tBody.insertRow(-1);
+
+            var cell = $(row.insertCell(-1));
+            //Add Button cell.
+            var btnRemove = $("<input />");
+            btnRemove.attr("type", "button");
+            btnRemove.attr("onclick", "Remove(this);");
+            btnRemove.val("Remove");
+            cell.append(btnRemove);
+            var total = row.insertCell(-1);
+            total.colSpan = 2;
+            cell = $(total);
+
+            cell = $(row.insertCell(-1));
+            cell.html(balance.val());
+
+            cell = $(row.insertCell(-1));
+            cell.html(credit.val());
+
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.html(debit.val());
+
+            cell = $(row.insertCell(-1));
+            cell.html(online.val());
+
+            cell = $(row.insertCell(-1));
+            cell.html(date.val());
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 3);
+            cell.html(desc.val());
+
+            cell = $(row.insertCell(-1));
+            cell.html(desc.val());
+
+            //Clear the TextBoxes.
+            balance.val("");
+            credit.val("");
+            debit.val("");
+            online.val("");
+            date.val("");
+            desc.val("");
+        });
+
+        function Remove(button) {
+            //Determine the reference of the Row using the Button.
+            var row = $(button).closest("TR");
+            var name = $("TD", row).eq(0).html();
+            if (confirm("Do you want to delete: " + name)) {
+                //Get the reference of the Table.
+                var table = $("#tblcustomers")[0];
+
+                //Delete the Table row using it's Index.
+                table.deleteRow(row[0].rowIndex);
+            }
+        };
+
+        $("body").on("click", "#btnSave", function () {
+            //Loop through the Table rows and build a JSON array.
+            var Meezans = new Array();
+            $("#tblcustomers TBODY TR").each(function () {
+                var txtremarks = $("#txtremarks");
+                var txtpmsign = $("#txtpmsign");
+                var txtpmremarks = $("#txtpmremarks");
+                var txtgmsign = $("#txtgmsign");
+                var txtgmremarks = $("#txtgmremarks");
+                var txtceosign = $("#txtceosign");
+                var txtceoremarks = $("#txtceoremarks");
+                var status = $("#status");
+                var delrepo = $("#delrepo");
+                var delpro = $("#delpro");
+                var delgm = $("#delgm");
+                var delceo = $("#delceo");
+                var row = $(this);
+                var meezan = {};
+
+
+                meezan.DelRepo = delrepo.val();
+                meezan.DelProduction = delpro.val();
+                meezan.DelGm = delgm.val();
+                meezan.DelCeo = delceo.val();
+
+                meezan.Remarks = txtremarks.val();
+                meezan.SignPManager = txtpmsign.val();
+                meezan.PManagerRemarks = txtpmremarks.val();
+                meezan.SignGM = txtgmsign.val();
+                meezan.GMRemarks = txtgmremarks.val();
+                meezan.SignCeo = txtceosign.val();
+                meezan.CeoRemarks = txtceoremarks.val();
+                meezan.Status = status.val();
+                meezan.Title = "A";
+                meezan.Balance = row.find("TD").eq(2).text();
+                meezan.Cradit = row.find("TD").eq(3).text();
+                meezan.Debit = row.find("TD").eq(4).text();
+                meezan.CDO = row.find("TD").eq(5).text();
+                meezan.ValueDate = row.find("TD").eq(6).text();
+                meezan.Description = row.find("TD").eq(7).text();
+                meezan.Imgceo = 1;
+                meezan.Imggm = 2;
+                meezan.Imgdgm = 3;
+                meezan.Imgam = 4;
+
+                Meezans.push(meezan);
+            });
+
+            //Send the JSON array to Controller using AJAX.
+            $.ajax({
+                type: "POST",
+                url: "/Account/DailyAccountReport/InsertMeezan",
+                data: { data: Meezans },
+                success: function (r) {
+                    alert(r + " record(s) inserted.");
+                    window.location.replace("/Account/DailyAccountReport/AllDailyAccountsReports");
+                }
+            });
+        });
+
+
+
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*  Css for BackToList Button----*/
+    .BackToList {
+        width: 150px;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

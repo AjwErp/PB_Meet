@@ -1,0 +1,79 @@
+﻿@model AJWManagementPortal.Models.MeezanBankIEReport
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>MeezanBankIEReport</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ValueDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ValueDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CDO)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CDO)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Debit)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Debit)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cradit)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cradit)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Balance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Balance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imgceo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Imgceo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imggm)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Imggm)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imgdgm)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Imgdgm)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imgam)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Imgam)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,117 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@*---Language Tranlator--Localizer*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "PurchaseLawBookList";
+    Layout = "~/Views/Shared/_LayoutPurchase.cshtml";
+}
+
+
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+<br />
+<body>
+    <div class="container-fluid backgroundWhiteBorder10Padding">
+        <div class="row">
+            <div class="header col-sm-12">
+                <a class="logo font-weight-bold font-weight-bolder">@Localizer["Purchase Department Law Book List"]</a>
+            </div>
+            @*----------start-----general ledger  report lisst------------------*@
+            <form class="tabled col-sm-12">
+                <hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary" asp-controller="PurchaseSupportGuide" asp-area="Purchase" asp-action="PurchaseLawBook"><i class="fas fa-street-view"> @Localizer["View Current Laws of Purchase Office"]</i> </a>
+                </div>
+                <br />
+                <div class="col-sm-12 text-center">
+                    <a class="titleAccountofficeReport" colspan="10">@Localizer["Monthly Purchase Department Law Book List-Purchase Office"]</a>
+                </div>
+                <br />
+                <table class="table table-bordered SubH" id="PLBook">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tabbody SubH">
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-file-download"></i> @Localizer["Download"]</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td>@Localizer["Purchase Department Law Book"] </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                @*------------------------ended---------------------------- Table for Daily GeneralLedgerBook List----------------------------------------------------------*@
+            </form>
+        </div>
+    </div>
+</body>
+
+<!-- back to top button-->
+<a id="button"></a>
+
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#PLBook').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+    </script>
+
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -50px;
+    }
+
+    /*page print css----*/
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

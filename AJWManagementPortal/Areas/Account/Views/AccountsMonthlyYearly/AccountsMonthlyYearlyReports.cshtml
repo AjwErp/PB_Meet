@@ -1,0 +1,293 @@
+﻿@model IEnumerable<AccountsYearlyReportTitlePage>
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "AccountsMonthlyYearlyReports";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*This HMTL for ::Account /Monthly/Yearly/ Reports::*@
+<br />
+<body>
+    <div class="container-fluid backgroundWhiteBorder10Padding">
+        <div class="row">
+            <div class="header col-sm-12">
+                <a class="logo font-weight-bold">@Localizer["Accounts Monthly/Yearly Reports List"]</a>
+            </div>
+            <br />
+            @*------------------------start---------------------------- Table for Daily GeneralLedgerBook List----------------------------------------------------------*@
+            <form class="tabled col-sm-12">
+                <hr />
+                <div class="row">
+                    <div class="col-sm-6">
+                        <ul>
+                            <li class="nav-item dropdown text-white-50">
+                                <button style="width:250px; font-size:medium" class="nav-link dropdown-toggle btn btn-primary" href="#" id="navbarDropDownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    @Localizer["Monthly Accounts Reports"]
+                                </button>
+                                <div class="smallfontHeading dropdown-menu" aria-labelledby="navbarDropDownMenuLink">
+                                    <a class="dropdown-item" asp-action="MonthlyClosingReportTitlePage" asp-controller="MonthlyAccountsReport" asp-area="Account">1:@Localizer["Monthly Closing Report's Title Page"]</a>
+                                    <a class="dropdown-item" asp-action="MeezanBankIncomeExpenseMonthlyreport" asp-controller="MonthlyAccountsReport" asp-area="Account">2:@Localizer["Meezan Bank Income/Expense Monthly report"]</a>
+                                    @*<a style="font-size:large" class="dropdown-item font-weight-bold" asp-action="MonthlyIncomeExpenseMainBankAccountMeezan" asp-controller="MonthlyAccountsReport" asp-area="Account">2:@Localizer["Monthly Income/Expense Main Bank Account Meezan"]</a>*@
+                                    @*<a style="font-size:large" class="dropdown-item font-weight-bold" asp-action="BOPMonthlyIncomeExpenceReport" asp-controller="MonthlyAccountsReport" asp-area="Account">3:@Localizer["BOP Monthly Income/Expence Report"]</a>*@
+                                    @*<a class="dropdown-item" asp-action="MonthlyIncomeExpenceMainBankAccountBOP" asp-controller="MonthlyAccountsReport" asp-area="Account">2:@Localizer["Monthly Income/Expence Main Bank Account BOP"]</a>*@
+                                    <a class="dropdown-item" asp-action="MonthlyIncomeExpenceInternalAccount" asp-controller="MonthlyAccountsReport" asp-area="Account">3:@Localizer["Monthly Income/Expence Internal Account"]</a>
+                                    <a class="dropdown-item" asp-action="TrialBalanceAccountOffice" asp-controller="MonthlyAccountsReport" asp-area="Account">4:@Localizer["Trial Balance Account Office"]</a>
+                                    <a class="dropdown-item" asp-action="MonthlyIncomeExpencePettyAccount" asp-controller="MonthlyAccountsReport" asp-area="Account">5:@Localizer["Monthly Income/Expence Petty Account"]</a>
+                                    @*<a class="dropdown-item" asp-action="AccountsSalesOfficeIncomeReport" asp-controller="MonthlyAccountsReport" asp-area="Account">6:@Localizer["Accounts & Sales Office Income Report"]</a>*@
+                                    @*<a class="dropdown-item" asp-action="MonthlyStockReport" asp-controller="MonthlyAccountsReport" asp-area="Account">7:@Localizer["Monthly Stock Report"]</a>*@
+                                    <a class="dropdown-item" asp-action="MonthlyInternalLoanDaanReport" asp-controller="MonthlyAccountsReport" asp-area="Account">6:@Localizer["Monthly Internal Laan-Daan Report"]</a>
+                                    <a class="dropdown-item" asp-action="DailySuppliersTransactionReport" asp-controller="MonthlyAccountsReport" asp-area="Account">7:@Localizer["Daily Suppliers Transaction Report"]</a>
+                                    <a class="dropdown-item" asp-action="SuppliersTelephonicReport" asp-controller="MonthlyAccountsReport" asp-area="Account">8:@Localizer["Suppliers Telephonic Report"]</a>
+                                    <a class="dropdown-item" asp-action="MonthlyAccountOfficeClosingCheckList" asp-controller="MonthlyAccountsReport" asp-area="Account">9:@Localizer["Monthly Account Office Closing Check List"]</a>
+                                    <a class="dropdown-item" asp-action="AccountOfficeMonthlyQueryForm" asp-controller="MonthlyAccountsReport" asp-area="Account">10:@Localizer["Account Office-Monthly Query Form"]</a>
+                                    @*<a style="font-size:large" class="dropdown-item font-weight-bold" asp-action="LoanListStaffLabour" asp-controller="MonthlyAccountsReport" asp-area="Account">08:@Localizer["Loan List-Staff/Labour"]</a>*@
+                                    @*<a style="font-size:large" class="dropdown-item font-weight-bold" asp-action="AdvanceListStaffLabour" asp-controller="MonthlyAccountsReport" asp-area="Account">09:@Localizer["Advance List-Staff/Labour"]</a>*@
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    @*<div class="col-sm-6 Createbtn">
+                            <a type="button" class="btn btn-primary " asp-area="Account" asp-controller="" asp-action=""><i class="fas fa-plus"> @Localizer["Create New Monthly Accounts Report"]</i> </a>
+
+                        </div>*@
+                    <br />
+                    <div class="col-sm-12 text-center">
+                        <a class="titleAccountofficeReport" scope="col" colspan="10">@Localizer["Monthly Accounts Report -Account Office"]</a>
+                    </div>
+                    <br />
+                </div>
+                <br />
+                <table class="table table-bordered" id="MAReport">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tabbody SubH">
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to Repository"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to DMS"]</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td>@Localizer["Monthly Accounts Report"] </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+
+
+                @*------------------------ended---------------------------- Table for Monthly Accounts Reports Repository List----------------------------------------------------------*@
+
+                @*------------------------start---------------------------- Table for Yearly Accounts Reports Repository  List----------------------------------------------------------*@
+
+                <hr />
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <ul>
+                            <li class="nav-item dropdown text-white-50">
+                                <button style="width:250px; font-size:medium" class="nav-link dropdown-toggle btn btn-primary" href="#" id="navbarDropDownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    @Localizer["Yearly Accounts Reports"]
+                                </button>
+                                <div class=" smallfontHeading dropdown-menu" aria-labelledby="navbarDropDownMenuLink">
+                                    <a class="dropdown-item" asp-action="YearlyClosingReportTitlePage" asp-controller="YearlyAccountsReport" asp-area="Account">1:@Localizer["Yearly Closing Report's Title Page"]</a>
+
+                                    <a class="dropdown-item" asp-action="YearlyIncomeExpenseBankAndInternalReport" asp-controller="YearlyAccountsReport" asp-area="Account">2:@Localizer["Yearly Income Expense Bank And Internal Report"]</a>
+                                    <a class="dropdown-item" asp-action="AJWInvestmentPlan" asp-controller="YearlyAccountsReport" asp-area="Account">3:@Localizer["AJWI nvestment Plan"]</a>
+                                    @*<a class="dropdown-item" asp-action="SaleOfficeIncomeWasoolAccountOffice" asp-controller="YearlyAccountsReport" asp-area="Account">3:@Localizer["Sale Office Income Wasool Account Office"]</a>*@
+                                    <a class="dropdown-item" asp-action="BankAccountProfitableByBankAddBankAccount" asp-controller="YearlyAccountsReport" asp-area="Account">4:@Localizer["Bank Account Profitable By Bank Add Bank Account"]</a>
+                                    @*<a class="dropdown-item" asp-action="InternalAccountClosingBalancesAddBankAccount" asp-controller="YearlyAccountsReport" asp-area="Account">5:@Localizer["Internal Account Closing Balances Add Bank Account"]</a>*@
+                                    <a class="dropdown-item" asp-action="YearlyInternalAccountExpenseReport" asp-controller="YearlyAccountsReport" asp-area="Account">5:@Localizer["Yearly Internal Account Expense Report"]</a>
+                                    <a class="dropdown-item" asp-action="IncomeTaxDeductBankChequeCashAndOtherTax" asp-controller="YearlyAccountsReport" asp-area="Account"> 6:@Localizer["Income Tax Deduct Bank Cheque Cash And Other Tax"]</a>
+
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+                    @*<div class="col-sm-6 Createbtn">
+                            <a type="button" class="btn btn-primary " asp-area="Account" asp-controller="" asp-action=""><i class="fas fa-plus"> @Localizer["Create New Yearly Accounts Report"]</i> </a>
+                        </div>*@
+                    <br />
+                    <div class="col-sm-12 text-center">
+                        <a class="titleAccountofficeReport" scope="col" colspan="10">@Localizer["Yearly Accounts Report -Account Office"]</a>
+                    </div>
+                    <br />
+                </div>
+                <br />
+                <table class="table table-bordered" id="YAReport">
+                    <thead>
+
+                        <tr class="Subhdr SubH">
+
+                            <th>@Localizer["Action"] </th>
+
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+
+                            <th>@Localizer["ID#"]</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="tabbody SubH">
+                                <td class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["View"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["Edit"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to Repository"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to DMS"]</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>@item.YRDate</td>
+                                <td>@Localizer["Yearly Accounts Reports"] </td>
+                                <td>@item.Id</td>
+                            </tr>
+                        }
+                        </tbody>
+                    
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+<!-- back to top button-->
+<a id="button"></a>
+<!-- back to top button-->
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+        //-----------JS For Accounts Monthly /Yearly Reports--------------Start---------
+        $(document).ready(function () {
+            $('#MAReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        //----------
+        $(document).ready(function () {
+            $('#YAReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+    /* Css for Heading on every Sheet of ccount office----*/
+    .header {
+        overflow: hidden;
+        padding: 10px 10px;
+        font-size: 40px;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+    }
+    /*  Css for Small Content Of Accounts----*/
+    .smallfontHeading {
+        font-size: medium;
+    }
+    /*//--CSS For Create button & Action Button of Each Page------start---------*/
+    .Createbtn {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: large;
+        text-align: right;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+
+    .Subhdr {
+        color: white;
+        text-align: center;
+        background-color: slategrey;
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /* Css for Table Body on each page in Accounts----*/
+    .tabbody {
+        text-align: center;
+        color: black;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

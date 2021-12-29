@@ -1,0 +1,277 @@
+﻿@model AJWManagementPortal.Models.TransAndBank
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@{
+    aDailyCash teswp = new aDailyCash();
+}
+@{
+    ViewData["Title"] = "DailyClosingVoucherReport";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+@{
+
+    var debit = 0.00;
+    var credit = 0.00;
+    var total = 0.00;
+    DateTime today = DateTime.Today;
+    if (Model.date != null)
+    {
+        today = Model.date;
+    }
+    foreach (var value in Model.aDailyCashes)
+    {
+        teswp.ValueDate = value.ValueDate;
+        teswp.Remarks = value.Remarks;
+        teswp.SignPManager = value.SignPManager;
+        teswp.PManagerRemarks = value.PManagerRemarks;
+        teswp.SignGM = value.SignGM;
+        teswp.GMRemarks = value.GMRemarks;
+        teswp.SignCeo = value.SignCeo;
+        teswp.CeoRemarks = value.CeoRemarks;
+        if ((value.income != 0 && value.ValueDate == today))
+        {
+            debit++;
+        }
+        else if (value.clearedAmount != 0)
+        {
+            credit++;
+        }
+
+    }
+
+    total = debit + credit;
+}
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+<br />
+@*Main table*@
+<body>
+    <div class="container-fluid backgroundWhiteBorder10Padding">
+        <div class="row">
+            <form class="col-sm-12" method="post" enctype="multipart/form-data" asp-controller="DailyAccountReport" asp-action="closngVoucher">
+                <div class="BackToList">
+                    <a type="button" asp-action="AllDailyAccountsReports" asp-area="Account" asp-controller="DailyAccountReport" class="btn btn-primary hover btn-block form-control btn-sm"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
+                </div>
+                <div class="PrintP">
+                    <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                </div>
+                <table class="table table-hover table-bordered table-responsive-sm SubH">
+                    <thead>
+                        <tr>
+                            <th colspan="10"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+                        </tr>
+                        <tr>
+                            <th class="titleAccountofficeReport" colspan="10">@Localizer["Daily Cash Closing Voucher Report-Account Office"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th class="text-left" colspan="10"> 04/05/2021  :<span class=""> @Localizer["Sheet Date"]</span> </th>
+
+                        </tr>
+                        <tr>
+                            <th colspan="4" scope="col">@Localizer["Total"]</th>
+                            <th scope="col" colspan="3">@Localizer["Cradit"]</th>
+                            <th scope="col" colspan="3">@Localizer["Debit"]</th>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="4">@total</th>
+                            <th scope="row" colspan="3">@credit</th>
+                            <th scope="row" colspan="3">@debit</th>
+                        </tr>
+                        <tr>
+                            <th class="Title" colspan="10">@Localizer["Select Supporting Documents"] </th>
+                        </tr>
+                        <tr>
+                            <th colspan="10">
+                                <input type="file" id="files" name="files" multiple><br />
+                                <input class="form-control" name="id" type="hidden" value="@today.ToString("yyyy-MM-dd")" />
+                                
+                                </th>
+
+                        <tr>
+                            @foreach (Image file in Model.images)
+                            {
+                                @*<td>@file.Name</td>*@
+                                <td><img src="data:image/jpeg;base64,@Convert.ToBase64String(file.DataFiles)" /></td>
+                            }
+                        </tr>
+
+                                <tr>
+                                    <th colspan="10" scope="col">@Localizer["Signature"]</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row" colspan="3">@Localizer["Account Manager"]</th>
+                                    <th colspan="4">@Localizer["D.G.M"]</th>
+                                    <th colspan="3">@Localizer["G.M"]</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        @Localizer["Signature"]:
+                                        <input type="text" id="txtpmsign" name="txtpmsign" value="@teswp.SignPManager" class="form-control" />
+                                        @Localizer["Remarks"]:
+                                        <input type="text" id="txtpmremarks" name="txtpmremarks" value="@teswp.PManagerRemarks" class="form-control" />
+                                    </td>
+                                    <td colspan="4">
+                                        @*@if (!Model.hide)
+                                        {*@
+                                            @*@Localizer["Signature"]:*@
+                                            <input hidden type="text" id="txtgmsign" name="txtgmsign" class="form-control" value="@teswp.SignGM" />
+                                            @*@Localizer["Remarks"]:*@
+                                            <input hidden type="text" id="txtgmremarks" name="txtgmremarks" value="@teswp.GMRemarks" class="form-control" />
+
+                                            @*//}
+                                            //else {*@ 
+                                        @*@Localizer["Signature"]:*@
+                                        @*<input type="hidden" id="txtgmsign" name="txtgmsign" class="form-control" value="@teswp.SignGM" />*@
+                                        @*@Localizer["Remarks"]:*@
+                                        @*<input type="hidden" id="txtgmremarks" name="txtgmremarks" value="@teswp.GMRemarks" class="form-control" />*@
+                                        @*}*@
+                                    </td>
+                                    <td colspan="3">
+                                        @*@if (!Model.hide)
+                                        {*@
+                                            @*@Localizer["Signature"]:*@
+                                            <input hidden type="text" id="txtceosign" name="txtceosign" class="form-control" value="@teswp.SignCeo" />
+                                            @*@Localizer["Remarks"]:*@
+                                            <input hidden type="text" id="txtceoremarks" name="txtceoremarks" class="form-control" value="@teswp.CeoRemarks" />
+
+                                        @*}
+                                        else {*@ 
+                                        @*@Localizer["Signature"]:*@
+                                        @*<input type="hidden" id="txtceosign" name="txtceosign" class="form-control" value="@teswp.SignCeo" />*@
+                                        @*@Localizer["Remarks"]:*@
+                                        @*<input type="hidden" id="txtceoremarks" name="txtceoremarks" class="form-control" value="@teswp.CeoRemarks" />*@
+                                        @*}*@<!--<input type="hidden" id="status" name="status" class="form-control" value="@teswp.Status" />-->
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td scope="row" colspan="10" class="actionbtn">
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                @Localizer["Action"]
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-save"></i> @Localizer["Save File"]</a>
+                                                <input class="btn btn-success" type="submit" value="Upload" />
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+<!-- back to top button-->
+<a id="button"></a>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+
+    .Subhdr {
+        color: white;
+        text-align: center;
+        background-color: slategrey;
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+
+    .Title {
+        font-size: xx-large;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+        color: black;
+    }
+    /*  Css for BackToList Button----*/
+    .BackToList {
+        width: 150px;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

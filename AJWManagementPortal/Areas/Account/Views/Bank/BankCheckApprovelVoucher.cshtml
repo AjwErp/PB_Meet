@@ -1,0 +1,281 @@
+﻿@model AJWManagementPortal.Models.MeezanBankIEVoucher
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "DailyMeezanBankVoucherReport";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+@{
+    MeezanBankIEVoucher teswp = new MeezanBankIEVoucher();
+
+
+
+}
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+<br />
+<body>
+    <div class="container-fluid backgroundWhiteBorder10Padding">
+        <div class="row">
+            <form class="col-sm-12" asp-action="DailyMeezanBankVoucherReport">
+                <div class="BackToList">
+                    <a type="button" asp-action="BankCheckApprovelVoucherList" asp-area="Account" asp-controller="Bank" class="btn btn-primary hover btn-block form-control btn-sm"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
+                </div>
+                <div class="PrintP">
+                    <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                </div>
+                <table class="tabled table table-bordered table-hover table-striped table-responsive-sm SubH">
+                    <thead>
+                        <tr>
+                            <th colspan="10"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+                        </tr>
+                        <tr>
+                            <th class="titleAccountofficeReport" colspan="10">@Localizer["Daily Meezan Bank Income/Expence Voucher Report-Account Office"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            MeezanBankIEVoucher v2 = new MeezanBankIEVoucher();
+                        }
+                        @foreach (MeezanBankIEVoucher details in ViewBag.Data1)
+                        {
+                            teswp.dateTime = details.dateTime;
+                            teswp.Remarks = details.Remarks;
+                            teswp.SignPManager = details.SignPManager;
+                            teswp.PManagerRemarks = details.PManagerRemarks;
+                            teswp.SignGM = details.SignGM;
+                            teswp.GMRemarks = details.GMRemarks;
+                            teswp.SignCeo = details.SignCeo;
+                            teswp.CeoRemarks = details.CeoRemarks;
+                            teswp.Status = details.Status;
+                            v2.checkNumber = details.checkNumber;
+                            v2.amount = details.amount;
+                            v2.dateTime = details.dateTime;
+                            v2.description = details.description;
+                            v2.purpose = details.purpose;
+                            v2.rBalance = details.rBalance;
+                            v2.incomeTa = details.incomeTa;
+                            v2.checkcash = details.checkcash;
+                            v2.currentBalance = details.currentBalance;
+                        }
+                        <tr>
+                            <th class="text-left" colspan="5" scope="col">
+                                @Localizer["Check No"]
+                                <input asp-for="@Model.checkNumber" value="@v2.checkNumber" class="form-control" />
+                                <span class="text-danger"></span>
+                            </th>
+                            <th class="text-center" colspan="5" scope="col">
+                                <span class=""> @Localizer["Date"]</span>
+                                <input type="text" asp-for="@Model.dateTime" value="@v2.dateTime" class="form-control" />
+                                <span class="text-danger"></span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="7" class="text-right">
+                                <input asp-for="@Model.amount" value="@v2.amount" class="form-control" />
+                                <span class="text-danger"></span>
+                            </th>
+                            <th colspan="3">
+                                @Localizer["Cash Description"]
+                            </th>
+                        </tr>
+                        <tr>
+
+                            <th colspan="7" class="text-center">
+                                <input asp-for="@Model.purpose" value="@v2.purpose" class="form-control" />
+                                <span class="text-danger"></span>
+                            </th>
+                            <th colspan="3">
+                                @Localizer["Purpose"]
+                            </th>
+
+                        </tr>
+                        <tr>
+
+                            <th scope="col" colspan="3">@Localizer["Remaning Balance"]</th>
+                            <th scope="col" colspan="2">@Localizer["Income Tax"] </th>
+                            <th scope="col" colspan="2">@Localizer["Check Cash"]</th>
+                            <th scope="col" colspan="3">@Localizer["Current Bank Balance"]</th>
+                        </tr>
+                        <tr>
+                            @{
+                                MeezanBankIEReport v1 = new MeezanBankIEReport();
+                            }
+
+                            @foreach (var details in ViewBag.Data)
+                            {
+                                v1.Balance += details.Balance;
+                                v1.Cradit += details.Cradit;
+                            }
+                            <th scope="row" colspan="3">
+                                <input asp-for="@Model.rBalance" value="@v2.rBalance" class="form-control" />
+                            </th>
+                            <th scope="row" colspan="2">
+                                <input asp-for="@Model.incomeTa" value="@v2.incomeTa" class="form-control" />
+                            </th>
+                            <th scope="row" colspan="2">
+                                <input asp-for="@Model.checkcash" value="@v2.checkcash" class="form-control" />
+                            </th>
+                            <th scope="row" colspan="3">
+                                <input asp-for="@Model.currentBalance" value="@v2.currentBalance" class="form-control" />
+
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="7" class="text-right">
+                                <input asp-for="@Model.description" value="@v2.description" class="form-control" />
+                                <span class="text-danger"></span>
+                            </th>
+                            <th colspan="3">
+                                @Localizer["Description"]
+                            </th>
+                        </tr>
+                        <tr>
+                        </tr>
+                       
+                        <tr>
+                            <td colspan="10"></td>
+                        </tr>
+                        <tr>
+                            <th colspan="10" scope="col">@Localizer["Signature"]</th>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="5">@Localizer["Account Manager"]</th>
+                            <th colspan="5">@Localizer["C.E.O"]</th>
+                        </tr>
+                        <tr>
+                            <td colspan="5">
+                                @Localizer["Signature"]:
+                                <input type="text" asp-for="@Model.SignPManager"  value="@teswp.SignPManager" class="form-control" />
+                                @Localizer["Remarks"]:
+                                <input type="text" asp-for="@Model.PManagerRemarks" value="@teswp.PManagerRemarks" class="form-control" />
+                            </td>
+                            <td colspan="5">
+                          
+                                    @*@Localizer["Signature"]:
+                                    <input disabled type="text" asp-for="@Model.SignCeo" class="form-control" value="@teswp.SignCeo" />
+                                    @Localizer["Remarks"]:
+                                    <input disabled type="text" asp-for="@Model.CeoRemarks" value="@teswp.CeoRemarks" class="form-control" />*@
+
+                                   
+                            </td>
+                  
+
+                        </tr>
+                        <tr>
+                            <td scope="row" colspan="10" class="actionbtn">
+                                <div class="btn-group">
+                                    <i class="fas fa-save"></i><input type="submit" value="Create" class="btn btn-primary" />
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+@*sign*@
+<!-- back to top button-->
+<a id="button"></a>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*  Css for BackToList Button----*/
+    .BackToList {
+        width: 150px;
+    }
+
+    .textarea {
+        height: 60px;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

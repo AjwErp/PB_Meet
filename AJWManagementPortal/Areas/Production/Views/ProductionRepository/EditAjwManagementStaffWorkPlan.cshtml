@@ -1,0 +1,429 @@
+﻿
+
+
+@model IEnumerable<ManagementStaffWorkPlan>
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@*@model IEnumerable<AJWManagementPortal.Models.ManagementStaffWorkPlan>*@
+@*@model IEnumerable<AJWManagementPortal.Models.LawBook>*@
+
+@{
+    ViewData["Title"] = "EditAjwManagementStaffWorkPlan";
+    Layout = "~/Views/Shared/_LayoutProduction.cshtml";
+}
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+
+<br />
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <form class="tabled backgroundWhiteBorder10Padding backgroundWhiteBorder">
+                <div class="BackToList">
+                    <a type="button" asp-action="ProductionAllReportsRepository" asp-area="Production" asp-controller="ProductionRepository" class="btn btn-primary btn-lg form-control"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
+                </div>
+                <div class="PrintP">
+                    <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                </div>
+
+                @*main table*@
+                <div class="table-responsive">
+                    @*<table id="tbllawbook" class="table table-striped table-hover table-bordered table-sm SubH">*@
+                    <table style="width:100%" id="tbllawbook" class="display nowrap table table-bordered table-hover table-condensed table-sm SubH">
+                        <thead>
+                            <tr>
+                                <th colspan="26"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+                            </tr>
+                            <tr>
+                                <th class="titleAccountofficeReport" colspan="26">@Localizer["AJW MANAGEMENT STAFF WORKING PLAN"]</th>
+                            </tr>
+                            <tr>
+                                <th class="text-left" colspan="26"> <input type="date" id="txtdate" name="txtdate">  : @Localizer["Date"] </th>
+                            </tr>
+                            <tr>
+                                <th colspan="2">@Localizer["SIGN"]</th>
+                                <th colspan="10">@Localizer["DESCRIPTION"]</th>
+                                <th colspan="3">@Localizer["TIME-OUT"]</th>
+                                <th colspan="3">@Localizer["TIME-IN"]</th>
+                                <th colspan="3">@Localizer["DESIGNATION"]</th>
+                                <th colspan="3">@Localizer["NAME"]</th>
+                                <th colspan="2">@Localizer["ID#"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                ManagementStaffWorkPlan teswp = new ManagementStaffWorkPlan();
+                            }
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td colspan="2"><input type="text" id="" class="form-control text-center" value="@Html.DisplayFor(modelItem => item.Signofficer)" /></td>
+                                    <td colspan="10"><input type="text" id="" class="form-control text-center" value="@item.MPDescription" /></td>
+                                    <td colspan="3"><input type="text" id="" class="form-control text-center" value="@Html.DisplayFor(modelItem => item.Timeout)" /></td>
+                                    <td colspan="3"><input type="text" id="" class="form-control text-center" value="@Html.DisplayFor(modelItem => item.Timein)" /></td>
+                                    <td colspan="3"><input type="text" id="" class="form-control text-center" value="@Html.DisplayFor(modelItem => item.MPDesignation)" /></td>
+                                    <td colspan="3"><input type="text" id="" class="form-control text-center" value="@Html.DisplayFor(modelItem => item.MPName)" /></td>
+                                    <td colspan="2">
+                                        <span class="en">@Html.DisplayFor(modelItem => item.Id)</span>
+                                        <input type="hidden" id="date" name="date" class="form-control text-center" value="@ViewBag.date" />
+                                        <input type="hidden" id="status" name="status" value="@item.MPStatus" />
+                                        <input type="hidden" id="delrepo" name="delrepo" value="@item.DelRepoMP" />
+                                        <input type="hidden" id="delpro" name="delpro" value="@item.DelProductionMP" />
+                                        <input type="hidden" id="delceo" name="delceo" value="@item.DelCeoMP" />
+                                        <input type="hidden" id="delgm" name="delgm" value="@item.DelGmMP" />
+                                    </td>
+                                    @{
+                                        teswp.MPDate = @item.MPDate;
+
+                                        teswp.SignPManagerMP = @item.SignPManagerMP;
+                                        teswp.PManagerRemarksMP = @item.PManagerRemarksMP;
+                                        teswp.SignGMMP = item.SignGMMP;
+                                        teswp.GMRemarksMP = @item.GMRemarksMP;
+                                        teswp.SignCeoMP = @item.SignCeoMP;
+                                        teswp.CeoRemarksMP = @item.CeoRemarksMP;
+                                    }
+                                </tr>
+                            }
+
+                        </tbody>
+                        <tfoot>
+
+                            <tr>
+                                <td colspan="2"><input type="text" id="txtsign" name="txtsign" class="form-control text-center" value="" /></td>
+                                <td colspan="10"><input type="text" class="form-control text-center" id="txtDesc" name="txtDesc"></td>
+                                <td colspan="3"><input type="text" id="txttimeout" name="txttimeout" class="form-control text-center" value="" /></td>
+                                <td colspan="3"><input type="text" id="txttimein" name="txttimein" class="form-control text-center" value="" /></td>
+                                <td colspan="3"><input type="text" id="txtdesig" name="txtdesig" class="form-control text-center" value="" /></td>
+                                <td colspan="3"><input type="text" id="txtname" name="txtname" class="form-control text-center" value="" /></td>
+                                <td colspan="2">
+                                    <button type="button" id="btnAdd" value="Add Row" class="btn btn-primary btn-sm form-control" onclick="addRow()">@Localizer["Add"] <br />@Localizer["Row"]</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th colspan="26" scope="col">@Localizer["Signature"]</th>
+                            </tr>
+
+                            <tr>
+                                <th colspan="9">@Localizer["Production Manager"]</th>
+                                <th colspan="8">@Localizer["G.M"]</th>
+                                <th colspan="9">@Localizer["C.E.O"]</th>
+                            </tr>
+                            <tr>
+                                <td colspan="9">
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="txtpmsign" name="txtpmsign" value="@teswp.SignPManagerMP" class="form-control" />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="txtpmremarks" name="txtpmremarks" value="@teswp.PManagerRemarksMP" class="form-control" />
+                                </td>
+                                <td colspan="8">
+                                    @Localizer["Signature"]:
+                                    <input  id="txtgmsign" name="txtgmsign" class="form-control" value="@teswp.SignGMMP" />
+                                    @Localizer["Remarks"]:
+                                    <input  id="txtgmremarks" name="txtgmremarks" value="@teswp.GMRemarksMP" class="form-control" />
+                                </td>
+                                <td colspan="9">
+                                    @Localizer["Signature"]:
+                                    <input  id="txtceosign" name="txtceosign" class="form-control" value="@teswp.SignCeoMP" />
+                                    @Localizer["Remarks"]:
+                                    <input id="txtceoremarks" name="txtceoremarks" class="form-control" value="@teswp.CeoRemarksMP" />
+                                </td>
+
+
+                            </tr>
+                            <tr>
+                                <td colspan="26" class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        @*<input type="button" id="bt" value="Submit Data" onclick="submit()" />*@
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" type="" id="btnsave" name="btnsave"><i class="fas fa-save"></i> @Localizer["Save File"]</a>
+                                            <a class="dropdown-item border-top border-bottom" id="" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore-alt"></i> @Localizer["Clear"]</a>
+                                            <a asp-action="AjwManagementStaffWorkPlanList" asp-area="Production" asp-controller="AjwAllDailyPlan" type="button" class="btn btn-primary btn-md" value="Back To List">@Localizer["Back To List"]</a>
+                                            <input id="btnSave" class="btn btn-success btn-md border-top border-bottom" name="btnSave" value="Save File" type="button" />
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+<!-- back to top button-->
+<a id="button"></a>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+
+        // DataTables with Add Row Functionality
+        $("body").on("click", "#btnAdd", function () {
+
+            //Reference the Name and Country TextBoxes.
+            var txtdate = $("#txtdate");
+            var txtsign = $("#txtsign");
+            var txtDesc = $("#txtDesc");
+            var txttimeout = $("#txttimeout");
+            var txttimein = $("#txttimein");
+            var txtdesig = $("#txtdesig");
+            var txtname = $("#txtname");
+
+
+
+            //Get the reference of the Table's TBODY element.
+            var tBody = $("#tbllawbook > TBODY ")[0];
+
+            //Add Row.
+            var row = tBody.insertRow(-1);
+            
+
+            cell = $(row.insertCell(-1));
+            var btn1 = $("<input />");
+            btn1.attr("type", "text");
+            btn1.val(txtsign.val());
+            cell.append(btn1);
+
+            cell = $(row.insertCell(-1));
+            var btn2 = $("<input />");
+            btn2.attr("type", "text");
+            btn2.val(txtDesc.val());
+            cell.append(btn2);
+
+            //add Time out cell-txttimeout
+            cell = $(row.insertCell(-1));
+            var btn3 = $("<input />");
+            btn3.attr("type", "text");
+            btn3.val(txttimeout.val());
+            cell.append(btn3);
+
+            //add Time in cell-txttimein
+            cell = $(row.insertCell(-1));
+            var btn4 = $("<input />");
+            btn4.attr("type", "text");
+            btn4.val(txttimein.val());
+            cell.append(btn4);
+
+            //add designation cell-txtdesig
+            cell = $(row.insertCell(-1));
+            var btn5 = $("<input />");
+            btn5.attr("type", "text");
+            btn5.val(txtdesig.val());
+            cell.append(btn5);
+            //add name cell-txtname
+            cell = $(row.insertCell(-1));
+            var btn6 = $("<input />");
+            btn6.attr("type", "text");
+            btn6.val(txtname.val());
+            cell.append(btn6);
+
+            cell = $(row.insertCell(-1));
+            //Remove Button cell.
+            var btnRemove = $("<input />");
+            btnRemove.attr("type", "button");
+            btnRemove.attr("onclick", "Remove(this);");
+            btnRemove.val("Remove");
+            cell.append(btnRemove);
+
+            //Clear the All TextBoxes of this sheet
+            txtdate.val("");
+            txtsign.val("");
+            txtDesc.val("");
+            txttimeout.val("");
+            txttimein.val("");
+            txtdesig.val("");
+            txtname.val("");
+
+
+        });
+
+        function Remove(button) {
+            //Determine the reference of the Row using the Button.
+            var row = $(button).closest("TR");
+            var name = $("TD", row).eq(0).html();
+            if (confirm("Do you want to delete: " + name)) {
+                //Get the reference of the Table.
+                var table = $("#tbllawbook")[0];
+
+                //Delete the Table row using it's Index.
+                table.deleteRow(row[0].rowIndex);
+            }
+        };
+
+        $("body").on("click", "#btnSave", function () {
+
+            //Loop through the Table rows and build a JSON array.`
+            var ManagementStaffWorkPlanArray = new Array();
+            $("#tbllawbook TBODY TR").each(function () {
+                var txtpmsign = $("#txtpmsign");
+                var txtpmremarks = $("#txtpmremarks");
+                var txtgmsign = $("#txtgmsign");
+                var txtgmremarks = $("#txtgmremarks");
+                var txtceosign = $("#txtceosign");
+                var txtceoremarks = $("#txtceoremarks");
+                var status = $("#status");
+                var delrepo = $("#delrepo");
+                var delpro = $("#delpro");
+                var delgm = $("#delgm");
+                var delceo = $("#delceo");
+                var row = $(this);
+                var ManagementStaffWorkPlan = {};
+
+                ManagementStaffWorkPlan.DelRepoMP = delrepo.val();
+                ManagementStaffWorkPlan.DelProductionMP = delpro.val();
+                ManagementStaffWorkPlan.DelGmMP = delgm.val();
+                ManagementStaffWorkPlan.DelCeoMP = delceo.val();
+                //ManagementStaffWorkPlan.MPDate = row.find("input[type='text']").eq(0).val();
+                ManagementStaffWorkPlan.Signofficer = row.find("input[type='text']").eq(0).val();
+                ManagementStaffWorkPlan.MPDescription = row.find("input[type='text']").eq(1).val();
+                ManagementStaffWorkPlan.Timeout = row.find("input[type='text']").eq(2).val();
+                ManagementStaffWorkPlan.Timein = row.find("input[type='text']").eq(3).val();
+                ManagementStaffWorkPlan.MPDesignation = row.find("input[type='text']").eq(4).val();
+                ManagementStaffWorkPlan.MPName = row.find("input[type='text']").eq(5).val();
+
+
+
+                ManagementStaffWorkPlan.SignPManagerMP = txtpmsign.val();
+                ManagementStaffWorkPlan.PManagerRemarksMP = txtpmremarks.val();
+                ManagementStaffWorkPlan.SignGMMP = txtgmsign.val();
+                ManagementStaffWorkPlan.GMRemarksMP = txtgmremarks.val();
+                ManagementStaffWorkPlan.SignCeoMP = txtceosign.val();
+                ManagementStaffWorkPlan.CeoRemarksMP = txtceoremarks.val();
+                ManagementStaffWorkPlan.MPStatus = status.val();
+                ManagementStaffWorkPlan.MPTitle = "A";
+
+
+                ManagementStaffWorkPlanArray.push(ManagementStaffWorkPlan);
+            });
+
+            //Get
+            var Date = $('#date').val();
+            var ID = $('#id').val();
+            alert(ID);
+
+            //Send the JSON array to Controller using AJAX.
+            $.ajax({
+                type: "POST",
+                url: "/Production/AjwAllDailyPlan/InsertManagementStaffWorkPlans",
+                data: { data: ManagementStaffWorkPlanArray, date: Date },
+                success: function (r) {
+                    alert(r + " record(s) inserted.");
+                    window.location.replace("/Production/AjwAllDailyPlan/AjwManagementStaffWorkPlanList");
+                }
+            });
+        });
+
+    </script>
+
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*  Css for BackToList Button----*/
+    .BackToList {
+        width: 150px;
+    }
+
+    .textarea {
+        height: 60px;
+    }
+    /*Mostly USes Css Classes userprofile/footer/backtolist/table/backtotopbtn/smallheading/subh/print --for Accounts Department- start*/
+    .Title {
+        font-size: xx-large;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+        color: black;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@
+
+
+
+

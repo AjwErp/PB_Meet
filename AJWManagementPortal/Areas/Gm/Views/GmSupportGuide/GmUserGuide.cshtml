@@ -1,0 +1,281 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@*---Language Tranlator--Localizer*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{
+    ViewData["Title"] = "GmUserGuide";
+    Layout = "~/Views/Shared/_LayoutGm.cshtml";
+}
+
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+
+@*This Controller for ::Account Office system user guide =view::*@
+<br />
+<body>
+    <form class="tabled">
+        <div class="container-fluid backgroundWhiteBorder10Padding AccountLUBook">
+            <div class="col-md-12 col-sm-12">
+                <div class="portlet light">
+                    <div class="portlet-body">
+                        <div class="table-responsive">
+                            <div class="titleLaw">
+                                <span class="">@localizer["G.M DEPARTMENT SYSTEM USER GUIDE"]</span>
+                            </div>
+                            <br />
+                            <div class="PrintP">
+                                <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                            </div>
+                            <table class="table table-bordered table-hover table-condensed table-sm SubH">
+                                <thead>
+                                    <tr class="">
+                                        <th>@localizer["ID#"]</th>
+                                        <th colspan="8">@localizer["Action's Description"]</th>
+                                        <th colspan="4">@localizer["Function"]</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> <span class="en">01</span> </td>
+                                        <td colspan="8">
+                                            @localizer["The G Manager input assign email addrss,select related Department and input assign password then system display G.M Dashboard"]
+                                        </td>
+                                        <td colspan="4">Login Page</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">02</span> </td>
+                                        <td colspan="8">
+                                            @localizer["The G Manager on dashboard view all important key values like Today Opening balance etc"]
+                                        </td>
+                                        <td colspan="4">G.M Dashboard</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">03</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is a search-bar on the top of the dashboard page, by this G manager search any query related to the G.M department"]
+                                        </td>
+                                        <td colspan="4">G.M Search-Bar</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">04</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is selector of language at the top right by this G manager change current page language, as you want"]
+                                        </td>
+                                        <td colspan="4">Language Translator</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">05</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is notification panel at the top right by this G manager check all activity's notification"]
+                                        </td>
+                                        <td colspan="4">Notification Panel</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">06</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is user profile section at the top right by this G manager logout from system or check profile information"]
+                                        </td>
+                                        <td colspan="4">Profile</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> <span class="en">07</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is X sign at the top left by this G manager change the screen view(big/small)"]
+                                        </td>
+                                        <td colspan="4">X</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">08</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is book sign at the top right side by this G manager view updated notice"]
+                                        </td>
+                                        <td colspan="4">Notice Board</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">09</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 1st option in sidebar ':Dashboard:' by this G manager go to G.M Dashboard Page  "]
+                                        </td>
+                                        <td colspan="4">Sidebar/Dashboard</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">10</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 2nd dropdown option in sidebar ':G.M Support Guide:' by this G manager select G.M User Guide for G.M department"]
+                                        </td>
+                                        <td colspan="4">Sidebar/G.M Support Guide</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">11</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 2nd dropdown option in sidebar ':G.M Law Book List:' by this G manager check all laws about G.M department"]
+                                        </td>
+                                        <td colspan="4">Sidebar/G.M Law Book</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">12</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 3rd option in sidebar ':G.M All Daily Plan(Management/Technical Staff Work Plan):' by this G manager can create Daily Plans and perform all necessory operation on daily plans"]
+                                        </td>
+                                        <td colspan="4">Sidebar/All Daily Plan</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">13</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 4th option in sidebar ':G.M Notice Board List:' by this G manager can check all notices which created by H.R.M "]
+                                        </td>
+                                        <td colspan="4">Sidebar/Notice Board List</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">14</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 5th dropdown option in sidebar ':Ajw Law Book List:' by this G manager can check all law books and perform which created by admin"]
+                                        </td>
+                                        <td colspan="4">Sidebar/Ajw Law Book List</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">15</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 6th option in sidebar ':G.M Office Reports:' by this G manager create Daily/Monthly/Yearly Reports for C.E.O and perform all necessory operations, if G manager is absent"]
+                                        </td>
+                                        <td colspan="4">Sidebar/G.M Office Reports</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">16</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 7th option in sidebar ':All Departments Reports:' by this G manager can check all department reports which send by related department and perform all necessory operations"]
+                                        </td>
+                                        <td colspan="4">Sidebar/All Departments Reports</td>
+
+                                    </tr>
+                                    
+                                   
+                                    <tr>
+                                        <td> <span class="en">17</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 11th option in sidebar ':All Department Dashboard:' by this G manager can check all departments activities"]
+                                        </td>
+                                        <td colspan="4">Sidebar/All Department Dashboard</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">18</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 12th option in sidebar ':All Department D.M.S:' by  this G manager can check all departments D.M.S activities"]
+                                        </td>
+                                        <td colspan="4">Sidebar/All Department D.M.S</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+<!-- back to top button-->
+<a id="button"></a>
+<!-- back to top button-->
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+
+    .AccountLUBook {
+        text-align: right;
+        text-align: justify;
+        direction: rtl;
+    }
+
+    .titleLaw {
+        text-align: left;
+        font-weight: bold;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -50px;
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+
+
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

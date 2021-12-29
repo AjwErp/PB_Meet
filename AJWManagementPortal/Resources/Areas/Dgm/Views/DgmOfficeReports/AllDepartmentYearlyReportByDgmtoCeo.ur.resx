@@ -1,0 +1,603 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Accessory Expense" xml:space="preserve">
+    <value>اسسر ئ خرچ</value>
+  </data>
+  <data name="Accessory Sale" xml:space="preserve">
+    <value>اسسرئ سيل</value>
+  </data>
+  <data name="Account Department" xml:space="preserve">
+    <value>اکاؤنٹس ڈیپارٹمنٹ</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>ایکشن</value>
+  </data>
+  <data name="Advance Voucher" xml:space="preserve">
+    <value>ایڈوانس واؤچر</value>
+  </data>
+  <data name="AJW AGRO INDUSTRY" xml:space="preserve">
+    <value>اے جے ڈبلیو ایگرو انڈسٹری</value>
+  </data>
+  <data name="All Department Yearly Report By D.G.M To C.E.O" xml:space="preserve">
+    <value>آل ڈیپارٹمنٹ سالانہ رپورٹ بذریعہ ڈی جی ایم سے سی ای او آفس</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>بیک ٹو لسٹ</value>
+  </data>
+  <data name="By Production Year Gate Pass Expense" xml:space="preserve">
+    <value>پروڈکشن ایئر گیٹ پاس خرچ سے</value>
+  </data>
+  <data name="By Production Year Maintenance Expense" xml:space="preserve">
+    <value>بذریعہ پروڈکشن سلانہ مینٹیننس خرچ</value>
+  </data>
+  <data name="C.E.O" xml:space="preserve">
+    <value>سی ای او</value>
+  </data>
+  <data name="Cancel Complain" xml:space="preserve">
+    <value>شکایت منسوخ</value>
+  </data>
+  <data name="Cancel Gate Pass" xml:space="preserve">
+    <value>کینسل گیٹ پاسس</value>
+  </data>
+  <data name="Cancel Job Card" xml:space="preserve">
+    <value>کینسل جاب کارڈ</value>
+  </data>
+  <data name="Cancel Purchase Order" xml:space="preserve">
+    <value>کینسل پر چیز آرڈر</value>
+  </data>
+  <data name="Cancel Service Order" xml:space="preserve">
+    <value>کینسل سروس آرڈر</value>
+  </data>
+  <data name="Cash" xml:space="preserve">
+    <value>کيش</value>
+  </data>
+  <data name="Cash Cleared By Gate-pass" xml:space="preserve">
+    <value>گیٹ پاس کے ذریعہ کیش کلیئر</value>
+  </data>
+  <data name="Cash Cleared By P-Order" xml:space="preserve">
+    <value>پی آرڈر کے ذریعہ کیش کلیئر</value>
+  </data>
+  <data name="Cash In Hand End Month" xml:space="preserve">
+    <value>ماہ کے آخر میں کیش</value>
+  </data>
+  <data name="Cash In Hand(Total Income - Claim Expense)" xml:space="preserve">
+    <value>کيش ان ہند(ٹوٹل انکم - کلیم خرچ)</value>
+  </data>
+  <data name="Civil Department" xml:space="preserve">
+    <value>سول ڈیپارٹمنٹ</value>
+  </data>
+  <data name="Claim Expense" xml:space="preserve">
+    <value>کلیم خرچ</value>
+  </data>
+  <data name="Claim Material Expense" xml:space="preserve">
+    <value>کلیم  میٹریل خرچ</value>
+  </data>
+  <data name="Cleared Gate Pass" xml:space="preserve">
+    <value>کلیئر گیٹ پاس</value>
+  </data>
+  <data name="Cleared Purchase Order" xml:space="preserve">
+    <value>کلیریڈ پر چیز آرڈر</value>
+  </data>
+  <data name="Closing Balance" xml:space="preserve">
+    <value>کلوزنگ بیلنس</value>
+  </data>
+  <data name="Complain" xml:space="preserve">
+    <value>شکایت</value>
+  </data>
+  <data name="Complain Not Ok" xml:space="preserve">
+    <value>شکایت نہیں ٹھیک</value>
+  </data>
+  <data name="Complain Ok" xml:space="preserve">
+    <value>شکایت ٹھیک</value>
+  </data>
+  <data name="Contract" xml:space="preserve">
+    <value>معاہدہ</value>
+  </data>
+  <data name="Customer Claim Expense" xml:space="preserve">
+    <value>کسٹمر کلیم خرچ</value>
+  </data>
+  <data name="D.G.M" xml:space="preserve">
+    <value>ڈی جی ایم</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="Demotion" xml:space="preserve">
+    <value>ڈي موشن</value>
+  </data>
+  <data name="Dis.Increment" xml:space="preserve">
+    <value>ڈس انکریمنٹ</value>
+  </data>
+  <data name="Discharge" xml:space="preserve">
+    <value>ڈسچارج</value>
+  </data>
+  <data name="Electric Material Income/Expense Price Report" xml:space="preserve">
+    <value>الیکٹرک میٹریل آمدن/خرچ</value>
+  </data>
+  <data name="Fine Voucher" xml:space="preserve">
+    <value>فائن واؤچر</value>
+  </data>
+  <data name="G.M" xml:space="preserve">
+    <value>جی ایم</value>
+  </data>
+  <data name="Gate Pass" xml:space="preserve">
+    <value>گیٹ پاسس</value>
+  </data>
+  <data name="Gate Pass Not Ok" xml:space="preserve">
+    <value>گیٹ پاس ٹھیک نہیں</value>
+  </data>
+  <data name="Gate Pass Ok" xml:space="preserve">
+    <value>گیٹ پاس ٹھیک</value>
+  </data>
+  <data name="Grand Total Expense" xml:space="preserve">
+    <value>گرینڈ ٹوٹل خرچ</value>
+  </data>
+  <data name="H.R.M Department" xml:space="preserve">
+    <value>اچ ۔ار۔ام ڈیپارٹمنٹ</value>
+  </data>
+  <data name="Increment" xml:space="preserve">
+    <value>انکریمنٹ</value>
+  </data>
+  <data name="Industry Electric Expense" xml:space="preserve">
+    <value>انڈسٹری الیکٹرک خرچ</value>
+  </data>
+  <data name="Industry In/Out" xml:space="preserve">
+    <value>انڈسٹری ان/وٹ</value>
+  </data>
+  <data name="Industry Internal Account Report" xml:space="preserve">
+    <value>انڈسٹری انٹرنل اکاؤنٹ رپورٹ</value>
+  </data>
+  <data name="Industry Material Expense" xml:space="preserve">
+    <value>انڈسٹری میٹریل خرچ</value>
+  </data>
+  <data name="Industry Petty Account Report" xml:space="preserve">
+    <value>انڈسٹری پیٹی اکاؤنٹ رپورٹ</value>
+  </data>
+  <data name="Ineusal Material Expense" xml:space="preserve">
+    <value>اانڈسٹری میٹریل خرچ</value>
+  </data>
+  <data name="Internship" xml:space="preserve">
+    <value>انٹرنشپ</value>
+  </data>
+  <data name="Inusal Project" xml:space="preserve">
+    <value>انسول پروجیکٹ</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>جاب</value>
+  </data>
+  <data name="Job Card" xml:space="preserve">
+    <value>جاب کارڈ</value>
+  </data>
+  <data name="Job Card-Not Ok" xml:space="preserve">
+    <value>جاب کارڈ ٹھیک نہیں</value>
+  </data>
+  <data name="Job Card-Ok" xml:space="preserve">
+    <value>جاب کارڈ ٹھیک</value>
+  </data>
+  <data name="Joining Letter" xml:space="preserve">
+    <value>جؤ ننگ ليٹر</value>
+  </data>
+  <data name="Loan Remaining Recovery" xml:space="preserve">
+    <value>لون رمیننگ ریکووري</value>
+  </data>
+  <data name="Loan Voucher" xml:space="preserve">
+    <value>لون واؤچر</value>
+  </data>
+  <data name="Loss In Reparining" xml:space="preserve">
+    <value>لوسس ان ریپریننگ</value>
+  </data>
+  <data name="Machine Maintenance Via Production Department" xml:space="preserve">
+    <value>مشین مینٹیننس وی پروڈکشن ڈیپارٹمنٹ</value>
+  </data>
+  <data name="Machinery Electric Maintenance Via Production" xml:space="preserve">
+    <value>مشینری الیکٹرک مینٹیننس وی پروڈکشن</value>
+  </data>
+  <data name="Madical Expense" xml:space="preserve">
+    <value>مڈیکل خرچ</value>
+  </data>
+  <data name="Madical Voucher" xml:space="preserve">
+    <value>میڈیکل واؤچر</value>
+  </data>
+  <data name="Main Bank Account Report (Meezan + BOP)" xml:space="preserve">
+    <value>مین بینک اکاؤنٹ کی رپورٹ (میزان + بی او پی)</value>
+  </data>
+  <data name="Maintenance Department" xml:space="preserve">
+    <value>مینٹیننس ڈیپارٹمنٹ</value>
+  </data>
+  <data name="Maintenance Expense" xml:space="preserve">
+    <value>مینٹیننس خرچ</value>
+  </data>
+  <data name="Material Income/Expense Price Report" xml:space="preserve">
+    <value>میٹریل انکم/خرچ پرائس</value>
+  </data>
+  <data name="Material Sale by Store" xml:space="preserve">
+    <value>بذریعہ میٹریل سيل بذریعہ اسٹور</value>
+  </data>
+  <data name="Material Sale Expense" xml:space="preserve">
+    <value>میٹریل سيل خرچ</value>
+  </data>
+  <data name="Move Order" xml:space="preserve">
+    <value>موو آرڈر</value>
+  </data>
+  <data name="Move Order Not Ok" xml:space="preserve">
+    <value>موو آرڈر ٹھیک نہیں</value>
+  </data>
+  <data name="Move Order Ok" xml:space="preserve">
+    <value>موو آرڈر ٹھیک</value>
+  </data>
+  <data name="Move Order Pass" xml:space="preserve">
+    <value>موو آرڈر پاسس</value>
+  </data>
+  <data name="Pending Gate Pass" xml:space="preserve">
+    <value>پینڈنگ گیٹ پاسس</value>
+  </data>
+  <data name="Pending Purchase Order" xml:space="preserve">
+    <value>پینڈنگ پرچيز آرڈر</value>
+  </data>
+  <data name="Personal Claim Expense" xml:space="preserve">
+    <value>پرسنل کلیم خرچ</value>
+  </data>
+  <data name="Personal In/Out" xml:space="preserve">
+    <value>پرسنل ان/وٹ</value>
+  </data>
+  <data name="Previous Total Material Stock Price" xml:space="preserve">
+    <value>پچھلا ٹوٹل میٹریل اسٹاک پرائس</value>
+  </data>
+  <data name="Previous Year Cash" xml:space="preserve">
+    <value>پچھلے سال کیش</value>
+  </data>
+  <data name="Previous Year Gate Pass" xml:space="preserve">
+    <value>پچھلے سال کا گیٹ پاس</value>
+  </data>
+  <data name="Previous Year Purchase Order" xml:space="preserve">
+    <value>پچھلے سال خریداری کا آرڈر</value>
+  </data>
+  <data name="Product Sale" xml:space="preserve">
+    <value>پروڈکٹ سيل</value>
+  </data>
+  <data name="Production Department" xml:space="preserve">
+    <value>پروڈکشن ڈیپارٹمنٹ</value>
+  </data>
+  <data name="Production Electric Expense" xml:space="preserve">
+    <value>پروڈکشن الیکٹرک خرچ</value>
+  </data>
+  <data name="Production Material Expense" xml:space="preserve">
+    <value>پروڈکشن میٹریل خرچ</value>
+  </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>پروموشن</value>
+  </data>
+  <data name="Purchase Department" xml:space="preserve">
+    <value>پرچيز ڈیپارٹمنٹ</value>
+  </data>
+  <data name="Purchase Order" xml:space="preserve">
+    <value>پرچيز آرڈر</value>
+  </data>
+  <data name="Recovery" xml:space="preserve">
+    <value>ریکووري</value>
+  </data>
+  <data name="Remaining Balance" xml:space="preserve">
+    <value>بقیہ رقم</value>
+  </data>
+  <data name="Remaining Complain" xml:space="preserve">
+    <value>باقی شکایات</value>
+  </data>
+  <data name="Remaining Electric Stock Price" xml:space="preserve">
+    <value>رمیننگ الیکٹرک اسٹاک پرائس</value>
+  </data>
+  <data name="Remaining Gate Pass" xml:space="preserve">
+    <value>رمیننگ گیٹ پاسس</value>
+  </data>
+  <data name="Remaining Job Card" xml:space="preserve">
+    <value>رمیننگ جاب کارڈ</value>
+  </data>
+  <data name="Remaining Material Stock Price" xml:space="preserve">
+    <value>رمیننگ میٹریل اسٹاک پرائس</value>
+  </data>
+  <data name="Remaining Move Order" xml:space="preserve">
+    <value>رمیننگ موو آرڈر</value>
+  </data>
+  <data name="Remaining Pay Accounts" xml:space="preserve">
+    <value>رمیننگ پے اکاؤنٹس</value>
+  </data>
+  <data name="Remaining Service Order" xml:space="preserve">
+    <value>رمیننگ سروس آرڈر</value>
+  </data>
+  <data name="Remaining Stock Price" xml:space="preserve">
+    <value>رمیننگ اسٹاک پرائس</value>
+  </data>
+  <data name="Remaning Balance" xml:space="preserve">
+    <value>ریماننگ بیلنس</value>
+  </data>
+  <data name="Remarks" xml:space="preserve">
+    <value>ریمارکس</value>
+  </data>
+  <data name="Reparning" xml:space="preserve">
+    <value>ریپرننگ</value>
+  </data>
+  <data name="Reparning Material Expense" xml:space="preserve">
+    <value>ریپرننگ میٹریل خرچ</value>
+  </data>
+  <data name="Replacement" xml:space="preserve">
+    <value>ر يپليسمنٹ</value>
+  </data>
+  <data name="Resign" xml:space="preserve">
+    <value>استعفیٰ</value>
+  </data>
+  <data name="Return" xml:space="preserve">
+    <value>ریٹرن</value>
+  </data>
+  <data name="Sale Electric Expense" xml:space="preserve">
+    <value>سيل الیکٹرک خر چ</value>
+  </data>
+  <data name="Sales Department" xml:space="preserve">
+    <value>سیلز ڈیپارٹمنٹ</value>
+  </data>
+  <data name="Scrap Sale" xml:space="preserve">
+    <value>سکرپ سيل</value>
+  </data>
+  <data name="Service Order" xml:space="preserve">
+    <value>سروس آرڈر</value>
+  </data>
+  <data name="Service Order Not Ok" xml:space="preserve">
+    <value>سروس آرڈر ٹھیک نہیں</value>
+  </data>
+  <data name="Service Order Ok" xml:space="preserve">
+    <value>سروس آرڈر ٹھیک</value>
+  </data>
+  <data name="Show cause Notice" xml:space="preserve">
+    <value>شو کاز نوٹس</value>
+  </data>
+  <data name="Signature" xml:space="preserve">
+    <value>دستخط</value>
+  </data>
+  <data name="Special Approval" xml:space="preserve">
+    <value>اسپیشل اپپروول</value>
+  </data>
+  <data name="Stationary Expense" xml:space="preserve">
+    <value>اسٹیشنری خرچ</value>
+  </data>
+  <data name="Store Department Monthly Material Expense Report" xml:space="preserve">
+    <value>اسٹور ڈیپارٹمنٹ ماہانہ میٹریل خرچ رپورٹ</value>
+  </data>
+  <data name="Store Department Yearly Electric Income/Expense Price Report" xml:space="preserve">
+    <value>اسٹور ڈیپارٹمنٹ کی سالانہ بجلی کی آمدنی / اخراجات کی قیمت رپورٹ</value>
+  </data>
+  <data name="Supplier Paied Cash" xml:space="preserve">
+    <value>سپلائر پیڈ کیش</value>
+  </data>
+  <data name="Temporary Allowed" xml:space="preserve">
+    <value>عارضی اجازت</value>
+  </data>
+  <data name="Total Cash" xml:space="preserve">
+    <value>ٹوٹل کيش</value>
+  </data>
+  <data name="Total Complain" xml:space="preserve">
+    <value>ٹوٹل شکایت</value>
+  </data>
+  <data name="Total Complete Project" xml:space="preserve">
+    <value>ٹوٹل کمپلیٹ پروجیکٹ</value>
+  </data>
+  <data name="Total Electric Stock Expence Price" xml:space="preserve">
+    <value>ٹوٹل الیکٹرک اسٹاک خرچ پرائس</value>
+  </data>
+  <data name="Total Electric Stock Price" xml:space="preserve">
+    <value>ٹوٹل الیکٹرک اسٹاک پرائس</value>
+  </data>
+  <data name="Total Expense" xml:space="preserve">
+    <value>ٹوٹل خرچ</value>
+  </data>
+  <data name="Total Gate Pass" xml:space="preserve">
+    <value>ٹوٹل گیٹ پاسس</value>
+  </data>
+  <data name="Total Income" xml:space="preserve">
+    <value>ٹوٹل انکم</value>
+  </data>
+  <data name="Total Income (Main Bank To Meezan + Investment)" xml:space="preserve">
+    <value>ٹوٹل انکم (میں بینک ٹو میزان + انویسٹمنٹ)</value>
+  </data>
+  <data name="Total Income Electric Stock Price" xml:space="preserve">
+    <value>ٹوٹل انکم الیکٹرک اسٹاک پرائس</value>
+  </data>
+  <data name="Total Income Material Stock Price" xml:space="preserve">
+    <value>ٹوٹل انکم میٹریل اسٹاک پرائس</value>
+  </data>
+  <data name="Total Incomplete Project" xml:space="preserve">
+    <value>ٹوٹل نامکمل پروجیکٹ</value>
+  </data>
+  <data name="Total Job Card" xml:space="preserve">
+    <value>ٹوٹل جاب کارڈ</value>
+  </data>
+  <data name="Total Labour Expense" xml:space="preserve">
+    <value>ٹوٹل لیبر خرچ</value>
+  </data>
+  <data name="Total Material Expense" xml:space="preserve">
+    <value>ٹوٹل میٹریل خرچ</value>
+  </data>
+  <data name="Total Material Expense Stock Price" xml:space="preserve">
+    <value>ٹوٹل میٹریل خرچ اسٹاک پرائس</value>
+  </data>
+  <data name="Total Material Income" xml:space="preserve">
+    <value>ٹوٹل میٹریل انکم</value>
+  </data>
+  <data name="Total Material Stock Price" xml:space="preserve">
+    <value>ٹوٹل میٹریل اسٹاک پرائس</value>
+  </data>
+  <data name="Total Move Order" xml:space="preserve">
+    <value>ٹوٹل موو آرڈر</value>
+  </data>
+  <data name="Total No Project" xml:space="preserve">
+    <value>ٹوٹل نو پروجیکٹ</value>
+  </data>
+  <data name="Total Previous Electric Stock Price" xml:space="preserve">
+    <value>ٹوٹل پچھلا الیکٹرک اسٹاک پرائس</value>
+  </data>
+  <data name="Total Purchase Order" xml:space="preserve">
+    <value>ٹوٹل پرچيز آرڈر</value>
+  </data>
+  <data name="Total Service Order" xml:space="preserve">
+    <value>ٹوٹل سروس آرڈر</value>
+  </data>
+  <data name="Trani" xml:space="preserve">
+    <value>ٹرنی</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>ٹرانسفر</value>
+  </data>
+  <data name="Travling Allowns" xml:space="preserve">
+    <value>ٹراولنگ الّونس</value>
+  </data>
+  <data name="UnCleared Gate Pass" xml:space="preserve">
+    <value>انکلاریڈ گیٹ پاسس</value>
+  </data>
+  <data name="UnCleared Purchase Order" xml:space="preserve">
+    <value>انکلاریڈ پرچيز آرڈر</value>
+  </data>
+  <data name="Via Civil" xml:space="preserve">
+    <value>وی سول</value>
+  </data>
+  <data name="Via Maintenance Department Electric Expense" xml:space="preserve">
+    <value>وی مینٹیننس ڈیپارٹمنٹ الیکٹرک خرچ</value>
+  </data>
+  <data name="Via Maintenance Department Expense" xml:space="preserve">
+    <value>وی مینٹیننس ڈیپارٹمنٹ خرچ</value>
+  </data>
+  <data name="Visitor Approval" xml:space="preserve">
+    <value>وزیٹر اپپروول</value>
+  </data>
+  <data name="Visitor Interni" xml:space="preserve">
+    <value>وزیٹر ا نٹري</value>
+  </data>
+  <data name="Warning Letter" xml:space="preserve">
+    <value>وارننگ ليٹر</value>
+  </data>
+  <data name="Yearly Income(Internal Account)" xml:space="preserve">
+    <value>سالانہ انکم(انٹرنل اکاؤنٹ)</value>
+  </data>
+  <data name="Yearly Income(Main Bank To Meezan + Investment)" xml:space="preserve">
+    <value>سالانہ انکم(میں بینک ٹو میزان + انویسٹمنٹ)</value>
+  </data>
+  <data name="Yearly Income(Sales + Investment)" xml:space="preserve">
+    <value>سالانہ انکم(سیلز + انویسٹمنٹ)</value>
+  </data>
+  <data name="Yearly Total Expense" xml:space="preserve">
+    <value>سالانہ ٹوٹل خرچ</value>
+  </data>
+</root>

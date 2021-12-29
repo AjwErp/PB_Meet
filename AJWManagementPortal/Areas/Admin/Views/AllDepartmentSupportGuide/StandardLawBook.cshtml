@@ -1,0 +1,261 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@*---Language Tranlator--Localizer*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{
+    ViewData["Title"] = "StandardLawBook";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+<br />
+<body>
+    <form class="tabled">
+        <div class="container-fluid backgroundWhiteBorder10Padding AccountLUBook">
+            <div class="col-md-12 col-sm-12">
+                <div class="portlet light">
+                    <div class="portlet-body">
+                        <div class="table-responsive">
+                            <div class="titleLaw" style="direction:ltr">
+                                <select id="txtName" style="height:50px;width:370px;" class="form-control">
+                                    <option>@localizer["Select Department for Law Book"]</option>
+                                    <option>@localizer["Admin Department Law Book"]</option>
+                                    <option>@localizer["Accounts Department Law Book"]</option>
+                                    <option>@localizer["C.E.O Department Law Book"]</option>
+                                    <option>@localizer["D.G.M Department Law Book"]</option>
+                                    <option>@localizer["G.M Department Law Book"]</option>
+                                    <option>@localizer["Production Department Law Book"]</option>
+                                    <option>@localizer["H.R.M Department Law Book"]</option>
+                                    <option>@localizer["Purchase Department Law Book"]</option>
+                                    <option>@localizer["Sales Department Law Book"]</option>
+                                    <option>@localizer["PPC Department Law Book"]</option>
+                                    <option>@localizer["Accessory Department Law Book"]</option>
+                                    <option>@localizer["Maintenance Department Law Book"]</option>
+                                    <option>@localizer["Design Department Law Book"]</option>
+                                    <option>@localizer["Store Department Law Book"]</option>
+                                    <option>@localizer["Electric Department Law Book"]</option>
+                                    <option>@localizer["Security Department Law Book"]</option>
+                                    <option>@localizer["Meeting Department Law Book"]</option>
+                                    <option>@localizer["Kitchen Department Law Book"]</option>
+                                    <option>@localizer["I.T Department Law Book"]</option>
+                                    <option>@localizer["D.M.S Department Law Book"]</option>
+
+                           
+                            
+                                </select>
+                                @*<span class="font-weight-bold"><input type="text" id="" class="form-control text-center font-weight-bold" style="width:360px;" /></span>*@
+                            </div>
+                            <br />
+                            @*<div class="PrintP">
+                                <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                            </div>*@
+                            <table class="table table-bordered table-hover table-condensed table-sm SubH">
+                                <thead>
+                                    <tr class="">
+                                        <th>@localizer["ID#"]</th>
+                                        <th colspan="8">@localizer["Law's Description"]</th>
+                                        <th>@localizer["Edit Number"]</th>
+                                        <th>@localizer["Page Number"]</th>
+                                        <th>@localizer["Previous Edit Number"]</th>
+                                        <th>@localizer["Previous Page Number"]</th>
+                                        <th colspan="2">@localizer["Previous Page Number"]</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> <span class="en">1</span> </td>
+                                        <td colspan="8">
+                                            @localizer["The Accounts Department is the industry's most important and autonomous department that is directly accountable to the C.E.O"]
+                                        </td>
+                                        <td><input type="text" id="" class="form-control" /></td>
+                                        <td><input type="text" id="" class="form-control" /></td>
+                                        <td><input type="text" id="" class="form-control" /></td>
+                                        <td><input type="text" id="" class="form-control" /></td>
+                                        <td scope="row" colspan="2" class="actionbtn">
+                                            <div class="btn-group">
+                                                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    @localizer["Action"]
+                                                </button>
+                                                <div class="dropdown-menu" style="direction:ltr">
+                                                    <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-remove"></i> Remove Row</a>
+                                                    <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> View</a>
+                                                    <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> Edit</a>
+                                                    <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td> <span class="en"> <button type="button" id="btnAdd" value="Add" class="btn btn-primary btn-sm form-control">@localizer["Add"]<br />@localizer["Row"]</button></span> </td>
+                                        <td colspan="8">
+                                            <textarea type="text" class="form-control" id="txtDesc"></textarea>
+                                        </td>
+                                        <td><input type="text" id="" class="form-control" /></td>
+                                        <td><input type="text" id="" class="form-control" /></td>
+                                        <td><input type="text" id="" class="form-control" /></td>
+                                        <td><input type="text" id="" class="form-control" /></td>
+                                        <td scope="row" colspan="2" class="actionbtn">
+                                            <div class="btn-group">
+                                                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    @localizer["Action"]
+                                                </button>
+                                                <div class="dropdown-menu" style="direction:ltr">
+                                                    <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-remove"></i> Remove Row</a>
+                                                    <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> View</a>
+                                                    <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> Edit</a>
+                                                    <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row" colspan="15" class="actionbtn">
+                                            <a asp-action="AllDepartmentLawsBookList" asp-area="Admin" asp-controller="AllDepartmentSupportGuide" type="button" class="btn btn-primary btn-md fas fa-step-backward" value="Back To List">@localizer["Back To List"]</a>
+
+                                            <div class="btn-group">
+                                                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    @localizer["Action"]
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @localizer["Edit File"]</a>
+                                                    <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-save"></i> @localizer["Save File"]</a>
+                                                    <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-file-download"></i> @localizer["Download File"]</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+<!-- back to top button-->
+<a id="button"></a>
+<!-- back to top button-->
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+        //-----JS for Search on Header Accounts Layout---------------start----
+        function myFunction() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("mySearch");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("menu");
+            li = ul.getElementsByTagName("li");
+
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+
+                }
+            }
+        }
+//------------------------------------------
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .AccountLUBook {
+        text-align: right;
+        text-align: justify;
+        direction: rtl;
+    }
+
+    .titleLaw {
+        text-align: left;
+        font-weight: bold;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -50px;
+    }
+
+    .titleLaw {
+        text-align: right;
+        font-weight: bold;
+    }
+
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@
+

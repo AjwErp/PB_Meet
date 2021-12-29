@@ -1,0 +1,121 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@*---Language Tranlator--Localizer*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "AJWEditDPIO";
+    Layout = "~/Views/Shared/_LayoutProduction.cshtml";
+}
+
+@model AJWManagementPortal.Models.AJWDailyPlanIO
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+<form class="" method="post" asp-action="AJWEditDPIO">
+    <table class="tabled table table-bordered">
+        <thead>
+            <tr>
+                <th class="bg-dark text-white" scope="col" colspan="8"><img src="~/Image/white.png" alt="Image" width="100" height="100" /><br />اے جے ڈبلیو ایگرو انڈسٹری</th>
+
+            </tr>
+            <tr>
+                <th class="bg-dark text-white" scope="col" colspan="8">ڈیلی پلان ان شیٹ</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+
+                @*<th class="text-center bg-dark text-white" scope="col">CRUD آپریشن</th>*@
+                <th class="text-center bg-dark text-white" scope="col">دستخط</th>
+                <th class="text-center bg-dark text-white" scope="col" colspan="3">تفصیل</th>
+                <th class="text-center bg-dark text-white" scope="col">اوٹ-ٹائم</th>
+                <th class="text-center bg-dark text-white" scope="col">ٹائم-ان</th>
+                <th class="text-center bg-dark text-white" scope="col">عہدہ</th>
+                <th class="text-center bg-dark text-white" scope="col">نام</th>
+            </tr>
+            <tr>
+                @*<th scope="row"><partial name="_TableButtonPartialDP" /></th>*@
+                <th scope="row"><input asp-for="Signature" class="form-control" type="text" id="txtDesc" /></th>
+                <th scope="row" colspan="3"><textarea asp-for="Description" style="height:100px;width:300px" class="form-control" type="text" id="txtDesc"></textarea></th>
+                <th scope="row">
+                    <input asp-for="DateTimeOut" class="form-control text-right" />
+                    <span asp-validation-for="DateTimeOut" class="text-danger"></span>
+                </th>
+                <th scope="row">
+                    <input asp-for="DateTimeIn" class="form-control text-right" />
+                    <span asp-validation-for="DateTimeIn" class="text-danger"></span>
+                </th>
+                <th scope="row">
+                    @*<input class="form-control" type="text" id="txtDesc" />*@
+                    <select asp-for="Designation" class="form-control">
+                        <option>Select</option>
+                        <option>C.E.O</option>
+                        <option>G.M</option>
+                        <option>D.G.M</option>
+                        <option>Accounts Manager</option>
+                        <option>Acc.Accounts Manager</option>
+                        <option>Purchase Officer</option>
+                        <option>Acc.Purchase Officer</option>
+                        <option>Sales Officer</option>
+                        <option>Acc.Sales Officer</option>
+                        <option>Design Officer</option>
+                        <option>Acc.Design Officer</option>
+                        <option>HRM Officer</option>
+                        <option>Acc.HRM Officer</option>
+                        <option>Mentanance Officer</option>
+                        <option>Acc.Mentanance Officer</option>
+                        <option>Accessori Officer</option>
+                        <option>Acc.Accessori Officer</option>
+                        <option>Store Officer</option>
+                        <option>Acc.Store Officer</option>
+                        <option>Production Officer</option>
+                        <option>Acc.Production Officer</option>
+                        <option>IT Officer</option>
+                        <option>Acc.IT Officer</option>
+                    </select>
+
+                </th>
+                <th scope="row"><input asp-for="Name" class="form-control" type="text" id="txtDesc" /></th>
+            </tr>
+            <tr>
+                <th scope="row" colspan="8">  <partial name="_EditAndBackToListButtonAJWDPIO" model="Model.Id" /> @*<button type="submit" class="form-control btn btn-success" value="Add-Plan-In">Add-Plan-In</button>*@</th>
+            </tr>
+
+        </tbody>
+    </table>
+</form>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@*@section Scripts{
+    <script>
+    </script>
+}*@
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    .tabled {
+        position: center;
+        align-content: center;
+        text-align: center;
+        /*margin-left: -200px;*/
+    }
+
+    .signt {
+        position: center;
+        align-content: center;
+        text-align: center;
+        /*  margin-left: -120px;*/
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@
+
+

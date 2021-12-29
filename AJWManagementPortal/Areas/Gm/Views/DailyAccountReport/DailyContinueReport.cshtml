@@ -1,0 +1,676 @@
+﻿@model AJWManagementPortal.Models.TransAndBank
+
+@{
+    Layout = "~/Views/Shared/_LayoutGm.cshtml";
+    var clearedBalance = 0.00;
+    var clearedBalanceYest = 0.00;
+    var closingBalance = 0.00;
+    var inClearedBalance = 0.00;
+    var currentBalance = 0.00;
+    var totalPaid = 0.00;
+    var remainingRecieved = 0.00;
+    var openingBalane = 0.00;
+    var totalInvome = 0.00;
+    var totalInvomeYest = 0.00;
+    var todayInvome = 0.00;
+    var openingVoloumn = 0.00;
+
+}
+
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "DailyContinueReportList";
+    Layout = "~/Views/Shared/_LayoutGm.cshtml";
+
+}
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+
+<br />
+<script>
+    $(document).ready(function () {
+        $('#tblcustomers').DataTable();
+    });
+</script>
+@*main transaction sheet*@
+<body>
+    @{
+        aDailyCash teswp = new aDailyCash();
+    }
+
+    @{
+        DateTime yesterday = Model.date.AddDays(-1);
+        DateTime dayBeforeYesterday = yesterday.Date.AddDays(-1);
+        DateTime today = DateTime.Today;
+        if (Model.date != null)
+        {
+            today = Model.date;
+        }
+    }
+    <div class="container-fluid backgroundWhiteBorder10Padding">
+        <div class="row">
+            <form class="col-sm-12">
+                <div class="BackToList">
+                    <a type="button" asp-action="AllDailyAccountsReports" asp-area="Gm" asp-controller="DailyAccountReport" class="btn btn-primary hover btn-block form-control btn-sm"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
+                </div>
+                <div class="PrintP">
+                    <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                </div>
+                <div class="table-wrapper table-responsive">
+                    <table class="table table-striped table-hover table-bordered table-sm SubH" id="tblcustomers">
+                        <thead>
+                            <tr class="text-center">
+                                <th colspan="33"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+                            </tr>
+                            <tr>
+                                <th class="titleAccountofficeReport" colspan="33">@Localizer["Daily Cash Continue Report-Account Office"]</th>
+                            </tr>
+                            <tr>
+                                <th class="text-left" colspan="33"> <input type="date" id="">  :<span class=""> @Localizer["Sheet Date"]</span> </th>
+                            </tr>
+                            <tr>
+                                <th colspan="3">@Localizer["Action"]</th>
+                                <th scope="col" colspan="2">@Localizer["Opening balance"]</th>
+                                <th scope="col" colspan="2" style="font-size:small">@Localizer["P-Order|G-Pass|S-Order|Checq No|D-Slip|O-Online"]</th>
+                                <th scope="col" colspan="2">@Localizer["Income"]</th>
+                                <th scope="col" colspan="2">@Localizer["Remaining Gain Amount"]</th>
+                                <th scope="col" colspan="2">@Localizer["Un-Cleared Amount"]</th>
+                                <th scope="col" colspan="2">@Localizer["Cleared Amount"]</th>
+                                <th scope="col" colspan="2">@Localizer["Amount Pay"]</th>
+                                <th scope="col" colspan="4">@Localizer["Date"]</th>
+                                <th scope="col" colspan="6">@Localizer["Description"]</th>
+                                <th scope="col" colspan="3">@Localizer["Account Type"]</th>
+                                <th scope="col" colspan="3">@Localizer["ID#"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.aDailyCashes)
+                            {
+                                if (item.ValueDate == today)
+                                {
+                                    openingVoloumn += item.accountant;
+
+                                }
+                                inClearedBalance += item.lnClearedAmount;
+                                {
+                                    if (item.ValueDate == today || (item.ValueDate < today && item.lnClearedAmount != 0))
+                                    {
+                                        clearedBalance += item.clearedAmount;
+                                        totalPaid += item.paidAmount;
+                                        remainingRecieved += item.remainingGained;
+                                        todayInvome += item.income;
+                            <tr>
+                                @if (!Model.hide)
+                                {
+                                    <td colspan="3">
+                                        <input type="button" value="Remove" onclick="Remove(this)" />
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td colspan="3"></td>
+                                }
+                                <td colspan="2">@Html.DisplayFor(modelItem => item.accountant)</td>
+                                <td colspan="2">@Html.DisplayFor(modelItem => item.pOrder)</td>
+                                <td colspan="2">@Html.DisplayFor(modelItem => item.income)</td>
+                                <td colspan="2">@Html.DisplayFor(modelItem => item.remainingGained)</td>
+                                <td colspan="2">@Html.DisplayFor(modelItem => item.lnClearedAmount)</td>
+                                <td colspan="2">@Html.DisplayFor(modelItem => item.clearedAmount)</td>
+                                <td colspan="2">@Html.DisplayFor(modelItem => item.paidAmount)</td>
+                                <td colspan="4">@Html.DisplayFor(modelItem => item.ValueDate)</td>
+                                <td colspan="6"><textarea type="text">@Html.DisplayFor(modelItem => item.Description)</textarea></td>
+                                <td colspan="3">@Html.DisplayFor(modelItem => item.Name)</td>
+                                <td colspan="3">@Html.DisplayFor(modelItem => item.Id)</td>
+                                @*<td colspan="0">@Html.DisplayFor(modelItem => item.LedgerType)</td>*@
+
+                                @{
+                                    teswp.ValueDate = @item.ValueDate;
+                                    teswp.Remarks = @item.Remarks;
+                                    teswp.SignPManager = @item.SignPManager;
+                                    teswp.PManagerRemarks = @item.PManagerRemarks;
+                                    teswp.SignGM = item.SignGM;
+                                    teswp.GMRemarks = @item.GMRemarks;
+                                    teswp.SignCeo = @item.SignCeo;
+                                    teswp.CeoRemarks = @item.CeoRemarks;
+                                    teswp.Status = item.Status;
+                                }
+                            </tr>
+                                    }
+                                    if (DateTime.Compare(today, item.ValueDate) != 0)
+                                    {
+                                        totalInvomeYest += item.income;
+                                        clearedBalanceYest += item.clearedAmount;
+                                    }
+
+                                }
+                            }
+
+
+                            @{
+                                openingBalane += totalInvomeYest - clearedBalanceYest;
+                                openingBalane = Math.Abs(openingBalane);
+                                openingBalane += Math.Abs(openingVoloumn);
+
+                                totalInvome += openingBalane + todayInvome;
+
+                                closingBalance += totalInvome - clearedBalance;
+
+                                currentBalance += closingBalance - inClearedBalance;
+                            }
+                        </tbody>
+                        <tfoot>
+                            @if (!Model.hide)
+                            {
+                                <tr>
+                                    <th colspan="3"></th>
+                                    <th colspan="2"><input type="text" id="accountant" class="form-control" /></th>
+                                    <th colspan="2"><input type="text" id="pOrder" class="form-control" /></th>
+                                    <th colspan="2"><input type="text" id="income" class="form-control" /></th>
+                                    <th colspan="2"><input type="text" id="remainingGained" class="form-control" /></th>
+                                    <th colspan="2"><input type="text" id="lnClearedAmount" class="form-control" /></th>
+                                    <th colspan="2"><input type="text" id="clearedAmount" class="form-control" /></th>
+                                    <th colspan="2"><input type="text" id="paidAmount" class="form-control" /></th>
+                                    <th colspan="4"><input type="date" class="form-control" id="txtDate" name="txtDate"></th>
+                                    <th colspan="6"><textarea type="text" class="form-control" id="txtDesc"></textarea></th>
+                                    <th colspan="3">
+                                        <select id="txtName" style="width: 100%;height:50px; box-sizing: border-box;" class="form-control">
+                                            <option>@Localizer["Select"]</option>
+                                            <option>Internal</option>
+                                            <option>Petty</option>
+                                        </select>
+                                    </th>
+                                    <th colspan="3">
+                                        <button type="button" id="btnAdd" value="Add" class="btn btn-primary btn-sm form-control">@Localizer["Add Row"]</button>
+                                    </th>
+                                </tr>
+                            }
+                            <tr>
+                                <td colspan="33">
+                                    <button type="button" class="btn btn-primary btn-sm btn-block form-control" id="btnSave" value="Save All"><i class="fas fa-save"></i>   Save All Rows</button>
+                                </td>
+                            </tr>
+                            <tr id="total">
+                                <th colspan="3"></th>
+                                <th id="t10" colspan="2"></th>
+                                <th id="" colspan="2"></th>
+                                <th id="t11" colspan="2"></th>
+                                <th id="t12" colspan="2"></th>
+                                <th id="t9" colspan="2"></th>
+                                <th id="t8" colspan="2"></th>
+                                <th id="t7" colspan="2"></th>
+                                <th id="t6" colspan="2"></th>
+                                <th id="t5" colspan="2"></th>
+                                <th colspan="12" id="">@Localizer["Total"]</th>
+                            <tr class="text-accent text-center align-content-center ">
+                                @*Today Ammount Pay name+vlue Box*@
+                                <td class="tg-lboi" rowspan="2" colspan="4">@totalPaid</td>
+                                <td class="tg-g7sd" rowspan="2" colspan="4"> @Localizer["Total amount paid"]</td>
+                                @*Today Ammount Pay name+vlue Box*@
+                                <td class="tg-0lax" colspan="9" rowspan="2"></td>
+                                @*Total balance Pay name+vlue Box*@
+                            <td class="tg-lboi" rowspan="2" colspan="4"> @{var opening1 = openingBalane + todayInvome;}@opening1</td>
+                                <td class="tg-g7sd" rowspan="2" colspan="4">
+                                    @Localizer["Total balance"]
+                                </td>
+                                @*Total balance Pay name+vlue Box*@
+
+                                @*today income Name Box*@
+                                <td class="tg-fymr" colspan="4">@Localizer["Today's income"]</td>
+                                @*today income Name Box*@
+                                @*opening Balance name Box*@
+                                <td class="tg-fymr" colspan="4">@Localizer["Opening balance"]</td>
+                                @*opening Balance name Box*@
+                            </tr>
+                            <tr class="SubH">
+                                @*today income vlue Box*@
+                                <td class="tg-0pky" colspan="4">@todayInvome</td>
+                                @*today income vlue Box*@
+                                @*opening Balance vlue Box*@
+                                <td class="tg-0pky" colspan="4">@openingBalane</td>
+                                @*opening Balance vlue Box*@
+                            </tr>
+                            <tr>
+                                <td class="tg-c6of" colspan="33"></td>
+                            </tr>
+                            <tr>
+                                @*Cleared left side name + Value box*@
+                                <td class="tg-0pky" colspan="4">@clearedBalance</td>
+                                <td class="tg-fymr" colspan="4"> @Localizer["Cleared Balance / Today's Expenses"]</td>
+                                @*Cleared left side side name + Value box*@
+
+                                <td class="tg-0lax" colspan="9" rowspan="2"></td>
+
+                                @*Cleared right side name + Value box*@
+                                <td class="tg-0pky" colspan="8">@clearedBalance</td>
+                                <td class="tg-0pky" colspan="8"><span> @Localizer["Cleared Balance / Today's Expenses"]</span></td>
+                                @*Cleared right side name + Value box*@
+                            </tr>
+                            <tr>
+                                @*remaning ballance Name + Value Box*@
+                                <td class="tg-0pky" colspan="4">
+                                    @{var opening2 = totalPaid - clearedBalance;}@opening2
+                                </td>
+                                <td class="tg-fymr" colspan="4">@Localizer["Remaining balance"]</td>
+                                @*remaning ballance Name + Value Box*@
+
+                                @*closing balance name + Value box*@
+                                <td class="tg-0pky" colspan="8"> @closingBalance</td>
+                                <td class="tg-0pky" colspan="8"><span>@Localizer["Closing Balance"] </span></td>
+                                @*closing balance name + Value box*@
+                            </tr>
+                            <tr>
+                                <td class="tg-c6of" colspan="33"></td>
+                            </tr>
+                            <tr>
+                                @*Un cleared balalnce left side name+vlue Box*@
+
+                                <td class="tg-0pky" colspan="4"> @inClearedBalance</td>
+                                <td class="tg-fymr" colspan="4"> @Localizer["Un-clared balance"]</td>
+                                @*Un cleared balalnce left side name+vlue Box*@
+                                <td class="tg-0lax" colspan="9" rowspan="2"></td>
+                                @*Un cleared balalnce right side name+vlue Box*@
+                                <td class="tg-0pky" colspan="8"> @inClearedBalance</td>
+                                <td class="tg-0pky" colspan="8"><span>@Localizer["Un-clared balance"]</span></td>
+                                @*Un cleared balalnce right side name+vlue Box*@
+                            </tr>
+                            <tr>
+                                @*Remaning gain name+vlue Box*@
+                                <td class="tg-0pky" colspan="4">@remainingRecieved</td>
+                                <td class="tg-fymr" colspan="4">@Localizer["Remaining Gain Amount"]</td>
+                                @*Remaning gain name+vlue Box*@
+
+                                @*Current balance name+vlue Box*@
+                                <td class="tg-0pky" colspan="8">@currentBalance</td>
+                                <td class="tg-0pky" colspan="8"> @Localizer["Current Balance"]</td>
+                                @*Current balance name+vlue Box*@
+                            </tr>
+                            @*2nd table end here*@
+                            @*sign table start here*@
+                            <tr>
+                                <th colspan="33" scope="col" style="font-size:x-large">@Localizer["Signature"]</th>
+                            </tr>
+                            <tr>
+                                <th scope="row" colspan="11">@Localizer["Account Manager"]</th>
+                                <th colspan="11">@Localizer["D.G.M"]</th>
+                                <th colspan="11">@Localizer["G.M"]</th>
+                            </tr>   
+                            <tr>
+                                <td colspan="11">
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="txtpmsign" name="txtpmsign" value="@teswp.SignPManager" class="form-control" />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="txtpmremarks" name="txtpmremarks" value="@teswp.PManagerRemarks" class="form-control" />
+                                </td>
+                                <td colspan="11">
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="txtgmsign" name="txtgmsign" class="form-control" value="@teswp.SignGM" />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="txtgmremarks" name="txtgmremarks" value="@teswp.GMRemarks" class="form-control" />
+                                </td>
+                                <td colspan="11">
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="txtceosign" name="txtceosign" class="form-control" value="@teswp.SignCeo" />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="txtceoremarks" name="txtceoremarks" class="form-control" value="@teswp.CeoRemarks" />
+                                    @*<input type="text" id="status" name="status" class="form-control" value="@teswp.Status" />*@
+                                </td>
+
+                            </tr>
+                            @*sign table end here*@
+                            <tr>
+                                <td scope="row" colspan="33" class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-save"></i> @Localizer["Save File"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore"></i> @Localizer["Clear Sheet"]</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </form>
+            <br />
+        </div>
+    </div>
+</body>
+<!-- back to top button-->
+<a id="button"></a>
+
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+        $("body").ready(function () {
+
+            debugger;
+            var paidAmount = 0, clearedAmount = 0, lnClearedAmount = 0, remainingGained = 0, surplus = 0, income = 0;
+            var pOnline = 0, pOrder = 0;
+            $("#tblcustomers TBODY TR").each(function () {
+                var row = $(this);
+
+
+                paidAmount += parseInt(row.find("TD").eq(1).text());
+                clearedAmount += parseInt(row.find("TD").eq(3).text());
+                lnClearedAmount += parseInt(row.find("TD").eq(4).text());
+                remainingGained += parseInt(row.find("TD").eq(5).text());
+                surplus += parseInt(row.find("TD").eq(6).text());
+                pOnline += parseInt(row.find("TD").eq(7).text());
+
+            });
+            $("#total #t10").append(paidAmount);
+            $("#total #t11").append(clearedAmount);
+            $("#total #t12").append(lnClearedAmount);
+            $("#total #t9").append(remainingGained);
+            $("#total #t8").append(surplus);
+            $("#total #t7").append(pOnline);
+        });
+
+
+
+        $("body").on("click", "#btnAdd", function () {
+
+
+
+
+            //Reference the Name and Country TextBoxes.
+            var txtName = $("#txtName");
+            var txtDesc = $("#txtDesc");
+            var txtDate = $("#txtDate");
+            var clearedAmount = $("#clearedAmount");
+            var paidAmount = $("#paidAmount");
+            var lnClearedAmount = $("#lnClearedAmount");
+            var remainingGained = $("#remainingGained");
+            var income = $("#income");
+            var pOrder = $("#pOrder");
+            var accountant = $("#accountant")
+            //Get the reference of the Table's TBODY element.
+            var tBody = $("#tblcustomers > TBODY")[0];
+
+            //Add Row.
+            var row = tBody.insertRow(-1);
+
+            var cell = $(row.insertCell(-1));
+            //Add Button cell.
+            var btnRemove = $("<input />");
+            btnRemove.attr("type", "button");
+            btnRemove.attr("onclick", "Remove(this);");
+            btnRemove.val("Remove");
+            cell.attr('colspan', 3);
+
+            cell.html(btnRemove);
+
+
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 2);
+            cell.html(accountant.val());
+
+
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 2);
+            cell.html(pOrder.val());
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 2);
+
+            cell.html(income.val());
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 2);
+
+            cell.html(remainingGained.val());
+
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 2);
+
+            cell.html(lnClearedAmount.val());
+
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 2);
+
+            cell.html(clearedAmount.val());
+
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 2);
+
+            cell.html(paidAmount.val());
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 4);
+
+            cell.html(txtDate.val());
+
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 6);
+
+            cell.html(txtDesc.val());
+
+
+            //Add Name cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 3);
+
+            cell.html(txtName.val());
+
+
+            //Add Name cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 3);
+
+            cell.html();
+            
+
+
+
+            //Clear the TextBoxes.
+            txtName.val("");
+            txtDesc.val("");
+            txtDate.val("");
+            pOrder.val("");
+            accountant.val("");
+            clearedAmount.val("");
+            paidAmount.val("");
+            lnClearedAmount.val("");
+            remainingGained.val("");
+            income.val("");
+        });
+
+        function Remove(button) {
+            //Determine the reference of the Row using the Button.
+            var row = $(button).closest("TR");
+            var name = $("TD", row).eq(0).html();
+            if (confirm("Do you want to delete: " + name)) {
+                //Get the reference of the Table.
+                var table = $("#tblcustomers")[0];
+
+                //Delete the Table row using it's Index.
+                table.deleteRow(row[0].rowIndex);
+            }
+        };
+
+
+        $("body").on("click", "#btnSave", function () {
+                //Loop through the Table rows and build a JSON array.
+                var dateV= '@Model.date.ToString("yyyy-MM-dd")';
+                var aDailyCashes = new Array();
+            $("#tblcustomers TBODY TR").each(function () {
+                var txtremarks = $("#txtremarks");
+                var txtpmsign = $("#txtpmsign");
+                var txtpmremarks = $("#txtpmremarks");
+                var txtgmsign = $("#txtgmsign");
+                var txtgmremarks = $("#txtgmremarks");
+                var txtceosign = $("#txtceosign");
+                var txtceoremarks = $("#txtceoremarks");
+                var status = $("#status");
+                var delrepo = $("#delrepo");
+                var delpro = $("#delpro");
+                var delgm = $("#delgm");
+                var delceo = $("#delceo");
+                    var row = $(this);
+                var aDailyCash = {};
+
+                aDailyCash.DelRepo = delrepo.val();
+                aDailyCash.DelProduction = delpro.val();
+                aDailyCash.DelGm = delgm.val();
+                aDailyCash.DelCeo = delceo.val();
+
+                aDailyCash.Remarks = txtremarks.val();
+                aDailyCash.SignPManager = txtpmsign.val();
+                aDailyCash.PManagerRemarks = txtpmremarks.val();
+                aDailyCash.SignGM = txtgmsign.val();
+                aDailyCash.GMRemarks = txtgmremarks.val();
+                aDailyCash.SignCeo = txtceosign.val();
+                aDailyCash.CeoRemarks = txtceoremarks.val();
+                aDailyCash.Status = status.val();
+                aDailyCash.Title = "A";
+                aDailyCash.LedgerType = row.find("TD").eq(12).text();
+                    aDailyCash.Name = row.find("TD").eq(10).text();
+                    aDailyCash.Description = row.find("TD").eq(9).text();
+                    aDailyCash.ValueDate = row.find("TD").eq(8).text();
+                    aDailyCash.paidAmount = row.find("TD").eq(7).text();
+                    aDailyCash.clearedAmount = row.find("TD").eq(6).text();
+                    aDailyCash.lnClearedAmount = row.find("TD").eq(5).text();
+                    aDailyCash.remainingGained = row.find("TD").eq(4).text();
+                    aDailyCash.income = row.find("TD").eq(3).text();
+                    aDailyCash.accountant = row.find("TD").eq(1).text();
+                    aDailyCash.pOrder = row.find("TD").eq(2).text();
+
+                    aDailyCashes.push(aDailyCash);
+                });
+
+                //Send the JSON array to Controller using AJAX.
+                $.ajax({
+                    type: "POST",
+                    url: "/Gm/DailyAccountReport/InsertCustomers",
+                    data: { data: aDailyCashes, id: dateV },
+                    success: function (r) {
+                        alert(r + " record(s) inserted.");
+                        window.location.replace("/Gm/DailyAccountReport/AllDailyAccountsReports");
+                    }
+                });
+            });
+
+            $("body").on("click", "#btnSavee", function () {
+                //Send the JSON array to Controller using AJAX.
+
+                var data = "hamza";
+
+                $.ajax({
+                    type: "POST",
+                    url: "/aDailyCashes/insert",
+                    data: { data: "test" },
+                    success: function (r) {
+                        alert(r + " record(s) inserted.");
+                    }
+                });
+            });
+
+
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*  Css for BackToList Button----*/
+    .BackToList {
+        width: 150px;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

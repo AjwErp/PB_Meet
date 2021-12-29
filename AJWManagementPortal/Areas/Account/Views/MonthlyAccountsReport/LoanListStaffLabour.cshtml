@@ -1,0 +1,316 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "LoanListStaffLabour";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+
+@*This HTML for ::Monthly Acconts Reports ::*@
+
+<br />
+<body>
+    <div class="container-fluid backgroundWhiteBorder10Padding">
+        <div class="row">
+            <form class="tabled">
+                <div class="BackToList">
+                    <a type="button" asp-action="AccountsMonthlyYearlyReports" asp-area="Account" asp-controller="AccountsMonthlyYearly" class="btn btn-primary btn-block form-control"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
+                </div>
+                <div class="PrintP">
+                    <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                </div>
+
+                @*main table*@
+                <table class="tabled table table-bordered table-hover table-sm SubH" id="tblcustomers">
+                    <thead>
+                        <tr>
+                            <th colspan="14"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+                        </tr>
+                        <tr>
+                            <th class="titleAccountofficeReport" colspan="14">@Localizer["Loan List-Staff & Labour Report-"]<span class="">@Localizer["December2020"]</span></th>
+                        </tr>
+                        <tr>
+                            <th class="text-left" colspan="14">  31-08-2021  : @Localizer["Sheet Date"] </th>
+                        </tr>
+
+                        <tr>
+                            <th colspan="2">@Localizer["Remaning Loan"]</th>
+                            <th colspan="2">@Localizer["Designation"]</th>
+                            <th colspan="2">@Localizer["Name"]</th>
+                            <th>@Localizer["ID#"]</th>
+                            <th colspan="2">@Localizer["Remaning Loan"]</th>
+                            <th colspan="2">@Localizer["Designation"]</th>
+                            <th colspan="2">@Localizer["Name"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2">87715268980</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">87710</td>
+                            <td>01</td>
+                            <td colspan="2">87710</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">Rafiq Iron Store(Mian Chanuu)</td>
+                            <td>01</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">87715268980</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">87710</td>
+                            <td>02</td>
+                            <td colspan="2">87710</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">Rafiq Iron Store(Mian Chanuu)</td>
+                            <td>02</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">87715268980</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">87710</td>
+                            <td>03</td>
+                            <td colspan="2">87710</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">Rafiq Iron Store(Mian Chanuu)</td>
+                            <td>03</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">87715268980</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">87710</td>
+                            <td>04</td>
+                            <td colspan="2">87710</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">Rafiq Iron Store(Mian Chanuu)</td>
+                            <td>04</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">87715268980</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">87710</td>
+                            <td>05</td>
+                            <td colspan="2">87710</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">Rafiq Iron Store(Mian Chanuu)</td>
+                            <td>05</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">87715268980</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">87710</td>
+                            <td>06</td>
+                            <td colspan="2">87710</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">Rafiq Iron Store(Mian Chanuu)</td>
+                            <td>06</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">87715268980</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">87710</td>
+                            <td>07</td>
+                            <td colspan="2">87710</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">Rafiq Iron Store(Mian Chanuu)</td>
+                            <td>07</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">87715268980</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">87710</td>
+                            <td>08</td>
+                            <td colspan="2">87710</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">Rafiq Iron Store(Mian Chanuu)</td>
+                            <td>08</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">87715268980</td>
+                            <td colspan="4">@Localizer["Total"]</td>
+                            <td>09</td>
+                            <td colspan="2">87710</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">Rafiq Iron Store(Mian Chanuu)</td>
+                            <td>09</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">87715268980</td>
+                            <td colspan="4">@Localizer["Previous Total"]</td>
+                            <td>10</td>
+                            <td colspan="2">87710</td>
+                            <td colspan="2">Account Manager</td>
+                            <td colspan="2">Rafiq Iron Store(Mian Chanuu)</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">87715268980</th>
+                            <th colspan="4">@Localizer["Total"]</th>
+                            <td>02</td>
+                            <th colspan="2">87710</th>
+                            <th colspan="4">@Localizer["Total"]</th>
+                            <td>02</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+
+                        <tr>
+                            <th colspan="14" scope="col">@Localizer["Signature"]</th>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="5">@Localizer["Account Manager"]</th>
+                            <th colspan="4">@Localizer["D.G.M"]</th>
+                            <th colspan="5">@Localizer["G.M"]</th>
+                        </tr>
+                        <tr>
+                            <td colspan="5">
+                                @Localizer["Signature"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                                @Localizer["Remarks"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                            </td>
+                            <td colspan="4">
+                                @Localizer["Signature"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                                @Localizer["Remarks"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                            </td>
+                            <td colspan="5">
+                                @Localizer["Signature"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                                @Localizer["Remarks"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td scope="row" colspan="12" style="width:150px;text-align:center" class="bg-secondary">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-save"></i> @Localizer["Save File"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore-alt"></i> @Localizer["Clear"]</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+<!-- back to top button-->
+<a id="button"></a>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*  Css for BackToList Button----*/
+    .BackToList {
+        width: 150px;
+    }
+
+    .textarea {
+        height: 60px;
+    }
+    /*Mostly USes Css Classes userprofile/footer/backtolist/table/backtotopbtn/smallheading/subh/print --for Accounts Department- start*/
+    .Title {
+        font-size: xx-large;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+        color: black;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

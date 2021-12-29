@@ -1,0 +1,507 @@
+﻿@model AJWManagementPortal.Models.TransAndBank
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "DailySuppliersCashTransactionReport";
+    Layout = "~/Views/Shared/_LayoutGm.cshtml";
+}
+@{
+    DailySuppliersCashTransactionReport teswp = new DailySuppliersCashTransactionReport();
+}
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+<br />
+<body>
+    <div class="container-fluid backgroundWhiteBorder10Padding">
+        <div class="row">
+            <form class="col-sm-12">
+                <div class="BackToList">
+                    <a type="button" asp-action="AllDailyAccountsReports" asp-area="Gm" asp-controller="DailyAccountReport" class="btn btn-primary hover btn-block form-control btn-sm"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
+                </div>
+                <div class="PrintP">
+                    <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                </div>
+                <table class="table table-bordered table-hover table-responsive-sm table-striped SubH" id="tblcustomers">
+                    <thead>
+                        <tr>
+                            <th colspan="18"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+                        </tr>
+                        <tr>
+                            <th class="titleAccountofficeReport" colspan="18">@Localizer["Daily Suppliers Cash Transaction Report-Account Office"]</th>
+                        </tr>
+                        <tr>
+                            <th class="text-left" colspan="18"> 04/05/2021  : <span class="">@Localizer["Date"]</span> </th>
+                        </tr>
+                        <tr>
+                            <th rowspan="2" colspan="2" scope="col">@Localizer["Action"]</th>
+                            <th scope="col" colspan="2" rowspan="2">@Localizer["Difference"]</th>
+                            <th scope="col" colspan="2">@Localizer["Suppliers Ledger"]</th>
+                            <th scope="col" colspan="2" rowspan="2">@Localizer["Balance"]</th>
+                            <th scope="col" colspan="2">@Localizer["Industry Ledger"]</th>
+                            <th scope="col" colspan="3" rowspan="2">@Localizer["Name Supplier"]</th>
+                            <th scope="col" colspan="3" rowspan="2">@Localizer["Date"]</th>
+                            <th rowspan="2" colspan="2">@Localizer["ID#"]</th>
+                        </tr>
+                        <tr>
+                            <th scope="col">@Localizer["Credit"]</th>
+                            <th scope="col"> @Localizer["Debit"]</th>
+                            <th scope="col">@Localizer["Credit"]</th>
+                            <th scope="col">@Localizer["Debit"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.suppliers)
+                        {
+                            teswp.ValueDate = @item.ValueDate;
+                            teswp.Remarks = @item.Remarks;
+                            teswp.SignPManager = @item.SignPManager;
+                            teswp.PManagerRemarks = @item.PManagerRemarks;
+                            teswp.SignGM = item.SignGM;
+                            teswp.GMRemarks = @item.GMRemarks;
+                            teswp.SignCeo = @item.SignCeo;
+                            teswp.CeoRemarks = @item.CeoRemarks;
+                            teswp.Status = item.Status;
+
+                            <tr>
+                                <td colspan="2">
+                                    <input type="button" value="Remove" onclick="Remove(this)" />
+                                </td>
+                                <td colspan="2" scope="row">@Html.DisplayFor(modelItem => item.Remarks)</td>
+                                <td scope="row">@Html.DisplayFor(modelItem => item.Cradit)</td>
+                                <td scope="row">@Html.DisplayFor(modelItem => item.Debit)</td>
+                                <td colspan="2" scope="row">@Html.DisplayFor(modelItem => item.Balance)</td>
+                                <td scope="row">@Html.DisplayFor(modelItem => item.bCradit)</td>
+                                <td scope="row">@Html.DisplayFor(modelItem => item.bDebit)</td>
+                                <td colspan="3" scope="row">@Html.DisplayFor(modelItem => item.Description)</td>
+                                <td colspan="3" scope="row">@Html.DisplayFor(modelItem => item.ValueDate)</td>
+                                <td colspan="2" scope="row">@Html.DisplayFor(modelItem => item.Id)</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="2"></th>
+                            <th colspan="2"><input type="text" id="Remarks" class="form-control" /></th>
+                            <th><input type="text" id="Cradit" class="form-control" /></th>
+                            <th><input type="text" id="Debit" class="form-control" /></th>
+                            <th colspan="2"><input type="text" id="Balance" class="form-control" /></th>
+                            <th><input type="text" id="bCradit" class="form-control" /></th>
+                            <th><input type="text" id="bDebit" class="form-control" /></th>
+                            <th colspan="3">
+                                <select id="Description" style="box-sizing:border-box;height:50px;width:170px;" class="form-control">
+                                    <option>@Localizer["Select Supplier Name"]</option>
+                                    <option>1:@Localizer["Meezan Bank Account"]</option>
+                                    <option>2:@Localizer["Punjab Bank Account"]</option>
+                                    <option>3:@Localizer["Petty Cash Account"]</option>
+                                    <option>4:@Localizer["Industry Mobile Balance"]</option>
+                                    <option>5:@Localizer["Asim Sahib Special Budget"]  </option>
+                                    <option>6:@Localizer["Employee Monthly Salary(Bank Account)"]  </option>
+                                    <option>7:@Localizer["Employee Monthly Salary(Internal Account)"]  </option>
+                                    <option>8:@Localizer["Social Security Fee"]  </option>
+                                    <option>9:@Localizer["EOBI Monthly Fee"]  </option>
+                                    <option>10:@Localizer["Industry Internet Package"]  </option>
+                                    <option>11:@Localizer["Industry Motorcycle Service"]  </option>
+                                    <option>12:@Localizer["Electric Material"]  </option>
+                                    <option>13:@Localizer["Accessory Material"] </option>
+                                    <option>14:@Localizer["Stationary Material"]  </option>
+                                    <option>15:@Localizer["Store Material"]  </option>
+                                    <option>16:@Localizer["Civil Work Material"]  </option>
+                                    <option>17:@Localizer["Industry Milk Bill"]  </option>
+                                    <option>18:@Localizer["Industry Electric Bill"]  </option>
+                                    <option>19:@Localizer["Transportation"]  </option>
+                                    <option>20:@Localizer["Staff Advance"]  </option>
+                                    <option>21:@Localizer["Staff Loan"]  </option>
+                                    <option>22:@Localizer["Accessory Repairing"]  </option>
+                                    <option>23:@Localizer["Mazdorii Labour"]  </option>
+                                    <option>24:@Localizer["Mutfarriq"]  </option>
+                                    <option>25:@Localizer["Internal Account Closing Balance Receipt"]  </option>
+                                    <option>26:@Localizer["Closing Balance + Bank"]  </option>
+                                    <option>27:@Localizer["Industry Kitchen Material"]  </option>
+                                    <option>28:@Localizer["Petty Cash Expense(Internal Account)"]</option>
+                                    <option>29:@Localizer["Gate Pass Expense"]  </option>
+                                    <option>30:@Localizer["Rafiq Iron(MianChannu)"] </option>
+                                    <option>31:@Localizer["Salamat Paint House"]  </option>
+                                    <option>32:@Localizer["Bhutta Agro Hardware(MianChannu)"]  </option>
+                                    <option>33:@Localizer["Nadeem Jawaid Bearing(MianChannu)"]  </option>
+                                    <option>34:@Localizer["Ali Sanitary Store(MianChannu)"]  </option>
+                                    <option>35:@Localizer["Rooba digital(MianChannu)"]  </option>
+                                    <option>36:@Localizer["Saeed Electric Store(MianChannu)"]  </option>
+                                    <option>37:@Localizer["Ayoub Petrolium Service(Tulamba)"]</option>
+                                    <option>38:@Localizer["Sadiq Aluminium(MakdoomPur)"]  </option>
+                                    <option>39:@Localizer["Khursheed Iron Store(MianChannu)"]  </option>
+                                    <option>40:@Localizer["Mughal Iron Store(Tulamba)"]  </option>
+                                    <option>41:@Localizer["Tariq Autos(Tulamba)"]  </option>
+                                    <option>42:@Localizer["Live Up Water Supply(Tulamba)"]  </option>
+                                    <option>43:@Localizer["Mughal Interiors(CNC Plasma Machine)"]  </option>
+
+                                </select>
+                            </th>
+                            <th colspan="3"><input type="date" style="width: 90%; box-sizing: border-box;" class="form-control" id="ValueDate"></th>
+
+                            <th colspan="2">
+                                <button type="button" id="btnAdd" value="Add" class="btn btn-primary form-control">@Localizer["Add Row"]</button>
+                            </th>
+                        </tr>
+                        <tr id="total">
+                            <th colspan="2" scope="row" id="t1"></th>
+                            <th colspan="2" scope="row" id="t4"></th>
+                            <th scope="row" id="t5"></th>
+                            <th scope="row" id="t6"></th>
+                            <th colspan="2" scope="row" id="t7"></th>
+                            <th scope="row" id="t8"></th>
+                            <th scope="row" id="t9"></th>
+                            <th colspan="8" scope="row">@Localizer["Total"]</th>
+                        </tr>
+                        @*sign table start here*@
+                        <tr>
+                            <th colspan="18">@Localizer["Signature"]</th>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="6">@Localizer["Account Manager"]</th>
+                            <th colspan="6">@Localizer["D.G.M"]</th>
+                            <th colspan="6">@Localizer["G.M"]</th>
+                        </tr>
+                        <tr>
+                            <td colspan="6">
+                                @Localizer["Signature"]:
+                                <input type="text" id="txtpmsign" name="txtpmsign" value="@teswp.SignPManager" class="form-control" />
+                                @Localizer["Remarks"]:
+                                <input type="text" id="txtpmremarks" name="txtpmremarks" value="@teswp.PManagerRemarks" class="form-control" />
+                            </td>
+                            <td colspan="6">
+                                @Localizer["Signature"]:
+                                <input type="text" id="txtgmsign" name="txtgmsign" class="form-control" value="@teswp.SignGM" />
+                                @Localizer["Remarks"]:
+                                <input type="text" id="txtgmremarks" name="txtgmremarks" value="@teswp.GMRemarks" class="form-control" />
+                            </td>
+                            <td colspan="6">
+                                @Localizer["Signature"]:
+                                <input type="text" id="txtceosign" name="txtceosign" class="form-control" value="@teswp.SignCeo" />
+                                @Localizer["Remarks"]:
+                                <input type="text" id="txtceoremarks" name="txtceoremarks" class="form-control" value="@teswp.CeoRemarks" />
+                                @*<input  type="text" id="status" name="status" class="form-control" value="@teswp.Status" />*@
+                            </td>
+                        </tr>
+
+                        @*sign table end here*@
+                        <tr>
+                            <td scope="row" colspan="18" class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="btn btn-primary btn-sm btn-block form-control" id="btnSave" value="Save All"><i class="fas fa-save"></i>   Save All Rows</button>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore"></i> @Localizer["Clear Sheet"]</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tfoot>
+                </table>
+
+            </form>
+        </div>
+    </div>
+</body>
+<!-- back to top button-->
+<a id="button"></a>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+        $("body").ready(function () {
+
+            debugger;
+            var paidAmount = 0, clearedAmount = 0, lnClearedAmount = 0, remainingGained = 0, surplus = 0, income = 0;
+            var pOnline = 0, pOrder = 0;
+            $("#tblcustomers TBODY TR").each(function () {
+                var row = $(this);
+
+
+                paidAmount += parseInt(row.find("TD").eq(1).text());
+                clearedAmount += parseInt(row.find("TD").eq(3).text());
+                lnClearedAmount += parseInt(row.find("TD").eq(4).text());
+                remainingGained += parseInt(row.find("TD").eq(5).text());
+                surplus += parseInt(row.find("TD").eq(6).text());
+                pOnline += parseInt(row.find("TD").eq(7).text());
+
+            });
+            $("#total #t10").append(paidAmount);
+            $("#total #t11").append(clearedAmount);
+            $("#total #t12").append(lnClearedAmount);
+            $("#total #t9").append(remainingGained);
+            $("#total #t8").append(surplus);
+            $("#total #t7").append(pOnline);
+        });
+
+
+
+        $("body").on("click", "#btnAdd", function () {
+
+
+
+
+            //Reference the Name and Country TextBoxes.
+            var Remarks = $("#Remarks");
+            var Cradit = $("#Cradit");
+            var Debit = $("#Debit");
+            var Balance = $("#Balance");
+            var bCradit = $("#bCradit");
+            var bDebit = $("#bDebit");
+            var Description = $("#Description");
+            var ValueDate = $("#ValueDate");
+            //Get the reference of the Table's TBODY element.
+            var tBody = $("#tblcustomers > TBODY")[0];
+
+            //Add Row.
+            var row = tBody.insertRow(-1);
+
+            var cell = $(row.insertCell(-1));
+            //Add Button cell.
+            var btnRemove = $("<input />");
+            btnRemove.attr("type", "button");
+            btnRemove.attr("onclick", "Remove(this);");
+            btnRemove.val("Remove");
+            cell.attr('colspan', 2);
+
+            cell.html(btnRemove);
+
+
+
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 2);
+            cell.html(Remarks.val());
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 0);
+
+            cell.html(Cradit.val());
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 0);
+
+            cell.html(Debit.val());
+
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 2);
+
+            cell.html(Balance.val());
+
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 0);
+
+            cell.html(bCradit.val());
+
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 0);
+
+            cell.html(bDebit.val());
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 3);
+
+            cell.html(Description.val());
+
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 3);
+
+            cell.html(ValueDate.val());
+
+
+
+        });
+
+        function Remove(button) {
+            //Determine the reference of the Row using the Button.
+            var row = $(button).closest("TR");
+            var name = $("TD", row).eq(0).html();
+            if (confirm("Do you want to delete: " + name)) {
+                //Get the reference of the Table.
+                var table = $("#tblcustomers")[0];
+
+                //Delete the Table row using it's Index.
+                table.deleteRow(row[0].rowIndex);
+            }
+        };
+
+
+        $("body").on("click", "#btnSave", function () {
+                //Loop through the Table rows and build a JSON array.
+                var dateV= '@Model.date.ToString("yyyy-MM-dd")';
+                var DailySuppliers = new Array();
+            $("#tblcustomers TBODY TR").each(function () {
+                var txtremarks = $("#txtremarks");
+                var txtpmsign = $("#txtpmsign");
+                var txtpmremarks = $("#txtpmremarks");
+                var txtgmsign = $("#txtgmsign");
+                var txtgmremarks = $("#txtgmremarks");
+                var txtceosign = $("#txtceosign");
+                var txtceoremarks = $("#txtceoremarks");
+                var status = $("#status");
+                var delrepo = $("#delrepo");
+                var delpro = $("#delpro");
+                var delgm = $("#delgm");
+                var delceo = $("#delceo");
+                    var row = $(this);
+                var DailySupplier = {};
+
+                DailySupplier.DelRepo = delrepo.val();
+                DailySupplier.DelProduction = delpro.val();
+                DailySupplier.DelGm = delgm.val();
+                DailySupplier.DelCeo = delceo.val();
+
+                DailySupplier.Remarks = txtremarks.val();
+                DailySupplier.SignPManager = txtpmsign.val();
+                DailySupplier.PManagerRemarks = txtpmremarks.val();
+                DailySupplier.SignGM = txtgmsign.val();
+                DailySupplier.GMRemarks = txtgmremarks.val();
+                DailySupplier.SignCeo = txtceosign.val();
+                DailySupplier.CeoRemarks = txtceoremarks.val();
+                DailySupplier.Status = status.val();
+                DailySupplier.Title = "A";
+
+                DailySupplier.ValueDate = row.find("TD").eq(8).text();
+                DailySupplier.Description = row.find("TD").eq(7).text();
+                DailySupplier.bDebit = row.find("TD").eq(6).text();
+                DailySupplier.bCradit = row.find("TD").eq(5).text();
+                DailySupplier.Balance = row.find("TD").eq(4).text();
+                DailySupplier.Debit = row.find("TD").eq(3).text();
+                DailySupplier.Cradit = row.find("TD").eq(2).text();
+                DailySupplier.Remarks = row.find("TD").eq(1).text();
+
+                    DailySuppliers.push(DailySupplier);
+                });
+
+                //Send the JSON array to Controller using AJAX.
+                $.ajax({
+                    type: "POST",
+                    url: "/Gm/DailyAccountReport/InsertSuppliers",
+                    data: { data: DailySuppliers, id: dateV },
+                    success: function (r) {
+                        alert(r + " record(s) inserted.");
+                        window.location.replace("/Gm/DailyAccountReport/AllDailyAccountsReports");
+                    }
+                });
+            });
+
+            $("body").on("click", "#btnSavee", function () {
+                //Send the JSON array to Controller using AJAX.
+
+                var data = "hamza";
+
+                $.ajax({
+                    type: "POST",
+                    url: "/aDailyCashes/insert",
+                    data: { data: "test" },
+                    success: function (r) {
+                        alert(r + " record(s) inserted.");
+                    }
+                });
+            });
+
+
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*  Css for BackToList Button----*/
+    .BackToList {
+        width: 150px;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

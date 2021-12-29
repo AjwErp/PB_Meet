@@ -1,0 +1,242 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "TrialBalanceAccountOffice";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+@*This HTML for ::Monthly Acconts Reports ::*@
+
+<br />
+<body>
+    <div class="container-fluid backgroundWhiteBorder10Padding">
+        <div class="row">
+            <form class="col-sm-12">
+                <div class="BackToList">
+                    <a type="button" asp-action="AccountsMonthlyYearlyReports" asp-area="Account" asp-controller="AccountsMonthlyYearly" class="btn btn-primary btn-lg form-control"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
+                </div>
+                <div class="PrintP">
+                    <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                </div>
+
+                @*main table*@
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered table-sm SubH" id="tblcustomers">
+                        <thead>
+                            <tr>
+                                <th colspan="16"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+                            </tr>
+                            <tr>
+                                <th class="titleAccountofficeReport" colspan="16">@Localizer["Monthly Account Office Trial Balance Report"]</th>
+                            </tr>
+                            <tr>
+                                <th class="text-left" colspan="16"><input type="text" id="" placeholder="Enter Date Like 2021-11-25" style="width:200px;height:40px;" class="form-control" /> </th>
+                            </tr>
+                            <tr>
+                                <th colspan="2">@Localizer["Action"]</th>
+                                <th colspan="2">@Localizer["Credit"]</th>
+                                <th colspan="2">@Localizer["Debit"]</th>
+                                <th colspan="2">@Localizer["Page"]</th>
+                                <th colspan="6">@Localizer["Description"]</th>
+                                <th colspan="2">@Localizer["ID#"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-remove"></i> @Localizer["Remove Row"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td colspan="2"> <input type="text" id="debit" class="form-control" /></td>
+                                <td colspan="2"> <input type="text" id="debit" class="form-control" /></td>
+                                <td colspan="2"> <input type="text" id="debit" class="form-control" /></td>
+                                <td colspan="6">
+                                    <textarea type="text" id="desc" class="form-control textarea"> Add Description----</textarea>
+                                </td>
+                                <td colspan="2">01</td>
+                            </tr>
+                            
+
+                            <tr>
+                                <th colspan="2"></th>
+                                <th colspan="2"></th>
+                                <th colspan="2">87710</th>
+                                <th colspan="2">87710</th>
+                                <th colspan="8">Internal Account Cash Receive & Expense</th>
+                            </tr>
+                            <tr>
+                                <td colspan="16">
+                                    <button type="button" class="btn btn-primary btn-sm btn-block form-control" id="btnSave" value="Save All"><i class="fas fa-save"></i>   Save All Rows</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+
+                            <tr>
+                                <th colspan="16">@Localizer["Signature"]</th>
+                            </tr>
+                            <tr>
+                                <th colspan="6">@Localizer["Account Manager"]</th>
+                                <th colspan="4">@Localizer["D.G.M"]</th>
+                                <th colspan="6">@Localizer["G.M"]</th>
+                            </tr>
+                            <tr>
+                                <td colspan="6">
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="paidAmount" class="form-control" />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="paidAmount" class="form-control" />
+                                </td>
+                                <td colspan="4">
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="paidAmount" class="form-control" />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="paidAmount" class="form-control" />
+                                </td>
+                                <td colspan="6">
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="paidAmount" class="form-control" />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="paidAmount" class="form-control" />
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="16" class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-save"></i> @Localizer["Save File"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore-alt"></i> @Localizer["Clear"]</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+<!-- back to top button-->
+<a id="button"></a>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*  Css for BackToList Button----*/
+    .BackToList {
+        width: 150px;
+    }
+
+    .textarea {
+        height: 60px;
+    }
+    /*Mostly USes Css Classes userprofile/footer/backtolist/table/backtotopbtn/smallheading/subh/print --for Accounts Department- start*/
+    .Title {
+        font-size: xx-large;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+        color: black;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

@@ -1,0 +1,883 @@
+﻿@model DailyMeezan
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "AllDailyAccountsReports";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+<br />
+<body>
+    <div class="container-fluid backgroundWhiteBorder10Padding AccountofficeReport">
+        <div class="row">
+            <form class="tabled col-sm-12 SubH">
+                <div class="topbtnlist col-sm-12">
+                    @*<a class="logo font-weight-bold font-weight-bolder">*@
+                    <div class="btn-group">
+                        <a href="#DCR">       <button type="button" class="btn btn-outline-dark"> جاری رپورٹ</button></a>
+                        <a href="#DTR">          <button type="button" class="btn btn-outline-dark">ٹرانزیکشن رپورٹ</button></a>
+                        <a href="#DMIER">      <button type="button" class="btn btn-outline-dark">میزان بینک آمدنی/اخراجات رپورٹ</button></a>
+                        <a href="#DCCR">    <button type="button" class="btn btn-outline-dark">کیش کلوزنگ رپورٹ</button></a>
+                        @*<a href="#DMIEVR">    <button type="button" class="btn btn-outline-dark">میزان بینک انکم/ایکسپینس واؤچر</button></a>*@
+                        <a href="#DCCVR">  <button type="button" class="btn btn-outline-dark">کیش کلوزنگ واؤچر</button></a>
+                        <a href="#DGLR">   <button type="button" class="btn btn-outline-dark">جنرل لیجر رپورٹ</button></a>
+                        <a href="#DSCTR"> <button type="button" class="btn btn-outline-dark">سپلائر کیش رپورٹ</button></a>
+                    </div>
+                    @*</a>*@
+                </div>
+                <hr />
+                <div class="header col-sm-12">
+                    <a class="logo font-weight-bold font-weight-bolder">@Localizer["Accounts Daily Reports List"] </a>
+                </div>
+                <hr />
+                @*----------1----------Start------------Daily Continue accounts Reports List----------------------------------*@
+                <hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary " asp-area="Account" asp-controller="DailyAccountReport" asp-action="DailyContinueReport"><i class="fas fa-plus"> @Localizer["Create New Daily Continue Report"]</i> </a>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <a class="titleAccountofficeReport" id="DCR" colspan="10">@Localizer["Daily Continue Report List-Account Office"]</a>
+                </div>
+                <table class="table table-bordered" id="DCReport">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.aDailyCashes)
+                        {
+                        <tr>
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+
+                                        <a class="dropdown-item"  asp-action="IndexByName" asp-route-id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="IndexByName" asp-route-id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item " asp-action="SendToDgmOffice" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports"><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
+                                        @*<a class="btn btn-primary text-white" asp-action="IndexByName" asp-route-id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-success text-white" asp-action="IndexByName" asp-route-id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
+                                            <i class="fas fa-list-alt"></i>
+                                        </a>
+                                        <a class="btn btn-danger text-white" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                        <a class="btn btn-danger text-white" asp-action="SendToDgmOffice" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
+                                            <i class="fad fa-paper-plane"></i>
+                                        </a>*@
+                                    </div>
+                                </div>
+                            </td>
+                            @*<div class="dropdown-menu">
+                                <a class="dropdown-item" asp-action="AdminLawBook" asp-controller="SupportGuideAdmin" asp-area="Admin" asp-route-id="" asp-route-title="" asp-route-date=""><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                <a class="dropdown-item" asp-action="AdminLawBook" asp-controller="SupportGuideAdmin" asp-area="Admin" asp-route-id="@item.department" asp-route-title="@item.title" asp-route-date="@item.Date" asp-route-flag="1"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                <a class="dropdown-item" asp-action="DeleteLawBook" asp-controller="SupportGuideAdmin" asp-area="Admin" asp-route-id="@item.department" asp-route-title="@item.title" asp-route-date="@item.Date"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                <a class="dropdown-item " asp-action="AdminLawBookListCreatePDF" asp-controller="SupportGuideAdmin" asp-area="Admin" asp-route-id="@item.department" asp-route-title="@item.title" asp-route-date="@item.Date"><i class="fas fa-file-download"></i> @Localizer["Download"]</a>
+                            </div>*@
+                            @*<td scope="row" style="width:150px">
+
+            <div class="btn-group" role="group">
+                <a class="btn btn-primary text-white" asp-action="IndexByName" asp-route-id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a class="btn btn-success text-white" asp-action="IndexByName" asp-route-id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
+                    <i class="fas fa-list-alt"></i>
+                </a>
+                <a class="btn btn-danger text-white" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+                <a class="btn btn-danger text-white" asp-action="SendToDgmOffice" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
+                    <i class="fad fa-paper-plane"></i>
+                </a>
+            </div>
+        </td>*@
+                            <td class="text-center" scope="col">@item.ValueDate </td>
+                            <td class="text-center" scope="col">Daily Cash Continue Report</td>
+                            <td class="text-center" scope="col">@item.Id</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                @*---------------1-------Ended------------ Daily Continue Report List --Account Office----------------------------------------------------------------*@
+
+
+                @*-------------2---------start------------ Daily Transaction Report List --Account Office----------------------------------------------------------------*@
+                <hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary" asp-area="Account" asp-controller="DailyAccountReport" asp-action="DailyTransactionReport"><i class="fas fa-plus"> @Localizer["Create New Daily Transaction Report"]</i> </a>
+                </div>
+                <br />
+
+                <div class="col-sm-12 text-center">
+                    <a class="titleAccountofficeReport" id="DTR" colspan="10">@Localizer["Daily Transaction Report List-Account Office"]</a>
+                </div>
+
+                <table class="table table-bordered" id="DTReport">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.aDailyCashes)
+                        {
+                        <tr>
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+
+                                        <a class="dropdown-item" asp-action="TransactionSheet" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="TransactionSheet" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item " asp-action="SendToDgmOffice" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports"><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
+                                        @*<a class="btn btn-primary text-white" asp-action="TransactionSheet" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-success text-white" asp-action="TransactionSheet" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
+                                            <i class="fas fa-list-alt"></i>
+                                        </a>
+                                        <a class="btn btn-danger text-white" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>*@
+
+                                    </div>
+                                </div>
+                            </td>
+                            @*<td scope="row" style="width:150px">
+
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-primary text-white" asp-action="TransactionSheet" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a class="btn btn-success text-white" asp-action="TransactionSheet" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
+                                        <i class="fas fa-list-alt"></i>
+                                    </a>
+                                    <a class="btn btn-danger text-white" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </td>*@
+                            <td class="text-center" scope="col">@item.ValueDate </td>
+                            <td class="text-center" scope="col">Daily Cash Transaction Report</td>
+                            <td class="text-center" scope="col">@item.Id</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+
+                @*---------------2-------ended------------ Daily Transaction Report List --Account Office----------------------------------------------------------------*@
+
+                @*---------------3-------Start------------ Daily Meezan Bank IE Report List --Account Office----------------------------------------------------------------*@
+                <hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary" asp-area="Account" asp-controller="DailyAccountReport" asp-action="DailyMeezanBankIEReport"><i class="fas fa-plus"> @Localizer["Create New Daily Meezan Bank Income/Expence Report"]</i> </a>
+                </div>
+                <br />
+
+                <div class="col-sm-12 text-center">
+                    <a class="titleAccountofficeReport" id="DMIER" colspan="10">@Localizer["Daily Meezan Bank Income/Expense Report-Account Office"]</a>
+                </div>
+                <br />
+                <table class="table table-bordered" id="DMBIEReport">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Bank)
+                        {
+                        <tr class="tabbody SubH">
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="DailyMeezanBankIEReport2" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="DailyMeezanBankIEReport2" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="DeleteMeezanSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="MeezanbankReportList"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item " asp-action="SendToDgmOfficeMeezan" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect=""><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
+                                        @*<a class="btn btn-primary text-white" asp-action="DailyMeezanBankIEReport2" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-success text-white" asp-action="DailyMeezanBankIEReport2" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
+                                            <i class="fas fa-list-alt"></i>
+                                        </a>
+                                        <a class="btn btn-danger text-white" asp-action="DeleteMeezanSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="MeezanbankReportList">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                        <a class="btn btn-danger text-white" asp-action="SendToDgmOfficeBank1" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>*@
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-center" scope="row" >@item.ValueDate</td>
+                            <td class="text-center " scope="row" >Daily Meezan Bank IE Report</td>
+                            <td class="text-center" scope="row">@item.Id</td>
+                        </tr>
+                        }
+                        </tbody>
+                </table>
+
+                @*----------3------------ended------------ Daily Meezan Bank IE Report List --Account Office----------------------------------------------------------------*@
+
+                @*----------4------------start------------ Daily Punjab Bank IE Report List --Account Office----------------------------------------------------------------*@
+                @*<hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary" asp-area="Account" asp-controller="DailyAccountReport" asp-action="DailyPunjabBankIEReport"><i class="fas fa-plus"> @Localizer["Create New Daily Punjab Bank Income/Expence Report"]</i> </a>
+                </div>
+                <br />
+
+                <div class="col-sm-12 text-center">
+                    <a class="titleAccountofficeReport" scope="col" colspan="10">@Localizer["Daily Punjab Bank Income/Expense Report-Account Office"]</a>
+                </div>
+                <br />
+                <table class="table table-bordered" id="DBOPBIEReport">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tabbody SubH">
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td> </td>
+                            <td>@Localizer["Daily Punjab Bank Income/Expense Report"] </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>*@
+                @*----------4------------ended------------ Daily Punjab Bank IE Report List --Account Office----------------------------------------------------------------*@
+
+                @*-----------5-----------Start------------ Daily Cash Closing Report List --Account Office----------------------------------------------------------------*@
+                <hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary" asp-area="Account" asp-controller="DailyAccountReport" asp-action="DailyCashClosingReport"><i class="fas fa-plus"> @Localizer["Create New Daily Cash Closing Report-Account Office"]</i> </a>
+                </div>
+                <br />
+
+                <div class="col-sm-12 text-center">
+                    <a class="titleAccountofficeReport" id="DCCR" colspan="10">@Localizer["Daily Cash Closing Report-Account Office"]</a>
+                </div>
+                <br />
+                <table class="table table-bordered" id="DCCReport">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.aDailyCashes)
+                        {
+                        <tr>
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="BnkIndex" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="BnkIndex" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item " asp-action="" asp-route-remarks="" asp-route-redirect=""><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
+                                        @*<a class="dropdown-item" asp-action="BnkIndex" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
+                                            <i class="fas fa-edit">Edit</i>
+                                        </a>
+                                        <a class="dropdown-item" asp-action="BnkIndex" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
+                                            <i class="fas fa-list-alt">View</i>
+                                        </a>
+                                        <a class="dropdown-item" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
+                                            <i class="fas fa-trash-alt">Delete</i>
+                                        </a>*@
+                                    </div>
+                                </div>
+                            </td>
+                            @*<td scope="row" style="width:150px">
+
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-primary text-white" asp-action="BnkIndex" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a class="btn btn-success text-white" asp-action="BnkIndex" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
+                                        <i class="fas fa-list-alt"></i>
+                                    </a>
+                                    <a class="btn btn-danger text-white" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </td>*@
+                            <td class="text-center" scope="col">@item.ValueDate </td>
+                            <td class="text-center" scope="col">Daily Cash Closing Report</td>
+                            <td class="text-center" scope="col">@item.Id</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                @*-------------5---------ended------------ DailyCash Closing Report List --Account Office----------------------------------------------------------------*@
+
+                @*----------6------------Start------------ Daily Meezan Bank IE Voucher Report List --Account Office----------------------------------------------------------------*@
+                @*<hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary" asp-area="Account" asp-controller="DailyAccountReport" asp-action="DailyMeezanBankVoucherReport"><i class="fas fa-plus"> @Localizer["Create New Daily Meezan Bank Income-Expence Voucher Report"]</i> </a>
+                </div>
+                <br />
+
+                <div class="col-sm-12 text-center">
+                    <a class="titleAccountofficeReport" id="DMIEVR" colspan="10">@Localizer["Daily Meezan Bank Income/Expense Voucher Report List-Account Office"]</a>
+                </div>
+                <br />
+                <table class="table table-bordered" id="DMBVReport">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.BankVo)
+                        {
+                            <tr class="Subhdr SubH">
+
+                                <td class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                            <a class="dropdown-item" asp-action="DailyMeezanBankVoucherReport" asp-route-id="@item.dateTime.ToString("yyyy-MM-dd")" asp-route-hide="true"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                            <a class="dropdown-item" asp-action="DeleteMeezanVSheet"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <th>@item.dateTime </th>
+                                <th>@Localizer["Daily Meezan Bank Income-Expense Voucher Report"] </th>
+                                <th>@item.Id</th>
+                            </tr>
+                        }
+                        </tbody>
+                </table>*@
+                @*---------6-------------ended------------ Daily Meezan Bank IE Voucher Report List --Account Office----------------------------------------------------------------*@
+
+                @*-----------7-----------Start------------ Daily Punjab Bank IE Voucher Report List --Account Office----------------------------------------------------------------*@
+                @*<hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary" asp-area="Account" asp-controller="DailyAccountReport" asp-action="DailyPunjabBankVoucherReport"><i class="fas fa-plus"> @Localizer["Create New Daily Punjab Bank Income-Expence Voucher Report"]</i> </a>
+                </div>
+                <br />
+
+                <div class="col-sm-12 text-center">
+                    <a class="titleAccountofficeReport" colspan="10">@Localizer["Daily Punjab Bank Income/Expense Voucher Report List-Account Office"]</a>
+                </div>
+                <br />
+                <table class="table table-bordered" id="DPBVReport">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tabbody SubH">
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <th></th>
+                            <th>@Localizer["Daily Punjab Bank Income-Expense Voucher Report"] </th>
+                            <th></th>
+                        </tr>
+                    </tbody>
+                </table>*@
+                @*--------------7--------ended------------ Daily Punjab Bank Income-Expence Voucher Report List --Account Office----------------------------------------------------------------*@
+
+                @*--------------8--------Start------------ Daily Cash Closing Voucher Report List --Account Office----------------------------------------------------------------*@
+                <hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary" asp-area="Account" asp-controller="DailyAccountReport" asp-action="DailyClosingVoucherReport"><i class="fas fa-plus"> @Localizer["Create New Daily Cash Closing Voucher Report"]</i> </a>
+                </div>
+                <br />
+
+                <div class="col-sm-12 text-center">
+                    <a class="titleAccountofficeReport" id="DCCVR" colspan="10">@Localizer["Daily Cash Closing Voucher Report List-Account Office"]</a>
+                </div>
+                <br />
+                <table class="table table-bordered" id="DCCVReport">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.aDailyCashes)
+                        {
+                        <tr>
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="closngVoucher" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="closngVoucher" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item " asp-action="" asp-route-remarks="" asp-route-redirect=""><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
+                                        @*<a class="btn btn-primary text-white" asp-action="closngVoucher" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-success text-white" asp-action="closngVoucher" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
+                                            <i class="fas fa-list-alt"></i>
+                                        </a>
+                                        <a class="btn btn-danger text-white" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>*@
+
+                                    </div>
+                                </div>
+                            </td>
+                            @*<td scope="row" style="width:150px">
+
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-primary text-white" asp-action="closngVoucher" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a class="btn btn-success text-white" asp-action="closngVoucher" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
+                                        <i class="fas fa-list-alt"></i>
+                                    </a>
+                                    <a class="btn btn-danger text-white" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </td>*@
+                            <td class="text-center" scope="col">@item.ValueDate </td>
+                            <td class="text-center" scope="col">Daily Cash Closing Voucher Report</td>
+                            <td class="text-center" scope="col">@item.Id</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                @*------------8----------ended------------ Daily Cash Closing Voucher Report List --Account Office----------------------------------------------------------------*@
+
+                @*-----------9-----------Start------------ Daily General Ledger Report List --Account Office----------------------------------------------------------------*@
+                <hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary" asp-area="Account" asp-controller="DailyAccountReport" asp-action="DailyGeneralLedgerReport2"><i class="fas fa-plus"> @Localizer["Create New Daily General Ledger Report"]</i> </a>
+                </div>
+                <br />
+
+                <div class="col-sm-12 text-center">
+                    <a class="titleAccountofficeReport" id="DGLR" colspan="10">@Localizer["Daily General Ledger Report List-Account Office"]</a>
+                </div>
+                <br />
+                <table class="table table-bordered" id="DGLReport">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.aDailyCashes)
+                        {
+                        <tr>
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="DailyGeneralLedgerReport" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="DailyGeneralLedgerReport" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item " asp-action="" asp-route-remarks="" asp-route-redirect=""><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
+                                        @*<a class="btn btn-primary text-white" asp-action="DailyGeneralLedgerReport" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-success text-white" asp-action="DailyGeneralLedgerReport" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
+                                            <i class="fas fa-list-alt"></i>
+                                        </a>
+                                        <a class="btn btn-danger text-white" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>*@
+
+                                    </div>
+                                </div>
+                            </td>
+                            @*<td scope="row" style="width:150px">
+
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-primary text-white" asp-action="DailyGeneralLedgerReport" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a class="btn btn-success text-white" asp-action="DailyGeneralLedgerReport" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
+                                        <i class="fas fa-list-alt"></i>
+                                    </a>
+                                    <a class="btn btn-danger text-white" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </td>*@
+                            <td class="text-center" scope="col">@item.ValueDate </td>
+                            <td class="text-center" scope="col">Daily General Ledger Report</td>
+                            <td class="text-center" scope="col">@item.Id</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                @*--------------9--------ended------------ Daily General Ledger Report List --Account Office----------------------------------------------------------------*@
+
+                @*---------10-------------Start------------ Daily Supplier Report List --Account Office----------------------------------------------------------------*@
+                <hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary" asp-area="Account" asp-controller="DailyAccountReport" asp-action="DailySuppliersCashTransactionReport"><i class="fas fa-plus"> @Localizer["Create New Daily Suppliers Cash Transaction Report"]</i> </a>
+                </div>
+                <br />
+                <a></a>
+                <div class="col-sm-12 text-center">
+                    <a class="titleAccountofficeReport" id="DSCTR" colspan="10"><h3 id="D"></h3>@Localizer["Daily Suppliers Cash Transaction Report List-Account Office"]</a>
+                </div>
+                <br />
+                <table class="table table-bordered" id="DSCTReport">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.dSuppliers)
+                        {
+                        <tr>
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+
+                                        <a class="dropdown-item" asp-action="DailySuppliersCashTransactionReport2" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="DailySuppliersCashTransactionReport2" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="DeleteSuppliersSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item" asp-action="SendToDgmOfficeSupplier" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports"><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
+                                        @*<a class="btn btn-primary text-white" asp-action="DailySuppliersCashTransactionReport2" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-success text-white" asp-action="DailySuppliersCashTransactionReport2" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
+                                            <i class="fas fa-list-alt"></i>
+                                        </a>
+                                        <a class="btn btn-danger text-white" asp-action="DeleteSuppliersSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                        <a class="btn btn-danger text-white" asp-action="SendToDgmOfficeSupplier" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
+                                            <i class="fad fa-paper-plane"></i>
+                                        </a>*@
+                                    </div>
+                                </div>
+                            </td>
+                            @*<td scope="row" style="width:150px">
+
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-primary text-white" asp-action="DailySuppliersCashTransactionReport2" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a class="btn btn-success text-white" asp-action="DailySuppliersCashTransactionReport2" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
+                                        <i class="fas fa-list-alt"></i>
+                                    </a>
+                                    <a class="btn btn-danger text-white" asp-action="DeleteSuppliersSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                    <a class="btn btn-danger text-white" asp-action="SendToDgmOfficeSupplier" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
+                                        <i class="fad fa-paper-plane"></i>
+                                    </a>
+                                </div>
+                            </td>*@
+                            <td class="text-center" scope="col">@item.ValueDate </td>
+                            <td class="text-center" scope="col">Daily Supplier Cash Transaction Report</td>
+                            <td class="text-center" scope="col">@item.Id</td>
+                        </tr>
+                        }
+                        
+                    </tbody>
+                </table>
+                @*----------------------ended------------ Daily General Ledger Report List --Account Office----------------------------------------------------------------*@
+            </form>
+        </div>
+    </div>
+</body>
+<!-- back to top button-->
+<a id="button"></a>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#DMR').DataTable();
+        });
+        ////---------JS for Back To Top Button On Each Page------------------Start-------
+        var btn = $('#button');
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+
+        btn.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+        //----JS for Pagination and Datatables----------------Start----
+        $(document).ready(function () {
+            $('#DCReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        //-----------
+        $(document).ready(function () {
+            $('#DTReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        //-----------
+        $(document).ready(function () {
+            $('#DMBIEReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        //-----------
+        $(document).ready(function () {
+            $('#DBOPBIEReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        //-----------
+        $(document).ready(function () {
+            $('#DCCReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        //-----------
+        $(document).ready(function () {
+            $('#DMBVReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        //-----------
+        $(document).ready(function () {
+            $('#DPBVReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        //-----------
+        $(document).ready(function () {
+            $('#DCCVReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        //-----------
+        $(document).ready(function () {
+            $('#DGLReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        //-----------
+        $(document).ready(function () {
+            $('#DSCTReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+            //-----------
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+    /* Css for Heading on every Sheet of ccount office----*/
+    .header {
+        overflow: hidden;
+        padding: 10px 10px;
+        font-size: 40px;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+    }
+    /*//--CSS For Create button & Action Button of Each Page------start---------*/
+    .Createbtn {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: large;
+        text-align: right;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+
+    .Subhdr {
+        color: white;
+        text-align: center;
+        background-color: slategrey;
+    }
+    /* Css for Table Body on each page in Accounts----*/
+    .tabbody {
+        text-align: center;
+        color: black;
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*----Accounts All Daily Accounts Reportss--css--Start-------*/
+    .AccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: x-large;
+    }
+
+    .topbtnlist {
+        overflow: hidden;
+        padding: 1px 1px;
+        font-size: 40px;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

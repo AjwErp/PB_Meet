@@ -1,0 +1,139 @@
+﻿@*this code is for language transalator inject localizer--------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@*this code is for language transalator inject localizer--------------*@
+@model IEnumerable<AJWNoticeBoardHrm>
+
+@{
+    ViewData["Title"] = "CeoNoticeBoardList";
+    Layout = "~/Views/Shared/_LayoutCeo.cshtml";
+}
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+
+@*::This HTML for NoticeBoard List for CEO Office List::*@
+<br />
+<body>
+    <div class="container-fluid backgroundWhiteBorder10Padding border backgroundWhite">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center font-weight-bold"><img src="~/Image/1.png" alt="Image" width="100" height="100" /><br />@Localizer["AJW NOTIC BOARD LIST - C.E.O Office"]</h2>
+            </div>
+        </div>
+        <div>
+            <table id="NoticBoard" class="table table-striped border">
+                <thead>
+                    <tr class="Subhdr SubH">
+                        <th> @Localizer["Action"]</th>
+
+                        <th>
+                            @Localizer["Description"]
+                        </th>
+                        <th>
+                            @Localizer["Title"]
+                        </th>
+                        <th>
+                            @Localizer["Date"]
+                        </th>
+                        <th>
+                            @Localizer["ID#"]
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (AJWNoticeBoardHrm b in ViewBag.CeoNoticeBoard)
+                        {
+                            <tr class="SubH">
+                                <td class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Send to G.M Office"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Send to C.E.O Office"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to D.M.S"]</a>
+                                        </div>
+                                    </div>
+                                    @*<partial name="_TableButtonPartialDPIO" />*@
+                                </td>
+
+                                <td>
+                                    <textarea class="form-control"> @b.Description</textarea>
+                                </td>
+                                <td>
+                                    @b.Title
+                                </td>
+                                <td>
+                                    @b.Date
+                                </td>
+                                <td>
+                                    @b.Id
+                                </td>
+
+                            </tr>
+                        } }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+<!-- back to top button-->
+<a id="button"></a>
+
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#NoticBoard').DataTable();
+        });
+
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+
+    .Subhdr {
+        color: white;
+        text-align: center;
+        background-color: slategrey;
+        align-content: center;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+        /*    background-color:slategrey;
+    */
+    }
+
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+
+
+    th, td {
+        text-align: center;
+        padding: 8px;
+    }
+
+    .SubH {
+        /*  color: white;*/
+        text-align: center;
+        /*    background-color: slategrey;
+    */ font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

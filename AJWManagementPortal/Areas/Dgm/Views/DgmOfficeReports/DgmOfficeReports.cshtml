@@ -1,0 +1,380 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@*---Language Tranlator--Localizer*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "DgmOfficeReports";
+    Layout = "~/Views/Shared/_LayoutDgm.cshtml";
+}
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+
+
+@*::This HTML for DGM office reports for CEO office::*@
+<br />
+<body>
+    <div class="container-fluid backgroundWhiteBorder ">
+        <div class="row">
+            <form class="tabled col-sm-12 SubH">
+
+                <div class="topbtnlist col-sm-12">
+                    @*<a class="logo font-weight-bold font-weight-bolder">*@
+                    <div class="btn-group">
+                        <a href="#DR"><button type="button" class="btn btn-outline-dark">Daily Reports</button></a>
+                        <a href="#MR"><button type="button" class="btn btn-outline-dark">Monthly Reports</button></a>
+                        <a href="#YR"><button type="button" class="btn btn-outline-dark">Yearly Reports</button></a>
+                        <a href="#AR"><button type="button" class="btn btn-outline-dark">Audit Report</button></a>
+
+                        @*<button type="button" class="btn btn-dark">Right</button>*@
+                    </div>
+                    @*</a>*@
+                </div>
+                <hr />
+                <div class="header col-sm-12">
+                    <a class="logo font-weight-bold font-weight-bolder">@Localizer["All Reports By D.G.M Office To C.E.O Office"]</a>
+                </div>
+
+                @*--------------------Start------------Dgm Office Reports----------------------------------*@
+
+                <hr />
+                <hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary" asp-area="Dgm" asp-controller="DgmOfficeReports" asp-action="AllDepartmentDailyReportByDgmtoCeo"><i class="fas fa-plus"> @Localizer["Create New Daily Report By D.G.M To C.E.O"]</i> </a>
+                </div>
+                <br />
+                <div class="col-sm-12 text-center">
+                    <a class="TitleDgmOfficeReport" scope="col" id="DR" colspan="10">@Localizer["All Department Daily Reports By D.G.M To C.E.O List"]</a>
+                </div>
+                <br />
+
+                <table class="table table-bordered" id="DPReport">
+                    <thead>
+                        <tr class="Subhdr smallfontHeading">
+                            <th> @Localizer["Action"]</th>
+                            <th>@Localizer["Date"]</th>
+                            <th scope="col">@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        <tr class="tabbody SubH">
+                            <td class="actionbtn SubH">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send to G.M Office"]</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>@*@item.ValueDate*@ </td>
+                            <td>@Localizer["All Department Daily Report By D.G.M To C.E.O"]</td>
+                            <td>@*@item.Id*@</td>
+                        </tr>
+                        @*}*@
+
+                    </tbody>
+                </table>
+                @*--------------------ended------------Daily Reports PDF----------------------------------*@
+                @*--------------------sart------------Monthly Reports PDF----------------------------------*@
+                <hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary" asp-area="Dgm" asp-controller="DgmOfficeReports" asp-action="AllDepartmentMonthlyReportByDgmtoCeo"><i class="fas fa-plus"> @Localizer["Create New All Department Monthly Report"]</i> </a>
+                </div>
+                <br />
+                <div class="col-sm-12 text-center">
+                    <a class=" TitleDgmOfficeReport" scope="col" id="MR" colspan="10">@Localizer["All Department Monthly Report By D.G.M To C.E.O Office List"]</a>
+                </div>
+                <br />
+
+                <table class="table table-bordered" id="MPReport">
+                    <thead>
+                        <tr class="Subhdr smallfontHeading">
+                            <th>@Localizer["Action"]</th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tabbody SubH">
+                            <td class="actionbtn ">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send to G.M Office"]</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>@*@item.ValueDate*@ </td>
+                            <td>@Localizer["All Department Monthly Report By D.G.M To C.E.O"] </td>
+                            <td>@*@item.Id*@</td>
+                        </tr>
+                        @*}*@
+
+                    </tbody>
+                </table>
+
+
+                @*--------------------ended------------Monthly Reports PDF----------------------------------*@
+                @*--------------------start------------Yearly Reports PDF----------------------------------*@
+                <hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary " asp-area="Dgm" asp-controller="DgmOfficeReports" asp-action="AllDepartmentYearlyReportByDgmtoCeo"><i class="fas fa-plus"> @Localizer["Create New All Department Yearly Report"]</i> </a>
+                </div>
+                <br />
+                <div class="col-sm-12 text-center">
+                    <a class="TitleDgmOfficeReport" id="YR" colspan="10">@Localizer["All Department Yearly Report By D.G.M To C.E.O Office List"]</a>
+                </div>
+                <br />
+                <table class="table table-bordered" id="YPReport">
+                    <thead>
+                        <tr class="Subhdr smallfontHeading">
+                            <th>@Localizer["Action"]</th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tabbody SubH">
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send to G.M Office"]</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>@*@item.ValueDate*@ </td>
+                            <td>@Localizer["All Department Yearly Report By D.G.M To C.E.O"] </td>
+                            <td>@*@item.Id*@</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                @*--------------------ended------------Yearly Reports PDF----------------------------------*@
+                @*--------------------start------------Audit Reports PDF----------------------------------*@
+                <hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary " asp-area="Account" asp-controller="UploadAccountsPdfReport" asp-action="UploadPdfReport"><i class="fas fa-plus"> @Localizer["Create New D.G.M Office Audit Report"]</i> </a>
+                </div>
+                <br />
+                <div class="col-sm-12 text-center">
+                    <a class="TitleDgmOfficeReport" id="AR" colspan="10">@Localizer["D.G.M Office Audit Report List"]</a>
+                </div>
+                <br />
+                <table class="table table-bordered" id="APReport">
+                    <thead>
+                        <tr class="Subhdr smallfontHeading">
+                            <th>@Localizer["Action"]</th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tabbody SubH">
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send to G.M Office"]</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>@*@item.ValueDate*@ </td>
+                            <td>@Localizer["D.G.M Office Audit Report"] </td>
+                            <td>@*@item.Id*@</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            @*--------------------ended------------Audit Reports PDF----------------------------------*@
+        </div>
+    </div>
+</body>
+<a id="button"></a>
+
+
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#DPReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+
+        $(document).ready(function () {
+            $('#MPReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+
+
+        $(document).ready(function () {
+            $('#YPReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+
+
+        $(document).ready(function () {
+            $('#APReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    .TitleDgmOfficeReport {
+        color: white;
+        font-size: xx-large;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+        font-weight: bold;
+    }
+   
+
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+
+    .DgmLUBook {
+        text-align: right;
+        text-align: justify;
+        direction: rtl;
+    }
+
+    .titleLaw {
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .titleDgmRepositoryReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -50px;
+    }
+
+    /*page print css----*/
+
+    .header {
+        overflow: hidden;
+        padding: 10px 10px;
+        font-size: 40px;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+    }
+
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+
+    body {
+        font: 90%/1.45em "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        background-color: #fff;
+    }
+
+    .Createbtn {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: large;
+        text-align: right;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+
+
+
+    .Subhdr {
+        color: white;
+        text-align: center;
+        background-color: slategrey;
+    }
+
+    .tabbody {
+        text-align: center;
+        color: black;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .topbtnlist {
+        overflow: hidden;
+        padding: 1px 1px;
+        font-size: 40px;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@
+

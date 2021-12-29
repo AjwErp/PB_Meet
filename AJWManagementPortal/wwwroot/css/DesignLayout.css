@@ -1,0 +1,27 @@
+﻿body {
+    font-family: 'Jameel Noori Nastaleeq';
+}
+
+
+
+.ajwfooter {
+    font-size: x-small;
+    font-family: 'Jameel Noori Nastaleeq';
+}
+
+.lang_btn {
+    font-family: "ProximaNova";
+    color: #fff;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    background-color: #C82333;
+    text-transform: uppercase;
+    margin-top: 1.7%;
+    text-decoration: none !important;
+    width: 65px;
+    text-align: center;
+    height: 39px;
+    border: solid 1px #C82333;
+}
+

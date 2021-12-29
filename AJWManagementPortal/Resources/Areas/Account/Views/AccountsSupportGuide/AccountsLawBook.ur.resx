@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ACCOUNTS DEPARTMENT LAW BOOK" xml:space="preserve">
+    <value>اکاؤنٹس ڈیپارٹمنٹ لاء بک</value>
+  </data>
+  <data name="After completion of purchasing, all bills, cash vouchers and item orders have to be cleared by C.E.O" xml:space="preserve">
+    <value>خریداری مکمل ہونے کے بعد ، تمام بلز ، کیش واؤچرز اور آئٹم آرڈرز C.E.O کے ذریعہ صاف کرنا ہوں گے</value>
+  </data>
+  <data name="All checks will be approved through Debit Voucher. Approval will be given by C.E.O. The check book will be in the account office" xml:space="preserve">
+    <value>تمام چیکوں کو ڈیبٹ واؤچر کے توسط سے منظور کیا جائے گا۔ منظوری C.E.O کے ذریعہ دی جائے گی۔ چیک بک اکاؤنٹ آفس میں ہوگی</value>
+  </data>
+  <data name="All the expenses of the industry will be borne from the industry account and the amount will be transferred from the main account (bank account of the industry) to the internal account of the industry" xml:space="preserve">
+    <value>انڈسٹری کے تمام اخراجات انڈسٹری اکاؤنٹ سے اٹھائے جائیں گے اور یہ رقم مرکزی اکاؤنٹ (انڈسٹری کے بینک اکاؤنٹ) سے انڈسٹری کے داخلی اکاؤنٹ میں منتقل کردی جائے گی۔</value>
+  </data>
+  <data name="Any income of any kind in the industry will first be deposited in the mandatory bank and then used, there will be credit in the main account register, credit voucher will also be made" xml:space="preserve">
+    <value>انڈسٹری میں کسی بھی قسم کی کسی بھی آمدنی کو پہلے لازمی بینک میں جمع کیا جائے گا اور پھر استعمال کیا جائے گا ، مین اکاؤنٹ رجسٹر میں کریڈٹ ہوگا ، کریڈٹ واؤچر بھی بنایا جائے گا</value>
+  </data>
+  <data name="Anyone who takes an advance from the work industry will get his first advance voucher, which will also include his previous advance, installment and salary. Advance will be given after uploading the voucher from C.E.O. There will be entry in advance ledger" xml:space="preserve">
+    <value>جو بھی کام کی صنعت سے پیش قدمی کرے گا اسے اپنا پہلا ایڈوانس واؤچر ملے گا ، جس میں اس کی سابقہ پیشگی ، قسط اور تنخواہ بھی شامل ہوگی۔ ایڈوانس C.E.O سے واؤچر اپ لوڈ کرنے کے بعد دیا جائے گا۔ ایڈوانس لیجر میں انٹری ہوگی</value>
+  </data>
+  <data name="Daily closing of account department is mandatory. It is also important to check the Daily C.E.O" xml:space="preserve">
+    <value>روزانہ محکمہ اکاؤنٹ کی بندش لازمی ہے۔ ڈیلی سی ای او کو چیک کرنا بھی ضروری ہے</value>
+  </data>
+  <data name="Debit voucher for expenditure from Main Account, Industry Internal Account, Petty Cash Account and Credit Voucher for refill will be used which will be approved by C.E.O" xml:space="preserve">
+    <value>مین اکاؤنٹ ، انڈسٹری انٹرنل اکاؤنٹ ، پیٹی کیش اکاؤنٹ اور ریفئل کے لئے کریڈٹ واؤچر سے اخراجات کے لئے ڈیبٹ واؤچر استعمال کیا جائے گا جس کی منظوری C.E.O کے ذریعہ ہوگی۔</value>
+  </data>
+  <data name="Edit Number" xml:space="preserve">
+    <value>تر میم نمبر</value>
+  </data>
+  <data name="ID#" xml:space="preserve">
+    <value>نمبر شمار</value>
+  </data>
+  <data name="If cash is included with the gate pass and service order then there will be a photocopy of the gate pass and service order, the original bill, gate pass and service order will be closed by the account manager in daily closing and the photocopy will be put in his file by the concerned department" xml:space="preserve">
+    <value>اگر نقد گیٹ پاس اور سروس آرڈر کے ساتھ شامل ہے تو پھر گیٹ پاس اور سروس آرڈر کی فوٹو کاپی ہوگی ، اصل بل ، گیٹ پاس اور سروس آرڈر اکاؤنٹ منیجر کے ذریعہ روزانہ بند ہونے پر بند کردیئے جائیں گے اور فوٹو کاپی ڈال دی جائے گی۔ متعلقہ محکمہ نے اپنی فائل میں</value>
+  </data>
+  <data name="If cash is not included with the gate pass and service order, then the gate department and service order will be placed in the file only by the concerned department" xml:space="preserve">
+    <value>اگر گیٹ پاس اور سروس آرڈر کے ساتھ نقد رقم شامل نہیں کی گئی ہے ، تو گیٹ ڈپارٹمنٹ اور سروس آرڈر صرف متعلقہ محکمہ فائل میں رکھیں گے۔</value>
+  </data>
+  <data name="If the material purchased from the suppliers with whom the account is to be made, then the entry of the bill must also be made in the ledger of the suppliers" xml:space="preserve">
+    <value>اگر ان سپلائرز سے خریدا ہوا مال جن کے ساتھ اکاؤنٹ بننا ہے تو ، پھر بل کا اندراج بھی سپلائرز کے لیجر میں کرنا ہوگا</value>
+  </data>
+  <data name="If you want to get the money back by returning the purchased product, it will become a gate pass, all the details will come on the gate pass, the product will be out of the industry at the gate pass and will be returned to the market Will come This amount has to be deposited in the bank's industry account on the same day to get the bank slip and this bank slip has to be credited in the register of Kerman account attached with the gate pass. The concerned department will attach a photocopy of the gate pass in its file" xml:space="preserve">
+    <value>اگر آپ خریدی ہوئی مصنوعات کو واپس کرکے پیسہ واپس لانا چاہتے ہیں تو ، یہ گیٹ پاس بن جائے گا ، گیٹ پاس پر تمام تفصیلات آئیں گی ، گیٹ پاس پر مصنوعات انڈسٹری سے باہر ہوجائے گی اور مارکیٹ میں واپس آجائے گی۔ آئے گا یہ رقم بینک پرچی حاصل کرنے کے لئے اسی دن بینک کے انڈسٹری اکاؤنٹ میں جمع کروانا ہوگی اور گیٹ پاس کے ساتھ منسلک کرمان اکاؤنٹ کے رجسٹر میں اس بینک پرچی کو جمع کرنا ہوگا۔ متعلقہ محکمہ اپنی فائل میں گیٹ پاس کی فوٹو کاپی منسلک کرے گا</value>
+  </data>
+  <data name="In case the C.E.O is busy or not present in the industry, the Account Manager will affix the Stamp of Telephone Approval on the Cash Voucher" xml:space="preserve">
+    <value>اگر سی ای او انڈسٹری میں مصروف ہے یا موجود نہیں ہے تو ، اکاؤنٹ منیجر نقد واؤچر پر ٹیلیفون کی منظوری پر لگا دے گا</value>
+  </data>
+  <data name="Internal ledgers will be used for transactions within the industry, such as the sales income from the sales office will first go into the internal ledger and then go to the bank" xml:space="preserve">
+    <value>اندرونی لیجرز کو صنعت کے اندر لین دین کے لئے استعمال کیا جائے گا ، جیسے کہ سیلز آفس سے آنے والی فروخت کی آمدنی پہلے اندرونی لیجر میں جائے گی اور پھر بینک میں جائے گی۔</value>
+  </data>
+  <data name="It is the responsibility of the Account Manager to arrange and secure the debit, credit voucher of Industry Account and Petty Cash Account" xml:space="preserve">
+    <value>انڈسٹری اکاؤنٹ اور پیٹی کیش اکاؤنٹ کے ڈیبٹ ، کریڈٹ واؤچر کا بندوبست اور حفاظت کرنا اکاونٹ منیجر کی ذمہ داری ہے۔</value>
+  </data>
+  <data name="It is the responsibility of the account manager to daily close and file the cash voucher, demand, purchase order and bill" xml:space="preserve">
+    <value>اکاؤنٹ منیجر کی ذمہ داری ہے کہ وہ روزانہ کیش واؤچر کو بند کریں اور کیش واؤچر ، طلب ، خریداری کا آرڈر اور بل داخل کریں</value>
+  </data>
+  <data name="It is the responsibility of the account manager to daily close and s" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Law's Description" xml:space="preserve">
+    <value>لا ء کی تفصیل</value>
+  </data>
+  <data name="Page Number" xml:space="preserve">
+    <value>صفحہ نمبر</value>
+  </data>
+  <data name="Petty Cash Account has a monthly balance of Rs. 15000 / - which has to be used for the whole month. This account is mostly used for daily expenses like tea, biscuits, ice and petrol" xml:space="preserve">
+    <value>پیٹی کیش اکاؤنٹ میں ماہانہ بیلنس 500 روپے ہے۔ 15000 / - جو پورے مہینے کے لئے استعمال کرنا پڑتا ہے۔ یہ اکاؤنٹ زیادہ تر چائے ، بسکٹ ، آئس اور پیٹرول جیسے روزمرہ کے اخراجات کے لئے استعمال ہوتا ہے</value>
+  </data>
+  <data name="Previous Edit Number" xml:space="preserve">
+    <value>سابقہ ترمیم نمبر</value>
+  </data>
+  <data name="Previous Page Number" xml:space="preserve">
+    <value>سابقہ صفحہ نمبر</value>
+  </data>
+  <data name="The Account Manager will check the monthly and annual report with the C.E.O" xml:space="preserve">
+    <value>اکاؤنٹ منیجر C.E.O کے ساتھ ماہانہ اور سالانہ رپورٹ چیک کرے گا</value>
+  </data>
+  <data name="The Accounts Department is the industry's most important and autonomous department that is directly accountable to the C.E.O" xml:space="preserve">
+    <value>محکمہ اکاؤنٹس انڈسٹری کا سب سے اہم اور خودمختار محکمہ ہے جو براہ راست سی ای او کے سامنے جوابدہ ہوتا ہے</value>
+  </data>
+  <data name="The Accounts Department will be responsible for any errors in the cash voucher or bill order. Which can be fined" xml:space="preserve">
+    <value>کیش واؤچر یا بل آرڈر میں کسی بھی قسم کی خامیوں کے لئے محکمہ اکاؤنٹس ذمہ دار ہوگا۔ جس پر جرمانہ عائد کیا جاسکتا ہے</value>
+  </data>
+  <data name="The details of all (internal and external) transactions of the industry are with the Accounts Department" xml:space="preserve">
+    <value>صنعت کے تمام (اندرونی اور بیرونی) لین دین کی تفصیلات محکمہ اکاؤنٹس کے پاس ہیں</value>
+  </data>
+  <data name="The salaries of all employees will be checked in their personal accounts. Salary amount will be required to be entered in the register of internal account of the industry, final pay slip will be made by the account office, general manager and C.E.O will check" xml:space="preserve">
+    <value>تمام ملازمین کی تنخواہوں کو ان کے ذاتی اکاؤنٹس میں چیک کیا جائے گا۔ انڈسٹری کے داخلی اکاؤنٹ کے رجسٹر میں تنخواہ کی رقم داخل کرنے کی ضرورت ہوگی ، اکاؤنٹ آفس کے ذریعہ آخری تنخواہ کی پرچی ، جنرل منیجر اور سی ای او چیک کریں گے۔</value>
+  </data>
+  <data name="The voucher for issuing cash for any purchases made from the industry account will be first uploaded by the C.E.O" xml:space="preserve">
+    <value>انڈسٹری اکاؤنٹ سے کی جانے والی کسی بھی خریداری کے لئے نقد جاری کرنے کے واؤچر کو پہلے سی ای او کے ذریعہ اپ لوڈ کیا جائے گا</value>
+  </data>
+  <data name="There are two accounts used for expenses in the industry which have cash in them, one is industry account and the other is petty cash account" xml:space="preserve">
+    <value>انڈسٹری میں اخراجات کے لئے دو اکاؤنٹ استعمال ہوتے ہیں جن میں نقد رقم موجود ہوتی ہے ، ایک انڈسٹری اکاؤنٹ اور دوسرا پیٹی کیش اکاؤنٹ</value>
+  </data>
+</root>

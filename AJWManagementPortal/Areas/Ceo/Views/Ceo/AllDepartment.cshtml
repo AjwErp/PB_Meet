@@ -1,0 +1,343 @@
+﻿
+@{
+    ViewData["Title"] = "AdminDashboard";
+    Layout = "~/Views/Shared/_LayoutCeo.cshtml";
+}
+
+<style></style>
+
+<div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">Dashboard</span>
+            <h3 class="page-title">AJW All Departments</h3>
+        </div>
+    </div>
+    <!-- End Page Header -->
+    <!-- Small Stats Blocks -->
+    <div class="row">
+        <div class="col-lg col-md-6 col-sm-6 mb-4">
+            <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                        <div class="stats-small__data text-center text-center align-content-center">
+
+                            <span class="stats-small__label text-uppercase ">G.M Office</span>
+                            <a asp-controller="Gm" asp-area="Gm" asp-action="GmDashboard">
+                                @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                                <img src="~/Image/0.png" height="50" width="50" />
+                            </a>
+                            <span class="stats-small__label text-success">Mr.Aqib Shab</span>
+
+                        </div>
+                        @*<div class="stats-small__data">
+                                <span class="stats-small__percentage stats-small__percentage--increase">4.7%</span>
+                            </div>*@
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-1"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg col-md-6 col-sm-6 mb-4">
+            <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                        <div class="stats-small__data text-center text-center align-content-center">
+
+                            <span class="stats-small__label text-uppercase">D.G.M Office</span>
+                            <a asp-controller="Dgm" asp-area="Dgm" asp-action="DgmDashboard">
+                                @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                                <img src="~/Image/0.png" height="50" width="50" />
+                            </a>
+                            <span class="stats-small__label text-success">Mr.Hamza Shab</span>
+
+                        </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-2"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg col-md-4 col-sm-6 mb-4">
+            <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                        <div class="stats-small__data text-center text-center align-content-center">
+
+                            <span class="stats-small__label text-uppercase">Account Office</span>
+                            <a asp-controller="Account" asp-area="Account" asp-action="AccountDashboard">
+                                @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                                <img src="~/Image/0.png" height="50" width="50" />
+                            </a>
+                            <span class="stats-small__label text-success">Mr.Asif Shab</span>
+
+                        </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-3"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg col-md-4 col-sm-6 mb-4">
+            <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                        <div class="stats-small__data text-center text-center align-content-center">
+
+                            <span class="stats-small__label text-uppercase">Production Office</span>
+                            <a asp-controller="Production" asp-area="Production" asp-action="ProductionDashboard">
+                                @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                                <img src="~/Image/0.png" height="50" width="50" />
+                            </a>
+                            <span class="stats-small__label text-success">Mr.Zahid Shab</span>
+
+                        </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-4"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg col-md-4 col-sm-12 mb-4">
+            <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                        <div class="stats-small__data text-center text-center align-content-center">
+
+                            <span class="stats-small__label text-uppercase">Maintenance Office</span>
+                            <a asp-controller="Maintenance" asp-area="Maintenance" asp-action="MaintenanceDashboard">
+                                @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                                <img src="~/Image/0.png" height="50" width="50" />
+                            </a>
+                            <span class="stats-small__label text-success">Mr.Akmal Shab</span>
+
+                        </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-5"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*2nd row*@
+    <div class="row">
+        <div class="col-lg col-md-6 col-sm-6 mb-4">
+            <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                        <div class="stats-small__data text-center text-center align-content-center">
+
+                            <span class="stats-small__label text-uppercase">Accessory Office</span>
+                            <a asp-controller="Accessory" asp-area="Accessory" asp-action="AccessoryDashboard">
+                                @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                                <img src="~/Image/0.png" height="50" width="50" />
+                            </a>
+                            <span class="stats-small__label  text-success ">Mr.Ashiq Shab</span>
+
+                        </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-1"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg col-md-6 col-sm-6 mb-4">
+            <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                        <div class="stats-small__data text-center text-center align-content-center">
+
+                            <span class="stats-small__label text-uppercase">Design Office</span>
+                            <a asp-controller="Design" asp-area="Design" asp-action="DesignDashboard">
+                                @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                                <img src="~/Image/0.png" height="50" width="50" />
+                            </a>
+                            <span class="stats-small__label text-success">Mr.Sajid Shab</span>
+
+                        </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-2"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg col-md-4 col-sm-6 mb-4">
+            <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                        <div class="stats-small__data text-center text-center align-content-center">
+
+                            <span class="stats-small__label text-uppercase">H.R.M Office</span>
+                            <a asp-controller="Hrm" asp-area="Hrm" asp-action="HrmDashboard">
+                                @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                                <img src="~/Image/0.png" height="50" width="50" />
+                            </a>
+                            <span class="stats-small__label text-success">Mr.Reyaaz Shab</span>
+
+                        </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-3"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg col-md-4 col-sm-6 mb-4">
+            <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                        <div class="stats-small__data text-center text-center align-content-center">
+
+                            <span class="stats-small__label text-uppercase">Purchase Office</span>
+                            <a asp-controller="Purchase" asp-area="Purchase" asp-action="PurchaseDashboard">
+                                @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                                <img src="~/Image/0.png" height="50" width="50" />
+                            </a>
+                            <span class="stats-small__label text-success">Mr.AD Shab</span>
+
+                        </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-4"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg col-md-4 col-sm-12 mb-4">
+            <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                        <div class="stats-small__data text-center text-center align-content-center">
+
+                            <span class="stats-small__label text-uppercase">Sale Office</span>
+                            <a asp-controller="Sale" asp-area="Sale" asp-action="SaleDashboard">
+                                @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                                <img src="~/Image/0.png" height="50" width="50" />
+                            </a>
+                            <span class="stats-small__label text-success">Mr.Ansar Shab</span>
+
+                        </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-5"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*end 2nd row*@
+    @*3rd row*@
+    <div class="row">
+        <div class="col-lg col-md-6 col-sm-6 mb-4">
+            <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                        <div class="stats-small__data text-center text-center align-content-center">
+
+                            <span class="stats-small__label text-uppercase">Electric Office</span>
+                            <a asp-controller="Electric" asp-area="Electric" asp-action="ElectricDashboard">
+                                @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                                <img src="~/Image/0.png" height="50" width="50" />
+                            </a>
+                            <span class="stats-small__label text-success">Mr.Nadeem Shab</span>
+
+                        </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-1"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg col-md-6 col-sm-6 mb-4">
+            <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                        <div class="stats-small__data text-center text-center align-content-center">
+
+                            <span class="stats-small__label text-uppercase">Store Office</span>
+                            <a asp-controller="Store" asp-area="Store" asp-action="StoreDashboard">
+                                @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                                <img src="~/Image/0.png" height="50" width="50" />
+                            </a>
+                            <span class="stats-small__label text-success">Mr.Feyaaz Shab</span>
+
+                        </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-2"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg col-md-4 col-sm-6 mb-4">
+            <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                        <div class="stats-small__data text-center text-center align-content-center">
+
+                            <span class="stats-small__label text-uppercase">I.T Office</span>
+                            <a asp-controller="It" asp-area="It" asp-action="ItDashboard">
+                                @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                                <img src="~/Image/0.png" height="50" width="50" />
+                            </a>
+                            <span class="stats-small__label text-success">Mr.Zain Shab</span>
+
+                        </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-3"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg col-md-4 col-sm-6 mb-4">
+            <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                        <div class="stats-small__data text-center text-center align-content-center">
+
+                            <span class="stats-small__label text-uppercase">Security Office</span>
+                            <a asp-controller="Security" asp-area="Security" asp-action="SecurityDashboard">
+                                @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                                <img src="~/Image/0.png" height="50" width="50" />
+                            </a>
+                            <span class="stats-small__label text-success">Mr.Arif Shab</span>
+
+                        </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-4"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg col-md-4 col-sm-6 mb-4">
+            <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                        <div class="stats-small__data text-center text-center align-content-center">
+
+                            <span class="stats-small__label text-uppercase">Admin Office</span>
+                            <a asp-controller="Admin" asp-area="Admin" asp-action="AdminDashboard">
+                                @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                                <img src="~/Image/0.png" height="50" width="50" />
+                            </a>
+                            <span class="stats-small__label text-success">Mr.Admin Shab</span>
+
+                        </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-4"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*end 3rd row*@
+    <!-- End Small Stats Blocks -->
+    <div class="row">
+
+        <!-- End Top Referrals Component -->
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+    </script>
+
+}

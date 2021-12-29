@@ -1,0 +1,495 @@
+﻿@model AJWManagementPortal.Models.TransAndBank
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "DailyCashClosingReport";
+    Layout = "~/Views/Shared/_LayoutGm.cshtml";
+}
+@{
+    aDailyCash teswp = new aDailyCash();
+}
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+<br />
+<body>
+    @{
+        DateTime yesterday = Model.date.AddDays(-1);
+        DateTime today = Model.date;
+        var openingBalaneInternal = 0.00;
+        var openingBalanePetty = 0.00;
+        var totalBInternal = 0.00;
+        var totalBPetty = 0.00;
+        var closingBInternal = 0.00;
+        var closingBPetty = 0.00;
+        var todayInvomeInternal = 0.00;
+        var todayInvomePetty = 0.00;
+        var clearedInternal = 0.00;
+        var clearedPetty = 0.00;
+        var inclearedInternal = 0.00;
+        var inclearedPetty = 0.00;
+        var totalVal = 0.00;
+        var openingVoloumn = 0.00;
+        @foreach (var details in Model.aDailyCashes)
+        {
+            if (details.ValueDate == today)
+            {
+                openingVoloumn += details.accountant;
+
+            }
+            teswp.ValueDate = details.ValueDate;
+            teswp.Remarks = details.Remarks;
+            teswp.SignPManager = details.SignPManager;
+            teswp.PManagerRemarks = details.PManagerRemarks;
+            teswp.SignGM = details.SignGM;
+            teswp.GMRemarks = details.GMRemarks;
+            teswp.SignCeo = details.SignCeo;
+            teswp.CeoRemarks = details.CeoRemarks;
+            @if (details.Name != null)
+            {
+                @if (details.Name.Contains("Internal"))
+                {
+                    @*@if (DateTime.Compare(today, details.ValueDate) != 0)*@
+                    {
+                        openingBalaneInternal += Math.Abs(details.accountant);
+                        ;
+                        //openingBalaneInternal = Math.Abs(openingBalaneInternal);
+                    }
+                    //else
+                    {
+                        todayInvomeInternal += details.income;
+                        clearedInternal += details.clearedAmount;
+                        inclearedInternal += details.lnClearedAmount;
+                    }
+                }
+                else if (details.Name.Contains("Petty"))
+                {
+                    @*@if (DateTime.Compare(today, details.ValueDate) != 0)*@
+                    {
+                        openingBalanePetty += Math.Abs(details.accountant);
+                        ;
+                        //openingBalanePetty = Math.Abs(openingBalanePetty);
+                    }
+                    //else
+                    {
+                        todayInvomePetty += details.income;
+                        clearedPetty += details.clearedAmount;
+                        inclearedPetty += details.lnClearedAmount;
+                    }
+
+                }
+            }
+        }
+    }
+    <div class="container-fluid backgroundWhiteBorder10Padding">
+        <div class="row">
+
+            <form class="col-sm-12">
+                <div class="BackToList">
+                    <a type="button" asp-action="AllDailyAccountsReports" asp-area="Account" asp-controller="DailyAccountReport" class="btn btn-primary hover btn-block form-control btn-sm"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
+                </div>
+                <div class="PrintP">
+                    <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                </div>
+                @*main table*@
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered table-responsive-md SubH " id="tblcustomers">
+                        <thead>
+                            <tr>
+                                <th colspan="10"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+                            </tr>
+                            <tr>
+                                <th class="titleAccountofficeReport" colspan="10">@Localizer["Daily Cash Closing Report-Account Office"]</th>
+                            </tr>
+                            <tr>
+                                <th class="text-left" colspan="10"> 04/05/2021  :<span class=""> @Localizer["Sheet Date"] </span></th>
+                            </tr>
+                            <tr>
+                                <th colspan="2" scope="col">@Localizer["Cash In Hand"]</th>
+                                <th scope="col">@Localizer["Un-Cleared"]</th>
+                                <th scope="col"> @Localizer["Closing Cash"] </th>
+                                <th scope="col" َ>@Localizer["Cleared Expense"]</th>
+                                <th scope="col">@Localizer["Total Income"]</th>
+                                <th scope="col">@Localizer["Income"]</th>
+                                <th scope="col">@Localizer["Opening Cash"]</th>
+                                <th colspan="2" c scope="col">@Localizer["Account Type"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2" scope="row">
+                                    @{
+                                        var cBInternal = ((openingBalaneInternal + @todayInvomeInternal) - clearedInternal) - inclearedInternal;
+                                    }
+                                    @cBInternal
+                                </td>
+                                <td scope="row">
+                                    @inclearedInternal
+                                </td>
+                                <td scope="row">
+                                    @{
+                                        cBInternal = (openingBalaneInternal + @todayInvomeInternal) - clearedInternal;
+                                    }
+                                    @cBInternal
+                                </td>
+                                <td scope="row">@clearedInternal</td>
+                                <td scope="row">
+                                    @{
+                                        cBInternal = openingBalaneInternal + @todayInvomeInternal;
+                                    }
+                                    @cBInternal
+                                </td>
+                                <td scope="row">@todayInvomeInternal</td>
+                                <td scope="row">@openingBalaneInternal</td>
+                                <td colspan="2" scope="row">@Localizer["Internal account"]</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" scope="row">
+                                    @{
+                                        var cBPetty = ((openingBalanePetty + @todayInvomePetty) - clearedPetty) - inclearedPetty;
+                                    }
+                                    @cBPetty
+                                </td>
+                                <td colspan="" scope="row">
+                                    @{
+                                        cBPetty = closingBPetty - inclearedPetty;
+                                    }
+                                    @cBPetty
+                                </td>
+                                <td scope="row">
+                                    @{
+                                        cBPetty = openingBalanePetty + todayInvomePetty - clearedPetty;
+                                    }
+                                    @cBPetty
+                                </td>
+                                <td scope="row">
+                                    @clearedPetty
+                                </td>
+                                <td scope="row">
+                                    @{
+                                        cBPetty = openingBalanePetty + todayInvomePetty;
+                                    }
+                                    @cBPetty
+                                </td>
+                                <td scope="row">
+                                    @todayInvomePetty
+                                </td>
+                                <td scope="row">@openingBalanePetty</td>
+                                <td scope="row"></td>
+                                <td colspan="2" scope="row">@Localizer["Petty account"]</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr id="total">
+                                <th colspan="2" scope="row" id="t1"></th>
+                                <th scope="row" id="t2"></th>
+                                <th scope="row" id="t3"></th>
+                                <th scope="row" id="t4"></th>
+                                <th scope="row" id="t5"></th>
+                                <th scope="row" id="t6"></th>
+                                <th scope="row" id="t7"></th>
+                                <th colspan="2" scope="row">@Localizer["Total"]</th>
+                            </tr>
+                            @*2nd table start herer*@
+                            <tr>
+                                <th scope="col" colspan="10"></th>
+                            </tr>
+                            <tr>
+                                <th colspan="5" scope="row">@Localizer["Meezan Bank Ledger Report"]</th>
+                                <th colspan="5" scope="row">@Localizer["Punjab Bank Ledger Report"]</th>
+                            </tr>
+                            @{
+                                MeezanBankIEReport b1 = new MeezanBankIEReport();
+                                float p = 0;
+                            }
+                            @foreach (var details in Model.Bank2)
+                            {
+
+                                b1.Balance += details.Balance;
+                                b1.Debit += details.Debit;
+                                b1.Cradit += details.Cradit;
+                                p += details.Balance + details.Debit - details.Cradit;
+
+                            }
+                            <tr>
+                                <th colspan="2" scope="row">@b1.Balance</th>
+                                <th colspan="2" scope="row">@Localizer["Previous bank balance"]</th>
+                                <th scope="row">22-03-2021</th>
+                                @*------------------------  *@
+                                <th scope="row">0</th>
+                                <th colspan="2" scope="row">@Localizer["Previous bank balance"]</th>
+                                <th colspan="2" scope="row">22-03-2021</th>
+                            </tr>
+                            <tr>
+                                <th colspan="2" scope="row">@b1.Debit</th>
+                                <th colspan="2" scope="row">@Localizer["Money plus different income"] </th>
+                                <th scope="row">22-03-2021</th>
+                                @*------------------------  *@
+                                <th scope="row">0</th>
+                                <th colspan="2" scope="row">@Localizer["Money plus different income"] </th>
+                                <th colspan="2" scope="row">22-03-2021</th>
+                            </tr>
+                            <tr>
+                                <th colspan="2" scope="row">@b1.Cradit</th>
+                                <th colspan="2" scope="row">@Localizer["Withdraw money"]</th>
+                                <th scope="row">22-03-2021</th>
+                                @*------------------------  *@
+                                <th scope="row">0</th>
+                                <th colspan="2" scope="row">@Localizer["Withdraw money"]</th>
+                                <th colspan="2" scope="row">22-03-2021</th>
+                            </tr>
+                            <tr>
+                                <th colspan="2" scope="row">0</th>
+                                <th colspan="2" scope="row">@Localizer["Tax deductible bank"]</th>
+                                <th scope="row">22-03-2021</th>
+                                @*------------------------  *@
+                                <th scope="row">0</th>
+                                <th colspan="2" scope="row">@Localizer["Tax deductible bank"]</th>
+                                <th colspan="2" scope="row">22-03-2021</th>
+                            </tr>
+                            <tr>
+                                <th colspan="2" scope="row">@p</th>
+                                <th colspan="2" scope="row">@Localizer["Closing bank balance"]</th>
+                                <th scope="row">22-03-2021</th>
+                                @*------------------------  *@
+                                <th scope="row">0</th>
+                                <th colspan="2" scope="row">@Localizer["Closing bank balance"]</th>
+                                <th colspan="2" scope="row">22-03-2021</th>
+                            </tr>
+                            <tr>
+                                <th colspan="6">@Localizer["Main Bank Ledger"]</th>
+                                <th colspan="4">@Localizer["Supplier Ledger"]</th>
+                            </tr>
+                            <tr>
+                                <th colspan="3" scope="row">0</th>
+                                <th colspan="3" scope="row">@Localizer["Bank of Punjab Closing Balance"]</th>
+                                <th colspan="2" scope="row">@Localizer["Credit"]</th>
+                                <th colspan="2" scope="row">@Localizer["Debit"]</th>
+                            </tr>
+                            <tr>
+                                <th colspan="3" scope="row">@p</th>
+                                <th colspan="3" scope="row">@Localizer["Meezan Bank Closing Balance"]</th>
+                                <td colspan="2" scope="row"><input type="text" class="form-control" /></td>
+                                <td colspan="2" scope="row"><input type="text" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                @{
+                                    //b1.closingBankBalance += b2.closingBankBalance;
+                                    closingBPetty += closingBInternal;
+                                }
+                                <th colspan="3" scope="row">@p<</th>
+                                <th colspan="3" scope="row">@Localizer["Total bank balance"]</th>
+                                <td scope="row"><input type="text" class="form-control" /></td>
+                                <th scope="row">@Localizer["Total Bill Paid"]</th>
+                                <td scope="row"><input type="text" class="form-control" /></td>
+                                <th scope="row">@Localizer["Total Bill"]</th>
+                            </tr>
+                            <tr>
+                                <th colspan="3" scope="row">
+                                    @{var bal = (openingBalaneInternal + @todayInvomeInternal) - clearedInternal;}
+                                    @bal
+                                </th>
+                                <th colspan="3" scope="row"> @Localizer["Internal & Petty Account Closing Balance"]</th>
+                                <td scope="row" colspan="2" rowspan="2"><input type="text" class="form-control" /></td>
+                                <th scope="row" colspan="2" rowspan="2">@Localizer["Total Cash Add"]</th>
+
+                            </tr>
+                            <tr>
+                                @{
+                                    //b1.closingBankBalance += b2.closingBankBalance;
+                                    closingBPetty += closingBInternal;
+                                }
+                                @*<th colspan="2" scope="row"></th>*@
+                                <th colspan="3" scope="row">
+                                    @p
+                                </th>
+                                <th colspan="3" scope="row">@Localizer["Total balance"]</th>
+                                @*<th colspan="2" scope="row"></th>*@
+                            </tr>
+                            @*2nd table end herer*@
+
+                            @*sign table start here*@
+                            <tr>
+                                <th colspan="10" scope="col">@Localizer["Signature"]</th>
+                            </tr>
+                            <tr>
+                                <th scope="row" colspan="3">@Localizer["Account Manager"]</th>
+                                <th colspan="4">@Localizer["D.G.M"]</th>
+                                <th colspan="3">@Localizer["G.M"]</th>
+                            </tr>
+                            <tr>
+                                <td colspan="5">
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="txtpmsign" name="txtpmsign" value="@teswp.SignPManager" class="form-control" />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="txtpmremarks" name="txtpmremarks" value="@teswp.PManagerRemarks" class="form-control" />
+                                </td>
+                                <td colspan="6">
+
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="txtgmsign" name="txtgmsign" class="form-control" value="@teswp.SignGM" />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="txtgmremarks" name="txtgmremarks" value="@teswp.GMRemarks" class="form-control" />
+
+                                </td>
+                                <td colspan="5">
+
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="txtceosign" name="txtceosign" class="form-control" value="@teswp.SignCeo" />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="txtceoremarks" name="txtceoremarks" class="form-control" value="@teswp.CeoRemarks" />
+
+
+                                    <input type="text" id="status" name="status" class="form-control" value="@teswp.Status" />
+                                </td>
+
+                            </tr>
+                            @*sign table end here*@
+                            <tr>
+                                <td scope="row" colspan="10" class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-save"></i> @Localizer["Save File"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore"></i> @Localizer["Clear Sheet"]</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+<!-- back to top button-->
+<a id="button"></a>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+        $("body").ready(function () {
+
+            debugger;
+            var openingvash = 0, invome = 0, totalinvome = 0, clearedAmount = 0, vlosing = 0, invleared = 0, vashinhand = 0;
+            $("#tblcustomers TBODY TR").each(function () {
+                var row = $(this);
+
+                openingvash += parseInt(row.find("td").eq(0).text());
+                invome += parseInt(row.find("td").eq(1).text());
+                totalinvome += parseInt(row.find("td").eq(2).text());
+                clearedAmount += parseInt(row.find("td").eq(3).text());
+                vlosing += parseInt(row.find("td").eq(4).text());
+                invleared += parseInt(row.find("td").eq(5).text());
+                vashinhand += parseInt(row.find("td").eq(6).text());
+
+            });
+            $("#total #t1").append(openingvash);
+            $("#total #t2").append(invome);
+            $("#total #t3").append(totalinvome);
+            $("#total #t4").append(clearedAmount);
+            $("#total #t5").append(vlosing);
+            $("#total #t6").append(invleared);
+            $("#total #t7").append(vashinhand);
+        });
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+
+    .Subhdr {
+        color: white;
+        text-align: center;
+        background-color: slategrey;
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*  Css for BackToList Button----*/
+    .BackToList {
+        width: 150px;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

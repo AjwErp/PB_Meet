@@ -1,0 +1,133 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-AJWManagementPortal-EC09667F-3518-4B07-A386-2A369A59426B</UserSecretsId>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="libwkhtmltox.dll" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="libwkhtmltox.dll">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	
+	
+	
+	
+	
+  <ItemGroup>
+    <Compile Remove="Areas\Home\Data\**" />
+    <Compile Remove="Areas\Home\Models\**" />
+    <Compile Remove="wwwroot\startbootstrap-sb-admin-2-gh-pages\**" />
+    <Compile Remove="wwwroot\startmin-master\**" />
+    <Content Remove="Areas\Home\Data\**" />
+    <Content Remove="Areas\Home\Models\**" />
+    <Content Remove="wwwroot\startbootstrap-sb-admin-2-gh-pages\**" />
+    <Content Remove="wwwroot\startmin-master\**" />
+    <EmbeddedResource Remove="Areas\Home\Data\**" />
+    <EmbeddedResource Remove="Areas\Home\Models\**" />
+    <EmbeddedResource Remove="wwwroot\startbootstrap-sb-admin-2-gh-pages\**" />
+    <EmbeddedResource Remove="wwwroot\startmin-master\**" />
+    <None Remove="Areas\Home\Data\**" />
+    <None Remove="Areas\Home\Models\**" />
+    <None Remove="wwwroot\startbootstrap-sb-admin-2-gh-pages\**" />
+    <None Remove="wwwroot\startmin-master\**" />
+    <TypeScriptCompile Remove="Areas\Home\Data\**" />
+    <TypeScriptCompile Remove="Areas\Home\Models\**" />
+    <TypeScriptCompile Remove="wwwroot\startbootstrap-sb-admin-2-gh-pages\**" />
+    <TypeScriptCompile Remove="wwwroot\startmin-master\**" />
+  </ItemGroup>
+
+	
+	
+	
+	
+	
+  <ItemGroup>
+    <Compile Remove="Migrations\20211124084453_Add1ToDatabase.cs" />
+    <Compile Remove="Migrations\20211124084453_Add1ToDatabase.Designer.cs" />
+    <Compile Remove="Migrations\20211124084705_AddHAJToDatabase.cs" />
+    <Compile Remove="Migrations\20211124084705_AddHAJToDatabase.Designer.cs" />
+    <Compile Remove="Migrations\20211124084849_AddHajToDatabase.cs" />
+    <Compile Remove="Migrations\20211124084849_AddHajToDatabase.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DinkToPdf" Version="1.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.13" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.2.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Accessory\Data\" />
+    <Folder Include="Areas\Accessory\Models\" />
+    <Folder Include="Areas\Employee\Controllers\" />
+    <Folder Include="Areas\Employee\Data\" />
+    <Folder Include="Areas\Employee\Models\" />
+    <Folder Include="Areas\Maintenance\Data\" />
+    <Folder Include="Areas\Maintenance\Models\" />
+    <Folder Include="Areas\Meeting\Data\" />
+    <Folder Include="Areas\Meeting\Models\" />
+    <Folder Include="Areas\Purchase\Data\" />
+    <Folder Include="Areas\Purchase\Models\" />
+    <Folder Include="Areas\Sale\Data\" />
+    <Folder Include="Areas\Sale\Models\" />
+    <Folder Include="Areas\Security\Data\" />
+    <Folder Include="Areas\Security\Models\" />
+    <Folder Include="Areas\Sheets\Controllers\" />
+    <Folder Include="Areas\Sheets\Views\" />
+    <Folder Include="Areas\Store\Data\" />
+    <Folder Include="Areas\Store\Models\" />
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\AccountsLayout.css" />
+    <None Include="wwwroot\css\AdminLayout.css" />
+    <None Include="wwwroot\css\CeoLayout.css" />
+    <None Include="wwwroot\css\DgmLayout.css" />
+    <None Include="wwwroot\css\DmsLayout.css" />
+    <None Include="wwwroot\css\GmLayout.css" />
+    <None Include="wwwroot\css\HrmLayout.css" />
+    <None Include="wwwroot\css\Layout.css" />
+    <None Include="wwwroot\css\ProductionLayout.css" />
+    <None Include="wwwroot\css\site.css" />
+    <None Include="wwwroot\srtdash\assets\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\srtdash\assets\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\srtdash\assets\fonts\themify.svg" />
+    <None Include="wwwroot\srtdash\assets\images\icon\market-value\Thumbs.db" />
+    <None Include="wwwroot\srtdash\assets\images\icon\Thumbs.db" />
+    <None Include="wwwroot\srtdash\assets\js\bar-chart.js" />
+    <None Include="wwwroot\srtdash\assets\js\bootstrap.min.js" />
+    <None Include="wwwroot\srtdash\assets\js\jquery.slicknav.min.js" />
+    <None Include="wwwroot\srtdash\assets\js\jquery.slimscroll.min.js" />
+    <None Include="wwwroot\srtdash\assets\js\line-chart.js" />
+    <None Include="wwwroot\srtdash\assets\js\maps.js" />
+    <None Include="wwwroot\srtdash\assets\js\metisMenu.min.js" />
+    <None Include="wwwroot\srtdash\assets\js\owl.carousel.min.js" />
+    <None Include="wwwroot\srtdash\assets\js\pie-chart.js" />
+    <None Include="wwwroot\srtdash\assets\js\plugins.js" />
+    <None Include="wwwroot\srtdash\assets\js\popper.min.js" />
+    <None Include="wwwroot\srtdash\assets\js\scripts.js" />
+    <None Include="wwwroot\srtdash\assets\js\vendor\jquery-2.2.4.min.js" />
+    <None Include="wwwroot\srtdash\assets\js\vendor\modernizr-2.8.3.min.js" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,249 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@*---Language Tranlator--Localizer*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@model IEnumerable<AJWNoticeBoardHrm>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutHrm.cshtml";
+}
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+
+@*---This Index HTML for ::Notice Board List HRM Office::---*@
+<br />
+<body>
+
+    <div class="border backgroundWhiteBorder10Padding">
+        <div class="row  text-light">
+            <div class="col-12 text-right">
+                <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> &nbsp;@Localizer["Create New Notice"] </a>
+                @*<button class="btn btn-theme btn-print text-right " onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>*@
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <img src="~/Image/1.png" alt="Image" width="100" height="100" />
+                <h2 class="Title font-weight-bold"> @Localizer["AJW NOTICE BOARD LIST"]</h2>
+            </div>
+        </div>
+
+        <br />
+        <div>
+            @if (Model.Count() > 0)
+            {
+                <table id="AjwNoticeBoard" class="table table-striped border SubH">
+                    <thead>
+                        <tr class="Subhdr">
+                            <th>
+                                @Localizer["ID#"]
+                            </th>
+                            <th>
+                                @Localizer["Date"]
+                            </th>
+                            <th>
+                                @Localizer["Title"]
+                            </th>
+                            <th>
+                                @Localizer["Description"]
+                            </th>
+                            <th> </th>
+                            <th>@Localizer["Action"]</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(m => item.Id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(m => item.Date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(m => item.Title)
+                                </td>
+                                <td>
+                                    <textarea class="form-control"> @Html.DisplayFor(m => item.Description)</textarea>
+                                </td>
+
+                                <td>
+                                    <partial name="_TableButtonPartial" model="item.Id" />
+                                    @*<div class="btn-group">
+                                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                @Localizer["Action"]
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="btn btn-primary text-white" asp-action="Edit" asp-route-Id="@Model">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+
+                                                <a class="btn btn-success text-white" asp-action="Details" asp-route-Id="@Model">
+                                                    <i class="fas fa-list-alt"></i>
+                                                </a>
+
+                                                <a class="btn btn-danger text-white" asp-action="Delete" asp-route-Id="@Model">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </a>
+                                                <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Download"]</a>
+                                            </div>
+                                        </div>*@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>@Localizer["No Notice Exists..."]</p>
+            }
+        </div>
+    </div>
+</body>
+<br />
+<br />
+
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#AjwNoticeBoard').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });
+    </script>
+    @*<script>
+
+            $(document).ready(function () {
+                $('#AjwNoticeBoard').DataTable({
+                    "sPaginationType": "full_numbers"
+                });
+            });
+        </script>*@
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+    /*//--CSS For Create button & Action Button of Each Page------start---------*/
+    .Createbtn {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: large;
+        text-align: right;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    /*   .TitleHrmOfficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }*/
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*  Css for BackToList Button----*/
+    .BackToList {
+        width: 150px;
+    }
+
+    .textarea {
+        height: 60px;
+    }
+    /*Mostly USes Css Classes userprofile/footer/backtolist/table/backtotopbtn/smallheading/subh/print --for Accounts Department- start*/
+
+    /*  Css for Sub Heading of table----*/
+    .Subhdr {
+        color: white;
+        text-align: center;
+        background-color: slategrey;
+    }
+
+
+    /* Css for Heading on every Sheet of ccount office----*/
+    .header {
+        overflow: hidden;
+        padding: 10px 10px;
+        font-size: 40px;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

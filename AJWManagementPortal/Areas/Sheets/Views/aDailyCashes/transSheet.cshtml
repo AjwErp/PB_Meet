@@ -1,0 +1,456 @@
+﻿@model AJWManagementPortal.Models.TransAndBank
+
+@{
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+    var inClearedBalance = 0.00;
+    var currentBalance = 0.00;
+    var clearedBalanceYest = 0.00;
+    var totalInvomeYest = 0.00;
+    var closingBalance = 0.00;
+    var clearedBalance = 0.00;
+    var totalPaid = 0.00;
+    var remainingRecieved = 0.00;
+    var openingBalane = 0.00;
+    var totalInvome = 0.00;
+    var todayInvome = 0.00;
+
+    DateTime yesterday = Model.date.AddDays(-1);
+    DateTime today = DateTime.Today;
+    if (Model.date != null)
+    {
+        today = Model.date;
+    }
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+
+        .signt {
+            position: center;
+            align-content: center;
+            text-align: center;
+        }
+        .tabled {
+            position: center;
+            align-content: center;
+            text-align: center;
+            
+        /*    margin-left: -200px;*/
+        }
+        .tabledd {
+            position: center;
+            align-content: center;
+            text-align: center;
+        }
+        .btnlink {
+            /* position: center;*/
+            /*   align-content: center;*/
+            /* text-align: center;*/
+        }
+
+        .tg {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+            .tg td {
+                border-color: black;
+                border-style: solid;
+                border-width: 1px;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                overflow: hidden;
+                padding: 5px 20px;
+                word-break: normal;
+            }
+
+            .tg th {
+                border-color: black;
+                border-style: solid;
+                border-width: 1px;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                font-weight: normal;
+                overflow: hidden;
+                padding: 5px 20px;
+                word-break: normal;
+            }
+
+            .tg .tg-lboi {
+                border-color: inherit;
+                text-align: left;
+                vertical-align: middle
+            }
+
+            .tg .tg-9wq8 {
+                border-color: inherit;
+                text-align: center;
+                vertical-align: middle
+            }
+
+            .tg .tg-0pky {
+                border-color: inherit;
+                text-align: left;
+                vertical-align: top
+            }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Transaction Sheet</title>
+</head>
+<body>
+
+
+    @*main transaction sheet*@
+    <form class="tabled">
+        <table class="table table-bordered" id="tblcustomers">
+            <thead>
+                <tr class="text-center">
+
+                    <th colspan="10" scope="col" class="bg-dark text-white"><img src="~/Image/white.png" alt="Image" width="100" height="100" /><br />اے جے ڈبلیو ایگرو انڈسٹری</th>
+
+                </tr>
+                <tr>
+                    <th class="text-center bg-dark text-white" colspan="10" scope="col">ڈیلی ٹرانزیکشن رپورٹ اکاؤنٹ آفس</th>
+                </tr>
+                <tr>
+
+                    <th class="text-left" colspan="10" scope="col"> <input type="datetime-local" id="birthdaytime" name="birthdaytime">  : تاریخ </th>
+                </tr>
+                <tr style="position:center;align-content:center;text-align:center">
+
+                    <th class="text-center bg-dark text-white" scope="col">CRUD آپریشن</th>
+                    <th class="text-center bg-dark text-white" scope="col">اکاؤنٹنٹ</th>
+                    <th class="text-center bg-dark text-white" scope="col">کریڈٹ</th>
+                    <th class="text-center bg-dark text-white" scope="col">ڈیبٹ</th>
+                    <th class="text-center bg-dark text-white" scope="col">پرچيز آرڈر_P<br>گیٹ پاسس_G<br>چیک نمبر_C<br>سروس آرڈر_S</th>
+                    <th class="text-center bg-dark text-white" scope="col">آن لائن_O<br>ڈپازٹ سلپ_D  <br>چیک نمبر_C</th>
+
+                    <th class="text-center bg-dark text-white" scope="col">تاریخ</th>
+                    <th class="text-center bg-dark text-white" scope="col">تفصیل</th>
+                    <th class="text-center bg-dark text-white" scope="col">اکاؤنٹ اقسام</th>
+                    <th class="text-center bg-dark text-white" scope="col">نمبر شمار</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model.aDailyCashes)
+                {
+
+
+
+
+
+                    inClearedBalance += item.lnClearedAmount;
+                    if (item.clearedAmount != 0 || (item.income != 0 && item.ValueDate == today))
+                    {
+                        if (DateTime.Compare(today, item.ValueDate) == 0)
+                        {
+                            clearedBalance += item.clearedAmount;
+                            totalPaid += item.paidAmount;
+                            remainingRecieved += item.remainingGained;
+                            todayInvome += item.income;
+                        }
+                        <tr>
+
+                            @if (!Model.hide)
+                            {
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
+
+                            <td>@item.accountant</td>
+                            <td>@item.clearedAmount</td>
+                            <td>@item.income</td>
+                            <td>@item.pOrder</td>
+                            <td>@item.online</td>
+                            <td>@item.ValueDate</td>
+                            <td><textarea type="text">@item.Description</textarea></td>
+                            <td>@item.Name</td>
+                            <td>@item.Id</td>
+                        </tr>
+                        }
+                        if (DateTime.Compare(today, item.ValueDate) != 0)
+                        {
+                            totalInvomeYest += item.income;
+                            clearedBalanceYest += item.clearedAmount;
+                        }
+
+
+                    }@{ 
+                    openingBalane += totalInvomeYest - clearedBalanceYest;
+                    openingBalane = Math.Abs(openingBalane);
+                    totalInvome += openingBalane + todayInvome;
+                    closingBalance += totalInvome - clearedBalance;
+                    currentBalance += closingBalance - inClearedBalance;
+
+                }
+            </tbody>
+            <tfoot>
+                <tr id="total">
+                    <th>Total</th>
+                    <th></th>
+                    <th id="t1"></th>
+                    <th id="t2"></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+    @*main transaction sheet*@
+
+    @*value table*@
+
+
+    <table class="tg">
+        <thead>
+            @{
+                var openingBalaneInternal = 0.00;
+                var openingBalanePetty = 0.00;
+                var totalBInternal = 0.00;
+                var totalBPetty = 0.00;
+                var closingBInternal = 0.00;
+                var closingBPetty = 0.00;
+                var todayInvomeInternal = 0.00;
+                var todayInvomePetty = 0.00;
+                var clearedInternal = 0.00;
+                var clearedPetty = 0.00;
+                var totalVal = 0.00;
+                @foreach (var details in Model.aDailyCashes)
+                {
+
+                    @if (details.Name.Contains("Internal"))
+                    {
+                        @if (DateTime.Compare(yesterday, details.ValueDate) == 0)
+                        {
+                            openingBalaneInternal += details.income - details.clearedAmount;
+                            //openingBalaneInternal = Math.Abs(openingBalaneInternal);
+                        }
+                        else
+                        {
+                            todayInvomeInternal += details.income;
+                            clearedInternal += details.clearedAmount;
+                        }
+
+                    }
+                    else if (details.Name.Contains("Petty"))
+                    {
+                        @if (DateTime.Compare(yesterday, details.ValueDate) == 0)
+                        {
+                            openingBalanePetty += details.income - details.clearedAmount;
+                            ////openingBalanePetty = Math.Abs(openingBalanePetty);
+                        }
+                        else
+                        {
+                            todayInvomePetty += details.income;
+                            clearedPetty += details.clearedAmount;
+                        }
+
+                    }
+                }
+
+                <tr>
+                    <th class="tg-9wq8" rowspan="3">  @totalInvome;</th>
+                    <th class="tg-9wq8" rowspan="3">کل ٹوٹل</th>
+                    <th class="tg-9wq8" rowspan="9"></th>
+                    <th class="tg-9wq8">  @openingBalane</th>
+                    <th class="tg-9wq8">اوپننگ بیلنس</th>
+                </tr>
+                <tr>
+                    <td class="tg-9wq8"> @todayInvome</td>
+                    <td class="tg-9wq8">آج کی آمدن</td>
+                </tr>
+                <tr>
+                    <td class="tg-9wq8"> @totalInvome</td>
+                    <td class="tg-9wq8">کل ٹوٹل<br></td>
+                </tr>
+                <tr>
+                    <td class="tg-lboi" rowspan="2"> @clearedBalance</td>
+                    <td class="tg-9wq8" rowspan="2">آج کا ٹوٹل خرچ</td>
+                    <td class="tg-9wq8" colspan="2">کلوزنگ بیلنس</td>
+                </tr>
+                <tr>
+                    <td class="tg-9wq8">
+                        @{
+                            totalBInternal = openingBalaneInternal + todayInvomeInternal;
+                            closingBInternal = totalBInternal - clearedInternal;
+
+                            totalVal += closingBInternal;
+
+                        }
+                        @closingBInternal;
+                    </td>
+                    <td class="tg-9wq8">انٹرنل اکاؤنٹ</td>
+                </tr>
+                <tr>
+                    <td class="tg-lboi" rowspan="2">  @closingBalance</td>
+                    <td class="tg-9wq8" rowspan="2">کلوزنگ بیلنس</td>
+                    <td class="tg-9wq8">
+                        @{
+                            totalBPetty = openingBalanePetty + todayInvomePetty;
+                            closingBPetty = totalBPetty - clearedPetty;
+                            totalVal += closingBPetty;
+
+                        }
+                        @closingBPetty;
+                    </td>
+                    <td class="tg-9wq8">پیٹی کش اکاؤنٹ</td>
+                </tr>
+                var bPunjab = 0.00;
+                var bMeezan = 0.00;
+                <tr>
+                    <td class="tg-9wq8">
+                        @foreach (var details in Model.Bank1)
+                        {
+                            @if (details.BankName.Equals("Punjab"))
+                            {
+                                bPunjab += details.BankBalance + details.deposit - details.transaction - details.tax;
+                                bPunjab = bPunjab;
+                                totalVal += bPunjab;
+                            }
+                        }
+                        @bPunjab;
+                    </td>
+                    <td class="tg-9wq8">بینک آف پنجاب بیلنس</td>
+                </tr>
+                <tr>
+                    <td class="tg-0pky"> @inClearedBalance</td>
+                    <td class="tg-9wq8">انکلیرڈ بیلنس</td>
+                    <td class="tg-9wq8">
+                        @foreach (var details in Model.Bank1)
+                        {
+                            @if (details.BankName.Equals("Meezan"))
+                            {
+                                bMeezan += details.BankBalance + details.deposit - details.transaction - details.tax;
+                                bMeezan = bMeezan;
+                                totalVal += bMeezan;
+                            }
+                        }
+                        @bMeezan;
+                    </td>
+                    <td class="tg-9wq8">میزان بینک بیلنس</td>
+                </tr>
+                <tr>
+                    <td class="tg-0pky"> @currentBalance</td>
+                    <td class="tg-9wq8">موجودہ بیلنس</td>
+                    <td class="tg-9wq8"> @totalVal</td>
+                    <td class="tg-9wq8">ٹوٹل بیلنس</td>
+                </tr>
+            }
+        </thead>
+    </table>
+    @*value table*@
+    <br />
+    @*signature*@
+    <form class="signt">
+        @*sign*@
+        <table class="table table-bordered table-dark" style="table-layout: fixed">
+            <thead>
+                <tr>
+                    <th colspan="4" class="text-center" scope="col">دستخط</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center">
+                    <th scope="row">Account Manager</th>
+                    <th>C.E.O</th>
+                    <th>G.M</th>
+                    <th>D.G.M</th>
+                </tr>
+                <tr class="text-center align-content-center">
+                    <td>
+                        <input type="file" id="myFile" name="filename"><br />
+                        <img src="~/Image/sign.png" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+                    </td>
+                    <td class="tg-0lax">
+                        <input type="file" id="myFile" name="filename"><br />
+                        <img src="~/Image/sign.png" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+                    </td>
+                    <td class="tg-0lax">
+                        <input type="file" id="myFile" name="filename"><br />
+                        <img src="~/Image/sign.png" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+                    </td>
+                    <td class="tg-0lax">
+                        <input type="file" id="myFile" name="filename"><br />
+                        <img src="~/Image/sign.png" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <button type="button" asp-action="" asp-area="" asp-controller="" class="btn btn-primary btn-lg"><i class="fas fa-file-download"></i>Download</button>
+                        <a type="button" asp-action="Sheets" asp-area="Account" asp-controller="Account" class="btn btn-success btn-lg"><i class="fas fa-save"></i>Save</a>
+                        <button type="button" asp-action="" asp-area="" asp-controller="" class="btn btn-danger btn-lg"><i class="fas fa-pen-alt"></i>Clear</button>
+                        <button type="button" asp-action="" asp-area="" asp-controller="" class="btn btn-primary btn-lg"><i class="fas fa-print"></i>Print</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    @*sign*@
+    @*Main New Addtion*@
+
+
+
+    @section Scripts{
+        <script>
+            $("body").ready(function () {
+
+                debugger;
+                var invome = 0, clearedAmount = 0;
+                $("#tblcustomers TBODY TR").each(function () {
+                    var row = $(this);
+
+
+                    invome += parseInt(row.find("TD").eq(2).text());
+                    clearedAmount += parseInt(row.find("TD").eq(3).text());
+
+                });
+                $("#total #t1").append(invome);
+                $("#total #t2").append(clearedAmount);
+            });
+        </script>
+    }
+</body>
+</html>

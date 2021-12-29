@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Accessory Office" xml:space="preserve">
+    <value>ا سسرئ آفس</value>
+  </data>
+  <data name="Account Office" xml:space="preserve">
+    <value>اکاؤنٹ آفس</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>ایکشن</value>
+  </data>
+  <data name="Advance Voucher" xml:space="preserve">
+    <value>ایڈوانس واؤچر</value>
+  </data>
+  <data name="AJW AGRO INDUSTRY" xml:space="preserve">
+    <value>اے جے ڈبلیو ایگرو انڈسٹری</value>
+  </data>
+  <data name="All Department Daily Report By D.G.M To C.E.O" xml:space="preserve">
+    <value>آل ڈیپارٹمنٹ ڈیلی رپورٹ بذریعہ ڈی جی ایم سے سی ای او آفس</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>بیک ٹو لسٹ</value>
+  </data>
+  <data name="Bank Balance BOP" xml:space="preserve">
+    <value>بینک بیلنس بی او پی</value>
+  </data>
+  <data name="Bank Balance Meezan" xml:space="preserve">
+    <value>بینک بیلنس میزان</value>
+  </data>
+  <data name="C.E.O" xml:space="preserve">
+    <value>سی ای او</value>
+  </data>
+  <data name="Cancel Purchase Order" xml:space="preserve">
+    <value>کینسل پرچيز آرڈر</value>
+  </data>
+  <data name="Cash In Hand" xml:space="preserve">
+    <value>کيش ان ہنڈ</value>
+  </data>
+  <data name="Civil Office" xml:space="preserve">
+    <value>سول آفس</value>
+  </data>
+  <data name="Cleared" xml:space="preserve">
+    <value>کلیریڈ</value>
+  </data>
+  <data name="Cleared Cash by Gate Pass" xml:space="preserve">
+    <value>کلیریڈ کيش بذریعہ گیٹ پاسس</value>
+  </data>
+  <data name="Cleared Cash by P-order" xml:space="preserve">
+    <value>کلیریڈ کيش بذریعہ پرچيزآرڈر</value>
+  </data>
+  <data name="Cleared(Expence)" xml:space="preserve">
+    <value>کلیریڈ(خرچ)</value>
+  </data>
+  <data name="Closing Cash" xml:space="preserve">
+    <value>کلوزنگ کيش</value>
+  </data>
+  <data name="Contract" xml:space="preserve">
+    <value>معاہدہ</value>
+  </data>
+  <data name="Current" xml:space="preserve">
+    <value>موجودہ</value>
+  </data>
+  <data name="Current Cash" xml:space="preserve">
+    <value>کرنٹ کيش</value>
+  </data>
+  <data name="D.G.M" xml:space="preserve">
+    <value>ڈی جی ایم</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="Demotion" xml:space="preserve">
+    <value>ڈئ موشن</value>
+  </data>
+  <data name="Dis Increment" xml:space="preserve">
+    <value>ڈس انکریمنٹ</value>
+  </data>
+  <data name="Discharge" xml:space="preserve">
+    <value>ڈسچارج</value>
+  </data>
+  <data name="Electric Material Expence" xml:space="preserve">
+    <value>الیکٹرک میٹریل خرچ</value>
+  </data>
+  <data name="Electric Material Income" xml:space="preserve">
+    <value>الیکٹرک میٹریل انکم</value>
+  </data>
+  <data name="Expence Via Claim" xml:space="preserve">
+    <value>خرچ ذریعے کلیم</value>
+  </data>
+  <data name="Fine Voucher" xml:space="preserve">
+    <value>فائن واؤچر</value>
+  </data>
+  <data name="G.M" xml:space="preserve">
+    <value>جی ایم</value>
+  </data>
+  <data name="H.R.M Office" xml:space="preserve">
+    <value>اچ ۔ار۔ام آفس</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>آمدن</value>
+  </data>
+  <data name="Increment" xml:space="preserve">
+    <value>انکریمنٹ</value>
+  </data>
+  <data name="Industry In/Out" xml:space="preserve">
+    <value>انڈسٹری ان/وٹ</value>
+  </data>
+  <data name="Internship" xml:space="preserve">
+    <value>انٹرنشپ</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>جاب</value>
+  </data>
+  <data name="Joining letter" xml:space="preserve">
+    <value>جوآننگ ليٹر</value>
+  </data>
+  <data name="Labour Expence" xml:space="preserve">
+    <value>مزدوری کا خرچ</value>
+  </data>
+  <data name="Labour Half Day" xml:space="preserve">
+    <value>لیبر حلف ڈے</value>
+  </data>
+  <data name="Labour Late" xml:space="preserve">
+    <value>مزدورليٹ</value>
+  </data>
+  <data name="Labour Vication" xml:space="preserve">
+    <value>مزدور تعطیل</value>
+  </data>
+  <data name="Loan Voucher" xml:space="preserve">
+    <value>لون واؤچر</value>
+  </data>
+  <data name="Madical Expence" xml:space="preserve">
+    <value>میڈیکل خرچ</value>
+  </data>
+  <data name="Madical Voucher" xml:space="preserve">
+    <value>میڈیکل واؤچر</value>
+  </data>
+  <data name="Maintenance Expence" xml:space="preserve">
+    <value>مینٹیننس خرچ</value>
+  </data>
+  <data name="Maintenance Office" xml:space="preserve">
+    <value>مینٹیننس آفس</value>
+  </data>
+  <data name="Material Expence" xml:space="preserve">
+    <value>میٹریل خرچ</value>
+  </data>
+  <data name="Material Income" xml:space="preserve">
+    <value>میٹریل آمدن</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>نوٹ</value>
+  </data>
+  <data name="Officer Half Day" xml:space="preserve">
+    <value>آفیسرحلف ڈے</value>
+  </data>
+  <data name="Officer Late" xml:space="preserve">
+    <value>آفیسر ليٹ</value>
+  </data>
+  <data name="Officer Vication" xml:space="preserve">
+    <value>آفیسر تعطیل</value>
+  </data>
+  <data name="Opening Cash" xml:space="preserve">
+    <value>اوپننگ کش</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>پینڈنگ</value>
+  </data>
+  <data name="Personal In/Out" xml:space="preserve">
+    <value>پرسنل ان/وٹ</value>
+  </data>
+  <data name="Previous Cash" xml:space="preserve">
+    <value>پچھلا کیش</value>
+  </data>
+  <data name="Previous Gate Pass" xml:space="preserve">
+    <value>پچھلا گیٹ پاس</value>
+  </data>
+  <data name="Previous Purchase Order" xml:space="preserve">
+    <value>پچھلا پرچيز کا آرڈر</value>
+  </data>
+  <data name="Production Office" xml:space="preserve">
+    <value>پروڈکشن آفس</value>
+  </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>پروموشن</value>
+  </data>
+  <data name="Purchase Office" xml:space="preserve">
+    <value>پرچيز آفس</value>
+  </data>
+  <data name="Remaining Recovery" xml:space="preserve">
+    <value>رمیننگ ریکووری</value>
+  </data>
+  <data name="Remaning Pay Accounts" xml:space="preserve">
+    <value>باقی پے اکاؤنٹس</value>
+  </data>
+  <data name="Remaning Un-Cleared" xml:space="preserve">
+    <value>رمیننگ انکلاریڈ</value>
+  </data>
+  <data name="Remarks" xml:space="preserve">
+    <value>ریمارکس</value>
+  </data>
+  <data name="Replacement/Return" xml:space="preserve">
+    <value>تبدیلی / واپسی</value>
+  </data>
+  <data name="Resign" xml:space="preserve">
+    <value>استعفیٰ</value>
+  </data>
+  <data name="Sales Income" xml:space="preserve">
+    <value>سیلز انکم</value>
+  </data>
+  <data name="Sales Office" xml:space="preserve">
+    <value>سیلز آفس</value>
+  </data>
+  <data name="Show cause Notice" xml:space="preserve">
+    <value>شو کاز نوٹس</value>
+  </data>
+  <data name="Signature" xml:space="preserve">
+    <value>دستخط</value>
+  </data>
+  <data name="Signature Department Officer" xml:space="preserve">
+    <value>سگنیچر ڈیپارٹمنٹ افسر</value>
+  </data>
+  <data name="Special Approval" xml:space="preserve">
+    <value>اسپیشل اپپروول</value>
+  </data>
+  <data name="Supplier Bill Pay" xml:space="preserve">
+    <value>سپلائر بل پے</value>
+  </data>
+  <data name="Supplier Report Credit (Name)" xml:space="preserve">
+    <value>سپلائر رپورٹ کریڈٹ (نام)</value>
+  </data>
+  <data name="Supplier Report Debit (+)" xml:space="preserve">
+    <value>سپلائر رپورٹ ڈیبٹ (+)</value>
+  </data>
+  <data name="Temporary Allowed" xml:space="preserve">
+    <value>عارضی اجازت</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>ٹوٹل</value>
+  </data>
+  <data name="Total Bank Balance" xml:space="preserve">
+    <value>ٹوٹل بینک بیلنس</value>
+  </data>
+  <data name="Total Cash" xml:space="preserve">
+    <value>ٹوٹل کیش</value>
+  </data>
+  <data name="Total Cash Expence" xml:space="preserve">
+    <value>ٹوٹل کيش خرچ</value>
+  </data>
+  <data name="Total Expence" xml:space="preserve">
+    <value>ٹوٹل خرچ</value>
+  </data>
+  <data name="Trani" xml:space="preserve">
+    <value>ٹرانی</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>ٹرانسفر</value>
+  </data>
+  <data name="Travling Allowns" xml:space="preserve">
+    <value>سفری الاؤنس</value>
+  </data>
+  <data name="Un-Cleared" xml:space="preserve">
+    <value>ان-کلیریڈ</value>
+  </data>
+  <data name="Visitor Approval" xml:space="preserve">
+    <value>وزیٹر اپپروول</value>
+  </data>
+  <data name="Visitour Interni" xml:space="preserve">
+    <value>ویسٹر انٹرنی</value>
+  </data>
+  <data name="Warning letter" xml:space="preserve">
+    <value>وارننگ ليٹر</value>
+  </data>
+</root>

@@ -1,0 +1,142 @@
+﻿@model IEnumerable<System.DateTime>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+<html>
+<head>
+    <style>
+        #customers, tblcustomers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td > input {
+            width: 100%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+        .tabled {
+            position: center;
+            align-content: center;
+            text-align: center;
+            /*margin-left: -200px;*/
+        }
+
+        .signt {
+            position: center;
+            align-content: center;
+            text-align: center;
+            /*  margin-left: -120px;*/
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table id="tblcustomers" class="table display">
+        <thead>
+            <tr>
+                <th>
+                    Sheet Date
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Date.ToString("dd-MM-yyyy")
+                    </td>
+                    <td>
+                        <a asp-action="IndexByName" asp-route-id="@item.Date.ToString("dd-MM-yyyy")">Sheet Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <table class="tabled table table-bordered">
+        <thead>
+            <tr class="text-right">
+                <th class="bg-dark text-white" scope="col" colspan="10">
+                    <button type="button" class="btn btn-info">+ Create New Sheet </button>
+                </th>
+
+            </tr>
+            <tr>
+                <th class="bg-dark text-white" scope="col" colspan="10"><img src="~/Image/white.png" alt="Image" width="100" height="100" /><br />اے جے ڈبلیو ایگرو انڈسٹری</th>
+
+            </tr>
+            <tr>
+                <th class="bg-dark text-white" scope="col" colspan="10">ڈیلی رپورٹ لسٹ اکاؤنٹ آفس</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th class="text-left" colspan="10" scope="col"> <input type="datetime-local" id="birthdaytime" name="birthdaytime">  : تاریخ </th>
+
+            </tr>
+            <tr>
+
+                <th class="text-center bg-dark text-white" scope="col" colspan="3">ڈسپلے لسٹ</th>
+               
+                <th class="text-center bg-dark text-white" scope="col" colspan="3">تاریخ</th>
+                <th class="text-center bg-dark text-white" scope="col" colspan="3">ٹائٹل</th>
+            
+                <th class="text-center bg-dark text-white" scope="col">نمبر شمار</th>
+
+            </tr>
+            <tr>
+                @*<th scope="row" colspan="3">شو ڈیٹیل</th>*@
+                <th scope="row" style="width:150px" colspan="3">
+             
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-primary text-white" asp-action="Edit" asp-route-Id="@Model">
+                            <i class="fas fa-edit">Edit</i>
+                        </a>
+
+                        <a class="btn btn-success text-white" asp-action="Details" asp-route-Id="@Model">
+                            <i class="fas fa-list-alt">Detail</i>
+                        </a>
+
+                        <a class="btn btn-danger text-white" asp-action="Delete" asp-route-Id="@Model">
+                            <i class="fas fa-trash-alt">Delete</i>
+                        </a>
+                    </div>
+            
+                </th>
+                <th scope="row" colspan="3"></th>
+                <th scope="row" colspan="3"></th>
+                <th scope="row"></th>
+
+
+
+            </tr>
+          
+        </tbody>
+    </table>
+</body>
+</html>

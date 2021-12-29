@@ -1,0 +1,291 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+
+@* -----Langugae Translator--Localizer *@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{
+    ViewData["Title"] = "AccountsUserGuide";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+
+@*This Controller for ::Account Office system user guide =view::*@
+<br />
+<body>
+    <form class="tabled">
+        <div class="container-fluid backgroundWhiteBorder10Padding AccountLUBook">
+            <div class="col-md-12 col-sm-12">
+                <div class="portlet light">
+                    <div class="portlet-body">
+                        <div class="table-responsive">
+                            <div class="titleLaw">
+                                <span class="">@localizer["ACCOUNTS DEPARTMENT SYSTEM USER GUIDE"]</span>
+                            </div>
+                            <br />
+                            <div class="PrintP">
+                                <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                            </div>
+                            <table class="table table-bordered table-hover table-condensed table-sm SubH">
+                                <thead>
+                                    <tr class="">
+                                        <th>@localizer["ID#"]</th>
+                                        <th colspan="8">@localizer["Action's Description"]</th>
+                                        <th colspan="4">@localizer["Function"]</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> <span class="en">01</span> </td>
+                                        <td colspan="8">
+                                            @localizer["The Accounts Manager input assign email addrss,select related Department and input assign password then system display Accounts Dashboard"]
+                                        </td>
+                                        <td colspan="4">Login Page</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">02</span> </td>
+                                        <td colspan="8">
+                                            @localizer["The Accounts Manager on dashboard view all important key values like Today Opening balance etc"]
+                                        </td>
+                                        <td colspan="4">Accounts Dashboard</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">03</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is a search-bar on the top of the dashboard page, by this accounts manager search any query related to the accounts department"]
+                                        </td>
+                                        <td colspan="4">Accounts Search-Bar</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">04</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is selector of language at the top right by this accounts manager change current page language, as you want"]
+                                        </td>
+                                        <td colspan="4">Language Translator</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">05</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is notification panel at the top right by this accounts manager check all activity's notification"]
+                                        </td>
+                                        <td colspan="4">Notification Panel</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">06</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is user profile section at the top right by this accounts manager logout from system or check profile information"]
+                                        </td>
+                                        <td colspan="4">Profile</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">07</span> </td>
+                                        <td colspan="8">
+                                            @localizer["It is the responsibility of the Account Manager to arrange and secure the debit, credit voucher of Industry Account and Petty Cash Account"]
+                                        </td>
+                                        <td colspan="4"></td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">08</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is X sign at the top left by this accounts manager change the screen view(big/small)"]
+                                        </td>
+                                        <td colspan="4">X</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">09</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is book sign at the top right side by this accounts manager view updated notice"]
+                                        </td>
+                                        <td colspan="4">Notice Board</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">10</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 1st option in sidebar ':Dashboard:' by this accounts manager go to Accounts Dashboard Page  "]
+                                        </td>
+                                        <td colspan="4">Sidebar/Dashboard</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">11</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 2nd dropdown option in sidebar ':Accounts Support Guide:' by this accounts manager select Accounts User Guide for accounts department"]
+                                        </td>
+                                        <td colspan="4">Sidebar/Accounts Support Guide</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">12</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 2nd dropdown option in sidebar ':Accounts Law Book List:' by this accounts manager check all laws about accounts department"]
+                                        </td>
+                                        <td colspan="4">Sidebar/Accounts Law Book</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">13</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 3rd option in sidebar ':Accounts All Daily Reports:' by this accounts manager can create all daily reports and perform all necessory operation on daily accounts report"]
+                                        </td>
+                                        <td colspan="4">Sidebar/Accounts Daily Report</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">14</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 4th option in sidebar ':Accounts Monthly/Yearly Report:' by this accounts manager can create all Accounts Monthly/Yearly Report and perform all necessory operation"]
+                                        </td>
+                                        <td colspan="4">Sidebar/Accounts M/Y Report</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">15</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 5th dropdown option in sidebar ':Ledger Report:' by this accounts manager create and check all ledger and perform all necessory operations"]
+                                        </td>
+                                        <td colspan="4">Sidebar/Ledger Report</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">16</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 6th option in sidebar ':Bank Check Approval Voucher:' by this accounts manager create bank check approval voucher for C.E.O and perform all necessory operations "]
+                                        </td>
+                                        <td colspan="4">Sidebar/Bank Reports</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">17</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 7th option in sidebar ':Accounts Reports Repository:' by this accounts manager view all success reports which sending by G.M Department"]
+                                        </td>
+                                        <td colspan="4">Sidebar/Accounts Reports Repository</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">18</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 8th option in sidebar ':Accounts Error Report List:' by this accounts manager check all error reports which send by D.G.M office and perform all necessory operations"]
+                                        </td>
+                                        <td colspan="4">Sidebar/Accounts Error Reports</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> <span class="en">19</span> </td>
+                                        <td colspan="8">
+                                            @localizer["There is 9th option in sidebar ':Accounts PDF Report:' by this accounts manager select all downloaded reports and upload on Accounts D.M.S department"]
+                                        </td>
+                                        <td colspan="4">Sidebar/Accounts PDF Report: D.M.S</td>
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+<!-- back to top button-->
+<a id="button"></a>
+<!-- back to top button-->
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+
+    .AccountLUBook {
+        text-align: right;
+        text-align: justify;
+        direction: rtl;
+    }
+
+    .titleLaw {
+        text-align: left;
+        font-weight: bold;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -50px;
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+
+
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@
+
+

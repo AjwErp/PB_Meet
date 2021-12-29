@@ -1,0 +1,257 @@
+﻿
+
+
+
+
+
+@{
+    ViewData["Title"] = "MeezanbankIEReport";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+        .tabled {
+            position: center;
+            align-content: center;
+            text-align: center;
+            /*margin-left: -200px;*/
+        }
+
+        .signt {
+            position: center;
+            align-content: center;
+            text-align: center;
+            /*  margin-left: -120px;*/
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Transaction Sheet</title>
+</head>
+<body>
+    
+
+   
+    @*btn link*@
+
+    <div class="btn-group btn-group-lg text-white">
+        <button type="button" class="btn btn-dark"><a asp-action="Create"> Create New</a></button>
+        <button type="button" class="btn btn-dark"><a asp-action="IndexByName">(1)Daily Continous Sheet </a></button>
+        <button type="button" class="btn btn-dark"> <a asp-action="tranSheet">(2)Transaction Sheet </a></button>
+        <button type="button" class="btn btn-dark"> <a asp-action="MeezanbankIEReport" asp-route-id="">(3)Meezan-bank-IE-Report </a></button>
+        <button type="button" class="btn btn-dark"><a asp-action="BnkIndex">(4)Bank Sheet </a> </button>
+        <button type="button" class="btn btn-dark"><a asp-action="MeezanbankIEReportVoucher" asp-route-id="">(5)Meezan-bank-IE-Report Voucher </a></button>
+        <button type="button" class="btn btn-dark"><a asp-action="DailySupplierReport" asp-route-id="">(6)Daily Supplier Report </a></button>
+        <button type="button" class="btn btn-dark"><a asp-action="closngVoucher">(7)Closing Voucher </a></button>
+        <button type="button" class="btn btn-success"> <a asp-action="sheetList">Sheet List </a></button>
+    </div>
+    @*btn link*@
+
+    <table class="tabled table table-bordered">
+        <thead>
+            <tr>
+                <th class="bg-dark text-white" scope="col" colspan="10"><img src="~/Image/white.png" alt="Image" width="100" height="100" /><br />اے جے ڈبلیو ایگرو انڈسٹری</th>
+
+            </tr>
+            <tr>
+                <th class="bg-dark text-white" scope="col" colspan="10">ڈیلی کیش جاری رپورٹ اکاؤنٹ آفس</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <th class="text-left" colspan="4" scope="col"> <input type="text" id="birthdaytime" name="birthdaytime">  :چیک نمبر </th>
+                <th class="text-right" colspan="6" scope="col"> <input type="datetime-local" id="birthdaytime" name="birthdaytime">  : تاریخ </th>
+
+            </tr>
+            <tr>
+
+
+                <th colspan="7" class="text-right">
+                    <input class="form-control" placeholder="    ........................................................................................................................انٹروجہ چیک کے لئے" />
+                </th>
+                <th colspan="3" class="text-center">
+                    رقم
+                </th>
+
+            </tr>
+            <tr>
+
+                <th colspan="7" class="text-center">
+                    <input class="form-control" placeholder=" .............................................................................................................................انٹرپر پز چیک کے لئے" />
+                </th>
+                <th colspan="3" class="text-center">
+                    پر پز
+                </th>
+
+            </tr>
+            <tr>
+
+                <th class="text-center bg-dark text-white" scope="col" colspan="2">CRUD آپریشن</th>
+                <th class="text-center bg-dark text-white" scope="col" colspan="2">باقی بیلنس</th>
+                <th class="text-center bg-dark text-white" scope="col" colspan="2">انکم ٹیکس کٹوتی</th>
+                <th class="text-center bg-dark text-white" scope="col" colspan="2">چیک کش</th>
+                <th class="text-center bg-dark text-white" scope="col" colspan="2">موجودہ بینک بیلنس</th>
+
+
+            </tr>
+            <tr>
+                <th scope="row" colspan="2">CRUD Button</th>
+                <th scope="row" colspan="2"></th>
+                <th scope="row" colspan="2"></th>
+                <th scope="row" colspan="2"></th>
+                <th scope="row" colspan="2"></th>
+
+
+
+            </tr>
+
+            <tr>
+
+
+                <th colspan="7" class="text-right">
+                    <input class="form-control" placeholder="    ........................................................................................................................انٹر تفصیل" />
+                </th>
+                <th colspan="3" class="text-center">
+                    تفصیل
+                </th>
+
+            </tr>
+            <tr>
+                <th colspan="10" class="text-center bg-dark text-white">
+                    <h3> سپپورٹنگ ڈوکمنٹس</h3>
+                </th>
+
+            </tr>
+            <tr>
+
+                <th class="text-center align-content-center bg-dark text-white" colspan="10">سلیکٹ  ڈوکمنٹس</th>
+
+            </tr>
+            <tr>
+
+                <th class="text-center align-content-center bg-dark text-white" colspan="10"> <input type="file" id="myFile" name="filename"></th>
+
+            </tr>
+            <tr class="bg-dark text-white text-left">
+
+                <td colspan="10"><img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                 <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                 <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                 <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                 <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                 <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                 <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                 <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                 <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                 <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td colspan="4">Ended</td>
+
+            </tr>
+        </tbody>
+    </table>
+    @*new bank index file*@
+    <form class="signt">
+        @*sign*@
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th colspan="4" class="text-center" scope="col">دستخط</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center">
+                    <th scope="row">Account Manager</th>
+                    @*<th>C.E.O</th>*@
+                    <th>G.M</th>
+                    <th>D.G.M</th>
+                </tr>
+                <tr class="text-center align-content-center">
+                    <td>
+                        <input type="file" id="myFile" name="filename"><br />
+                        <img src="~/Image/sign.png" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+                    </td>
+                    @*<td class="tg-0lax">
+                <input type="file" id="myFile" name="filename"><br />
+                <img src="~/Image/yok.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+            </td>*@
+                    <td class="tg-0lax">
+                        <input type="file" id="myFile" name="filename"><br />
+                        <img src="~/Image/sign.png" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+                    </td>
+                    <td class="tg-0lax">
+                        <input type="file" id="myFile" name="filename"><br />
+                        <img src="~/Image/sign.png" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </form>
+    @*sign*@
+
+    @section Scripts{
+        <script>
+
+        </script>
+    }
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

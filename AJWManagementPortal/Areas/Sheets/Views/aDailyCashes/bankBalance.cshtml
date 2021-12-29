@@ -1,0 +1,108 @@
+﻿@model AJWManagementPortal.Models.TransAndBank
+@{
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<style>
+    td {
+        overflow: hidden;
+    }
+</style>
+
+    <table id="tblcustomers" class="display"  border="1" width="100%" style='table-layout:fixed' >
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    ValueDate
+                </th>
+                <th>
+                    clearedAmount
+                </th>
+                <th>
+                    paidAmount
+                </th>
+                <th>
+                    lnClearedAmount
+                </th>
+                <th>
+                    remainingGained
+                </th>
+                <th>
+                    surplus
+                </th>
+                <th>
+                    purchaser
+                </th>
+                <th>
+                    income
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.aDailyCashes)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ValueDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.clearedAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.paidAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lnClearedAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.remainingGained)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.surplus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.purchaser)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.income)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                    <td><input type="button" value="Remove" onclick="Remove(this)" /></td>
+                </tr>
+            }
+
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <th><input type="text" id="txtName" /></th>
+                <th><input type="text" id="txtDesc" /></th>
+                <th><input type="text" id="txtDate" /></th>
+                <th><input type="text" id="clearedAmount" /></th>
+                <th><input type="text" id="paidAmount" /></th>
+                <th><input type="text" id="lnClearedAmount" /></th>
+                <th><input type="text" id="remainingGained" /></th>
+                <th><input type="text" id="surplus" /></th>
+                <th><input type="text" id="purchaser" /></th>
+                <th><input type="text" id="income" /></th>
+                <th><input type="button" id="btnAdd" value="Add" /></th>
+            </tr>
+        </tfoot>
+    </table>

@@ -1,0 +1,175 @@
+﻿@model IEnumerable<TechnicalStaffWorkPlan>
+
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "AjwTechnicalStaffWorkPlanList";
+    Layout = "~/Views/Shared/_LayoutProduction.cshtml";
+}
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+<br />
+<body>
+    <div class="container-fluid backgroundWhiteBorder10Padding">
+        <div class="row">
+            <div class="header col-sm-12">
+                <br />
+                <a class="logo font-weight-bold font-weight-bolder">@Localizer["AJW TECHNICAL STAFF WORKING PLAN FILE LIST"]</a>
+            </div>
+            @*--------------1----------start---------------------------- Table for Daily Main Bank LedgerBook List----------------------------------------------------------*@
+            <form class="tabled col-sm-12">
+                <hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary" asp-controller="AjwAllDailyPlan" asp-area="Production" asp-action="AjwTechnicalStaffWorkPlan"><i class="fas fa-plus"> @Localizer["Create New Technical Work Plan"]</i> </a>
+                </div>
+                <br />
+        
+                <table class="table table-bordered" id="DMBLBook">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="SubH ">
+                                <td class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                            <a class="dropdown-item " asp-action="EditAjwTechnicalStaffWorkPlan" asp-controller="AjwAllDailyPlan" asp-area="Production" asp-route-remarks="@item.Remarks"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                            <a class="dropdown-item " asp-action="DeleteAjwTechnicalStaffWorkPlan" asp-controller="AjwAllDailyPlan" asp-area="Production" asp-route-remarks="@item.Remarks"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                            <a class="dropdown-item " asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-file-download"></i> @Localizer["Download"]</a>
+                                            <a class="dropdown-item " asp-action="SendToGmOffice" asp-controller="AjwAllDailyPlan" asp-area="Production" asp-route-remarks="@item.Remarks"><i class="fas fa-send"></i> @Localizer["Send To G.M Offcie"]</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>@item.Date</td>
+                                <td>Ajw Technical Staff Work Plan</td>
+                                <td>@item.Id</td>
+                                @*<td>@Localizer["Ajw Technical Staff Working Plan"] </td>*@
+                            </tr>
+                        }
+                        </tbody>
+                     
+                </table>
+                @*-------------------1-----ended---------------------------- Table for Daily Main Bank LedgerBook List----------------------------------------------------------*@
+            </form>
+        </div>
+    </div>
+</body>
+<!-- back to top button-->
+<a id="button"></a>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+        //------JS for Pagination and Datatables for Accounts All Main Bank Ledger Book---Start----
+        $(document).ready(function () {
+            $('#DMBLBook').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+//--------
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+    /* Css for Heading on every Sheet of ccount office----*/
+    .header {
+        overflow: hidden;
+        padding: 10px 10px;
+        font-size: 40px;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+    }
+    /*//--CSS For Create button & Action Button of Each Page------start---------*/
+    .Createbtn {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: large;
+        text-align: right;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for Small Content Of Accounts----*/
+    .smallfontHeading {
+        font-size: medium;
+    }
+
+    .Subhdr {
+        color: white;
+        text-align: center;
+        background-color: slategrey;
+    }
+    /* Css for Table Body on each page in Accounts----*/
+    .tabbody {
+        text-align: center;
+        color: black;
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

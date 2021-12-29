@@ -1,0 +1,301 @@
+﻿
+
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@*---Language Tranlator--Localizer*@
+@{
+    ViewData["Title"] = "HrmDashboard";
+    Layout = "~/Views/Shared/_LayoutHrm.cshtml";
+}
+
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-blue">
+                <div class="inner">
+                    <h3> 134367577 </h3>
+                    <p> @Localizer["Total Income"] </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-green">
+                <div class="inner">
+                    <h3> ₹1858388358 </h3>
+                    <p> @Localizer["Today Income"] </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-orange">
+                <div class="inner">
+                    <h3> 583838464 </h3>
+                    <p> @Localizer["Total Expense"] </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-red">
+                <div class="inner">
+                    <h3> 7283838383 </h3>
+                    <p> @Localizer["Today Expence"] </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-blue">
+                <div class="inner">
+                    <h3> 134367577 </h3>
+                    <p> @Localizer["Today Opening Balance"] </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-green">
+                <div class="inner">
+                    <h3> ₹1858388358 </h3>
+                    <p> @Localizer["Meezan-Bank Current Balance"] </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-orange">
+                <div class="inner">
+                    <h3> 583838464 </h3>
+                    <p> @Localizer["Punjab-Bank Current Balance"] </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-red">
+                <div class="inner">
+                    <h3> 7283838383 </h3>
+                    <p> @Localizer["Total Bank Balance"] </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-blue">
+                <div class="inner">
+                    <h3> 134367577 </h3>
+                    <p> @Localizer["Total Accounts Balance"] </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-green">
+                <div class="inner">
+                    <h3> ₹1858388358 </h3>
+                    <p> @Localizer["Internal Account Balance"] </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-orange">
+                <div class="inner">
+                    <h3> 583838464 </h3>
+                    <p> @Localizer["Petty Account Balance"] </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-red">
+                <div class="inner">
+                    <h3> 7283838383 </h3>
+                    <p> @Localizer["Supplier Credit Balance"] </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-blue">
+                <div class="inner">
+                    <h3> 134367577 </h3>
+                    <p> @Localizer["Suplier Debit Balance"] </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-green">
+                <div class="inner">
+                    <h3> ₹1858388358 </h3>
+                    <p> @Localizer["Today Meezan Bank Income"] </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-orange">
+                <div class="inner">
+                    <h3> 583838464 </h3>
+                    <p> @Localizer["Today Punjab Bank Income"] </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-red">
+                <div class="inner">
+                    <h3> 7283838383 </h3>
+                    <p> @Localizer["Supplier -- Balance"] </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    .card-box {
+        position: relative;
+        color: #fff;
+        padding: 20px 10px 40px;
+        margin: 12px 0px;
+    }
+
+        .card-box:hover {
+            text-decoration: none;
+            color: #f1f1f1;
+        }
+
+            .card-box:hover .icon i {
+                font-size: 100px;
+                transition: 1s;
+                -webkit-transition: 1s;
+            }
+
+        .card-box .inner {
+            padding: 5px 10px 0 10px;
+        }
+
+        .card-box h3 {
+            font-size: 27px;
+            font-weight: bold;
+            margin: 0 0 8px 0;
+            white-space: nowrap;
+            padding: 0;
+            text-align: left;
+        }
+
+        .card-box p {
+            font-size: 15px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .card-box .icon {
+            position: absolute;
+            top: auto;
+            bottom: 5px;
+            right: 5px;
+            z-index: 0;
+            font-size: 72px;
+            color: rgba(0, 0, 0, 0.15);
+        }
+
+        .card-box .card-box-footer {
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            text-align: center;
+            padding: 3px 0;
+            color: rgba(255, 255, 255, 0.8);
+            background: rgba(0, 0, 0, 0.1);
+            width: 100%;
+            text-decoration: none;
+        }
+
+        .card-box:hover .card-box-footer {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+    .bg-blue {
+        background-color: #00c0ef !important;
+    }
+
+    .bg-green {
+        background-color: #00a65a !important;
+    }
+
+    .bg-orange {
+        background-color: #f39c12 !important;
+    }
+
+    .bg-red {
+        background-color: #d9534f !important;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

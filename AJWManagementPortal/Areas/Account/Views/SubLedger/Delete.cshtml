@@ -1,0 +1,62 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@*---Language Tranlator--Localizer*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@model AJWManagementPortal.Models.SubLedger
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+@*This HTML for ::SubLedger Delete=view for account office::*@
+
+<br />
+<h2 class="text-info">Sub Ledger Delete</h2>
+<br />
+<form method="post">
+    <div class="border backgroundWhite">
+        <input type="hidden" asp-for="Id" />
+        <fieldset disabled>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Name" class="custom-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Name" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Ledger.LedgerName" class="custom-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Ledger.LedgerName" class="form-control" />
+                </div>
+            </div>
+        </fieldset>
+        <br />
+        <div class="form-group row">
+            <div class="col-5 offset-2">
+                <partial name="_DeleteAndBackToListButtonSubLedger" model="Model.Id" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

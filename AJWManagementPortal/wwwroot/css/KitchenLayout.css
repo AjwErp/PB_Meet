@@ -1,0 +1,57 @@
+﻿body {
+    font-family: 'Jameel Noori Nastaleeq';
+}
+.KitchenLUBook {
+    text-align: right;
+    text-align: justify;
+    direction: rtl;
+}
+.titleLaw {
+    text-align: left;
+    font-weight: bold;
+}
+.ajwfooter {
+    font-size: x-small;
+    font-family: 'Jameel Noori Nastaleeq';
+}
+
+.lang_btn {
+    font-family: "ProximaNova";
+    color: #fff;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    background-color: #C82333;
+    text-transform: uppercase;
+    margin-top: 1.7%;
+    text-decoration: none !important;
+    width: 65px;
+    text-align: center;
+    height: 39px;
+    border: solid 1px #C82333;
+}
+/*page print css----*/
+.btn-theme {
+    background: #08818c;
+    color: #fff;
+}
+
+.btn {
+    font-family: arial;
+}
+
+.btn-print {
+    padding: 10px 24px;
+    font-size: 16px;
+    line-height: 1.33;
+    vertical-align: middle;
+    float: left;
+}
+
+.PrintP {
+    margin-left: 985px;
+    position: absolute;
+    margin-top: -45px;
+}
+
+/*page print css----*/

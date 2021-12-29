@@ -1,0 +1,571 @@
+﻿
+
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@*---Language Tranlator--Localizer*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "AllDepartmentDailyReportByDgmtoCeo";
+    Layout = "~/Views/Shared/_LayoutDgm.cshtml";
+}
+
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+
+@*::this HTMl For DGM office Daily Reports for CEO Office::*@
+<br />
+<!-- Table with panel -->
+<body>
+    <form class="backgroundWhiteBorder10Padding">
+        <div class="BackToList">
+            <a type="button" asp-action="DgmOfficeReports" asp-area="Dgm" asp-controller="DgmOfficeReports" class="btn btn-primary  form-control hover btn-block btn-sm "><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
+        </div>
+        <div class="PrintP">
+            <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+        </div>
+        <div class="card card-cascade narrower">
+            @*<div class="px-4">*@
+            <div class="table-wrapper table-responsive ">
+                <!--Table-->
+                <table class="table table-bordered table-sm table-hover table-sm table-striped SubH">
+                    <thead>
+                        <tr>
+                            <th colspan="24"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+                        </tr>
+                        <tr>
+                            <th class="titleDgmofficeReport" colspan="24">@Localizer["All Department Daily Report By D.G.M To C.E.O"]</th>
+                        </tr>
+                        <tr>
+                            <th class="text-left" colspan="24"> <input type="date" id=" " name="">  : @Localizer["Date"] </th>
+                        </tr>
+                        @*----------1------Account Office----------start------------------*@
+                        <tr>
+                            <th colspan="24">1 : @Localizer["Account Office"] (14-05-2021)</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">@Localizer["Total Bank Balance"]</th>
+                            <th colspan="3">@Localizer["Bank Balance Meezan"]</th>
+                            <th colspan="3">@Localizer["Bank Balance BOP"]</th>
+                            <th colspan="2">@Localizer["Cash In Hand"]</th>
+                            <th colspan="2">@Localizer["Un-Cleared"] </th>
+                            <th colspan="2">@Localizer["Closing Cash"]</th>
+                            <th colspan="4">@Localizer["Cleared(Expence)"]</th>
+                            <th colspan="2">@Localizer["Total Cash"]</th>
+                            <th colspan="2">@Localizer["Income"]</th>
+                            <th colspan="2">@Localizer["Opening Cash"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2">
+                                4244445
+                            </td>
+                            <td colspan="3">
+                                4244445
+                            </td>
+                            <td colspan="3">
+                                4244445
+                            </td>
+                            <td colspan="2">
+                                4244445
+                            </td>
+                            <td colspan="2">4244445</td>
+                            <td colspan="2">
+                                4244445
+                            </td>
+                            <td colspan="4">4244445</td>
+
+                            <td colspan="2">4244445</td>
+                            <td colspan="2">4542424</td>
+                            <td colspan="2">3281424</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                            </td>
+                            <th colspan="4">
+                                @Localizer["Signature Department Officer"]
+                            </th>
+                            <td colspan="7">We are Create Daily Report For CEO Office </td>
+                            <th>
+                                @Localizer["Note"]
+                            </th>
+                            <td colspan="2">45424245</td>
+                            <th colspan="2">@Localizer["Supplier Report Credit (Name)"]</th>
+                            <td colspan="2">4244445</td>
+                            <th colspan="2">@Localizer["Supplier Report Debit (+)"]</th>
+                        </tr>
+                        @*----------1------Account Office----------Ended------------------*@
+                        @*----------2------Production Office----------Start------------------*@
+                        <tr>
+                            <th colspan="24" scope="col">2 : @Localizer["Production Office"] (14-05-2021)</th>
+                        </tr>
+                        <tr>
+
+                            <th colspan="2"> @Localizer["Signature Department Officer"] </th>
+                            <th colspan="8">@Localizer["Note"]</th>
+                            <th colspan="4">@Localizer["Electric Material Expence"]</th>
+                            <th colspan="4">@Localizer["Electric Material Income"]</th>
+                            <th colspan="4">@Localizer["Material Expence"]</th>
+                            <th colspan="2">@Localizer["Material Income"]</th>
+                        </tr>
+                        <tr>
+
+                            <td colspan="2">Akmal Shab</td>
+                            <td colspan="8">
+                                Hello.Maintenence Officer How Are And How do you do
+                            </td>
+                            <td colspan="4">4244445</td>
+                            <td colspan="4">4244445</td>
+                            <td colspan="4">4542424</td>
+                            <td colspan="2">3281424</td>
+                        </tr>
+
+                        @*----------2------Production Office----------ended------------------*@
+                        @*----------3------Maintenece Office----------Start------------------*@
+                        <tr>
+                            <th colspan="24">3 : @Localizer["Maintenance Office"] (14-05-2021)</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">@Localizer["Signature Department Officer"]</th>
+                            <th colspan="14">@Localizer["Note"]</th>
+                            <th colspan="8">@Localizer["Maintenance Expence"]</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">4244445</td>
+                            <td colspan="14">Hello.Maintenence Officer How Are And How do you do</td>
+                            <td colspan="8">3281424</td>
+                        </tr>
+
+                        @*----------3------Maintenece Office----------ended------------------*@
+                        @*----------4------Accessory Office----------Start------------------*@
+                        <tr>
+                            <th colspan="24">4 : @Localizer["Accessory Office"] (14-05-2021)</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">@Localizer["Signature Department Officer"]</th>
+                            <th colspan="14">@Localizer["Note"]</th>
+                            <th colspan="4">@Localizer["Material Expence"]</th>
+                            <th colspan="4">@Localizer["Material Income"]</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Ashiq Shab</td>
+                            <td colspan="14">Hello.Maintenence Officer How Are And How do you do</td>
+                            <td colspan="4">3281424</td>
+                            <td colspan="4">3281424</td>
+                        </tr>
+                        @*----------4------Accessory Office----------ended------------------*@
+                        @*----------5------Cevil Office----------Start------------------*@
+                        <tr>
+                            <th colspan="24">5 : @Localizer["Civil Office"] (14-05-2021)</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">@Localizer["Signature Department Officer"]</th>
+                            <th colspan="14">@Localizer["Note"]</th>
+                            <th colspan="2">@Localizer["Total Expence"]</th>
+                            <th colspan="2">@Localizer["Material Expence"]</th>
+                            <th colspan="2">@Localizer["Labour Expence"]</th>
+                            <th colspan="2">@Localizer["Material Income"]</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">4244445</td>
+                            <td colspan="14">Hello.Maintenence Officer How Are And How do you do</td>
+                            <td colspan="2">3281424</td>
+                            <td colspan="2">3281424</td>
+                            <td colspan="2">3281424</td>
+                            <td colspan="2">3281424</td>
+                        </tr>
+                        @*----------5------Cevil Office----------ended------------------*@
+                        @*----------6------H.R.M Office----------Start------------------*@
+                        <tr>
+                            <th colspan="24">6 : @Localizer["H.R.M Office"] (14-05-2021)</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">@Localizer["Labour Late"]</th>
+                            <th colspan="2">@Localizer["Labour Half Day"]</th>
+                            <th colspan="2">@Localizer["Labour Vication"]</th>
+                            <th colspan="2">@Localizer["Officer Late"]</th>
+                            <th colspan="2">@Localizer["Officer Half Day"]</th>
+                            <th colspan="4"> @Localizer["Officer Vication"] </th>
+                            <th colspan="2" َ>@Localizer["Visitor Approval"]</th>
+                            <th colspan="2">@Localizer["Special Approval"]</th>
+                            <th colspan="2">@Localizer["Fine Voucher"]</th>
+                            <th colspan="2">@Localizer["Loan Voucher"]</th>
+                            <th colspan="2">@Localizer["Advance Voucher"]</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                4244445
+                            </td>
+                            <td colspan="2">
+                                4244445
+                            </td>
+                            <td colspan="2">
+                                4244445
+                            </td>
+                            <td colspan="2">
+                                4244445
+                            </td>
+                            <td colspan="2">
+                                4244445
+                            </td>
+                            <td colspan="4">4244445</td>
+                            <td colspan="2">
+                                4244445
+                            </td>
+                            <td colspan="2">4244445</td>
+
+                            <td colspan="2">4244445</td>
+                            <td colspan="2">4542424</td>
+                            <td colspan="2">3281424</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                4244445
+                            </td>
+                            <th colspan="2">
+                                @Localizer["Visitour Interny"]
+                            </th>
+                            <td colspan="2">
+                                4244445
+                            </td>
+                            <th colspan="2">
+                                @Localizer["Personal In/Out"]
+                            </th>
+                            <td colspan="2">
+                                4244445
+                            </td>
+                            <th colspan="4">@Localizer["Industry In/Out"]</th>
+                            <td colspan="4">
+                                4244445
+                            </td>
+                            <th colspan="2">@Localizer["Madical Expence"]</th>
+
+
+                            <td colspan="2">4542424</td>
+                            <th colspan="2">@Localizer["Madical Voucher"]</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">@Localizer["Signature Department Officer"]</th>
+                            <th colspan="2">@Localizer["Show cause Notice"]</th>
+                            <th>@Localizer["Joining letter"]</th>
+                            <th>@Localizer["Warning letter"]</th>
+                            <th>@Localizer["Discharge"]</th>
+                            <th colspan="2">@Localizer["Temporary Allowed"]</th>
+                            <th>@Localizer["Resign"]</th>
+                            <th colspan="2">@Localizer["Demotion"]</th>
+                            <th colspan="2">@Localizer["Promotion"]</th>
+                            <th colspan="2">@Localizer["Dis Increment"]</th>
+                            <th> @Localizer["Increment"] </th>
+                            <th>@Localizer["Transfer"]</th>
+                            <th>@Localizer["Job"]</th>
+                            <th>@Localizer["Contract"]</th>
+                            <th colspan="2">@Localizer["Trani"]</th>
+                            <th colspan="2">@Localizer["Internship"]</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">4244445</td>
+                            <td colspan="2">4244445</td>
+                            <td>4244445</td>
+                            <td>4542424</td>
+                            <td>3281424</td>
+                            <td colspan="2">4244445</td>
+                            <td>4244445</td>
+                            <td colspan="2">4244445</td>
+                            <td colspan="2">4542424</td>
+                            <td colspan="2">3281424</td>
+                            <td>4244445</td>
+                            <td>4244445</td>
+                            <td>4244445</td>
+                            <td>4542424</td>
+                            <td colspan="2">3281424</td>
+                            <td colspan="2">3281424</td>
+                        </tr>
+                        @*----------6------H.R.M Office----------ended------------------*@
+                        @*----------7------Purchase Office----------Start------------------*@
+                        <tr>
+                            <th colspan="24">7 : @Localizer["Purchase Office"] (14-05-2021)</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">@Localizer["Signature Department Officer"]</th>
+                            <th colspan="2">@Localizer["Remaning Un-Cleared"]</th>
+                            <th colspan="2">@Localizer["Cleared"]</th>
+                            <th colspan="2">@Localizer["Total"]</th>
+                            <th colspan="2">@Localizer["Current"]</th>
+                            <th colspan="2">@Localizer["Previous Gate Pass"]</th>
+                            <th colspan="2">@Localizer["Cancel Purchase Order"]</th>
+                            <th colspan="2"> @Localizer["Pending"] </th>
+                            <th colspan="2">@Localizer["Un-Cleared"]</th>
+                            <th>@Localizer["Cleared"]</th>
+                            <th>@Localizer["Total"]</th>
+                            <th colspan="2">@Localizer["Current"]</th>
+                            <th colspan="2">@Localizer["Previous Purchase Order"]</th>
+                        </tr>
+                        <tr>
+
+                            <td colspan="2">------</td>
+                            <td colspan="2">---------</td>
+                            <td colspan="2">--------</td>
+                            <td colspan="2">-------</td>
+                            <td colspan="2">-------</td>
+                            <td colspan="2">------</td>
+                            <td colspan="2">---------</td>
+                            <td colspan="2">--------</td>
+                            <td colspan="2">-------</td>
+                            <td>-------</td>
+                            <td>------</td>
+                            <td colspan="2">---------</td>
+                            <td colspan="2">--------</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">@Localizer["Cash In Hand"]</th>
+                            <th colspan="2">@Localizer["Remaning Pay Accounts"]</th>
+                            <th colspan="2">@Localizer["Total Cash Expence"]</th>
+                            <th colspan="2">@Localizer["Travling Allowns"]</th>
+                            <th colspan="2"> @Localizer["Supplier Bill Pay"] </th>
+                            <th colspan="4">@Localizer["Cleared Cash by Gate Pass"]</th>
+                            <th colspan="4">@Localizer["Cleared Cash by P-order"]</th>
+                            <th colspan="2">@Localizer["Total"]</th>
+                            <th colspan="2">@Localizer["Current Cash"]</th>
+                            <th colspan="2">@Localizer["Previous Cash"]</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">------</td>
+                            <td colspan="2">---------</td>
+                            <td colspan="2">--------</td>
+                            <td colspan="2">-------</td>
+                            <td colspan="2">-------</td>
+                            <td colspan="4">------</td>
+                            <td colspan="4">---------</td>
+                            <td colspan="2">--------</td>
+                            <td colspan="2">-------</td>
+                            <td colspan="2">-------</td>
+                        </tr>
+                        @*----------7------Purchase Office----------ended------------------*@
+                        @*----------8------Sales Office----------Start------------------*@
+                        <tr>
+                            <th colspan="24">8 : @Localizer["Sales Office"] (14-05-2021)</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2"> @Localizer["Signature Department Officer"] </th>
+                            <th colspan="14">@Localizer["Note"]</th>
+                            <th colspan="2">@Localizer["Remaining Recovery"]</th>
+                            <th colspan="2">@Localizer["Replacement/Return"]</th>
+                            <th colspan="2">@Localizer["Expence Via Claim"]</th>
+                            <th colspan="2">@Localizer["Sales Income"]</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">4244445</td>
+                            <td colspan="14">4244445</td>
+                            <td colspan="2">4244445</td>
+                            <td colspan="2">4244445</td>
+                            <td colspan="2">4542424</td>
+                            <td colspan="2">3281424</td>
+                        </tr>
+
+                        @*----------8------Sales Office----------ended------------------*@
+                    </tbody>
+                    <tfoot>
+                        @*sign table start here*@
+                        <tr>
+                            <th colspan="24">@Localizer["Signature"]</th>
+                        </tr>
+                        <tr>
+                            <th colspan="8">@Localizer["C.E.O"]</th>
+                            <th colspan="8">@Localizer["D.G.M"]</th>
+                            <th colspan="8">@Localizer["G.M"]</th>
+                        </tr>
+                        <tr>
+                            <td colspan="8">
+                                @Localizer["Signature"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                                @Localizer["Remarks"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                            </td>
+                            <td colspan="8">
+                                @Localizer["Signature"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                                @Localizer["Remarks"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                            </td>
+                            <td colspan="8">
+                                @Localizer["Signature"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                                @Localizer["Remarks"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                            </td>
+                        </tr>
+                        @*sign table end here*@
+                        <tr class="actionbtn">
+                            <td colspan="24">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-save"></i> @Localizer["Save File"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore-alt"></i> @Localizer["Clear Sheet"]</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <!--Table-->
+            </div>
+        </div>
+    </form>
+</body>
+<!-- Table with panel -->
+<!-- back to top button-->
+<a id="button"></a>
+
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+    /* Css for Heading on every Sheet of ccount office----*/
+    .header {
+        overflow: hidden;
+        padding: 10px 10px;
+        font-size: 40px;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+    }
+    .smallfontHeading {
+        font-size: medium;
+    }
+
+    */
+    /*page print css----*/
+
+    .btn-theme {
+    background: #08818c;
+    color: #fff;
+}
+    .Subhdr {
+        color: white;
+        text-align: center;
+        background-color: slategrey;
+    }
+
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+.btn {
+    font-family: arial;
+}
+
+.btn-print {
+    padding: 10px 24px;
+    font-size: 16px;
+    line-height: 1.33;
+    vertical-align: middle;
+    float: left;
+}
+
+.PrintP {
+    margin-left: 985px;
+    position: absolute;
+    margin-top: -45px;
+}
+    /*page print css----*/
+    .titleDgmofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    .lang_btn {
+        font-family: "ProximaNova";
+        color: #fff;
+        font-size: 15px;
+        text-transform: uppercase;
+        text-decoration: none !important;
+        background-color: #C82333;
+        text-transform: uppercase;
+        margin-top: 1.7%;
+        text-decoration: none !important;
+        width: 65px;
+        text-align: center;
+        height: 39px;
+        border: solid 1px #C82333;
+    }
+
+    .smallfontHeading {
+        font-size: medium;
+    }
+    .ajwfooter {
+        font-size: x-small;
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+
+    .BackToList {
+        width: 150px;
+    }
+
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    .Subhdr {
+    color: white;
+    text-align: center;
+    background-color: slategrey;
+    align-content: center;
+}
+
+.Createbtn {
+    font-family: 'Jameel Noori Nastaleeq';
+    font-size: large;
+    text-align: right;
+}
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+    
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

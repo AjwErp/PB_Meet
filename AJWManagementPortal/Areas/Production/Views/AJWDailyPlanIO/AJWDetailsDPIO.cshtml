@@ -1,0 +1,83 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@*---Language Tranlator--Localizer*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "AJWDetailsDPIO";
+    Layout = "~/Views/Shared/_LayoutProduction.cshtml";
+}
+
+@model AJWManagementPortal.Models.AJWDailyPlanIO
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+
+
+<form class="" method="post" asp-action="AJWEditDPIO">
+    <table class="tabled table table-bordered">
+        <thead>
+            <tr>
+                <th class="bg-dark text-white" scope="col" colspan="8"><img src="~/Image/white.png" alt="Image" width="100" height="100" /><br />اے جے ڈبلیو ایگرو انڈسٹری</th>
+
+            </tr>
+            <tr>
+                <th class="bg-dark text-white" scope="col" colspan="8">ڈیلی پلان ان شیٹ</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+
+                @*<th class="text-center bg-dark text-white" scope="col">CRUD آپریشن</th>*@
+                <th class="text-center bg-dark text-white" scope="col">دستخط</th>
+                <th class="text-center bg-dark text-white" scope="col" colspan="3">تفصیل</th>
+                <th class="text-center bg-dark text-white" scope="col">ٹائم</th>
+                <th class="text-center bg-dark text-white" scope="col">ٹائم</th>
+                <th class="text-center bg-dark text-white" scope="col">عہدہ</th>
+                <th class="text-center bg-dark text-white" scope="col">نام</th>
+            </tr>
+            <tr>
+                @*<th scope="row"><partial name="_TableButtonPartialDP" /></th>*@
+                <th scope="row">@Html.DisplayFor(model => model.Signature)</th>
+                <th scope="row" colspan="3">@Html.DisplayFor(model => model.Description)</th>
+                <th scope="row"> @Html.DisplayFor(model => model.DateTimeOut)</th>
+                <th scope="row"> @Html.DisplayFor(model => model.DateTimeIn)</th>
+                <th scope="row">    @Html.DisplayFor(model => model.Designation)    </th>
+                <th scope="row">@Html.DisplayFor(model => model.Name)</th>
+            </tr>
+            <tr>
+                <th scope="row" colspan="8"> <partial name="_DetailAndBackToListButtonAJWDPIO" model="Model.Id" /> </th>
+            </tr>
+
+        </tbody>
+    </table>
+</form>
+
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+
+<style>
+    .tabled {
+        position: center;
+        align-content: center;
+        text-align: center;
+        /*margin-left: -200px;*/
+    }
+
+    .signt {
+        position: center;
+        align-content: center;
+        text-align: center;
+        /*  margin-left: -120px;*/
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

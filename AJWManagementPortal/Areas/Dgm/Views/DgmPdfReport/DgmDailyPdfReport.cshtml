@@ -1,0 +1,88 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@*---Language Tranlator--Localizer*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{
+    ViewData["Title"] = "DgmDailyPdfReport";
+    Layout = "~/Views/Shared/_LayoutDgm.cshtml";
+}
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success alert-dismissible" style="margin-top:20px">
+        @ViewBag.Message
+    </div>
+}
+<br />
+<body>
+    <div class="container backgroundWhiteBorder10Padding">
+        <div style="direction:rtl" class="row text-right text-justify">
+            <form method="post" enctype="multipart/form-data" class=" col-sm-12">
+                <div class="portlet light">
+                    <div class="portlet-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-condensed">
+                                <thead>
+                                    <tr class="bg-secondary text-white">
+                                        <th class="text-center" style="font-size:xx-large" colspan="6">@localizer["D.G.M Daily Report Pdf Form"]</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6" class="text-center">
+                                            <div class="input-group">
+                                                <input type="text" name="description" class="form-control text-left " placeholder="@localizer["Enter Department Name i.e   Admin"]" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text Signrow" id="basic-addon2">@localizer["Department"]  </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="6" class="Title">
+                                            <a>@localizer["Select Pdf File"]  </a>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="input-group ">
+                                                <div class="input-group-append">
+                                                    <input type="file" name="files" class="form-control-file form-control-sm" id="">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" class="text-lg-center">
+                                            <button class="btn btn-success" type="submit" asp-area="Dgm" asp-controller="DgmPdfReport" asp-action="UploadToDatabase">Upload to Database</button>
+                                            <a asp-action="DgmPdfReportList" asp-area="Dgm" asp-controller="DgmPdfReport" type="button" class="btn btn-primary btn-sm fas fa-step-backward" value="Back To List">@localizer["Back To List"]</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<!-- back to top button-->
+<a id="button"></a>
+<!-- back to top button-->
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

@@ -1,0 +1,267 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "DailyPunjabBankVoucherReport";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+<br />
+<body>
+    <div class="container-fluid backgroundWhiteBorder10Padding">
+        <div class="row">
+            @*asp-action="CreateMeezanVoucher"*@
+            <form class="col-sm-12">
+
+                <div class="BackToList">
+                    <a type="button" asp-action="AllDailyAccountsReports" asp-area="Account" asp-controller="DailyAccountReport" class="btn btn-primary hover btn-block form-control btn-sm"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
+                </div>
+                <div class="PrintP">
+                    <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                </div>
+                <table class="tabled table table-bordered table-hover table-responsive-sm table-striped SubH">
+                    <thead>
+                        <tr>
+                            <th colspan="10"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+                        </tr>
+                        <tr>
+                            <th class="titleAccountofficeReport" colspan="10">@Localizer["Daily Punjab Bank Income/Expence Voucher Report-Account Office"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th class="text-left" colspan="5" scope="col">
+                                @Localizer["Check No"]
+                                : C-001
+                                <span class="text-danger"></span>
+                            </th>
+                            <th class="text-center" colspan="5" scope="col">
+                                <span class="">  @Localizer["Date"]</span>
+                                : 04/05/2021
+                                <span class="text-danger"></span>
+
+                            </th>
+
+                        </tr>
+                        <tr>
+
+
+                            <th colspan="7" class="text-right">
+                                <input class="form-control" placeholder="  @Localizer["Enter Cash Description ..."]" />
+                                <span class="text-danger"></span>
+                            </th>
+                            <th colspan="3">
+                                @Localizer["Cash Description"]
+                            </th>
+
+                        </tr>
+                        <tr>
+
+                            <th colspan="7" class="text-center">
+                                <input class="form-control" placeholder="@Localizer["Enter Purpose of Cash..."]" />
+                                <span class="text-danger"></span>
+                            </th>
+                            <th colspan="3">
+                                @Localizer["Purpose"]
+                            </th>
+
+                        </tr>
+                        <tr>
+                            <th scope="col" colspan="3">@Localizer["Remaning Balance"]</th>
+                            <th scope="col" colspan="2">@Localizer["Income Tax"] </th>
+                            <th scope="col" colspan="2">@Localizer["Check Cash"]</th>
+                            <th scope="col" colspan="3">@Localizer["Current Bank Balance"]</th>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="3">
+                            </th>
+                            <th scope="row" colspan="2">0</th>
+                            <th scope="row" colspan="2"></th>
+                            <th scope="row" colspan="3">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="7" class="text-right">
+                                <input class="form-control" placeholder="@Localizer["Enter Description for Cash Consumer..."]" />
+                                <span class="text-danger"></span>
+                            </th>
+                            <th colspan="3">
+                                @Localizer["Description"]
+                            </th>
+                        </tr>
+                        <tr>
+                        </tr>
+                        <tr>
+                            <th colspan="10">@Localizer["Select Supporting Documents"]</th>
+                        </tr>
+                        <tr>
+                            <th colspan="10"> <input type="file" id="myFile" name="filename"></th>
+                        </tr>
+                        <tr>
+                            <td colspan="10">
+                                <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                                <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="10"></td>
+                        </tr>
+                        <tr>
+                            <th colspan="10" scope="col">@Localizer["Signature"]</th>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="3">@Localizer["Account Manager"]</th>
+                            <th colspan="4">@Localizer["D.G.M"]</th>
+                            <th colspan="3">@Localizer["G.M"]</th>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                @Localizer["Signature"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                                @Localizer["Remarks"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                            </td>
+                            <td colspan="4">
+                                @Localizer["Signature"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                                @Localizer["Remarks"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                            </td>
+                            <td colspan="3">
+                                @Localizer["Signature"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                                @Localizer["Remarks"]:
+                                <input type="text" id="paidAmount" class="form-control" />
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td scope="row" colspan="10" class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-save"></i> @Localizer["Save File"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore"></i> @Localizer["Clear Sheet"]</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+<!-- back to top button-->
+<a id="button"></a>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*  Css for BackToList Button----*/
+    .BackToList {
+        width: 150px;
+    }
+
+    .textarea {
+        height: 60px;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

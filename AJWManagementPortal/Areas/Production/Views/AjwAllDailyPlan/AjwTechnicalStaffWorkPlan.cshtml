@@ -1,0 +1,398 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "AjwTechnicalStaffWorkPlan";
+    Layout = "~/Views/Shared/_LayoutProduction.cshtml";
+}
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+
+<br />
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <form class="tabled backgroundWhiteBorder10Padding backgroundWhiteBorder">
+                <div class="BackToList">
+                    <a type="button" asp-action="AjwTechnicalStaffWorkPlanList" asp-area="Production" asp-controller="AjwAllDailyPlan" class="btn btn-primary btn-lg form-control"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
+                </div>
+                <div class="PrintP">
+                    <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                </div>
+
+                @*main table*@
+                <div class="table-responsive">
+
+                    <table id="tbllawbook" style="width:100%" class="table table-striped table-hover table-bordered table-sm SubH">
+                        <thead>
+                            <tr>
+                                <th colspan="16"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+                            </tr>
+                            <tr>
+                                <th class="titleAccountofficeReport" colspan="16">@Localizer["AJW TECHNICAL STAFF WORKING PLAN"]</th>
+                            </tr>
+                            <tr>
+                                <th class="text-left" colspan="16"> @DateTime.Now : @Localizer["Date"] </th>
+                            </tr>
+                            <tr>
+                                @*<th colspan="2">@Localizer["ACTION"]</th>*@
+                                <th colspan="2">@Localizer["JOB CARD"]</th>
+                                <th colspan="7">@Localizer["DESCRIPTION"]</th>
+                                <th colspan="3">@Localizer["DESIGNATION"]</th>
+                                <th colspan="3">@Localizer["NAME"]</th>
+                                <th>@Localizer["ID#"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2"><input type="text" id="txtjobcard" name="txtjobcard" class="form-control text-center" value="" /></td>
+                                <td colspan="7"><input type="text" id="txtdesc" name="txtdesc" class="form-control text-center" /></td>
+                                <td colspan="3"><input type="text" id="txtdesig" name="txtdesig" class="form-control text-center" value="" /></td>
+                                <td colspan="3"><input type="text" id="txtname" name="txtname" class="form-control text-center" value="" /></td>
+                                <td> <span class="en"> <button type="button" id="btnAdd" value="Add" class="btn btn-primary btn-sm form-control">@Localizer["Add"]<br />@Localizer["Row"]</button></span> </td>
+                            </tr>
+
+                            <tr>
+
+                                <td colspan="11"><input type="text" id="txtremarks" name="txtremarks" class="form-control textarea" value="" /></td>
+                                <td colspan="4" class="text-center"><input type="text" id="debit" class="form-control text-center" value="REMARKS" disabled /></td>
+                                <td>
+                                </td>
+                            </tr>
+                            @*<tr>
+                                    <td colspan="16" scope="row" class="actionbtn">
+
+                                        <div class="btn-group">
+                                            <a asp-action="AdminLawBookList" asp-area="Admin" asp-controller="SupportGuideAdmin" type="button" class="btn btn-primary btn-md" value="Back To List">@Localizer["Back To List"]</a>
+                                            <input id="btnSave" class="btn btn-success btn-md" name="btnSave" value="Save File" type="button" />
+                                        </div>
+                                    </td>
+                                </tr>*@
+                            <tr>
+                                <th scope="col" colspan="16">@Localizer["Signature"]</th>
+                            </tr>
+
+                            <tr>
+                                <th colspan="5">@Localizer["Production Manager"]</th>
+                                <th colspan="6">@Localizer["G.M"]</th>
+                                <th colspan="5">@Localizer["C.E.O"]</th>
+                            </tr>
+                            <tr>
+                                <td colspan="5">
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="txtpmsign" name="txtpmsign" value="" class="form-control" />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="txtpmremarks" name="txtpmremarks" value="" class="form-control" />
+                                </td>
+                                <td colspan="6">
+                                    @Localizer["Signature"]:
+                                    <input disabled type="text" id="txtgmsign" name="txtgmsign" class="form-control" value="" />
+                                    @Localizer["Remarks"]:
+                                    <input disabled type="text" id="txtgmremarks" name="txtgmremarks" value="" class="form-control" />
+                                </td>
+                                <td colspan="5">
+                                    @Localizer["Signature"]:
+                                    <input disabled type="text" id="txtceosign" name="txtceosign" class="form-control" value="" />
+                                    @Localizer["Remarks"]:
+                                    <input disabled type="text" id="txtceoremarks" name="txtceoremarks" class="form-control" value="" />
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="actionbtn" colspan="16">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" type="" id="btnsave" name="btnsave"><i class="fas fa-save"></i> @Localizer["Save File"]</a>
+                                            <a class="dropdown-item border-top border-bottom" id="" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore-alt"></i> @Localizer["Clear"]</a>
+                                            <a asp-action="AdminLawBookList" asp-area="Admin" asp-controller="SupportGuideAdmin" type="button" class="btn btn-primary btn-md" value="Back To List">@Localizer["Back To List"]</a>
+                                            <input id="btnSave" class="btn btn-success btn-md border-top border-bottom" name="btnSave" value="Save File" type="button" />
+                                        </div>
+                                    </div>
+                                    @*<div class="btn-group">
+                                            <a asp-action="AdminLawBookList" asp-area="Admin" asp-controller="SupportGuideAdmin" type="button" class="btn btn-primary btn-md" value="Back To List">@Localizer["Back To List"]</a>
+                                            <input id="btnSave" class="btn btn-success btn-md" name="btnSave" value="Save File" type="button" />
+                                        </div>*@
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+<!-- back to top button-->
+<a id="button"></a>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+@*these all ids of txt fields*@
+@*txtdate
+    txtjobccard
+    txtdesc
+    txtdesig
+    txtname
+    btnAdd
+    txtremarks
+    txtpmsign
+    txtpmremarks
+    txtgmsign
+    txtgmremarks
+    txtceosign
+    txtceoremarks
+    btnsave*@
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+
+@section Scripts{
+
+
+    <script>
+
+        // DataTables with Add Row Functionality
+        $("body").on("click", "#btnAdd", function () {
+
+            //Reference the Name and Country TextBoxes.
+            var txtjobcard = $("#txtjobcard");
+            var txtdesc = $("#txtdesc");
+            var txtdesig = $("#txtdesig");
+            var txtname = $("#txtname");
+
+            //Get the reference of the Table's TBODY element.
+            var tBody = $("#tbllawbook > TBODY")[0];
+
+            //Add Row.
+            var row = tBody.insertRow(-1);
+
+            var cell = $(row.insertCell(-1));
+            var btn2 = $("<input />");
+            btn2.attr("type", "text");
+            btn2.val(txtjobcard.val());
+            cell.append(btn2);
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            var btn3 = $("<input />");
+            btn3.attr("type", "text");
+            btn3.val(txtdesc.val());
+            cell.append(btn3);
+
+            cell = $(row.insertCell(-1));
+            var btn4 = $("<input />");
+            btn4.attr("type", "text");
+            btn4.val(txtdesig.val());
+            cell.append(btn4);
+
+            cell = $(row.insertCell(-1));
+            var btn5 = $("<input />");
+            btn5.attr("type", "text");
+            btn5.val(txtname.val());
+            cell.append(btn5);
+
+             cell = $(row.insertCell(-1));
+            //Remov Button cell.
+            var btnRemove = $("<input />");
+            btnRemove.attr("type", "button");
+            btnRemove.attr("onclick", "Remove(this);");
+            btnRemove.val("Remove");
+            cell.append(btnRemove);
+
+            //Clear the TextBoxes.
+            txtjobcard.val("");
+            txtdesc.val("");
+            txtdesig.val("");
+            txtname.val("");
+
+        });
+
+        function Remove(button) {
+            //Determine the reference of the Row using the Button.
+            var row = $(button).closest("TR");
+            var name = $("TD", row).eq(0).html();
+            if (confirm("Do you want to delete: " + name)) {
+                //Get the reference of the Table.
+                var table = $("#tbllawbook")[0];
+
+                //Delete the Table row using it's Index.
+                table.deleteRow(row[0].rowIndex);
+            }
+        };
+
+        $("body").on("click", "#btnSave", function () {
+
+
+            //Loop through the Table rows and build a JSON array.
+            var lawbookArray = new Array();
+            $("#tbllawbook TBODY TR").each(function () {
+                var txtremarks = $("#txtremarks");
+                var txtpmsign = $("#txtpmsign");
+                var txtpmremarks = $("#txtpmremarks");
+                var txtgmsign = $("#txtgmsign");
+                var txtgmremarks = $("#txtgmremarks");
+                var txtceosign = $("#txtceosign");
+                var txtceoremarks = $("#txtceoremarks");
+                var row = $(this);
+                var lawbook = {};
+                lawbook.JobCard = row.find("input[type='text']").eq(0).val();
+                lawbook.Description = row.find("input[type='text']").eq(1).val();
+                lawbook.Designation = row.find("input[type='text']").eq(2).val();
+                lawbook.Name = row.find("input[type='text']").eq(3).val();
+
+                //lawbook.previousPageNumber = row.find("input[type='text']").eq(3).val();
+
+                lawbook.Remarks = txtremarks.val();
+                lawbook.SignPManager = txtpmsign.val();
+                lawbook.PManagerRemarks = txtpmremarks.val();
+                lawbook.SignGM = txtgmsign.val();
+                lawbook.GMRemarks = txtgmremarks.val();
+                lawbook.SignCeo = txtceosign.val();
+                lawbook.CeoRemarks = txtceoremarks.val();
+                lawbook.Status = "0";
+                lawbook.Title = "A";
+
+                lawbookArray.push(lawbook);
+            });
+            //alert(lawbookArray.toString());
+            //Get
+            var Remarks = $('#hRemarks').val();
+            alert(Remarks);
+            alert(lawbookArray.toString());
+            //Send the JSON array to Controller using AJAX.
+            $.ajax({
+                type: "POST",
+                url: "/Production/AjwAllDailyPlan/InsertTechnicalStaffWorkPlans",
+                data: { data: lawbookArray, remarks: Remarks },
+                success: function (r) {
+                    alert(r + " record(s) inserted.");
+                    window.location.replace("/Production/AjwAllDailyPlan/AjwTechnicalStaffWOrkPlanList");
+                }
+            });
+        });
+
+    @*</script>
+    <script>*@
+
+        //---------JS for Back To Top Button On Each Page------------------Start-------
+        var btn = $('#button');
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+
+        btn.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*  Css for BackToList Button----*/
+    .BackToList {
+        width: 150px;
+    }
+
+    .textarea {
+        height: 60px;
+    }
+    /*Mostly USes Css Classes userprofile/footer/backtolist/table/backtotopbtn/smallheading/subh/print --for Accounts Department- start*/
+    .Title {
+        font-size: xx-large;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+        color: black;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@
+
+
+
+
+

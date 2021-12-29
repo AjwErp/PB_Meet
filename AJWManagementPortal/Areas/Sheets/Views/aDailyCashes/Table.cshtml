@@ -1,0 +1,301 @@
+﻿
+@{
+    ViewData["Title"] = "MeezanbankIEReport";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style type="text/css">
+        .tg {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+            .tg td {
+                border-color: black;
+                border-style: solid;
+                border-width: 1px;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                overflow: hidden;
+                padding: 4px 20px;
+                word-break: normal;
+            }
+
+            .tg th {
+                border-color: black;
+                border-style: solid;
+                border-width: 1px;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                font-weight: normal;
+                overflow: hidden;
+                padding: 4px 20px;
+                word-break: normal;
+            }
+
+            .tg .tg-lboi {
+                border-color: inherit;
+                text-align: left;
+                vertical-align: middle
+            }
+
+            .tg .tg-c6of {
+                background-color: #ffffff;
+                border-color: inherit;
+                text-align: left;
+                vertical-align: top
+            }
+
+            .tg .tg-g7sd {
+                border-color: inherit;
+                font-weight: bold;
+                text-align: left;
+                vertical-align: middle
+            }
+
+            .tg .tg-0lax {
+                text-align: left;
+                vertical-align: top
+            }
+
+            .tg .tg-fymr {
+                border-color: inherit;
+                font-weight: bold;
+                text-align: left;
+                vertical-align: top
+            }
+
+            .tg .tg-0pky {
+                border-color: inherit;
+                text-align: left;
+                vertical-align: top
+            }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Transaction Sheet</title>
+</head>
+<body>
+    <!-- Code by w3codegenerator.com -->
+    <table class="table table-bordered">
+        <thead>
+            <tr class="text-center">
+
+                <th colspan="15" scope="col" class="bg-dark text-white"><img src="~/Image/white.png" alt="Image" width="100" height="100" /><br />اے جے ڈبلیو ایگرو انڈسٹری</th>
+
+            </tr>
+            <tr>
+                <th class="text-center bg-dark text-white" colspan="15" scope="col">ڈیلی کیش جاری رپورٹ اکاؤنٹ آفس</th>
+            </tr>
+            <tr>
+
+                <th class="text-left" colspan="15" scope="col"> <input type="datetime-local" id="birthdaytime" name="birthdaytime">  : تاریخ </th>
+            </tr>
+            <tr style="position:center;align-content:center;text-center;">
+
+                <th class="text-center bg-dark text-white" scope="col">CRUD آپریشن</th>
+                <th class="text-center bg-dark text-white" scope="col">اکاؤنٹنٹ</th>
+                <th class="text-center bg-dark text-white" scope="col">پرچيز ر</th>
+                <th class="text-center bg-dark text-white" scope="col">سرپلس</th>
+                <th class="text-center bg-dark text-white" scope="col">پرچيز آرڈر_P<br>گیٹ پاسس_G<br>چیک نمبر_C<br>سروس آرڈر_S</th>
+                <th class="text-center bg-dark text-white" scope="col">آن لائن_O<br>ڈپازٹ سلپ_D  <br>چیک نمبر_C</th>
+                <th class="text-center bg-dark text-white" scope="col">آمدن</th>
+                <th class="text-center bg-dark text-white" scope="col">بقایا رقم واصو ل</th>
+                <th class="text-center bg-dark text-white" scope="col">انکلیریڈ رقم</th>
+                <th class="text-center bg-dark text-white" scope="col">کلیریڈ رقم</th>
+                <th class="text-center bg-dark text-white" scope="col">رقم ادا</th>
+                <th class="text-center bg-dark text-white" scope="col">تاریخ</th>
+                <th class="text-center bg-dark text-white" scope="col">تفصیل</th>
+                <th class="text-center bg-dark text-white" scope="col">اکاؤنٹ اقسام</th>
+                <th class="text-center bg-dark text-white" scope="col">نمبر شمار</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>CRUD Button</td>
+                <td>Asif shab</td>
+                <td>ad shab</td>
+                <td>100000</td>
+                <td>500000</td>
+                <td>300000</td>
+                <td>500000</td>
+                <td>582000</td>
+                <td>558000</td>
+                <td>50000</td>
+                <td>50000</td>
+                <td>20-03-2021<br />04:30:00 PM</td>
+                <td><textarea type="text"> </textarea></td>
+                <td>mdosss</td>
+                <th scope="row">1</th>
+            </tr>
+            <tr>
+                <td>CRUD Button</td>
+                <td>12000</td>
+                <td>120000</td>
+                <td>5665252</td>
+                <td>70000</td>
+                <td>80000</td>
+                <td>90000</td>
+                <td>60000</td>
+                <td>30000</td>
+                <td>70000</td>
+                <td>52000</td>
+                <td>525000</td>
+                <td></td>
+                <td>ٹوٹل</td>
+                <th scope="row">1</th>
+            </tr>
+            <tr class="text-center bg-dark text-white">
+                <td><input type="button" id="btnAdd" value="Add Row" /></td>
+                <td><input type="text" id="txtDesc" /></td>
+                <td><input type="text" id="txtDesc" /></td>
+                <td><input type="text" id="txtDesc" /></td>
+                <td><input type="text" id="txtDesc" /></td>
+                <td><input type="text" id="txtDesc" /></td>
+                <td><input type="text" id="txtDesc" /></td>
+                <td><input type="text" id="txtDesc" /></td>
+                <td><input type="text" id="txtDesc" /></td>
+                <td><input type="text" id="txtDesc" /></td>
+                <td><input type="text" id="txtDesc" /></td>
+                <td><input type="datetime-local" id="birthdaytime" name="birthdaytime"></td>
+                <td><textarea type="text"> </textarea></td>
+
+                <th>
+                    @*<input type="text" id="txtName" />*@
+                    @*<div class="col-5">*@
+                    @*<input asp-for="Input.Martialstatus" class="form-control" />*@
+                    <select id="txtName">
+
+                        <option>Internal</option>
+                        <option>Petty</option>
+                    </select>
+
+                </th>
+
+
+                <th scope="row"></th>
+
+            </tr>
+            <tr>
+                <td class="text-center bg-dark text-white" colspan="15">   <input type="button" id="btnSave" value="Save All" /></td>
+            </tr>
+        </tbody>
+    </table>
+
+    @*extra table*@
+
+    <table class="tg" id="customers">
+        <thead>
+            <tr>
+                <th colspan="8"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="tg-lboi" rowspan="2"></td>
+                <td class="tg-g7sd" rowspan="2"> ٹوٹل رقم ادا</td>
+                <td class="tg-0lax" colspan="2" rowspan="2"></td>
+                <td class="tg-lboi" rowspan="2"></td>
+                <td class="tg-g7sd" rowspan="2">
+                    ٹوٹل بیلنس
+                </td>
+                <td class="tg-fymr">  آج کی آمدن</td>
+                <td class="tg-fymr">    اوپننگ بیلنس</td>
+            </tr>
+            <tr>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+            </tr>
+            <tr>
+                <td class="tg-c6of" colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="tg-0pky"></td>
+                <td class="tg-fymr"> کلیرڈ بیلنس/آج کا خرچ</td>
+                <td class="tg-0lax" colspan="2" rowspan="2"></td>
+                <td class="tg-0pky" colspan="2"></td>
+                <td class="tg-0pky" colspan="2"><span style="font-weight:bold">کلیرڈ بیلنس/آج کا خرچ </span></td>
+            </tr>
+            <tr>
+                <td class="tg-0pky">
+                    
+                </td>
+                <td class="tg-fymr">باقی بیلنس</td>
+                <td class="tg-0pky" colspan="2"></td>
+                <td class="tg-0pky" colspan="2"><span style="font-weight:bold">کلوزنگ بیلنس </span></td>
+            </tr>
+            <tr>
+                <td class="tg-c6of" colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="tg-0pky"></td>
+                <td class="tg-fymr"> انکلیرد بیلنس</td>
+                <td class="tg-0lax" colspan="2" rowspan="2"></td>
+                <td class="tg-0pky" colspan="2"></td>
+                <td class="tg-0pky" colspan="2"><span style="font-weight:bold">انکلیرد بیلنس</span></td>
+            </tr>
+            <tr>
+                <td class="tg-0pky"> </td>
+                <td class="tg-fymr">بقایاوصو ل</td>
+                <td class="tg-0pky" colspan="2"></td>
+                <td class="tg-0pky" colspan="2"> موجودہ بیلنس</td>
+            </tr>
+        </tbody>
+    </table>
+    @*extra table*@
+
+
+    @*signature*@
+
+    @*signature*@
+
+    @*sign*@
+    <table class="table table-bordered table-dark">
+        <thead>
+            <tr>
+                <th colspan="4" class="text-center" scope="col">دستخط</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center">
+                <th scope="row">Account Manager</th>
+                <th>C.E.O</th>
+                <th>G.M</th>
+                <th>D.G.M</th>
+            </tr>
+            <tr class="text-center align-content-center">
+                <td>
+                    <input type="file" id="myFile" name="filename"><br />
+                    <img src="~/Image/yok.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+                </td>
+                <td class="tg-0lax">
+                    <input type="file" id="myFile" name="filename"><br />
+                    <img src="~/Image/yok.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+                </td>
+                <td class="tg-0lax">
+                    <input type="file" id="myFile" name="filename"><br />
+                    <img src="~/Image/yok.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+                </td>
+                <td class="tg-0lax">
+                    <input type="file" id="myFile" name="filename"><br />
+                    <img src="~/Image/yok.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    @*sign*@
+
+    @section Scripts{
+        <script>
+
+        </script>
+    }
+</body>
+</html>

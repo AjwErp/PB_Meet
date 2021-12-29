@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Accounts Department System User Guide" xml:space="preserve">
+    <value>اکاؤنٹس ڈیپارٹمنٹ سسٹم یوزر گائیڈ</value>
+  </data>
+  <data name="AJW Portal Display Accounts Dashboard,on this page System Display Header which Contain Language translator Icon and loged in user profile,notification icon,search bar,X sign,&quot; +&#xD;&#xA;                                       &quot;On Sidebar display Account office all working acion button" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AJW Portal's Home Page Display Some AJW Agro Industry Close View,On Page Top Display Language Translator,Login and Register Icon,&quot; +&#xD;&#xA;                                       &quot;Display C.E.O , G.M and D.G.M Short Profile,on Right Side System Display Notic Board Pannel of AJW Agro Industry" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Here we are not allow AJW Portal's user registration,just use login button for login into AJW Portal and go on Accounts Dashbpoard" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ID#" xml:space="preserve">
+    <value>نمبر</value>
+  </data>
+  <data name="Notic Board,On Home Page You can see all Notices about AJW Agro Industry" xml:space="preserve">
+    <value />
+  </data>
+  <data name="On AJW Portal's Home Page,you can chage the language English/Urdu and AJW Portal display page in set language" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sidebar-Account Support Guide-contain 2 option : Accounts Law Book&gt;&gt;contain all laws about account office,Accounts user Guide&gt;&gt;contain all AJW Portal'function's guide(How to use AJW Portal???)" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sidebar-Accounts General Ledger Reports &gt;&gt;&gt; System display General ledger List Page(Daily/Monthly/Yearly),here create daily/monthly/yearly general ledger report and save in list" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sidebar-Accounts Industry supplier Ledger Reports &gt;&gt;&gt; System display Industry supplier ledger List Page(Daily/Monthly/Yearly),here create daily/monthly/yearly Industry supplier ledger report and save in list" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sidebar-Accounts Internal Account Ledger Reports &gt;&gt;&gt; System display Internal Account ledger List Page(Daily/Monthly/Yearly),here create daily/monthly/yearly Internal Account ledger report and save in list" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sidebar-Accounts Ledger Reports &gt;&gt;&gt; this option contain 4 option :1st General Ledger, 2nd Internal Account Ledger, 3rd Industry Supplier Ledger, 4th Main Bank Account Ledger" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sidebar-Accounts Main Bank Account Ledger Reports &gt;&gt;&gt; System display Main Bank Account ledger List Page(Daily/Monthly/Yearly),here create daily/monthly/yearly Main Bank Account ledger report and save in list" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sidebar-Accounts Monthly/Yearly Reports &gt;&gt;&gt; click on accounts monthly/yearly report,system display Accounts Monthly/Yearly Reports List,here accounts manager create reports and save in list page" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sidebar-Accounts Pdf Reports &gt;&gt;&gt; after all reports varification by D.G.M/G.M then check it with signatures and remarks,if ok then download all Daily sheets,if not ok then clear all error and then send to D.G.M/G.M office" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sidebar-Accounts Pdf Reports &gt;&gt;&gt; Click on accounts pdf reports,system display accounts all reports pdf list table and click on create button,system display pdf file upload form,here accounts manager set file title and select pdf file which contain all daily reports sheets" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sidebar-Accounts Pdf Reports &gt;&gt;&gt; Click on accounts pdf reports,system display accounts all reports pdf list table and click on create button,system display pdf file upload form,here accounts manager set file title and select pdf file which contain all daily reports sheets." xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sidebar-Accounts Repository &gt;&gt;&gt; click on Repository option,system display All accounts report repository list pgae,this folder just use for reports' varification,send to D.G.M/G.M office and D.G.M/G.M send to back accounts office.its varification pannel" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sidebar-Daily Accounts Reports&gt;&gt;&gt; click on Daily Accounts Reports,system display All Daily Accounts Report List Page,here create sheets and save in list page" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sidebar-Dashboard display Key values of account office" xml:space="preserve">
+    <value />
+  </data>
+</root>

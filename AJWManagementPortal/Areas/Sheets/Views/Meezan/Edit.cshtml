@@ -1,0 +1,77 @@
+﻿@model AJWManagementPortal.Models.MeezanBankIEReport
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>MeezanBankIEReport</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ValueDate" class="control-label"></label>
+                <input asp-for="ValueDate" class="form-control" />
+                <span asp-validation-for="ValueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CDO" class="control-label"></label>
+                <input asp-for="CDO" class="form-control" />
+                <span asp-validation-for="CDO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Debit" class="control-label"></label>
+                <input asp-for="Debit" class="form-control" />
+                <span asp-validation-for="Debit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cradit" class="control-label"></label>
+                <input asp-for="Cradit" class="form-control" />
+                <span asp-validation-for="Cradit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Balance" class="control-label"></label>
+                <input asp-for="Balance" class="form-control" />
+                <span asp-validation-for="Balance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Imgceo" class="control-label"></label>
+                <input asp-for="Imgceo" class="form-control" />
+                <span asp-validation-for="Imgceo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Imggm" class="control-label"></label>
+                <input asp-for="Imggm" class="form-control" />
+                <span asp-validation-for="Imggm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Imgdgm" class="control-label"></label>
+                <input asp-for="Imgdgm" class="form-control" />
+                <span asp-validation-for="Imgdgm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Imgam" class="control-label"></label>
+                <input asp-for="Imgam" class="form-control" />
+                <span asp-validation-for="Imgam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

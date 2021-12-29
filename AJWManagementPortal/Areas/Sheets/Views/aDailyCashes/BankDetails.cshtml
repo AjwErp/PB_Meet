@@ -1,0 +1,88 @@
+﻿@model AJWManagementPortal.Models.BankBalane
+
+@{
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers dt, #customers dd {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers dl:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+
+            #customers dd {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div id="customers">
+    <h4>BankBalane</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BankBalance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BankBalance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.deposit)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.deposit)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.transaction)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.transaction)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tax)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tax)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.closingBankBalance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.closingBankBalance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BankName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BankName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="BankEdit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="BankIndex">Back to List</a>
+</div>
+</body>
+</html>

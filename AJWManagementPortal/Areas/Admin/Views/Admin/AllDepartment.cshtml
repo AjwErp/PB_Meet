@@ -1,0 +1,345 @@
+﻿@*this code is for language transalator inject localizer--------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@*this code is for language transalator inject localizer--------------*@
+@{
+    ViewData["Title"] = "AdminDashboard";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style></style>
+
+<div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">@Localizer["Admin Dashboard"]</span>
+            <h3 style="font-family:'Jameel Noori Nastaleeq'" class="page-title">@Localizer["AJW All Departments"]</h3>
+        </div>
+    </div>
+    <!-- End Page Header -->
+    <!-- Small Stats Blocks -->
+    <div class="row">
+        <div class="col-lg col-md-6 col-sm-6 mb-4">
+            <div class="stats-small stats-small--1 card card-small">
+                <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                        <div class="stats-small__data text-center text-center align-content-center">
+
+                            <span class="stats-small__label text-uppercase">@Localizer["G.M OFFICE"]</span>
+                            <a asp-controller="Gm" asp-area="Gm" asp-action="GmDashboard">
+                                @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                                <img src="~/Image/0.png" height="50" width="50" />
+                            </a>
+                            <span class="stats-small__label text-success">
+                                @Localizer["Mr.Aqib Sahib"]
+                        </span>
+
+                    </div>
+                    @*<div class="stats-small__data">
+                            <span class="stats-small__percentage stats-small__percentage--increase">4.7%</span>
+                        </div>*@
+                </div>
+                <canvas height="120" class="blog-overview-stats-small-1"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg col-md-6 col-sm-6 mb-4">
+        <div class="stats-small stats-small--1 card card-small">
+            <div class="card-body p-0 d-flex">
+                <div class="d-flex flex-column m-auto">
+                    <div class="stats-small__data text-center text-center align-content-center">
+
+                        <span class="stats-small__label text-uppercase">@Localizer["D.G.M OFFICE"]</span>
+                        <a asp-controller="Dgm" asp-area="Dgm" asp-action="DgmDashboard">
+                            @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                            <img src="~/Image/0.png" height="50" width="50" />
+                        </a>
+                        <span class="stats-small__label text-success">@Localizer["Mr.Hamza Sahib"]</span>
+
+                    </div>
+                </div>
+                <canvas height="120" class="blog-overview-stats-small-2"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg col-md-4 col-sm-6 mb-4">
+        <div class="stats-small stats-small--1 card card-small">
+            <div class="card-body p-0 d-flex">
+                <div class="d-flex flex-column m-auto">
+                    <div class="stats-small__data text-center text-center align-content-center">
+
+                        <span class="stats-small__label text-uppercase">@Localizer["ACCOUNT OFFICE"]</span>
+                        <a asp-controller="Accounts" asp-area="Accounts" asp-action="AccountsDashboard">
+                            @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                            <img src="~/Image/0.png" height="50" width="50" />
+                        </a>
+                        <span class="stats-small__label text-success">@Localizer["Mr.Asif Sahib"]</span>
+
+                    </div>
+                </div>
+                <canvas height="120" class="blog-overview-stats-small-3"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg col-md-4 col-sm-6 mb-4">
+        <div class="stats-small stats-small--1 card card-small">
+            <div class="card-body p-0 d-flex">
+                <div class="d-flex flex-column m-auto">
+                    <div class="stats-small__data text-center text-center align-content-center">
+
+                        <span class="stats-small__label text-uppercase">@Localizer["PRODUCTION OFFICE"]</span>
+                        <a asp-controller="Production" asp-area="Production" asp-action="ProductionDashboard">
+                            @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                            <img src="~/Image/0.png" height="50" width="50" />
+                        </a>
+                        <span class="stats-small__label text-success">@Localizer["Mr.Zahid Sahib"]</span>
+
+                    </div>
+                </div>
+                <canvas height="120" class="blog-overview-stats-small-4"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg col-md-4 col-sm-12 mb-4">
+        <div class="stats-small stats-small--1 card card-small">
+            <div class="card-body p-0 d-flex">
+                <div class="d-flex flex-column m-auto">
+                    <div class="stats-small__data text-center text-center align-content-center">
+
+                        <span class="stats-small__label text-uppercase">@Localizer["MAINTENANCE OFFICE"]</span>
+                        <a asp-controller="Maintenance" asp-area="Maintenance" asp-action="MaintenanceDashboard">
+                            @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                            <img src="~/Image/0.png" height="50" width="50" />
+                        </a>
+                        <span class="stats-small__label text-success">@Localizer["Mr.Akmal Sahib"]</span>
+
+                    </div>
+                </div>
+                <canvas height="120" class="blog-overview-stats-small-5"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+@*2nd row*@
+<div class="row">
+    <div class="col-lg col-md-6 col-sm-6 mb-4">
+        <div class="stats-small stats-small--1 card card-small">
+            <div class="card-body p-0 d-flex">
+                <div class="d-flex flex-column m-auto">
+                    <div class="stats-small__data text-center text-center align-content-center">
+
+                        <span class="stats-small__label text-uppercase">@Localizer["ACCESSORY OFFICE"]</span>
+                        <a asp-controller="Accessory" asp-area="Accessory" asp-action="AccessoryDashboard">
+                            @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                            <img src="~/Image/0.png" height="50" width="50" />
+                        </a>
+                        <span class="stats-small__label  text-success ">@Localizer["Mr.Ashiq Sahib"]</span>
+
+                    </div>
+                </div>
+                <canvas height="120" class="blog-overview-stats-small-1"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg col-md-6 col-sm-6 mb-4">
+        <div class="stats-small stats-small--1 card card-small">
+            <div class="card-body p-0 d-flex">
+                <div class="d-flex flex-column m-auto">
+                    <div class="stats-small__data text-center text-center align-content-center">
+
+                        <span class="stats-small__label text-uppercase">@Localizer["DESIGN OFFICE"]</span>
+                        <a asp-controller="Design" asp-area="Design" asp-action="DesignDashboard">
+                            @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                            <img src="~/Image/0.png" height="50" width="50" />
+                        </a>
+                        <span class="stats-small__label text-success">@Localizer["Mr.Sajid Sahib"]</span>
+
+                    </div>
+                </div>
+                <canvas height="120" class="blog-overview-stats-small-2"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg col-md-4 col-sm-6 mb-4">
+        <div class="stats-small stats-small--1 card card-small">
+            <div class="card-body p-0 d-flex">
+                <div class="d-flex flex-column m-auto">
+                    <div class="stats-small__data text-center text-center align-content-center">
+
+                        <span class="stats-small__label text-uppercase">@Localizer["H.R.M OFFICE"]</span>
+                        <a asp-controller="Hrm" asp-area="Hrm" asp-action="HrmDashboard">
+                            @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                            <img src="~/Image/0.png" height="50" width="50" />
+                        </a>
+                        <span class="stats-small__label text-success">@Localizer["Mr.Reyaaz Sahib"]</span>
+
+                    </div>
+                </div>
+                <canvas height="120" class="blog-overview-stats-small-3"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg col-md-4 col-sm-6 mb-4">
+        <div class="stats-small stats-small--1 card card-small">
+            <div class="card-body p-0 d-flex">
+                <div class="d-flex flex-column m-auto">
+                    <div class="stats-small__data text-center text-center align-content-center">
+
+                        <span class="stats-small__label text-uppercase">@Localizer["PURCHASE OFFICE"]</span>
+                        <a asp-controller="Purchase" asp-area="Purchase" asp-action="PurchaseDashboard">
+                            @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                            <img src="~/Image/0.png" height="50" width="50" />
+                        </a>
+                        <span class="stats-small__label text-success">@Localizer["Mr.AD Sahib"]</span>
+
+                    </div>
+                </div>
+                <canvas height="120" class="blog-overview-stats-small-4"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg col-md-4 col-sm-12 mb-4">
+        <div class="stats-small stats-small--1 card card-small">
+            <div class="card-body p-0 d-flex">
+                <div class="d-flex flex-column m-auto">
+                    <div class="stats-small__data text-center text-center align-content-center">
+
+                        <span class="stats-small__label text-uppercase">@Localizer["SALE OFFICE"]</span>
+                        <a asp-controller="Sale" asp-area="Sale" asp-action="SaleDashboard">
+                            @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                            <img src="~/Image/0.png" height="50" width="50" />
+                        </a>
+                        <span class="stats-small__label text-success">@Localizer["Mr.Ansar Sahib"]</span>
+
+                    </div>
+                </div>
+                <canvas height="120" class="blog-overview-stats-small-5"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+@*end 2nd row*@
+@*3rd row*@
+<div class="row">
+    <div class="col-lg col-md-6 col-sm-6 mb-4">
+        <div class="stats-small stats-small--1 card card-small">
+            <div class="card-body p-0 d-flex">
+                <div class="d-flex flex-column m-auto">
+                    <div class="stats-small__data text-center text-center align-content-center">
+
+                        <span class="stats-small__label text-uppercase">@Localizer["ELECTRIC OFFICE"]</span>
+                        <a asp-controller="Electric" asp-area="Electric" asp-action="ElectricDashboard">
+                            @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                            <img src="~/Image/0.png" height="50" width="50" />
+                        </a>
+                        <span class="stats-small__label text-success">@Localizer["Mr.Nadeem Sahib"]</span>
+
+                    </div>
+                </div>
+                <canvas height="120" class="blog-overview-stats-small-1"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg col-md-6 col-sm-6 mb-4">
+        <div class="stats-small stats-small--1 card card-small">
+            <div class="card-body p-0 d-flex">
+                <div class="d-flex flex-column m-auto">
+                    <div class="stats-small__data text-center text-center align-content-center">
+
+                        <span class="stats-small__label text-uppercase">@Localizer["STORE OFFICE"]</span>
+                        <a asp-controller="Store" asp-area="Store" asp-action="StoreDashboard">
+                            @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                            <img src="~/Image/0.png" height="50" width="50" />
+                        </a>
+                        <span class="stats-small__label text-success">@Localizer["Mr.Feyaaz Sahib"]</span>
+
+                    </div>
+                </div>
+                <canvas height="120" class="blog-overview-stats-small-2"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg col-md-4 col-sm-6 mb-4">
+        <div class="stats-small stats-small--1 card card-small">
+            <div class="card-body p-0 d-flex">
+                <div class="d-flex flex-column m-auto">
+                    <div class="stats-small__data text-center text-center align-content-center">
+
+                        <span class="stats-small__label text-uppercase">@Localizer["I.T OFFICE"]</span>
+                        <a asp-controller="It" asp-area="It" asp-action="ItDashboard">
+                            @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                            <img src="~/Image/0.png" height="50" width="50" />
+                        </a>
+                        <span class="stats-small__label text-success">@Localizer["Mr.Zain Sahib"]</span>
+
+                    </div>
+                </div>
+                <canvas height="120" class="blog-overview-stats-small-3"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg col-md-4 col-sm-6 mb-4">
+        <div class="stats-small stats-small--1 card card-small">
+            <div class="card-body p-0 d-flex">
+                <div class="d-flex flex-column m-auto">
+                    <div class="stats-small__data text-center text-center align-content-center">
+
+                        <span class="stats-small__label text-uppercase">@Localizer["SECURITY OFFICE"]</span>
+                        <a asp-controller="Security" asp-area="Security" asp-action="SecurityDashboard">
+                            @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                            <img src="~/Image/0.png" height="50" width="50" />
+                        </a>
+                        <span class="stats-small__label text-success">@Localizer["Mr.Arif Sahib"]</span>
+
+
+
+                    </div>
+                </div>
+                <canvas height="120" class="blog-overview-stats-small-4"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg col-md-4 col-sm-6 mb-4">
+        <div class="stats-small stats-small--1 card card-small">
+            <div class="card-body p-0 d-flex">
+                <div class="d-flex flex-column m-auto">
+                    <div class="stats-small__data text-center text-center align-content-center">
+
+                        <span class="stats-small__label text-uppercase">@Localizer["C.E.O OFFICE"]</span>
+                        <a asp-controller="Security" asp-area="Security" asp-action="SecurityDashboard">
+                            @*<h6 class="stats-small__value count my-3">2,390</h6>*@
+
+                            <img src="~/Image/0.png" height="50" width="50" />
+                        </a>
+                        <span class="stats-small__label text-success">@Localizer["Mr.Asim Sahib"]</span>
+
+                    </div>
+                </div>
+                <canvas height="120" class="blog-overview-stats-small-4"></canvas>
+            </div>
+        </div>
+    </div>
+    @*end 3rd row*@
+
+
+</div>
+</div>
+@section Scripts{
+    <script>
+    </script>
+
+}

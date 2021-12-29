@@ -1,0 +1,88 @@
+﻿@model IEnumerable<aDailyCash>
+
+@{
+    ViewData["Title"] = "DailyCashClosingVoucherList";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+<table class="tabled table table-bordered">
+    <tr>
+        <th class="bg-white text-dark" scope="col" colspan="10">
+            <a type="button" class="btn btn-black" asp-area="Account" asp-controller="Account" asp-action="Sheets">Back To Sheet Page </a>
+
+            <a type="button" class="btn btn-info" asp-action="closingVoucher">+ Create New Sheet </a>
+        </th>
+
+    </tr>
+    <tr>
+        <th class="bg-dark text-white" scope="col" colspan="10"><img src="~/Image/white.png" alt="Image" width="100" height="100" /><br />اے جے ڈبلیو ایگرو انڈسٹری</th>
+
+    </tr>
+    <tr>
+        <th class="bg-dark text-white" scope="col" colspan="10">ڈیلی کش کلوزنگ وؤچرز رپورٹ لسٹ اکاؤنٹ آفس</th>
+
+    </tr>
+</table>
+<table class="tabled table table-bordered" id="DCCVR">
+    <thead>
+        <tr class="bg-dark text-white">
+            <th class="text-left" colspan="10" scope="col"> <input type="datetime-local" id="birthdaytime" name="birthdaytime">  : تاریخ </th>
+
+        </tr>
+        <tr>
+
+            <th class="text-center bg-dark text-white" scope="col">ڈسپلے لسٹ</th>
+
+            <th class="text-center bg-dark text-white" scope="col">تاریخ</th>
+            <th class="text-center bg-dark text-white" scope="col">ٹائٹل</th>
+
+            <th class="text-center bg-dark text-white" scope="col">نمبر شمار</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td scope="row" style="width:150px">
+
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-success text-white" asp-action="closngVoucher" asp-route-Id="@item.ValueDate.ToString("MM-dd-yyyy")" asp-route-hide="true">
+                            <i class="fas fa-list-alt">Detail</i>
+                        </a>
+                    </div>
+                </td>
+                <td class="text-center bg-dark text-white" scope="col">@item.ValueDate </td>
+                <td class="text-center bg-dark text-white" scope="col">ڈیلی کش کلوزنگ وؤچرز رپورٹ </td>
+                <td class="text-center bg-dark text-white" scope="col">@item.Id</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<style>
+    .tabled {
+        position: center;
+        align-content: center;
+        text-align: center;
+        /*margin-left: -200px;*/
+    }
+
+    .signt {
+        position: center;
+        align-content: center;
+        text-align: center;
+        /*  margin-left: -120px;*/
+    }
+</style>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#DCCVR').DataTable();
+        });
+    </script>
+
+}

@@ -1,0 +1,95 @@
+﻿@using AJWManagementPortal.Utility
+@using Microsoft.AspNetCore.Http
+
+@inject IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> AJW ERP :: Portal</title>
+    <link rel="shortcut icon" type="image/png" sizes="180*180" href="/Image/raaa.png">
+    <!-- add icon link -->
+    @*<link rel="icon" src=""
+        type="image/x-icon">*@
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/Layout.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" asp-append-version="true" />
+</head>
+@*this code is for language transalator inject localizer--------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@*this code is for language transalator inject localizer--------------*@
+<body class="search-background">
+    @*font-family: "Times New Roman", Georgia, serif;*@
+    <header class="headr">
+      
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container ml-lg-auto ">
+                <a class="navbar-brand text-info title" asp-area="" asp-controller="Home" asp-action="Index"><img id="main-logo" style="height:60px;" src="~/Image/white.png" title=" اے جے ڈبلیو پورٹل ہوم پیج">&nbsp;&nbsp;<span class="text-warning">@Localizer["AGRO"]</span><span class="text-info">@Localizer["INDUSTRY"]</span>  </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse  d-sm-inline-flex flex-sm-row-reverse mr-lg-0">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item dropdown text-white-50">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropDownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @Localizer["All Departments"]
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropDownMenuLink">
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Admin" asp-action="AdminDashboard">1: Admin</a>
+                                <a class="dropdown-item" asp-area="Dgm" asp-controller="Dgm" asp-action="DgmDashboard">2: D.G.M Office</a>
+                                <a class="dropdown-item" asp-area="Gm" asp-controller="Gm" asp-action="GmDashboard">3: G.M Office</a>
+                                <a class="dropdown-item " asp-area="Ceo" asp-controller="Ceo" asp-action="CeoDashboard">4: C.E.O Office</a>
+                                <a class="dropdown-item" asp-area="Account" asp-controller="Account" asp-action="AccountDashboard">5: Accounts Office </a>
+                                <a class="dropdown-item" asp-area="Production" asp-controller="Production" asp-action="ProductionDashboard">6: Production Office</a>
+                                <a class="dropdown-item" asp-area="Hrm" asp-controller="Hrm" asp-action="HrmDashboard">7 :H.R.M Office</a>
+                                <a class="dropdown-item" asp-area="Dms" asp-controller="Dms" asp-action="DMSDashboard">8 :D.M.S Office </a>
+                                <a class="dropdown-item" asp-area="Home" asp-controller="Home" asp-action="Privacy">00 :Test Point </a>
+                                <a class="dropdown-item" asp-area="Ppc" asp-controller="Ppc" asp-action="PpcDashboard">9 :PPC Office </a>
+                                <a class="dropdown-item" asp-area="Meeting" asp-controller="Meeting" asp-action="MeetingDashboard">10 :Meeting Office </a>
+                                <a class="dropdown-item" asp-area="Kitchen" asp-controller="Kitchen" asp-action="KitchenDashboard">11 :Kitchen Office </a>
+                                <a class="dropdown-item" asp-area="Maintenance" asp-controller="Maintenance" asp-action="MaintenanceDashboard">12 : Maintenance Office</a>
+                                <a class="dropdown-item" asp-area="Accessory" asp-controller="Accessory" asp-action="AccessoryDashboard">13 : Accessory Office</a>
+                                <a class="dropdown-item" asp-area="Design" asp-controller="Design" asp-action="DesignDashboard">14 : Design Office</a>
+                                <a class="dropdown-item" asp-area="Purchase" asp-controller="Purchase" asp-action="PurchaseDashboard">15 :Purchase Office</a>
+                                <a class="dropdown-item" asp-area="Sale" asp-controller="Sale" asp-action="SaleDashboard">16 :Sale Office </a>
+                                <a class="dropdown-item" asp-area="Store" asp-controller="Store" asp-action="StoreDashboard">17 :Store Office </a>
+                                <a class="dropdown-item" asp-area="Security" asp-controller="Security" asp-action="SecurityDashboard">18 :Security Office </a>
+                                <a class="dropdown-item" asp-area="Security" asp-controller="Security" asp-action="SecurityDashboard">19 :Electric Office </a>
+                                <a class="dropdown-item" asp-area="It" asp-controller="It" asp-action="ItDashboard">20 :I.T Office </a>
+                                <a class="dropdown-item" asp-area="Home" asp-controller="NoticePopup" asp-action="NoticePopup">20 :Notice Board </a>
+                                <a class="dropdown-item" asp-area="Home" asp-controller="NoticePopup" asp-action="Index">201 :Notice Board </a>
+                            </div>
+                        </li>
+                        @*use partial for language translator-----------*@
+                        <li class="nav-item">
+                            @await Html.PartialAsync("_CulturePartial")
+                        </li>
+                        @*use partial for language translator-----------*@
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer bg-dark text-white text-center">
+        <div class="container">
+            @Localizer["Copyright"] ©  @Localizer["AJW Agro Industry Portal"]2021
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/Layout.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

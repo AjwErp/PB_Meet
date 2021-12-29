@@ -1,0 +1,183 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@*this code is for language transalator inject localizer--------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "DailySupplierAccountsReport";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+
+@*This HTMl for ::Daily Accounts Supplier All Reports =view::*@
+
+<br />
+<body>
+    <div class="container backgroundWhiteBorder10Padding">
+        <div class="row">
+            <form class="tabled">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="text-right">
+                            <th class="bg-white text-dark" scope="col" colspan="10">
+                                <a type="button" class="btn btn-success" asp-area="Account" asp-controller="DailyAccountReport" asp-action="DailyContinueReport" style="font-family:'Jameel Noori Nastaleeq';font-size:large"><i class="fas fa-plus"> @Localizer["Create New Daily Supplier Report"]</i> </a>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="titleAccountofficeReport" scope="col" colspan="10">@Localizer["Daily Supplier Accounts Report List"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="SubH">
+                            <th>@Localizer["CRUD Operation"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="width:150px" class="bg-info">
+                                <div class="btn-group bg-info text-white" role="group">
+                                    <a class="btn btn-warning text-white" @*asp-action="DeleteByDate" asp-route-Id="@item.ValueDate.ToString("dd-MM-yyyy")" asp-route-redirect="DailyContinueReportList"*@>
+                                        <i class="fas fa-upload"></i>
+                                    </a>
+                                    <a class="btn btn-primary text-white" @*asp-action="IndexByName" asp-route-Id="@item.ValueDate.ToString("dd-MM-yyyy")" asp-route-hide="false"*@>
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a class="btn btn-success text-white" @*asp-action="IndexByName" asp-route-Id="@item.ValueDate.ToString("dd-MM-yyyy")" asp-route-hide="true"*@>
+                                        <i class="fas fa-list-alt"></i>
+                                    </a>
+                                    <a class="btn btn-danger text-white" @*asp-action="DeleteByDate" asp-route-Id="@item.ValueDate.ToString("dd-MM-yyyy")" asp-route-redirect="DailyContinueReportList"*@>
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </th>
+                            <th class="text-center  text-dark" scope="col">@*@item.ValueDate*@ </th>
+                            <th class="text-center  text-dark" scope="col">@Localizer["Daily Supplier Report"] </th>
+                            <th class="text-center  text-dark" scope="col">@*@item.Id*@</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*  Css for BackToList Button----*/
+    .BackToList {
+        width: 150px;
+    }
+
+    .textarea {
+        height: 60px;
+    }
+    /*Mostly USes Css Classes userprofile/footer/backtolist/table/backtotopbtn/smallheading/subh/print --for Accounts Department- start*/
+    .Title {
+        font-size: xx-large;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+        color: black;
+    }
+
+    .tabled {
+        position: center;
+        align-content: center;
+        text-align: center;
+        /*margin-left: -200px;*/
+    }
+
+    .signt {
+        position: center;
+        align-content: center;
+        text-align: center;
+        /*  margin-left: -120px;*/
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

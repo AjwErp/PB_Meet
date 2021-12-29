@@ -1,0 +1,463 @@
+﻿@model IEnumerable<AJWManagementPortal.Models.MeezanBankIEReport>
+
+
+
+
+
+@{
+    ViewData["Title"] = "MeezanbankIEReport";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+    float p = 0;
+    float openingBalan = 0;
+    float debit = 0;
+    float vredit = 0;
+    float vlosingBalanve = 0;
+    if(ViewBag.hide == null)
+    {
+        ViewBag.hide = "false";
+    }
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+
+        .tabled {
+            position: center;
+            align-content: center;
+            text-align: center;
+            /*margin-left: -200px;*/
+        }
+
+        table {
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+
+        .signt {
+            position: center;
+            align-content: center;
+            text-align: center;
+            /*  margin-left: -120px;*/
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Transaction Sheet</title>
+</head>
+<body>
+
+    @*main table*@
+    <table class="tabled table table-bordered" id="tblcustomers">
+        <thead>
+            <tr>
+                <th class="bg-dark text-white" scope="col" colspan="12"><img src="~/Image/white.png" alt="Image" width="100" height="100" /><br />اے جے ڈبلیو ایگرو انڈسٹری</th>
+
+            </tr>
+            <tr>
+                <th class="bg-dark text-white" scope="col" colspan="12">ڈیلی میزان بینک انکم/خرچ رپورٹ اکاؤنٹ آفس</th>
+
+            </tr>
+
+            <tr>
+                <th class="text-left" colspan="10" scope="col"> <input type="datetime-local" id="birthdaytime" name="birthdaytime">  : تاریخ </th>
+
+            </tr>
+            <tr>
+                <th class="text-center bg-dark text-white" scope="col"></th>
+                <th class="text-center bg-dark text-white" colspan="2" scope="col">CRUD آپریشن</th>
+                <th class="text-center bg-dark text-white" scope="col">بیلنس</th>
+                <th class="text-center bg-dark text-white" scope="col">کریڈٹ</th>
+                <th class="text-center bg-dark text-white" scope="col">ڈیبٹ</th>
+
+                <th class="text-center bg-dark text-white" scope="col">آن لائن_O<br>ڈپازٹ سلپ_D  <br>چیک نمبر_C</th>
+                <th class="text-center bg-dark text-white" scope="col">تاریخ</th>
+                <th class="text-center bg-dark text-white" scope="col" colspan="3">تفصیل</th>
+
+                <th class="text-center bg-dark text-white" scope="col">نمبر شمار</th>
+
+
+            </tr>
+
+        </thead>
+        <tbody>
+
+
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                @{
+                    
+                    if (ViewBag.hide !=null)
+                        if (!Boolean.Parse(ViewBag.hide))
+                        {
+                        <td><input type="button" class="btn btn-success" value="Remove" onclick="Remove(this)" /></td>
+
+
+                        <td colspan="2">
+
+
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                        <td colspan="2"></td>
+                    }
+                }
+                <td>
+                    @{ 
+                        openingBalan += item.Balance;
+                        debit += item.Debit;
+                        vredit += item.Cradit;
+                        p+= item.Balance + item.Debit - item.Cradit;
+                        vlosingBalanve = p;
+                    }
+                    @p
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cradit)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Debit)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CDO)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValueDate)
+                </td>
+
+                <td colspan="3">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+
+
+
+            </tr>
+                        }
+        </tbody>
+        <tfoot>
+
+            <tr id="total">
+                <th></th>
+                <th colspan="2">ٹوٹل </th>
+                <th id="t1"></th>
+                <th id="t2"></th>
+                <th id="t3"></th>
+                <th id=""></th>
+                <th></th>
+                <th id="" colspan="3"></th>
+            </tr>
+
+            @{ 
+                if (ViewBag.hide != null)
+                    if (!Boolean.Parse(ViewBag.hide))
+                    {
+
+            <tr>
+                <th colspan="1"><input type="button" id="btnAdd" value="Add" /></th>
+                <th colspan="2"></th>
+
+                <th colspan="1"><input type="text" id="balance" /></th>
+                <th colspan="1"><input type="text" id="credit" /></th>
+                <th colspan="1"><input type="text" id="debit" /></th>
+                <th colspan="1"><input type="text" id="online" /></th>
+                <th colspan="1"><input type="text" id="date" /></th>
+                <th colspan="3"><input type="text" id="desc" /></th>
+                <th><input type="text" id="id" /></th>
+
+            </tr>
+
+
+
+            <tr>
+                <td class="text-center bg-dark text-white" colspan="12"><input class="btn btn-block" id="btnSave" value="Save All" /></td>
+
+            </tr>
+                    } }
+        </tfoot>
+    </table>
+
+
+    <table class="tabled table table-bordered">
+        <thead>
+            <tr>
+                <th class="bg-dark text-white" scope="col" colspan="10"></th>
+
+            </tr>
+            <tr>
+
+                <th colspan="2" rowspan="5" scope="row"></th>
+                <th colspan="3" scope="row">@openingBalan</th>
+                <th colspan="3" scope="row">اوپننگ بیلنس</th>
+                <th colspan="2" rowspan="5" scope="row"></th>
+
+            </tr>
+            <tr>
+
+                @*<th colspan="2" scope="row"></th>*@
+                <th colspan="3" scope="row">@debit</th>
+                <th colspan="3" scope="row"> آج کی ٹوٹل آمدن</th>
+                @*<th colspan="2" scope="row"></th>*@
+
+            </tr>
+            <tr>
+
+                @*<th colspan="2" scope="row"></th>*@
+                <th colspan="3" scope="row">@vredit</th>
+                <th colspan="3" scope="row">آج کا ٹوٹل خرچ</th>
+                @*<th colspan="2" scope="row"></th>*@
+
+            </tr>
+            <tr>
+
+                @*<th colspan="2" scope="row"></th>*@
+                <th colspan="3" scope="row">00</th>
+                <th colspan="3" scope="row">انکم ٹیکس کٹوتی</th>
+                @*<th colspan="2" scope="row"></th>*@
+
+            </tr>
+            <tr>
+
+                @*<th colspan="2" scope="row"></th>*@
+                <th colspan="3" scope="row">@vlosingBalanve</th>
+                <th colspan="3" scope="row">کلوزنگ بیلنس</th>
+                @*<th colspan="2" scope="row"></th>*@
+
+            </tr>
+        </thead>
+    </table>
+    @*main table*@
+
+    @*sign*@
+    <form class="signt">
+        @*sign*@
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th colspan="4" class="text-center" scope="col">دستخط</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center">
+                    <th scope="row">Account Manager</th>
+                    @*<th>C.E.O</th>*@
+                    <th>G.M</th>
+                    <th>D.G.M</th>
+                </tr>
+                <tr class="text-center align-content-center">
+                    <td>
+                        <input type="file" id="myFile" name="filename"><br />
+                        <img src="~/Image/sign.png" class="img-rounded" alt="Cinque Terre" width="260" height="136">
+                    </td>
+                    <td class="tg-0lax">
+                <input type="file" id="myFile" name="filename"><br />
+                <img src="~/Image/yok.jpg" class="img-rounded" alt="Cinque Terre" width="260" height="136">
+            </td>
+                    <td class="tg-0lax">
+                        <input type="file" id="myFile" name="filename"><br />
+                        <img src="~/Image/sign.png" class="img-rounded" alt="Cinque Terre" width="260" height="136">
+                    </td>
+                    <td class="tg-0lax">
+                        <input type="file" id="myFile" name="filename"><br />
+                        <img src="~/Image/sign.png" class="img-rounded" alt="Cinque Terre" width="260" height="136">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <button type="button" asp-action="" asp-area="" asp-controller="" class="btn btn-primary btn-lg"><i class="fas fa-file-download"></i>Download</button>
+                        <a type="button" asp-action="Sheets" asp-area="Account" asp-controller="Account" class="btn btn-success btn-lg"><i class="fas fa-save"></i>Save</a>
+                        <button type="button" asp-action="" asp-area="" asp-controller="" class="btn btn-danger btn-lg"><i class="fas fa-pen-alt"></i>Clear</button>
+                        <button type="button" asp-action="" asp-area="" asp-controller="" class="btn btn-primary btn-lg"><i class="fas fa-print"></i>Print</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    @*sign*@
+
+    @section Scripts{
+        <script>
+            $("body").ready(function () {
+
+                debugger;
+                var debit = 0, credit = 0;
+                var balance = 0;
+                $("#tblcustomers TBODY TR").each(function () {
+                    var row = $(this);
+
+
+                    debit += parseInt(row.find("TD").eq(2).text());
+                    credit += parseInt(row.find("TD").eq(3).text());
+                    balance += parseInt(row.find("TD").eq(4).text());
+
+                });
+                $("#total #t1").append(debit);
+                $("#total #t2").append(credit);
+                $("#total #t3").append(balance);
+            });
+
+
+            $("body").on("click", "#btnAdd", function () {
+
+                //Reference the Name and Country TextBoxes.
+                var balance = $("#balance");
+                var credit = $("#credit");
+                var debit = $("#debit");
+                var online = $("#online");
+                var date = $("#date");
+                var desc = $("#desc");
+                //Get the reference of the Table's TBODY element.
+                var tBody = $("#tblcustomers > TBODY")[0];
+
+                //Add Row.
+                var row = tBody.insertRow(-1);
+
+                var cell = $(row.insertCell(-1));
+                //Add Button cell.
+                var btnRemove = $("<input />");
+                btnRemove.attr("type", "button");
+                btnRemove.attr("onclick", "Remove(this);");
+                btnRemove.val("Remove");
+                cell.append(btnRemove);
+                var total = row.insertCell(-1);
+                total.colSpan = 2;
+                cell = $(total);
+
+                cell = $(row.insertCell(-1));
+                cell.html(balance.val());
+
+                cell = $(row.insertCell(-1));
+                cell.html(credit.val());
+
+
+                //Add Country cell.
+                cell = $(row.insertCell(-1));
+                cell.html(debit.val());
+
+                cell = $(row.insertCell(-1));
+                cell.html(online.val());
+
+                cell = $(row.insertCell(-1));
+                cell.html(date.val());
+
+                //Add Country cell.
+                cell = $(row.insertCell(-1));
+                cell.html(desc.val());
+
+                cell = $(row.insertCell(-1));
+                cell.html(desc.val());
+
+                //Clear the TextBoxes.
+                balance.val("");
+                credit.val("");
+                debit.val("");
+                online.val("");
+                date.val("");
+                desc.val("");
+            });
+
+            function Remove(button) {
+                //Determine the reference of the Row using the Button.
+                var row = $(button).closest("TR");
+                var name = $("TD", row).eq(0).html();
+                if (confirm("Do you want to delete: " + name)) {
+                    //Get the reference of the Table.
+                    var table = $("#tblcustomers")[0];
+
+                    //Delete the Table row using it's Index.
+                    table.deleteRow(row[0].rowIndex);
+                }
+            };
+
+            $("body").on("click", "#btnSave", function () {
+                //Loop through the Table rows and build a JSON array.
+                var Meezans = new Array();
+                $("#tblcustomers TBODY TR").each(function () {
+                    var row = $(this);
+                    var meezan = {};
+                    meezan.Balance = row.find("TD").eq(2).text();
+                    meezan.Cradit = row.find("TD").eq(3).text();
+                    meezan.Debit = row.find("TD").eq(4).text();
+                    meezan.CDO = row.find("TD").eq(5).text();
+                    meezan.ValueDate = row.find("TD").eq(6).text();
+                    meezan.Description = row.find("TD").eq(7).text();
+                    meezan.Imgceo = 1;
+                    meezan.Imggm = 2;
+                    meezan.Imgdgm = 3;
+                    meezan.Imgam = 4;
+
+                    Meezans.push(meezan);
+                });
+
+                //Send the JSON array to Controller using AJAX.
+                $.ajax({
+                    type: "POST",
+                    url: "../Sheets/Meezan/InsertCustomers",
+                    data: { data: Meezans },
+                    success: function (r) {
+                        alert(r + " record(s) inserted.");
+                        window.location.replace("../Sheets/Meezan/");
+                    }
+                });
+            });
+
+
+
+        </script>
+    }
+</body>
+</html>
+

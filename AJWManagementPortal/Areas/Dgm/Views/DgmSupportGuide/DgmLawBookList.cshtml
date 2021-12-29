@@ -1,0 +1,191 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@*---Language Tranlator--Localizer*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@*This is For LAW Book Insterting and updating Model Class*@
+@model IEnumerable<AJWManagementPortal.Models.LawBook>
+
+@{
+    ViewData["Title"] = "DgmLawBookList";
+    Layout = "~/Views/Shared/_LayoutDgm.cshtml";
+}
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+
+@*::This HTML For DGM office Law Book List::*@
+<br />
+<body>
+    <div class="container-fluid backgroundWhiteBorder10Padding">
+        <div class="row">
+            <div class="header col-sm-12">
+                <a class="logo font-weight-bold font-weight-bolder">@Localizer["D.G.M Department Law Book List"]</a>
+            </div>
+            @*----------start-----general ledger  report lisst------------------*@
+        <form class="tabled col-sm-12">
+            <hr />
+            @*<div class="col-sm-12 Createbtn">
+            <a type="button" class="btn btn-primary" asp-controller="AccountSupportGuide" asp-area="Account" asp-action="AccountLawBook"><i class="fas fa-street-view"> @Localizer["View Current Laws of Ceo Office"]</i> </a>
+        </div>
+        <br />*@
+            <div class="col-sm-12 text-center">
+                <a class="titleAccountofficeReport" colspan="10">@Localizer["D.G.M Department Law Book List"]</a>
+            </div>
+            <br />
+            <table class="table table-bordered SubH" id="DGLBookList">
+                <thead>
+                    <tr class="Subhdr SubH">
+                        <th>@Localizer["Action"] </th>
+                        <th>@Localizer["Date"] </th>
+                        <th>@Localizer["Department"]</th>
+                        <th>@Localizer["Title"]</th>
+                        <th>@Localizer["ID#"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="tabbody SubH">
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="DgmLawBook" asp-controller="DgmSupportGuide" asp-area="Dgm" asp-route-id="@item.department" asp-route-title="@item.title" asp-route-date="@item.Date"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        @*<a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>*@
+                                        @*<a class="dropdown-item" asp-action="DeleteLawBook" asp-controller="DgmSupportGuide" asp-area="Dgm" asp-route-id="@item.Id" asp-route-title="@item.title" asp-route-date="@item.Date"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>*@
+                                        @*<a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-file-download"></i> @Localizer["Download"]</a>*@
+                                    </div>
+                                </div>
+                            </td>
+                            <td>@item.Date</td>
+                            <td>@item.department</td>
+                            <td>@item.title</td>
+                            <td>@item.Id</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @*------------------------ended---------------------------- Table for Daily GeneralLedgerBook List----------------------------------------------------------*@
+        </form>
+        </div>
+    </div>
+</body>
+
+<!-- back to top button-->
+<a id="button"></a>
+
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+
+        //---------JS for Back To Top Button On Each Page------------------Start-------
+        var btn = $('#button');
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+
+        btn.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+
+        //---JS for Admin LAW Book List----start----
+        $(document).ready(function () {
+            $('#DGLBookList').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    .header {
+        overflow: hidden;
+        padding: 10px 10px;
+        font-size: 40px;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+    }
+
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+
+    body {
+        font: 90%/1.45em "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        background-color: #fff;
+    }
+
+    .Titlelawbooklist {
+        color: white;
+        font-size: xx-large;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .Createbtn {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: large;
+        text-align: right;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }*/
+
+    .Subhdr {
+        color: white;
+        text-align: center;
+        background-color: slategrey;
+    }
+
+    .tabbody {
+        text-align: center;
+        color: black;
+    }
+
+    .lang_btn {
+        font-family: "ProximaNova";
+        color: #fff;
+        font-size: 15px;
+        text-transform: uppercase;
+        text-decoration: none !important;
+        background-color: #C82333;
+        text-transform: uppercase;
+        margin-top: 1.7%;
+        text-decoration: none !important;
+        width: 65px;
+        text-align: center;
+        height: 39px;
+        border: solid 1px #C82333;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

@@ -1,0 +1,263 @@
+﻿@model AJWManagementPortal.Models.MeezanBankIEVoucher
+
+@{
+    ViewData["Title"] = "CreateMeezanVoucher";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+
+        .tabled {
+            position: center;
+            align-content: center;
+            text-align: center;
+            /*margin-left: -200px;*/
+        }
+
+        .signt {
+            position: center;
+            align-content: center;
+            text-align: center;
+            /*  margin-left: -120px;*/
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Transaction Sheet</title>
+</head>
+<body>
+
+
+    <form asp-action="CreateMeezanVoucher">
+        <table class="tabled table table-bordered">
+            <thead>
+                <tr>
+                    <th class="bg-dark text-white" scope="col" colspan="10"><img src="~/Image/white.png" alt="Image" width="100" height="100" /><br />اے جے ڈبلیو ایگرو انڈسٹری</th>
+
+                </tr>
+                <tr>
+                    <th class="bg-dark text-white" scope="col" colspan="10">ڈیلی میزان بینک ا واؤچر اکاؤنٹ آفس</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <th class="text-left" colspan="4" scope="col">
+                        <input asp-for="@Model.checkNumber" class="form-control" />
+                        <span asp-validation-for="@Model.checkNumber" class="text-danger"></span>
+                        :چیک نمبر
+                    </th>
+                    <th class="text-right" colspan="6" scope="col">
+                        <input type="datetime-local" asp-for="@Model.dateTime" class="form-control" />
+                        <span asp-validation-for="@Model.dateTime" class="text-danger"></span>
+                        : تاریخ
+                    </th>
+
+                </tr>
+                <tr>
+
+
+                    <th colspan="7" class="text-right">
+                        <input asp-for="@Model.amount" class="form-control" />
+                        <span asp-validation-for="@Model.amount" class="text-danger"></span>
+                    </th>
+                    <th colspan="3" class="text-center">
+                        رقم
+                    </th>
+
+                </tr>
+                <tr>
+
+                    <th colspan="7" class="text-center">
+                        <input asp-for="@Model.purpose" class="form-control" />
+                        <span asp-validation-for="@Model.purpose" class="text-danger"></span>
+                    </th>
+                    <th colspan="3" class="text-center">
+                        پر پز
+                    </th>
+
+                </tr>
+                <tr>
+
+                    <th class="text-center bg-dark text-white" scope="col" colspan="2">باقی بیلنس</th>
+                    <th class="text-center bg-dark text-white" scope="col" colspan="2">انکم ٹیکس کٹوتی</th>
+                    <th class="text-center bg-dark text-white" scope="col" colspan="2">چیک کش</th>
+                    <th class="text-center bg-dark text-white" scope="col" colspan="2">موجودہ بینک بیلنس</th>
+
+
+                </tr>
+                <tr>
+                    @{ 
+                        MeezanBankIEReport v1 = new MeezanBankIEReport();
+                    }
+                    @foreach(var details in ViewBag.Data)
+                    {
+                        v1.Balance += details.Balance;
+                        v1.Cradit += details.Cradit;
+                    }
+                    <th scope="row" colspan="2">
+                        @{ 
+                        var bal =  v1.Balance - v1.Cradit;
+                        }
+                        @bal
+                    </th>
+                    <th scope="row" colspan="2">0</th>
+                    <th scope="row" colspan="2">@v1.Cradit</th>
+                    <th scope="row" colspan="2">
+                        @v1.Balance
+                                    </th>
+
+
+
+                </tr>
+
+                <tr>
+
+
+                    <th colspan="7" class="text-right">
+                        <input asp-for="@Model.description" class="form-control" />
+                        <span asp-validation-for="@Model.description" class="text-danger"></span>
+                    </th>
+                    <th colspan="3" class="text-center">
+                        تفصیل
+                    </th>
+
+                </tr>
+                <tr>
+                    <th>
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="10" class="text-center bg-dark text-white">
+                        <h3> سپپورٹنگ ڈوکمنٹس</h3>
+                    </th>
+
+                </tr>
+                <tr>
+
+                    <th class="text-center align-content-center bg-dark text-light" colspan="10">سلیکٹ  ڈوکمنٹس</th>
+
+                </tr>
+                <tr>
+
+                    <th class="text-center align-content-center bg-dark text-white" colspan="10"> <input type="file" id="myFile" name="filename"></th>
+
+                </tr>
+                <tr class="bg-dark text-white text-left">
+
+                    <td colspan="10">
+                        <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                        <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                        <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                        <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                        <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                        <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                        <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                        <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                        <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                        <img src="~/Image/yok.jpg" class="img-rounded " alt="Cinque Terre" width="200" height="50">
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td colspan="4">Ended</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </form>
+    @*new bank index file*@
+    <form class="signt">
+        @*sign*@
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th colspan="4" class="text-center" scope="col">دستخط</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center">
+                    <th scope="row">Account Manager</th>
+                    @*<th>C.E.O</th>*@
+                    <th>G.M</th>
+                    <th>D.G.M</th>
+                </tr>
+                <tr class="text-center align-content-center">
+                    <td>
+                        <input type="file" id="myFile" name="filename"><br />
+                        <img src="~/Image/sign.png" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+                    </td>
+                    @*<td class="tg-0lax">
+                <input type="file" id="myFile" name="filename"><br />
+                <img src="~/Image/yok.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+            </td>*@
+                    <td class="tg-0lax">
+                        <input type="file" id="myFile" name="filename"><br />
+                        <img src="~/Image/sign.png" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+                    </td>
+                    <td class="tg-0lax">
+                        <input type="file" id="myFile" name="filename"><br />
+                        <img src="~/Image/sign.png" class="img-rounded" alt="Cinque Terre" width="304" height="136">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <button type="button" asp-action="" asp-area="" asp-controller="" class="btn btn-primary btn-lg"><i class="fas fa-file-download"></i>Download</button>
+                        <a type="button" asp-action="Sheets" asp-area="Account" asp-controller="Account" class="btn btn-success btn-lg"><i class="fas fa-save"></i>Save</a>
+                        <button type="button" asp-action="" asp-area="" asp-controller="" class="btn btn-danger btn-lg"><i class="fas fa-pen-alt"></i>Clear</button>
+                        <button type="button" asp-action="" asp-area="" asp-controller="" class="btn btn-primary btn-lg"><i class="fas fa-print"></i>Print</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    @*sign*@
+
+    @section Scripts{
+        <script>
+
+        </script>
+    }
+</body>
+</html>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

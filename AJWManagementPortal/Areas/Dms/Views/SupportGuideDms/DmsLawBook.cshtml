@@ -1,0 +1,261 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@*This is For Accounts Law Book Insterting And Updating*@
+@model IEnumerable<AJWManagementPortal.Models.LawBook>
+@{
+    ViewData["Title"] = "DmsLawBook";
+    Layout = "~/Views/Shared/_LayoutDms.cshtml";
+}
+
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+
+@*::This HTMl For DMS Department LAw Book ::*@
+<br />
+<body>
+    <form class="tabled">
+        <div class="container-fluid backgroundWhiteBorder10Padding DmsLUBook">
+            <div class="col-md-12 col-sm-12">
+                <div class="portlet light">
+                    <div class="portlet-body">
+                        <div class="table-responsive">
+                            @*<div class="titleLaw">
+                                    <span class="font-weight-bold">@localizer["Account DEPARTMENT LAW BOOK"]</span>
+                                </div>*@
+                            <br />
+                            <div class="titleLaw" style="direction:ltr">
+                                <input type="text" class="form-control" id="title" name="title" style="height:50px;width:320px;border:hidden;font:message-box" value="@ViewBag.dept Department Law Book" />
+
+                               
+                                @*<span class="font-weight-bold"><input type="text" id="" class="form-control text-center font-weight-bold" style="width:360px;" /></span>*@
+                            </div>
+                            @*<div class="PrintP">
+                                    <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                                </div>*@
+                            <table style="width:100%" id="tbllawbook" class="display nowrap table table-bordered table-hover table-condensed table-sm SubH">
+                                <thead>
+                                    <tr class="">
+                                        <th>@localizer["ID#"]</th>
+                                        <th>@localizer["Law's Description"]</th>
+                                        <th>@localizer["Edit Number"]</th>
+                                        <th>@localizer["Page Number"]</th>
+                                        <th>@localizer["Previous Edit Number"]</th>
+                                        <th>@localizer["Previous Page Number"]</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td> <span class="en">@Html.DisplayFor(modelItem => item.Id)</span> </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.lawDescription)
+                                            </td>
+                                            <td><input type="text" id="" class="form-control" value="@Html.DisplayFor(modelItem => item.editNumber)" /></td>
+                                            <td><input type="text" id="" class="form-control" value="@Html.DisplayFor(modelItem => item.pageNumber)" /></td>
+                                            <td><input type="text" id="" class="form-control" value="@Html.DisplayFor(modelItem => item.previousEditNumber)" /></td>
+                                            <td><input type="text" id="" class="form-control" value="@Html.DisplayFor(modelItem => item.previousPageNumber)" /></td>
+
+                                        </tr>
+
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td> <span class="en"> <button type="button" id="btnAdd" value="Add" class="btn btn-primary btn-sm form-control">@localizer["Add"]<br />@localizer["Row"]</button></span> </td>
+                                        <td>
+                                            <textarea type="text" class="form-control" id="txtDesc" name="txtDesc"></textarea>
+                                        </td>
+                                        <td><input type="text" id="txtEditNumber" name="txtEditNumber" class="form-control" /></td>
+                                        <td><input type="text" id="txtPageNumber" name="txtPageNumber" class="form-control" /></td>
+                                        <td><input type="text" id="txtPreviousEditNumber" name="txtPreviousEditNumber" class="form-control" /></td>
+                                        <td><input type="text" id="txtPreviousPageNumber" name="txtPreviousPageNumber" class="form-control" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row" colspan="13" class="actionbtn">
+                                            <a asp-action="DmsLawBookList" asp-area="Dms" asp-controller="SupportGuideDms" type="button" class="btn btn-primary btn-md fas fa-step-backward" value="Back To List">@localizer["Back To List"]</a>
+
+
+                                        </td>
+                                    </tr>
+
+                                </tfoot>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+<!-- back to top button-->
+<a id="button"></a>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+        // DataTables with Add Row Functionality
+        $("body").on("click", "#btnAdd", function () {
+
+
+            //Reference the Name and Country TextBoxes.
+            var txtDesc = $("#txtDesc");
+            var txtEditNumber = $("#txtEditNumber");
+            var txtPageNumber = $("#txtPageNumber");
+            var txtPreviousEditNumber = $("#txtPreviousEditNumber");
+            var txtPreviousPageNumber = $("#txtPreviousPageNumber");
+
+
+            //Get the reference of the Table's TBODY element.
+            var tBody = $("#tbllawbook > TBODY")[0];
+
+            //Add Row.
+            var row = tBody.insertRow(-1);
+
+            var cell = $(row.insertCell(-1));
+            //Add Button cell.
+            var btnRemove = $("<input />");
+            btnRemove.attr("type", "button");
+            btnRemove.attr("onclick", "Remove(this);");
+            btnRemove.val("Remove");
+            cell.append(btnRemove);
+
+            cell = $(row.insertCell(-1));
+            cell.append(txtDesc.val());
+
+
+            cell = $(row.insertCell(-1));
+            var btn2 = $("<input />");
+            btn2.attr("type", "text");
+            btn2.val(txtEditNumber.val());
+            cell.append(btn2);
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            var btn3 = $("<input />");
+            btn3.attr("type", "text");
+            btn3.val(txtPageNumber.val());
+            cell.append(btn3);
+
+            cell = $(row.insertCell(-1));
+            var btn4 = $("<input />");
+            btn4.attr("type", "text");
+            btn4.val(txtPreviousEditNumber.val());
+            cell.append(btn4);
+
+            cell = $(row.insertCell(-1));
+            var btn5 = $("<input />");
+            btn5.attr("type", "text");
+            btn5.val(txtPreviousPageNumber.val());
+            cell.append(btn5);
+
+
+            //Clear the TextBoxes.
+            txtDesc.val("");
+            txtEditNumber.val("");
+            txtPageNumber.val("");
+            txtPreviousEditNumber.val("");
+            txtPreviousPageNumber.val("");
+
+        });
+
+        function Remove(button) {
+            //Determine the reference of the Row using the Button.
+            var row = $(button).closest("TR");
+            var name = $("TD", row).eq(0).html();
+            if (confirm("Do you want to delete: " + name)) {
+                //Get the reference of the Table.
+                var table = $("#tbllawbook")[0];
+
+                //Delete the Table row using it's Index.
+                table.deleteRow(row[0].rowIndex);
+            }
+        };
+
+        $("body").on("click", "#btnSave", function () {
+
+            //Loop through the Table rows and build a JSON array.
+            var lawbookArray = new Array();
+            $("#tbllawbook TBODY TR").each(function () {
+                var row = $(this);
+                var lawbook = {};
+                lawbook.lawDescription = row.find("TD").eq(1).text();
+                lawbook.editNumber = row.find("input[type='text']").eq(0).val();
+                lawbook.pageNumber = row.find("input[type='text']").eq(1).val();
+                lawbook.previousEditNumber = row.find("input[type='text']").eq(2).val();
+                lawbook.previousPageNumber = row.find("input[type='text']").eq(3).val();
+
+                lawbookArray.push(lawbook);
+            });
+            alert(lawbookArray);
+            //Get
+            var Title = $('#title').val();
+            var Dept = $('#id').val();
+
+            //Send the JSON array to Controller using AJAX.
+            $.ajax({
+                type: "POST",
+                url: "/Dgm/DgmSupportGuide/InsertLawBooks",
+                data: { data: lawbookArray, Title: Title, Dept: Dept },
+                success: function (r) {
+                    alert(r + " record(s) inserted.");
+                    window.location.replace("/Dgm/DgmSupportGuide/DgmLawBookList");
+                }
+            });
+        });
+
+
+
+    </script>
+
+
+    <script>
+
+        //---------JS for Back To Top Button On Each Page------------------Start-------
+        var btn = $('#button');
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+
+        btn.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    .DmsLUBook {
+        text-align: right;
+        text-align: justify;
+        direction: rtl;
+    }
+
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+
+    .titleLaw {
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .Subhdr {
+        color: white;
+        text-align: center;
+        background-color: slategrey;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

@@ -1,0 +1,171 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@*Langugae Translator --Locaizer*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{
+    ViewData["Title"] = "HrmAuditReportPdf";
+    Layout = "~/Views/Shared/_LayoutHrm.cshtml";
+}
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+<br />
+<body>
+    <div class="container backgroundWhiteBorder10Padding">
+        <div style="direction:rtl" class="row text-right text-justify">
+            <form class=" col-sm-12">
+                <div class="portlet light">
+                    <br />
+                    <div class="portlet-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-condensed">
+                                <thead>
+                                    <tr class="bg-secondary text-white">
+                                        <th class="text-center" style="font-size:xx-large" colspan="6">@localizer["Upload Audit H.R.M Pdf Reports"]</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6" class="text-center">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control text-left" placeholder="@localizer["Enter File Name i.e   DailyReport.pdf"]" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text Signrow" id="basic-addon2">@localizer["File Name"]  </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" class="text-center">
+
+                                            <div class="input-group ">
+                                                <input type="text" class="form-control text-left" placeholder="@localizer["Enter File Type i.e Daily Report"]" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text Signrow" id="basic-addon2">@localizer["File Type"] </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="6" class="Title">
+                                            <a>@localizer["Select Pdf File"]  </a>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="input-group ">
+                                                <div class="input-group-append">
+                                                    <input type="file" class="form-control-file form-control-sm" id="">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" class="text-center">
+
+                                            <div class="input-group">
+                                                <input type="text" class="form-control text-left " placeholder="@localizer["Enter File Path i.e"]  C\:Reports\DailyReport.pdf" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text Signrow" id="basic-addon2">@localizer["File Path"]  </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" class="text-center">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control text-left" placeholder="@localizer["Enter File Size i.e 400 KB"]" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text Signrow" id="basic-addon2">@localizer["File Size"]  </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" class="text-lg-center">
+                                            <input type="button" class="btn btn-primary btn-sm fas fa-save" value="@localizer["Save File"]">
+                                            <a asp-action="HrmPdfReports" asp-area="HRM" asp-controller="HrmPdfReport" type="button" class="btn btn-primary btn-sm fas fa-step-backward" value="Back To List">@localizer["Back To List"]</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<!-- back to top button-->
+<a id="button"></a>
+<!-- back to top button-->
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for Signature Title on Each Sheet In Accounts----*/
+    .Signrow {
+        text-align: center;
+        font-size: x-large;
+        font-family: 'Jameel Noori Nastaleeq';
+        background-color: slategrey;
+        color: white;
+    }
+    /*---Css for Title-----*/
+    .Title {
+        font-size: xx-large;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+        color: black;
+    }
+
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@
+
+
+

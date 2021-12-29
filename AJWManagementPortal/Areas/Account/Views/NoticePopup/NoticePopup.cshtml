@@ -1,0 +1,88 @@
+﻿@*@model Employee*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@model IEnumerable<AJWNoticeBoardHrm>
+
+@{
+    ViewData["Title"] = "NoticePopup";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <button class="btn btn-primary btn-sm" data-target="#loginModal" data-toggle="modal">Notice Board</button>
+                <div class="modal" id="loginModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                @*<h4 class="modal-title" id="addEmployeeLabel">Add Employee</h4>*@
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span>X</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <form>
+                                    <div style="margin-top:0px;" class="table col-sm-12">
+                                        <table class="table table-striped table-bordered" title="اے جے ڈبلیو نوٹس بورڈ">
+                                            <thead>
+                                                <tr>
+                                                    <th style="font-size:25px" class="text-in text-center"> @Localizer["AJW NOTICE BOARD"] <i class="fas fa-file-sound-o"></i></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="font-size:25px;">
+                                                <tr style="text-align:justify;">
+                                                    <td>
+                                                        <marquee height="400" behavior="scroll" direction="up" onmouseover="this.stop();" onmouseout="this.start();">
+                                                            @{
+                                                                foreach (AJWNoticeBoardHrm b in ViewBag.Home)
+                                                                {
+                                                                    <hr />
+                                                                    <div>
+                                                                        <h2 style="color:orange" class="text-center"> @b.Title  &nbsp;<img src="~/Image/blinknew.gif" /></h2>
+                                                                        <hr />
+                                                                        <p class="text-center" style="color:orange"> @b.Date  </p>
+                                                                    </div>
+
+                                                                    <hr />
+                                                                    <p>تفصیل:@b.Description</p>
+
+                                                                }
+                                                            }
+                                                        </marquee>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    @*<div class="form-group">
+                                            <label asp-for="Name"></label>
+                                            <label asp-for="Name" class="form-control"></label>
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Email"></label>
+                                            <label asp-for="Email" class="form-control"></label>
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                        </div>*@
+                                </form>
+                            </div>
+
+                            @*<div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                            </div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+

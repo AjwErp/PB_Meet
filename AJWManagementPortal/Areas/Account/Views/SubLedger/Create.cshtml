@@ -1,0 +1,111 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@*---Language Tranlator--Localizer*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@model AJWManagementPortal.Models.ViewModels.SubLedgerAndLedgerViewModel
+@using AJWManagementPortal.Extensions
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+@*This HTML for ::SubLedger Create=view for account office::*@
+
+<br />
+<h2 class="text-info text-center">Create Sub Ledger of Ledger</h2>
+<br />
+
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+@*Here we Display Ledger ID*@
+<div class="border backgroundWhiteBorder row">
+    <div class="col-8 border-right">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group row">
+                <div class="col-3">
+                    <label asp-for="SubLedger.LedgerId" class="col-form-label"></label>
+                </div>
+                <div class="col-5">
+                    <select id="ddlLedgerlist" asp-for="SubLedger.LedgerId" asp-items="Model.LedgerList.ToSelectListItem(Model.SubLedger.LedgerId)" class="form-control"></select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-3">
+                    <label asp-for="SubLedger.Name" class="col-form-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="SubLedger.Name" class="form-control" />
+                </div>
+                <span asp-validation-for="SubLedger.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-12 offset-3">
+                    <partial name="_CreateAndBackToListButtonSubLedger" />
+                </div>
+            </div>
+        </form>
+    </div>
+    @*Here we display All Sub Ledger of Mian Ledger by LOOP*@
+    <div class="col-3 offset-1">
+        @if (Model.SubLedgerList.Count() > 0)
+        {
+            <p> Existing Subledgers: </p>
+
+            <div id="SubLedgerList">
+                <ul class="list-group"></ul>
+            </div>
+        }
+    </div>
+
+
+
+</div>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @*// for Get Subledger Name by JS on right side of Create UI Page*@
+    <script>
+        function updateSubLedgerList() {
+            var ledgerSelected = document.getElementById("ddlLedgerlist").value;
+            $list = $('#SubLedgerList');
+            $.ajax({
+                url: '/Account/SubLedger/GetSubLedger/' + ledgerSelected,
+                type: 'GET',
+                dataType: 'text',
+                success: function (data) {
+                    results = JSON.parse(data);
+                    $list.html('');
+                    $list.append(' <ul class="list-group"> ');
+                    for (i in results) {
+                        $list.append('<li class="list-group-item">' + results[i].text + '</li>');
+                    }
+                    $list.append('</ul>');
+                }
+            });
+        }
+        $(document).ready(function () {
+            updateSubLedgerList();
+        });
+        $("#ddlLedgerlist").on("change", function () {
+            updateSubLedgerList();
+        });
+    </script>
+
+
+}
+
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@*@section Scripts{
+        <script>
+        </script>
+    }*@
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@
+

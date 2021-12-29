@@ -1,0 +1,244 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@model HrmFileUploadViewModel
+@{
+    ViewData["Title"] = "HrmPdfReports";
+    Layout = "~/Views/Shared/_LayoutHrm.cshtml";
+}
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+
+@*::This HTML For Admin Office PDF uploading pannel::*@
+
+<br />
+<body>
+    <div class="container-fluid backgroundWhiteBorder10Padding">
+        <div class="row">
+            <div class="header col-sm-12">
+                <a class="logo font-weight-bold">@Localizer["HRM PDF Reports List"]</a>
+            </div>
+            @*--------------------Start------------Daily Accounts Pdf Reports----------------------------------*@
+            <form class="col-sm-12">
+
+                <hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary" asp-area="HRM" asp-controller="HrmPdfReport" asp-action="AjwNoticeBoardPdfReports"><i class="fas fa-plus"> @Localizer["Create New Ajw Law Book Pdf File"]</i> </a>
+                </div>
+                <br />
+                <div class="col-sm-12 text-center">
+                    <a class="titleAccountofficeReport" scope="col" colspan="10">@Localizer["Ajw Law Book Pdf Report List"]</a>
+                </div>
+                <br />
+                @if (Model.HrmFilesOnDatabase.Count == 0)
+                {
+                    <caption>No File Exist....</caption>
+                }
+                else
+                {
+                    <table class="table table-bordered" id="DMBLBook">
+                        <thead>
+
+                            <tr class="Subhdr SubH">
+                                <th>@Localizer["Action"] </th>
+                                <th>@Localizer["Created On"]</th>
+                                <th>@Localizer["File Type"]</th>
+                                <th>@Localizer["Department"]</th>
+                                <th>@Localizer["Name"]</th>
+                                <th>@Localizer["ID#"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var file in Model.HrmFilesOnDatabase)
+                            {
+                                <tr class="SubH">
+                                    <td class="actionbtn">
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                @Localizer["Action"]
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item " asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                                <a class="dropdown-item " asp-area="HRM" asp-controller="HrmPdfReport" asp-action="DeleteFileFromDatabase" asp-route-id="@file.Id"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                                <a class="dropdown-item " asp-area="HRM" asp-controller="HrmPdfReport" asp-action="DownloadFileFromDatabase" asp-route-id="@file.Id"><i class="fas fa-file-download"></i> @Localizer["Download"]</a>
+                                                <a class="dropdown-item " asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to DMS"]</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>@file.CreatedOn</td>
+                                    <td>@file.FileType </td>
+                                    <td>@file.Description </td>
+                                    <td>@file.Name </td>
+                                    <td>@file.Id</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                @*--------------------------------------*@
+            </form>
+            @*--------------------ended------------Audit Reports PDF----------------------------------*@
+        </div>
+    </div>
+</body>
+
+<!-- back to top button-->
+<a id="button"></a>
+<!-- back to top button-->
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+
+    @*Datatable and pagination for Account Office PDF Report*@
+    <script>
+        $(document).ready(function () {
+            $('#DMBLBook').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        //---------
+        $(document).ready(function () {
+            $('#DPReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        //---------
+        $(document).ready(function () {
+            $('#MPReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        //---------
+        $(document).ready(function () {
+            $('#YPReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        //-----------
+        $(document).ready(function () {
+            $('#APReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+                    //------------
+    </script>
+
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    /* Css for Heading on every Sheet of ccount office----*/
+    .header {
+        overflow: hidden;
+        padding: 10px 10px;
+        font-size: 40px;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+    }
+    /*//--CSS For Create button & Action Button of Each Page------start---------*/
+    .Createbtn {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: large;
+        text-align: right;
+    }
+
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    /*----Accounts All Daily Accounts Reportss--css--Start-------*/
+    .AccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: x-large;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+
+    .AccountReport {
+        text-align: center;
+        background-color: dimgrey;
+        color: white;
+    }
+
+    .TitleExp {
+        color: white;
+        background-color: slategray;
+        font-size: xx-large;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+    }
+
+    .thhead {
+        height: 45px;
+    }
+    /*  Css for Sub Heading of table----*/
+    .Subhdr {
+        color: white;
+        text-align: center;
+        background-color: slategrey;
+    }
+    /*  Css for Small Content Of Accounts----*/
+    .smallfontHeading {
+        font-size: medium;
+    }
+
+    /*---these clases is for Background------- */
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@
+
+
+
+
+

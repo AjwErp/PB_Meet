@@ -1,0 +1,544 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@*this code is for language transalator inject localizer--------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@*this code is for language transalator inject localizer--------------*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>G.M Panel :: AJW Portal</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" sizes="180*180" href="/Image/raaa.png">
+    <link href="~/srtdash/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/srtdash/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/srtdash/assets/css/themify-icons.css" rel="stylesheet" />
+    <link href="~/srtdash/assets/css/metisMenu.css" rel="stylesheet" />
+    <link href="~/srtdash/assets/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/srtdash/assets/css/slicknav.min.css" rel="stylesheet" />
+    <!-- amchart css -->
+    <!-- others css -->
+    <link href="~/srtdash/assets/css/typography.css" rel="stylesheet" />
+    <link href="~/srtdash/assets/css/default-css.css" rel="stylesheet" />
+    <link href="~/srtdash/assets/css/styles.css" rel="stylesheet" />
+    <link href="~/srtdash/assets/css/responsive.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    @*<link href="~/css/AdminLayout.css" rel="stylesheet" />*@
+    <link href="~/css/GmLayout.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" asp-append-version="true" />
+    <!-- modernizr css -->
+    @*css for Datatables*@
+    <link href="~/lib/datatables/css/jquery.dataTables.css" rel="stylesheet" />
+    @*css for Datatables*@
+    <!----Bootstrap -------->
+    @*<link href="~/lib/bootstrap/dist/css/bootstrap-reboot.css" rel="stylesheet" />
+        <link href="~/lib/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet" />
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />*@
+    <!----End Bootstrap-------->
+</head>
+<body>
+  
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
+    <!-- page container area start -->
+    <div class="page-container">
+        <!-- sidebar menu area start -->
+        <div class="sidebar-menu">
+            <div class="sidebar-header">
+                <div class="container">
+                    @*<a asp-action="AccountDashboard" asp-controller="Account" asp-area="Account"><img src="~/Image/white.png" alt="logo"></a>*@
+                    <a style="font-size:20px;" class="navbar-brand text-info title" asp-action="Index" asp-controller="Home" asp-area="Home" title="اے جے ڈبلیو  پورٹل کے ہوم پیج پر جائیں"><img id="main-logo" style="height:36px;" src="~/Image/white.png">&nbsp;&nbsp;<span class="text-warning">@Localizer["AGRO"]</span><span class="text-info">@Localizer["INDUSTRY"]</span>  </a>
+
+                </div>
+            </div>
+            <div class="main-menu">
+                <div class="menu-inner">
+                    <nav>
+                        <ul class="metismenu font fontlarge mainul sidebarmr" id="menu">
+                            <li class="active" id="up">
+                                <a asp-action="GmDashboard" asp-controller="Gm" asp-area="Gm" aria-expanded="true"><h4><span class="text-warning" title="جی ایم ڈیش بورڈ ہوم پیج پر جائیں">@Localizer["G.M"]</span><br /><span class="">@Localizer["Dashboard"]</span></h4></a>
+                            </li>
+                            @*<li class="search-box border-top">
+            <form action="#">
+                <input type="text" name="search" id="mySearch" onkeyup="myFunction()" placeholder="@Localizer["Search for something..."]" required>
+                <i class="ti-search"></i>
+            </form>
+        </li>*@
+                            <li class="border-top border-bottom">
+                                <a asp-controller="Gm" asp-area="Gm" asp-action="GmDashboard" aria-expanded="true">
+                                    <i class="ti-layout-sidebar-left"></i><span>
+                                        @Localizer["Dashboard"]
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fas fa-support"></i><span>@Localizer["G.M Support Guide"]</span></a>
+                                <ul class="collapse">
+                                    <li class="border-top border-bottom "><a asp-controller="GmSupportGuide" asp-area="Gm" asp-action="GmUserGuide" class="dropdown-item"><span>@Localizer["G.M User Guide"]</span></a></li>
+                                    <li><a asp-controller="GmSupportGuide" asp-area="Gm" asp-action="GmLawBook" class="dropdown-item"><span>@Localizer["G.M LAW Book"]</span></a></li>
+                                    <li class="border-top"><a asp-controller="GmSupportGuide" asp-area="Gm" asp-action="GmLawBookList" class="dropdown-item"><span class="">@Localizer["G.M Law Book List"]</span></a></li>
+
+                                </ul>
+                            </li>
+                            <li class="border-top border-bottom">
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fas fa-layer-group"></i><span>@Localizer["AJW Daily Plan"]</span></a>
+                                <ul class="collapse">
+                                    <li class="border-top border-bottom ">
+                                        <a asp-controller="GmDailyPlan" asp-area="Gm" asp-action="GmManagementDailyPlanList" aria-expanded="true"><i class="fas fa-layer-group"></i><span>@Localizer["Management Working Plan"]</span></a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="GmDailyPlan" asp-area="Gm" asp-action="GmTechnicalDailyPlanList" aria-expanded="true"><i class="fas fa-layer-group"></i><span>@Localizer["Technical Working Plan"]</span></a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a asp-controller="GmNoticeBoard" asp-area="Gm" asp-action="GmNoticeBoardList" aria-expanded="true"><i class="fas fa-file-sound-o"></i><span>@Localizer["AJW Notice Board"]</span></a>
+                            </li>
+                            <li class="border-top">
+                                <a asp-controller="GmAllDepatLawBook" asp-area="Gm" asp-action="GmAllDepatLawBook" aria-expanded="true"><i class="fas fa-file-sound-o"></i><span>@Localizer["AJW Law Book"]</span></a>
+                            </li>
+                            <li class="border-top border-bottom">
+                                <a asp-controller="DgmOfficeReports" asp-area="Dgm" asp-action="DGmOfficeReports" aria-expanded="true"><i class="fas fa-files-o"></i><span>@Localizer["G.M Office Reports"]</span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fas fa-layer-group"></i><span>@Localizer["All Department Reports"]</span></a>
+                                <ul class="collapse">
+                                    <li class="border-top border-bottom "><a asp-area="Admin" asp-controller="Admin" asp-action="" class="dropdown-item"><span>@Localizer["Admin Office Reports"]</span></a></li>
+                                    <li><a asp-area="Gm" asp-controller="GmAllDepartmentReports" asp-action="GmDgmDepartmentReportsList" class="dropdown-item"><span>@Localizer["D.G.M Office Reports"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Gm" asp-controller="GmAllDepartmentReports" asp-action="GmProductionDepartmentReportsList" class="dropdown-item"><span>@Localizer["Production Office Reports"]</span></a></li>
+                                    @*<li><a asp-area="Gm" asp-controller="DailyAccountReport" asp-action="AllDailyAccountsReports" class="dropdown-item"><span>@Localizer["Account Office Reports"]</span></a></li>*@
+                                    <li class="border-top border-bottom">
+                                        <a href="javascript:void(0)" aria-expanded="true"><i class="fas fa-layer-group"></i><span>@Localizer["Account Office Reports"]</span></a>
+                                        <ul class="collapse ">
+                                            <li class="border-top border-bottom"><a asp-area="Gm" asp-controller="DailyAccountReport" asp-action="AllDailyAccountsReports" class="dropdown-item"><span>@Localizer["Daily Reports"]</span></a></li>
+                                            <li class=" border-bottom"><a asp-controller="GmAllDepartmentReports" asp-area="Gm" asp-action="GmAccountsDepartmentReportsList" class="dropdown-item"><span>@Localizer["Daily/Monthly/Yearly Report (R)"]</span></a></li>
+                                            <li><a asp-controller="GmAllDepartmentReports" asp-area="Gm" asp-action="GmAccountsDepartmentReportsListE" class="dropdown-item"><span>@Localizer["Daily/Monthly/Yearly Report (E)"]</span></a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="border-top border-bottom "><a asp-area="Account" asp-controller="" asp-action="" class="dropdown-item"><span>@Localizer["Maintenance Office Reports"]</span></a></li>
+                                    <li><a asp-area="Account" asp-controller="" asp-action="" class="dropdown-item"><span>&nbsp;&nbsp;@Localizer["Accessory Office Reports"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Account" asp-controller="" asp-action="" class="dropdown-item"><span>@Localizer["Design Office Reports"]</span></a></li>
+                                    <li><a asp-area="Account" asp-controller="" asp-action="" class="dropdown-item"><span>&nbsp;&nbsp;@Localizer["H.R.M Office Reports"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Account" asp-controller="" asp-action="" class="dropdown-item"><span>@Localizer["Purchase Office Reports"]</span></a></li>
+                                    <li><a asp-area="Account" asp-controller="" asp-action="" class="dropdown-item"><span>&nbsp;&nbsp;@Localizer["Sales Office Reports"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Account" asp-controller="" asp-action="" class="dropdown-item"><span>@Localizer["Store Office Reports"]</span></a></li>
+                                    <li><a asp-area="Account" asp-controller="" asp-action="" class="dropdown-item"><span>&nbsp;&nbsp;@Localizer["I.T Office Reports"]</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="border-top border-bottom">
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>@Localizer["All Department Dashboard"]</span></a>
+                                <ul class="collapse">
+                                    <li class="border-top border-bottom "><a asp-area="Admin" asp-controller="Admin" asp-action="AdminDashboard" class="dropdown-item"><span>@Localizer["Admin Office"]</span></a></li>
+                                    <li><a asp-area="Ceo" asp-controller="Ceo" asp-action="CeoDashboard" class="dropdown-item"><span>@Localizer["C.E.O Office"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Dgm" asp-controller="Dgm" asp-action="DgmDashboard" class="dropdown-item"><span>@Localizer["D.G.M Office"]</span></a></li>
+                                    <li><a asp-area="Production" asp-controller="Production" asp-action="ProductionDashboard" class="dropdown-item"><span>@Localizer["Production Office"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Account" asp-controller="Account" asp-action="AccountDashboard" class="dropdown-item"><span>@Localizer["Account Office"]</span></a></li>
+                                    <li><a asp-area="Maintenance" asp-controller="Maintenance" asp-action="MaintenanceDashboard" class="dropdown-item"><span>@Localizer["Maintenance Office"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Accessory" asp-controller="Accessory" asp-action="AccessoryDashboard" class="dropdown-item"><span>@Localizer["Accessory Office"]</span></a></li>
+                                    <li><a asp-area="Design" asp-controller="Design" asp-action="DesignDashboard" class="dropdown-item"><span>@Localizer["Design Office"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Hrm" asp-controller="Hrm" asp-action="HrmDashboard" class="dropdown-item"><span>@Localizer["H.R.M Office"]</span></a></li>
+                                    <li><a asp-area="Purchase" asp-controller="Purchase" asp-action="PurchaseDashboard" class="dropdown-item"><span>@Localizer["Purchase Office"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Sale" asp-controller="Sale" asp-action="SaleDashboard" class="dropdown-item"><span>@Localizer["Sales Office"]</span></a></li>
+                                    <li><a asp-area="Electric" asp-controller="Electric" asp-action="ElectricDashboard" class="dropdown-item"><span>@Localizer["Electric Office"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Store" asp-controller="Store" asp-action="StoreDashboard" class="dropdown-item"><span>@Localizer["Store Office"]</span></a></li>
+                                    <li><a asp-area="Kitchen" asp-controller="Kitchen" asp-action="KitchenDashboard" class="dropdown-item"><span>@Localizer["Kitchen Office"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Security" asp-controller="Security" asp-action="SecurityDashboard" class="dropdown-item"><span>@Localizer["Security Office"]</span></a></li>
+                                    <li><a asp-area="It" asp-controller="It" asp-action="ItDashboard" class="dropdown-item"><span>@Localizer["I.T Office"]</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="border-bottom">
+                                <a href="javascript:void(0)" aria-expanded="true">
+                                    <i class="fa fa-building"></i>
+                                    <span>@Localizer["All Department D.M.S"]</span>
+                                </a>
+                                <ul class="collapse">
+                                    <li class="border-top border-bottom "><a asp-area="Dms" asp-controller="DmsAllDepartments" asp-action="DmsAdminDepartment" class="dropdown-item"><span>@Localizer["Admin Office DMS"]</span></a></li>
+                                    <li><a asp-area="Dms" asp-controller="DmsAllDepartments" asp-action="DmsCeoDepartment" class="dropdown-item"><span>@Localizer["C.E.O Office DMS"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Dms" asp-controller="DmsAllDepartments" asp-action="DmsGmDepartment" class="dropdown-item"><span>@Localizer["G.M Office DMS"]</span></a></li>
+                                    <li><a asp-area="Dms" asp-controller="DmsAllDepartments" asp-action="DmsDgmDepartment" class="dropdown-item"><span>@Localizer["D.G.M Office DMS"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Dms" asp-controller="DmsAllDepartments" asp-action="DmsProductionDepartment" class="dropdown-item"><span>@Localizer["Production Office DMS"]</span></a></li>
+                                    <li><a asp-area="Dms" asp-controller="DmsAllDepartments" asp-action="DmsAccountsDepartment" class="dropdown-item"><span>@Localizer["Account Office DMS"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Dms" asp-controller="DmsAllDepartments" asp-action="DmsMaintenanceDepartment" class="dropdown-item"><span>@Localizer["Maintenance Office DMS"]</span></a></li>
+                                    <li><a asp-area="Dms" asp-controller="DmsAllDepartments" asp-action="DmsAccessoryDepartment" class="dropdown-item"><span>@Localizer["Accessory Office DMS"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Dms" asp-controller="DmsAllDepartments" asp-action="DmsDesignDepartment" class="dropdown-item"><span>@Localizer["Design Office DMS"]</span></a></li>
+                                    <li><a asp-area="Dms" asp-controller="DmsAllDepartments" asp-action="DmsHrmDepartment" class="dropdown-item"><span>@Localizer["H.R.M Office DMS"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Dms" asp-controller="DmsAllDepartments" asp-action="DmsPurchaseDepartment" class="dropdown-item"><span>@Localizer["Purchase Office DMS"]</span></a></li>
+                                    <li><a asp-area="Dms" asp-controller="DmsAllDepartments" asp-action="DmsSalesDepartment" class="dropdown-item"><span>@Localizer["Sales Office DMS"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Dms" asp-controller="DmsAllDepartments" asp-action="DmsStoreDepartment" class="dropdown-item"><span>@Localizer["Store Office DMS"]</span></a></li>
+                                    <li><a asp-area="Dms" asp-controller="DmsAllDepartments" asp-action="DmsElectricDepartment" class="dropdown-item"><span>@Localizer["Electric Office DMS"]</span></a></li>
+                                    <li class="border-top border-bottom "><a asp-area="Dms" asp-controller="DmsAllDepartments" asp-action="DmsKitchenDepartment" class="dropdown-item"><span>@Localizer["Kitchen DMS"]</span></a></li>
+                                    <li><a asp-area="Dms" asp-controller="DmsAllDepartments" asp-action="DmsItDepartment" class="dropdown-item"><span>@Localizer["I.T Office DMS"]</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="border-top border-bottom">
+                                <div class="text-center bg-warning text-white"> <a href="#up">   <img src="~/Image/up.png" style="height:40px;width:60px;position:center" /></a></div>
+                            </li>
+                        </ul>
+                      
+                    </nav>
+                </div>
+            </div>
+        </div>
+   
+        <!-- sidebar menu area end -->
+        <!-- main content area start -->
+        <div class="main-content">
+            <!-- header area start -->
+            <div class="header-area">
+                <div class="row align-items-center">
+                    <!-- nav and search button -->
+                    <div class="col-md-6 col-sm-8 clearfix">
+                        <div class="nav-btn pull-left" title="بڑی سکرین کے لیے">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="search-box pull-left">
+                            <form action="#">
+                                <input type="text" name="search" id="mySearch" onkeyup="myFunctionSearch()" title="جی ایم ڈیپارٹمنٹ کے لیے یہاں کوئی بھی آپشن تلاش کریں" placeholder="@Localizer["Search for something ..."]" required>
+                                <i class="ti-search"></i>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- profile info & task notification -->
+                    <div class="col-md-6 col-sm-4 clearfix">
+                        <ul class="notification-area pull-right">
+                            <li class="settings-btn">
+                                @await Html.PartialAsync("_CulturePartial")
+                            </li>
+                            <li id="full-view"><i class="ti-fullscreen"></i></li>
+                            <li id="full-view-exit"><i class="ti-zoom-out"></i></li>
+                            <li id=""><i class="fas fa-clipboard-list" title="نوٹس بورڈ"></i></li>
+
+                            <li class="dropdown" title="نوٹیفیکیشن دیکھنے کے لیے">
+                                <i class="ti-bell dropdown-toggle" data-toggle="dropdown">
+                                    <span>2</span>
+                                </i>
+                                <div class="dropdown-menu bell-notify-box notify-box bg-white">
+                                    <span class="notify-title">You have 3 new notifications <a href="#">view all</a></span>
+                                    <div class="nofity-list">
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                                            <div class="notify-text">
+                                                <p>You have Changed Your Password</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
+                                            <div class="notify-text">
+                                                <p>New Commetns On Post</p>
+                                                <span>30 Seconds ago</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- page title area start -->
+            <div class="page-title-area">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <div class="breadcrumbs-area clearfix">
+                            <h4 class="page-title pull-left font-weight-bold">@Localizer["G.M Dashboard"]</h4>
+                        </div>
+                    </div>
+                    @*<div class="col-sm-6 clearfix">
+                            <div class="user-profile pull-right">
+                                <img class="Userprofile" style="width:40px;height:40px; object-fit:cover;  border-radius:30px" src="data:image/*;base64,@(Convert.ToBase64String(UserManager.GetUserAsync(User).Result.Profile))" />
+
+                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">@await Component.InvokeAsync("UserName")<i class="fa fa-angle-down"></i></h4>
+                                <div class="dropdown-menu">
+                                    <partial name="_LoginPartial" />
+                                </div>
+                            </div>
+                        </div>*@
+                    @*--------------User Profile code using Identity-----------------*@
+                    <div class="col-sm-6 clearfix">
+                        <div class="user-profile pull-right" title="پروفائل کی ترتیب اور لاگ آؤٹ کے لیے">
+                            <img style="width:40px;height:40px; object-fit:cover;  border-radius:30px" src="data:image/*;base64,@(Convert.ToBase64String(UserManager.GetUserAsync(User).Result.Profile))" />&nbsp;&nbsp;&nbsp;&nbsp;
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">@await Component.InvokeAsync("UserName")<i class="fa fa-angle-down"></i></h4>
+                            <div class="dropdown-menu">
+
+                                <a class="dropdown-item nav-link  border-bottom"><span class="fas fa-user"></span>&nbsp;&nbsp; @await Component.InvokeAsync("UserName")</a>
+
+                                <a class="dropdown-item nav-link border-bottom" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><span class="fas fa-wrench"></span>&nbsp;&nbsp;Manage Profile</a>
+                                <form class="form-inline " asp-area="Identity" asp-page="/Account/Logout">
+                                    <button type="submit" class="nav-link btn btn-link text-white"><i class=" btn btn-danger fas fa-user ">&nbsp;@Localizer["Logout"]</i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    @*-------------------------------*@
+                </div>
+            </div>
+            <!-- page title area end -->
+            <!-- header area end -->
+            <div class="container">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+            <!-- footer area start-->
+            <footer class="footer-area bg-dark ajwfooter">
+                <ul class="nav bg-dark">
+                    <li class="nav-item text-white">
+                        <a class="nav-link text-white" asp-area="Home" asp-controller="Home" asp-action="Index">@Localizer["Home"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">@Localizer["Services"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="" asp-action="">@Localizer["Products"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="" asp-action="">@Localizer["About Us"]</a>
+                    </li>
+                    <li class="copyright ml-auto my-auto mr-2">
+                        <a class="text-white">@Localizer["Copyright"] © 2021 <span style="font-size:small">@Localizer["AJW Agro Industry Portal"]</span></a>
+                    </li>
+                </ul>
+
+            </footer>
+        </div>
+    </div>
+    <!-- footer area end-->
+    <!-- jquery latest version -->
+    <!--<script src="~/srtdash/assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap 4 js -->
+    <!--<script src="~/srtdash/assets/js/popper.min.js"></script>
+    <script src="~/srtdash/assets/js/bootstrap.min.js"></script>
+    <script src="~/srtdash/assets/js/owl.carousel.min.js"></script>
+    <script src="~/srtdash/assets/js/metisMenu.min.js"></script>
+    <script src="~/srtdash/assets/js/jquery.slimscroll.min.js"></script>
+    <script src="~/srtdash/assets/js/jquery.slicknav.min.js"></script>
+    <script src="~/srtdash/assets/js/vendor/modernizr-2.8.3.min.js"></script>-->
+    <!-- all line chart activation -->
+    <!--<script src="~/srtdash/assets/js/line-chart.js"></script>-->
+    <!-- all pie chart -->
+    <!--<script src="~/srtdash/assets/js/pie-chart.js"></script>-->
+    <!-- others plugins -->
+    <!--<script src="~/srtdash/assets/js/plugins.js"></script>
+    <script src="~/srtdash/assets/js/scripts.js"></script>-->
+    @*Java script for Datatables*@
+    <!--<script src="~/lib/datatables/js/jquery.dataTables.js"></script>-->
+    @*Java script for Datatables*@
+    @*<script src="~/js/site.js"></script>
+        <script src="~/js/AccountsLayout.js"></script>-->*@
+    <script src="~/srtdash/assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap 4 js -->
+    <script src="~/srtdash/assets/js/popper.min.js"></script>
+    <script src="~/srtdash/assets/js/bootstrap.min.js"></script>
+    <script src="~/srtdash/assets/js/owl.carousel.min.js"></script>
+    <script src="~/srtdash/assets/js/metisMenu.min.js"></script>
+    <script src="~/srtdash/assets/js/jquery.slimscroll.min.js"></script>
+    <script src="~/srtdash/assets/js/jquery.slicknav.min.js"></script>
+    <script src="~/srtdash/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- all line chart activation -->
+    <script src="~/srtdash/assets/js/line-chart.js"></script>
+    <!-- all pie chart -->
+    <script src="~/srtdash/assets/js/pie-chart.js"></script>
+    <!-- others plugins -->
+    <script src="~/srtdash/assets/js/plugins.js"></script>
+    <script src="~/srtdash/assets/js/scripts.js"></script>
+    @*Java script for Datatables*@
+    <script src="~/lib/datatables/js/jquery.dataTables.js"></script>
+    @*Java script for Datatables*@
+    <script src="~/js/site.js"></script>
+    @*<script src="~/js/AdminLayout.js"></script>*@
+    <script src="~/js/GmLayout.js"></script>
+    <!-- search function dashboard-->
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+
+@section Scripts{
+    <script>
+        function myFunctionSearch() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("mySearch");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("menu");
+            li = ul.getElementsByTagName("li");
+
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+
+                }
+            }
+        }
+        //------js for print fuction------------
+        function MyFunctionPrint() {
+            window.print();
+        }
+        //---------JS for Back To Top Button On Each Page------------------Start-------
+        var btn = $('#button');
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+
+        btn.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+
+
+    </script>
+
+}
+
+<style>
+    .sidebarmr {
+        margin-bottom: 160%;
+    }
+        .lang_btn {
+            font-family: "ProximaNova";
+            color: #fff;
+            font-size: 15px;
+            text-transform: uppercase;
+            text-decoration: none !important;
+            background-color: #C82333;
+            text-transform: uppercase;
+            margin-top: 1.7%;
+            text-decoration: none !important;
+            width: 65px;
+            text-align: center;
+            height: 39px;
+            border: solid 1px #C82333;
+        }
+
+        body {
+            font-family: 'Jameel Noori Nastaleeq';
+        }
+
+        body {
+            font: 90%/1.45em "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #fff;
+        }
+        /*  Css for Table of Each in Accounts----*/
+ /*       .table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #ddd;
+            table-layout: fixed;
+            width: 100%
+        }
+    .mainul {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: large;
+        margin-bottom: 220px;
+    }*/
+        /*  Css for Table of each in Accounts----*/
+        /*table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+    }*/
+        /*  Css for TH/TD of Each Table in Accounts----*/
+    /*    th, td {
+            text-align: center;
+            padding: 8px;
+        }*/
+        /*//--DGM Layout page css--------start--------*/
+
+        .ajwfooter {
+            font-size: x-small;
+            font-family: 'Jameel Noori Nastaleeq';
+        }
+
+        /*page print css----*/
+        .btn-theme {
+            background: #08818c;
+            color: #fff;
+        }
+
+        .btn {
+            font-family: arial;
+        }
+
+        .btn-print {
+            padding: 10px 24px;
+            font-size: 16px;
+            line-height: 1.33;
+            vertical-align: middle;
+            float: left;
+        }
+
+        .PrintP {
+            margin-left: 985px;
+            position: absolute;
+            margin-top: -45px;
+        }
+
+        /*page print css----*/
+        /*-----csss for Back To Top*/
+        #button {
+            display: inline-block;
+            background-color: #FF9800;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            border-radius: 4px;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            transition: background-color .3s, opacity .5s, visibility .5s;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+            #button::after {
+                content: "\f077";
+                font-family: FontAwesome;
+                font-weight: normal;
+                font-style: normal;
+                font-size: 1em;
+                line-height: 50px;
+                color: #fff;
+            }
+
+            #button:hover {
+                cursor: pointer;
+                background-color: #333;
+            }
+
+            #button:active {
+                background-color: #555;
+            }
+
+            #button.show {
+                opacity: 1;
+                visibility: visible;
+            }
+
+        #button {
+            margin: 30px;
+        }
+</style>
