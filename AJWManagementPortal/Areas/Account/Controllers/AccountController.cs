@@ -28,10 +28,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         {
             return View();
         }
-        public IActionResult Accoun()
-        {
-            return View();
-        }
+    
         //action for Dashboard Page      
     }
 }
