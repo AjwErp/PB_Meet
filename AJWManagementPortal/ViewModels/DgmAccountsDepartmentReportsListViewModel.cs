@@ -9,5 +9,7 @@ namespace AJWManagementPortal.ViewModels
     public class DgmAccountsDepartmentReportsListViewModel
     {
         public IEnumerable<MonthlyClosingReport> MonthlyClosingReport { get; set; }
+        public IEnumerable<aDailyCash> aDailyCash { get; set; }
+
     }
 }

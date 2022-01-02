@@ -265,6 +265,13 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             _converter.Convert(pdf);
             return Ok("Successfully created PDF document.");
         }
+
+        public IActionResult MonthlyClosingReportAccountOfficeFromGm(int id)
+        {
+            
+            var model = _db.MonthlyClosingReports.Where(x => x.Id == id).FirstOrDefault();
+            return View(model);
+        }
         //----------------
     }
 }
