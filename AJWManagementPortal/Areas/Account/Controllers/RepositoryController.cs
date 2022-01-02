@@ -35,12 +35,14 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             IEnumerable<MeezanBankIEVoucher> a1 =  _db.MeezanBankIEVouchers.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 4).ToList().GroupBy(elem => elem.dateTime).Select(group => group.First());
             IEnumerable<MeezanBankIEReport> a2 =  _db.MeezanBankIEReports.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 4).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First());
             IEnumerable<DailySuppliersCashTransactionReport> a3 =  _db.dailySuppliers.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 4).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First());
-            
+            IEnumerable<MonthlyClosingReport> a4 = _db.MonthlyClosingReports.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 4).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First());
+
             DailyMeezan t = new DailyMeezan();
             t.aDailyCashes = a;
             t.BankVo = a1;
             t.Bank = a2;
             t.dSuppliers = a3;
+            t.monthlyClosingReport = a4;
             return View(t);
         }
         //GET---DailyMonthlyYearlyAuditAccountsReportsListRepository--ended--

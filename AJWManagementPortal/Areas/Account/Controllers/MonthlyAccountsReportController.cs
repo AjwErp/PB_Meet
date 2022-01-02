@@ -1,15 +1,27 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AJWManagementPortal.Data;
+using AJWManagementPortal.Models;
+using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace AJWManagementPortal.Areas.Account.Controllers
 {
     //This Controller for ::All Monthly reports for Account Office::
-    [Area("Account")] 
+    [Area("Account")]
     public class MonthlyAccountsReportController : Controller
     {
+        private readonly ApplicationDbContext _db;
+        private readonly INotyfService _notyf;
+        public MonthlyAccountsReportController(ApplicationDbContext db, INotyfService notyf)
+        {
+            _db = db;
+            _notyf = notyf;
+        }
+
         //GET --Title Page---for MonthlyClosingReportTitlePage--start
         public IActionResult MonthlyClosingReportTitlePage()
         {
@@ -162,5 +174,34 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //GET --15--for AccountOfficeMonthlyQueryForm---ended
         //POST --15--for AccountOfficeMonthlyQueryForm--start 
         //POST ---15--for AccountOfficeMonthlyQueryForm--ended
+
+        public IActionResult MonthlyClosingReport()
+        {
+            var model = new MonthlyClosingReport
+            {
+                ValueDate = System.Convert.ToDateTime(DateTime.Now.ToString("MM-dd-yyyy"))
+            };
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult MonthlyClosingReport(MonthlyClosingReport model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var reportExist = _db.MonthlyClosingReports.Where(x => x.Month == model.ValueDate.Month && x.Year == model.ValueDate.Year);
+            if (reportExist.Any())
+            {
+                _notyf.Information("Report already exist for month of" + model.ValueDate.ToString("MMMM"));
+                return View(model);
+            }
+
+            model.DelProduction = 1;
+            model.Month = model.ValueDate.Month;
+            model.Year = model.ValueDate.Year;
+            _db.MonthlyClosingReports.Add(model);
+            _db.SaveChanges();
+            return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+        }
     }
 }

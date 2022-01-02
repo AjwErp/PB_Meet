@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\29-12-2021\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
+    "E:\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\29-12-2021\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {
+    "E:\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\29-12-2021\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
+        "projectUniqueName": "E:\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
         "projectName": "AJWManagementPortal",
-        "projectPath": "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\29-12-2021\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
-        "packagesPath": "C:\\Users\\A J W\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\29-12-2021\\PB_Meet\\AJWManagementPortal\\obj\\",
+        "projectPath": "E:\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
+        "packagesPath": "C:\\Users\\Salik\\.nuget\\packages\\",
+        "outputPath": "E:\\PB_Meet\\AJWManagementPortal\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\A J W\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Salik\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +43,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "AspNetCoreHero.ToastNotification": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
             "DinkToPdf": {
               "target": "Package",
               "version": "[1.0.8, )"
@@ -101,12 +108,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.13, 3.1.13]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -115,7 +116,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

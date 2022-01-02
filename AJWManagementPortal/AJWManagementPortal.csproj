@@ -55,9 +55,12 @@
     <Compile Remove="Migrations\20211124084705_AddHAJToDatabase.Designer.cs" />
     <Compile Remove="Migrations\20211124084849_AddHajToDatabase.cs" />
     <Compile Remove="Migrations\20211124084849_AddHajToDatabase.Designer.cs" />
+    <Compile Remove="Migrations\20220101075226_MonthlyClosingReports.cs" />
+    <Compile Remove="Migrations\20220101075226_MonthlyClosingReports.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
     <PackageReference Include="DinkToPdf" Version="1.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.13" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />

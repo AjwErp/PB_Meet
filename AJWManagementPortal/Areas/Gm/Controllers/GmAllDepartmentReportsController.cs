@@ -1,5 +1,6 @@
 ﻿using AJWManagementPortal.Data;
 using AJWManagementPortal.Models;
+using AJWManagementPortal.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,9 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
         //GET--Start---gm---GmAccountsDepartmentReportsList----
         public IActionResult GmAccountsDepartmentReportsList()
         {
-            return View();
+            var model = new GmAccountsDepartmentReportsListViewModel();
+            model.MonthlyClosingReport = _db.MonthlyClosingReports.Where(i => i.DelProduction != 0 && (Convert.ToInt32(i.Status) == 3)).ToList();
+            return View(model);
         }
         //GET--Ended---gm---GmAccountsDepartmentReportsList----
         //POST--Start--gm----GmAccountsDepartmentReportsList----
@@ -318,5 +321,26 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
 
         }
         //------------------------------------------Management Staff Work Plan--------------------------
+
+        public IActionResult SendMonthlyClosingReportToAccountOffice(string remarks)
+        {
+            remarks = remarks.Replace("-", "/");
+            List<MonthlyClosingReport> data = new List<MonthlyClosingReport>();
+            DateTime dateTime10 = DateTime.Parse(remarks);
+            data = _db.MonthlyClosingReports.Where(i => i.ValueDate.Equals(dateTime10) && (Convert.ToInt32(i.Status) >= 1 && Convert.ToInt32(i.Status) <= 3)).ToList();
+
+            foreach (MonthlyClosingReport technical in data)
+            {
+                technical.Status = "4";
+                var current = _db.MonthlyClosingReports.Find(technical.Id);
+                if (current != null)
+                {
+                    _db.Entry(current).CurrentValues.SetValues(technical);
+                }
+
+                _db.SaveChanges();
+            }
+            return RedirectToAction("GmAccountsDepartmentReportsList");
+        }
     }
 }

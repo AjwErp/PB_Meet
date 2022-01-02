@@ -1394,6 +1394,53 @@ namespace AJWManagementPortal.Migrations
                     b.ToTable("MeezanBankIEVouchers");
                 });
 
+            modelBuilder.Entity("AJWManagementPortal.Models.MonthlyClosingReport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AManagerRemarks")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DelProduction")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DgmRemarks")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GMRemarks")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Month")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SignAManager")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SignDgm")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SignGM")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ValueDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MonthlyClosingReports");
+                });
+
             modelBuilder.Entity("AJWManagementPortal.Models.NoticBoard", b =>
                 {
                     b.Property<int>("Id")

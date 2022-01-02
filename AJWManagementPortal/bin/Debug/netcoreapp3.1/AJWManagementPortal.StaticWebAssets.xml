@@ -1,3 +1,4 @@
 ﻿<StaticWebAssets Version="1.0">
-  <ContentRoot BasePath="/Identity" Path="C:\Users\A J W\.nuget\packages\microsoft.aspnetcore.identity.ui\3.1.13\staticwebassets\V4\" />
+  <ContentRoot BasePath="/Identity" Path="C:\Users\Salik\.nuget\packages\microsoft.aspnetcore.identity.ui\3.1.13\staticwebassets\V4\" />
+  <ContentRoot BasePath="_content/AspNetCoreHero.ToastNotification" Path="C:\Users\Salik\.nuget\packages\aspnetcorehero.toastnotification\1.1.0\build\..\staticwebassets\" />
 </StaticWebAssets>

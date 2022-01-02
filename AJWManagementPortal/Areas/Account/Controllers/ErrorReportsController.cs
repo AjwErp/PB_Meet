@@ -21,10 +21,12 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             IEnumerable<aDailyCash> a = _db.aDailyCashes.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 5).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First());
             IEnumerable<MeezanBankIEReport> a1 = _db.MeezanBankIEReports.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 5).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First());
             IEnumerable<DailySuppliersCashTransactionReport> a2 = _db.dailySuppliers.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 5).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First());
+            IEnumerable<MonthlyClosingReport> monthlyClosingReports = _db.MonthlyClosingReports.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 5).ToList();
             DailyMeezan meezan = new DailyMeezan();
             meezan.aDailyCashes = a;
             meezan.Bank = a1;
             meezan.dSuppliers = a2;
+            meezan.monthlyClosingReport = monthlyClosingReports;
             return View(meezan);
         }
 
@@ -97,6 +99,25 @@ namespace AJWManagementPortal.Areas.Account.Controllers
                     _db.Entry(current).CurrentValues.SetValues(technical);
                 }
 
+                _db.SaveChanges();
+            }
+            return RedirectToAction("AccountsErrorReportsList");
+        }
+        public IActionResult SendMonthlyClosingReportToDgmOffice(string remarks)
+        {
+            remarks = remarks.Replace("-", "/");
+            List<MonthlyClosingReport> data = new List<MonthlyClosingReport>();
+            DateTime dateTime10 = DateTime.Parse(remarks);
+            data = _db.MonthlyClosingReports.Where(i => i.ValueDate.Equals(dateTime10) && i.DelProduction != 0).ToList();
+
+            foreach (MonthlyClosingReport technical in data)
+            {
+                technical.Status = "1";
+                var current = _db.MonthlyClosingReports.Find(technical.Id);
+                if (current != null)
+                {
+                    _db.Entry(current).CurrentValues.SetValues(technical);
+                }
                 _db.SaveChanges();
             }
             return RedirectToAction("AccountsErrorReportsList");

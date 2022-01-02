@@ -11,5 +11,6 @@ namespace AJWManagementPortal.Models
         public IEnumerable<MeezanBankIEReport> Bank ;
         public IEnumerable<MeezanBankIEVoucher> BankVo ;
         public IEnumerable<DailySuppliersCashTransactionReport> dSuppliers;
+        public IEnumerable<MonthlyClosingReport> monthlyClosingReport;
     }
 }

@@ -121,6 +121,7 @@ namespace AJWManagementPortal.Data
         //This given referance is for Accounts Yearly Report Titile Page
         public DbSet<AccountsYearlyReportTitlePage> AccountsYearlyReportTitlePages { get; set; }
         //-------------Ended----------------Accounts Department---File Uploading by PDf Form----------------------------------
-
+        public DbSet<MonthlyClosingReport> MonthlyClosingReports { get; set; }
+        
     }
 }
