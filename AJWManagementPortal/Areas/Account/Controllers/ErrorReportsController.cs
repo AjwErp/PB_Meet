@@ -14,15 +14,21 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Grpc.Core;
 using System.Web;
+using Microsoft.EntityFrameworkCore;
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace AJWManagementPortal.Areas.Account.Controllers
 { [Area("Account")]
     public class ErrorReportsController : Controller
     {
         private readonly ApplicationDbContext _db;
-        public ErrorReportsController(ApplicationDbContext db)
+        private readonly INotyfService _notyf;
+
+        public ErrorReportsController(ApplicationDbContext db, INotyfService notyf)
         {
             _db = db;
+            _notyf = notyf;
+
 
         }
         public IActionResult AccountsErrorReportsList()
@@ -230,6 +236,34 @@ namespace AJWManagementPortal.Areas.Account.Controllers
 
             return dtReport;
         }
+        public IActionResult MonthlyClosingReportAccountOfficeFromDgm(int id)
+        {
+            var model = _db.MonthlyClosingReports.Where(x => x.Id == id).FirstOrDefault();
+            return View(model);
+        }
+        public async Task<IActionResult> DeleteMonthlyClosingReportAccountErrorList(int id)
+        {
+
+            var report = await _db.MonthlyClosingReports.FindAsync(id);
+            if (report == null)
+            {
+                return RedirectToAction("AccountsErrorReportsList");
+            }
+
+            try
+            {
+                report.DelProduction = 0;
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Deleted successfully");
+                return RedirectToAction("AccountsErrorReportsList");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("AccountsErrorReportsList");
+            }
+        }
+
     }
-    
-    }
+
+}
