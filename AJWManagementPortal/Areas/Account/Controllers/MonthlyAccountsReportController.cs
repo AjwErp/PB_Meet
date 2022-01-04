@@ -208,7 +208,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
 
 
 
-        public IActionResult EditMonthlyClosingReport(int id)
+        public IActionResult EditMonthlyClosingReport(int id, bool IsEdit)
         {
             var model = _db.MonthlyClosingReports.Where(x => x.Id == id).Select(c => new MonthlyClosingReport()
             {
@@ -220,6 +220,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
                 Year = c.Year,
                 Status = c.Status
             }).FirstOrDefault();
+            ViewBag.EditStatus = IsEdit;
 
             return View(model);
         }
@@ -233,6 +234,29 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             _notyf.Success("Edited successfully");
 
             return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+        }
+
+        public async Task<IActionResult> DeleteMonthlyClosingReport(int id)
+        {
+
+            var report = await _db.MonthlyClosingReports.FindAsync(id);
+            if (report == null)
+            {
+                return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+            }
+
+            try
+            {
+                report.DelProduction = 0;
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Deleted successfully");
+                return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+            }
         }
     }
 }

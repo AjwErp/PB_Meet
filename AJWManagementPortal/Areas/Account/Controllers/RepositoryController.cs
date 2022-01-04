@@ -1,9 +1,11 @@
 ﻿using AJWManagementPortal.Data;
 using AJWManagementPortal.Models;
 using AJWManagementPortal.Utility;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using DinkToPdf;
 using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,14 +20,18 @@ namespace AJWManagementPortal.Areas.Account.Controllers
     {
         private IConverter _converter;
         private readonly ApplicationDbContext _db;
+        private readonly INotyfService _notyf;
+
         //private readonly IWebHostEnvironment _iwebhost;
         //IWebHostEnvironment iwebhost
         //                _iwebhost = iwebhost;
 
-        public RepositoryController(ApplicationDbContext db, IConverter converter)
+        public RepositoryController(ApplicationDbContext db, IConverter converter, INotyfService notyf)
         {
             _db = db;
             _converter = converter;
+            _notyf = notyf;
+
 
         }
         //GET---DailyMonthlyYearlyAuditAccountsReportsListRepository--Start--
@@ -272,6 +278,29 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             var model = _db.MonthlyClosingReports.Where(x => x.Id == id).FirstOrDefault();
             return View(model);
         }
+        public async Task<IActionResult> DeleteMonthlyClosingReportAccountOffice(int id)
+        {
+
+            var report = await _db.MonthlyClosingReports.FindAsync(id);
+            if (report == null)
+            {
+                return RedirectToAction("DailyMonthlyYearlyAuditAccountsReportsListRepository");
+            }
+
+            try
+            {
+                report.DelProduction = 0;
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Deleted successfully");
+                return RedirectToAction("DailyMonthlyYearlyAuditAccountsReportsListRepository");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("DailyMonthlyYearlyAuditAccountsReportsListRepository");
+            }
+        }
+
         //----------------
     }
 }

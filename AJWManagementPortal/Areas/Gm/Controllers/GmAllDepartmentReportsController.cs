@@ -351,13 +351,14 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
         }
 
 
-        public IActionResult MonthlyClosingReportGm(int id)
+        public IActionResult MonthlyClosingReportGm(int id, bool IsEdit)
         {
             //var model = new MonthlyClosingReport
             //{
             //    ValueDate = System.Convert.ToDateTime(DateTime.Now.ToString("MM-dd-yyyy"))
             //};
             var model = _db.MonthlyClosingReports.Where(x => x.Id == id).FirstOrDefault();
+            ViewBag.EditStatus = IsEdit;
             return View(model);
         }
         [HttpPost]
@@ -369,6 +370,29 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
             _db.SaveChanges();
             _notyf.Success("Edited successfully");
             return RedirectToAction("GmAccountsDepartmentReportsList");
+        }
+
+        public async Task<IActionResult> DeleteMonthlyClosingReportGm(int id)
+        {
+
+            var report = await _db.MonthlyClosingReports.FindAsync(id);
+            if (report == null)
+            {
+                return RedirectToAction("GmAccountsDepartmentReportsList");
+            }
+
+            try
+            {
+                report.DelProduction = 0;
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Deleted successfully");
+                return RedirectToAction("GmAccountsDepartmentReportsList");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("GmAccountsDepartmentReportsList");
+            }
         }
     }
 }

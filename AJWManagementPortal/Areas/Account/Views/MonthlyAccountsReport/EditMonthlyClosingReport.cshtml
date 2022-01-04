@@ -57,44 +57,48 @@
                                 <td>@Localizer["D.G.M"]</td>
                                 <td>@Localizer["G.M"]</td>
                             </tr>
-                            <tr>
-                                <td>
-                                    @Localizer["Signature"]:
-                                    <input type="text" id="" asp-for="SignAManager" class="form-control" />
-                                    <span class="text-danger" asp-validation-for="SignAManager"></span><br />
-                                    @Localizer["Remarks"]:
-                                    <input type="text" id="" asp-for="AManagerRemarks" class="form-control" />
-                                    <span class="text-danger" asp-validation-for="AManagerRemarks"></span>
-                                </td>
-                                <td>
-                                    @*@Localizer["Signature"]:
-                                    <input type="text" id="" asp-for="SignDgm" class="form-control" />
-                                    @Localizer["Remarks"]:
-                                    <input type="text" id="" asp-for="DgmRemarks" class="form-control" />*@
-                                </td>
-                                <td>
-                                    @*@Localizer["Signature"]:
-                                    <input type="text" id="" asp-for="SignGM" class="form-control" />
-                                    @Localizer["Remarks"]:
-                                    <input type="text" id="" asp-for="GMRemarks" class="form-control" />*@
-                                </td>
-                            </tr>
-                            @*sign table end here*@
-                            <tr>
-                                <td colspan="3">
-                                    <div class="btn-group">
-                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            @Localizer["Action"]
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <button type="submit" class="dropdown-item"><i class="fas fa-save"></i> @Localizer["Save File"]</button>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore"></i> @Localizer["Clear Sheet"]</a>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-user-edit"></i> @Localizer["Edit File"]</a>
+                            @if (ViewBag.EditStatus == true)
+                            {
+                                <tr>
+                                    <td>
+                                        @Localizer["Signature"]:
+                                        <input type="text" id="" asp-for="SignAManager" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="SignAManager"></span><br />
+                                        @Localizer["Remarks"]:
+                                        <input type="text" id="" asp-for="AManagerRemarks" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="AManagerRemarks"></span>
+                                    </td>
 
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                @Localizer["Action"]
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <button type="submit" class="dropdown-item"><i class="fas fa-save"></i> @Localizer["Save File"]</button>
+                                                <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore"></i> @Localizer["Clear Sheet"]</a>
+                                                <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-user-edit"></i> @Localizer["Edit File"]</a>
+
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                            }
+                             @if (ViewBag.EditStatus == false)
+                            {
+                                <tr>
+                                    <td>
+                                        @Localizer["Signature"]:
+                                        <input type="text" id="" asp-for="SignAManager" readonly class="form-control" />
+                                        @Localizer["Remarks"]:
+                                        <input type="text" id="" asp-for="AManagerRemarks" readonly class="form-control" />
+                                    </td>
+
+                                </tr>
+                                
+                            }
                         </tbody>
                     </table>
                 </div>
