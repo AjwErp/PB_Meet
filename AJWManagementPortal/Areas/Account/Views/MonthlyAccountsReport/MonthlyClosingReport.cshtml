@@ -56,7 +56,7 @@
                             <tr>
                                 <td>
                                     @Localizer["Signature"]:
-                                    <input type="text" id="" asp-for="SignAManager" class="form-control" />
+                                    <input type="text" id="" asp-for="SignAManager" class="form-control" name="SignAManager"/>
                                     <span class="text-danger" asp-validation-for="SignAManager"></span><br />
                                     @Localizer["Remarks"]:
                                     <input type="text" id="" asp-for="AManagerRemarks" class="form-control" />
@@ -84,7 +84,7 @@
                                         </button>
                                         <div class="dropdown-menu">
                                             <button type="submit" class="dropdown-item"><i class="fas fa-save"></i> @Localizer["Save File"]</button>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore"></i> @Localizer["Clear Sheet"]</a>
+                                            <button type="reset" onclick="ResetForm()" class="dropdown-item"><i class="fas fa-trash-restore"></i> @Localizer["Clear Sheet"]</button>
                                             <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-user-edit"></i> @Localizer["Edit File"]</a>
 
                                         </div>

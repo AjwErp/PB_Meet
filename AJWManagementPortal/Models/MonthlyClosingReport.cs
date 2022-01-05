@@ -25,14 +25,22 @@ namespace AJWManagementPortal.Models
 
 
         [Display(Name = "D.G.M")]
+        //[Required(ErrorMessage = "Sign is required")]
+
         public string SignDgm { get; set; }
+        //[Required(ErrorMessage = "Remarks is required")]
+
         [Display(Name = "Remarks")]
         public string DgmRemarks { get; set; }
 
 
         [Display(Name = "G.M")]
+        //[Required(ErrorMessage = "Sign is required")]
+
         public string SignGM { get; set; }
         [Display(Name = "Remarks")]
+        //[Required(ErrorMessage = "Remarks is required")]
+
         public string GMRemarks { get; set; }
         public string Status { get; set; }
         public int DelProduction { get; set; }

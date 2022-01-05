@@ -1,7 +1,9 @@
 ﻿using AJWManagementPortal.Data;
 using AJWManagementPortal.Models;
 using AJWManagementPortal.ViewModels;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +16,12 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
     public class GmAllDepartmentReportsController : Controller
     { //here we create constrauctor of DB class
         private readonly ApplicationDbContext _db;
-        public GmAllDepartmentReportsController(ApplicationDbContext db)
+        private readonly INotyfService _notyf;
+
+        public GmAllDepartmentReportsController(ApplicationDbContext db ,INotyfService notyf)
         {
             _db = db;
+            _notyf = notyf;
         }
         //GET--Start---gm---GmAccountsDepartmentReportsList----
         public IActionResult GmAccountsDepartmentReportsList()
@@ -340,7 +345,54 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
 
                 _db.SaveChanges();
             }
+            _notyf.Success("Report successfully sent to Account Office");
+
             return RedirectToAction("GmAccountsDepartmentReportsList");
+        }
+
+
+        public IActionResult MonthlyClosingReportGm(int id, bool IsEdit)
+        {
+            //var model = new MonthlyClosingReport
+            //{
+            //    ValueDate = System.Convert.ToDateTime(DateTime.Now.ToString("MM-dd-yyyy"))
+            //};
+            var model = _db.MonthlyClosingReports.Where(x => x.Id == id).FirstOrDefault();
+            ViewBag.EditStatus = IsEdit;
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult MonthlyClosingReportGm(MonthlyClosingReport model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            _db.Entry(model).State = EntityState.Modified;
+            _db.SaveChanges();
+            _notyf.Success("Edited successfully");
+            return RedirectToAction("GmAccountsDepartmentReportsList");
+        }
+
+        public async Task<IActionResult> DeleteMonthlyClosingReportGm(int id)
+        {
+
+            var report = await _db.MonthlyClosingReports.FindAsync(id);
+            if (report == null)
+            {
+                return RedirectToAction("GmAccountsDepartmentReportsList");
+            }
+
+            try
+            {
+                report.DelProduction = 0;
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Deleted successfully");
+                return RedirectToAction("GmAccountsDepartmentReportsList");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("GmAccountsDepartmentReportsList");
+            }
         }
     }
 }

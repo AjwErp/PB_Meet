@@ -2,6 +2,7 @@
 using AJWManagementPortal.Models;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -225,7 +226,61 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             model.Year = model.ValueDate.Year;
             _db.MonthlyClosingReports.Add(model);
             _db.SaveChanges();
+            _notyf.Information("Report successfully added for month" + model.ValueDate.ToString("MMMM"));
             return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+        }
+
+
+
+        public IActionResult EditMonthlyClosingReport(int id, bool IsEdit)
+        {
+            var model = _db.MonthlyClosingReports.Where(x => x.Id == id).Select(c => new MonthlyClosingReport()
+            {
+                ValueDate = Convert.ToDateTime(c.ValueDate.ToString("MM-dd-yyyy")),
+                SignAManager = c.SignAManager,
+                AManagerRemarks = c.AManagerRemarks,
+                DelProduction = c.DelProduction,
+                Month = c.Month,
+                Year = c.Year,
+                Status = c.Status
+            }).FirstOrDefault();
+            ViewBag.EditStatus = IsEdit;
+
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult EditMonthlyClosingReport(MonthlyClosingReport model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            _db.Entry(model).State = EntityState.Modified;
+            _db.SaveChanges();
+            _notyf.Success("Edited successfully");
+
+            return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+        }
+
+        public async Task<IActionResult> DeleteMonthlyClosingReport(int id)
+        {
+
+            var report = await _db.MonthlyClosingReports.FindAsync(id);
+            if (report == null)
+            {
+                return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+            }
+
+            try
+            {
+                report.DelProduction = 0;
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Deleted successfully");
+                return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+            }
         }
     }
 }
