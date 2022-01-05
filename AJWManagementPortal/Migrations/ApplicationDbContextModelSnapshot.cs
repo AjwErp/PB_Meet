@@ -1394,6 +1394,110 @@ namespace AJWManagementPortal.Migrations
                     b.ToTable("MeezanBankIEVouchers");
                 });
 
+            modelBuilder.Entity("AJWManagementPortal.Models.MeezanBankMonthlyIncomeExpenseReport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AManagerRemarks")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("AccessorySaleBalance")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AccessorySaleDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ClosingBalance")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DelProduction")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DgmRemarks")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DifferentIncomeBalance")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DifferentIncomeDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GMRemarks")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("InnuzalProjectBalance")
+                        .HasColumnType("int");
+
+                    b.Property<string>("InnuzalProjectDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Month")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("NoTitle2Balance")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NoTitle2Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("NoTitleBalance")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NoTitleDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ReparningBalance")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReparningDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ScrabSaleBalance")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ScrabSaleDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SignAManager")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SignDgm")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SignGM")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("StoreMaterialBalance")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StoreMaterialDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TotalExpense")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TotalIncome")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ValueDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MeezanBankMonthlyIncomeExpenseReports");
+                });
+
             modelBuilder.Entity("AJWManagementPortal.Models.MonthlyClosingReport", b =>
                 {
                     b.Property<int>("Id")

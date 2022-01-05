@@ -57,6 +57,10 @@
     <Compile Remove="Migrations\20211124084849_AddHajToDatabase.Designer.cs" />
     <Compile Remove="Migrations\20220101075226_MonthlyClosingReports.cs" />
     <Compile Remove="Migrations\20220101075226_MonthlyClosingReports.Designer.cs" />
+    <Compile Remove="Migrations\20220104071227_MeezanBankMonthlyIncomeExpenseReport.cs" />
+    <Compile Remove="Migrations\20220104071227_MeezanBankMonthlyIncomeExpenseReport.Designer.cs" />
+    <Compile Remove="Migrations\20220104073219_MeezanBankMonthlyIncomeExpenseReport.cs" />
+    <Compile Remove="Migrations\20220104073219_MeezanBankMonthlyIncomeExpenseReport.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

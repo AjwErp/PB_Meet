@@ -34,7 +34,31 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //GET --1---for Monthly Meezan Bank Income/Expense Monthly report--start
         public IActionResult MeezanBankIncomeExpenseMonthlyreport()
         {
-            return View();
+            var model = new MeezanBankMonthlyIncomeExpenseReport
+            {
+                ValueDate = Convert.ToDateTime(DateTime.Now.ToString("MM-dd-yyyy"))
+            };
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult MeezanBankIncomeExpenseMonthlyreport(MeezanBankMonthlyIncomeExpenseReport model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var reportExist = _db.MeezanBankMonthlyIncomeExpenseReports.Where(x => x.Month == model.ValueDate.Month && x.Year == model.ValueDate.Year);
+            if (reportExist.Any())
+            {
+                _notyf.Information("Report already exist for month of" + model.ValueDate.ToString("MMMM"));
+                return View(model);
+            }
+
+            model.DelProduction = 1;
+            model.Month = model.ValueDate.Month;
+            model.Year = model.ValueDate.Year;
+            _db.MeezanBankMonthlyIncomeExpenseReports.Add(model);
+            _db.SaveChanges();
+            return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
         }
         //GET --1---for Monthly Meezan Bank Income/Expense Monthly report--ended
         //POST --1--for Monthly Meezan Bank Income/Expense Monthly report--start

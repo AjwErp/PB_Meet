@@ -122,6 +122,7 @@ namespace AJWManagementPortal.Data
         public DbSet<AccountsYearlyReportTitlePage> AccountsYearlyReportTitlePages { get; set; }
         //-------------Ended----------------Accounts Department---File Uploading by PDf Form----------------------------------
         public DbSet<MonthlyClosingReport> MonthlyClosingReports { get; set; }
-        
+        public DbSet<MeezanBankMonthlyIncomeExpenseReport> MeezanBankMonthlyIncomeExpenseReports { get; set; }
+
     }
 }
