@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\AJWManagementPortal",
+    "\\AJWManagementPortal\\Areas",
+    "\\AJWManagementPortal\\Areas\\Account",
+    "\\AJWManagementPortal\\Areas\\Account\\Controllers",
+    "\\AJWManagementPortal\\Areas\\Account\\Views",
+    "\\AJWManagementPortal\\Areas\\Account\\Views\\MonthlyAccountsReport",
+    "\\AJWManagementPortal\\Areas\\Dgm",
+    "\\AJWManagementPortal\\Areas\\Dgm\\Views",
+    "\\AJWManagementPortal\\Areas\\Dgm\\Views\\DgmAllDepartmentReports"
+  ],
+  "SelectedNode": "\\AJWManagementPortal\\Areas\\Account\\Controllers\\MonthlyAccountsReportController.cs",
+  "PreviewInSolutionExplorer": false
+}
