@@ -98,7 +98,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.MonthlyClosingReport)
+                        @foreach (var item in Model.MonthlyAcountReportsViewModel)
                         {
                             <tr class="SubH">
                                 <td class="actionbtn">
@@ -107,16 +107,16 @@
                                             @Localizer["Action"]
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" asp-action="MonthlyClosingReportDgm" asp-route-id="@item.Id" asp-route-IsEdit="false"><i class="fas fa-edit"></i> @Localizer["Check Report"]</a>
-                                            <a class="dropdown-item" asp-action="MonthlyClosingReportDgm" asp-route-id="@item.Id" asp-route-IsEdit="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
-                                            <button class="dropdown-item" asp-action="DeleteMonthlyClosingReportDgm" asp-route-id="@item.Id" ><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</button>
-                                            <a class="dropdown-item" asp-action="SendMonthlyClosingReportToAccountErrorList" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports"><i class="fas fa-send"></i> @Localizer["Send To Accounts Error List"]</a>
-                                            <a class="dropdown-item" asp-action="SendMonthlyClosingReportToGmOffice" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports"><i class="fas fa-send"></i> @Localizer["Send To G.M Office"]</a>
+                                            <a class="dropdown-item" asp-action="@item.ViewActionName"  asp-route-id="@item.Id" asp-route-IsEdit="false"><i class="fas fa-edit"></i> @Localizer["Check Report"]</a>
+                                            <a class="dropdown-item" asp-action="@item.EditActionName" asp-route-id="@item.Id" asp-route-IsEdit="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                            <button class="dropdown-item" asp-action="@item.DeleteActionName" asp-route-id="@item.Id" ><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</button>
+                                            <a class="dropdown-item" asp-action="SendMonthlyClosingReportToAccountErrorList" asp-route-remarks="@item.Date.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports"><i class="fas fa-send"></i> @Localizer["Send To Accounts Error List"]</a>
+                                            <a class="dropdown-item" asp-action="SendMonthlyClosingReportToGmOffice" asp-route-remarks="@item.Date.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports"><i class="fas fa-send"></i> @Localizer["Send To G.M Office"]</a>
                                         </div>
                                     </div>
                                 </td>
-                                <td>@item.ValueDate</td>
-                                <td>@Localizer["Monthly Accounts Reports Repository"] </td>
+                                <td>@item.Date.ToString("MM-dd-yyyy")</td>
+                                <td>@item.Title </td>
                                 <td>@item.Id</td>
                             </tr>
                         }
