@@ -9,6 +9,6 @@ namespace AJWManagementPortal.ViewModels
     public class AccountsYearlyReportViewModel
     {
         public IEnumerable<AccountsYearlyReportTitlePage> AccountsYearlyReportTitlePage { get; set; }
-        public IEnumerable<MonthlyClosingReport> MonthlyClosingReport { get; set; }
+        public IEnumerable<MonthlyAcountReportsViewModel> MonthlyAcountReportsViewModel { get; set; }
     }
 }

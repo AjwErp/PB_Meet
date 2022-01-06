@@ -200,6 +200,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //POST --15--for AccountOfficeMonthlyQueryForm--start 
         //POST ---15--for AccountOfficeMonthlyQueryForm--ended
 
+        #region MONTHLY CLOSING REPORT
         public IActionResult MonthlyClosingReport()
         {
             var model = new MonthlyClosingReport
@@ -282,5 +283,48 @@ namespace AJWManagementPortal.Areas.Account.Controllers
                 return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
             }
         }
+        #endregion
+
+        #region MEEZAN BANK INCOME/EXPENCE REPORT
+        public IActionResult EditMeezanBankIncomeExpenseReport(int id, bool IsEdit)
+        {
+            var model = _db.MeezanBankMonthlyIncomeExpenseReports.Where(x => x.Id == id).FirstOrDefault();
+            ViewBag.EditStatus = IsEdit;
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult EditMeezanBankIncomeExpenseReport(MeezanBankMonthlyIncomeExpenseReport model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            _db.Entry(model).State = EntityState.Modified;
+            _db.SaveChanges();
+            _notyf.Success("Edited successfully");
+
+            return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+        }
+        public async Task<IActionResult> DeleteMeezanBankIncomeExpenseReport(int id)
+        {
+
+            var report = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(id);
+            if (report == null)
+            {
+                return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+            }
+
+            try
+            {
+                report.DelProduction = 0;
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Deleted successfully");
+                return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+            }
+        }
+        #endregion
     }
 }
