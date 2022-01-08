@@ -1,8 +1,12 @@
 ﻿using AJWManagementPortal.Data;
+using AJWManagementPortal.Helpers;
 using AJWManagementPortal.Models;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -17,10 +21,13 @@ namespace AJWManagementPortal.Areas.Account.Controllers
     {
         private readonly ApplicationDbContext _db;
         private readonly INotyfService _notyf;
-        public MonthlyAccountsReportController(ApplicationDbContext db, INotyfService notyf)
+        private readonly IHostingEnvironment _env;
+        private string meezanBankIncomeExportReportFileUploadFolder = "Reports/MezaanBankIncomeExportReport/";
+        public MonthlyAccountsReportController(ApplicationDbContext db, INotyfService notyf, IHostingEnvironment env)
         {
             _db = db;
             _notyf = notyf;
+            _env = env;
         }
 
         //GET --Title Page---for MonthlyClosingReportTitlePage--start
@@ -44,21 +51,51 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         [HttpPost]
         public IActionResult MeezanBankIncomeExpenseMonthlyreport(MeezanBankMonthlyIncomeExpenseReport model)
         {
+            var uploadedFile = new List<string>();
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("UploadedFile")))
+            {
+                uploadedFile = JsonConvert.DeserializeObject<List<string>>(HttpContext.Session.GetString("UploadedFile"));
+                model.Images = uploadedFile;
+            }
+
             if (!ModelState.IsValid)
                 return View(model);
+
+            if (model.Images.Count > 20) {
+                _notyf.Information("Images cannot be more than 20");
+                return View(model);
+            }
 
             var reportExist = _db.MeezanBankMonthlyIncomeExpenseReports.Where(x => x.Month == model.ValueDate.Month && x.Year == model.ValueDate.Year);
             if (reportExist.Any())
             {
-                _notyf.Information("Report already exist for month of" + model.ValueDate.ToString("MMMM"));
+                _notyf.Information("Report already exist for month of " + model.ValueDate.ToString("MMMM"));
                 return View(model);
             }
-
             model.DelProduction = 1;
             model.Month = model.ValueDate.Month;
             model.Year = model.ValueDate.Year;
             _db.MeezanBankMonthlyIncomeExpenseReports.Add(model);
-            _db.SaveChanges();
+            int result = _db.SaveChanges();
+            if (result > 0)
+            {
+                if (uploadedFile.Count > 0)
+                {
+                    var images = new List<MeezanBankMonthlyIncomeExpenseReportImage>();
+                    foreach (var item in uploadedFile)
+                    {
+                        var image = new MeezanBankMonthlyIncomeExpenseReportImage
+                        {
+                            MeezanBankMonthlyIncomeExpenseReportId = model.Id,
+                            Filepath = item
+                        };
+                        images.Add(image);
+                    }
+                    _db.MeezanBankMonthlyIncomeExpenseReportImages.AddRange(images);
+                    _db.SaveChanges();
+                    HttpContext.Session.Remove("UploadedFile");
+                }
+            }
             return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
         }
         //GET --1---for Monthly Meezan Bank Income/Expense Monthly report--ended
@@ -289,6 +326,11 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         public IActionResult EditMeezanBankIncomeExpenseReport(int id, bool IsEdit)
         {
             var model = _db.MeezanBankMonthlyIncomeExpenseReports.Where(x => x.Id == id).FirstOrDefault();
+            if (model != null)
+            {
+                model.Images = _db.MeezanBankMonthlyIncomeExpenseReportImages.Where(x => x.MeezanBankMonthlyIncomeExpenseReportId == model.Id).
+                    Select(x => x.Filepath).ToList();
+            }
             ViewBag.EditStatus = IsEdit;
             return View(model);
         }
@@ -296,9 +338,41 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         public ActionResult EditMeezanBankIncomeExpenseReport(MeezanBankMonthlyIncomeExpenseReport model)
         {
             if (!ModelState.IsValid)
-                return View(model);
+                return RedirectToAction("EditMeezanBankIncomeExpenseReport", new { id = model.Id, IsEdit = true });
+
+            var reportExist = _db.MeezanBankMonthlyIncomeExpenseReports.Where(x => x.Month == model.ValueDate.Month && x.Year == model.ValueDate.Year).AsNoTracking().FirstOrDefault();
+            if (reportExist != null && reportExist.Id != model.Id)
+            {
+                _notyf.Information("Report already exist for month of " + model.ValueDate.ToString("MMMM"));
+                return RedirectToAction("EditMeezanBankIncomeExpenseReport", new { id = model.Id, IsEdit = true });
+            }
+
             _db.Entry(model).State = EntityState.Modified;
-            _db.SaveChanges();
+            int result = _db.SaveChanges();
+            if (result > 0)
+            {
+                var uploadedFile = new List<string>();
+                if (!string.IsNullOrEmpty(HttpContext.Session.GetString("UploadedFile")))
+                {
+                    uploadedFile = JsonConvert.DeserializeObject<List<string>>(HttpContext.Session.GetString("UploadedFile"));
+                }
+                if (uploadedFile.Count > 0)
+                {
+                    var images = new List<MeezanBankMonthlyIncomeExpenseReportImage>();
+                    foreach (var item in uploadedFile)
+                    {
+                        var image = new MeezanBankMonthlyIncomeExpenseReportImage
+                        {
+                            MeezanBankMonthlyIncomeExpenseReportId = model.Id,
+                            Filepath = item
+                        };
+                        images.Add(image);
+                    }
+                    _db.MeezanBankMonthlyIncomeExpenseReportImages.AddRange(images);
+                    _db.SaveChanges();
+                    HttpContext.Session.Remove("UploadedFile");
+                }
+            }
             _notyf.Success("Edited successfully");
 
             return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
@@ -325,6 +399,22 @@ namespace AJWManagementPortal.Areas.Account.Controllers
                 return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
             }
         }
+
+        [HttpPost]
+        public async Task<ActionResult> UploadFiles(List<IFormFile> files)
+        {
+            var functional = new Functional();
+            var fileUploaded = await functional.UploadMultipleFile(files, _env, meezanBankIncomeExportReportFileUploadFolder);
+            if (fileUploaded.Count > 0)
+            {
+                //TempData["UploadedFile"] = fileUploaded;
+                //TempData.Peek("UploadedFile");
+                HttpContext.Session.SetString("UploadedFile", JsonConvert.SerializeObject(fileUploaded));
+            }
+            var a = 0;
+            return Json(new { images = fileUploaded });
+        }
+
         #endregion
     }
 }

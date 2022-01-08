@@ -54,6 +54,11 @@ namespace AJWManagementPortal
             services.AddSingleton<IEmailSender, EmailSender>();
             //services.Configure<EmailOptions>(Configuration);
 
+            // sessiON
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(5);//You can set Time   
+            });
+
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();
             //here we add for language translation add code-------------------------------
@@ -97,6 +102,8 @@ namespace AJWManagementPortal
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseRouting();
 

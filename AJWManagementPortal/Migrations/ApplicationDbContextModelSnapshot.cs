@@ -1498,6 +1498,24 @@ namespace AJWManagementPortal.Migrations
                     b.ToTable("MeezanBankMonthlyIncomeExpenseReports");
                 });
 
+            modelBuilder.Entity("AJWManagementPortal.Models.MeezanBankMonthlyIncomeExpenseReportImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Filepath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MeezanBankMonthlyIncomeExpenseReportId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MeezanBankMonthlyIncomeExpenseReportImages");
+                });
+
             modelBuilder.Entity("AJWManagementPortal.Models.MonthlyClosingReport", b =>
                 {
                     b.Property<int>("Id")

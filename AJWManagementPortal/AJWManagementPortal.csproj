@@ -76,6 +76,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.13" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.13" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.13" />
@@ -109,6 +110,7 @@
     <Folder Include="Areas\Store\Models\" />
     <Folder Include="Controllers\" />
     <Folder Include="wwwroot\PdfFiles\pdf\" />
+    <Folder Include="wwwroot\Reports\MezaanBankIncomeExportReport\MezaanBankIncomeExportReportTemp\" />
   </ItemGroup>
 
   <ItemGroup>
