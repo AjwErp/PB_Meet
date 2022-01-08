@@ -27,13 +27,34 @@ namespace AJWManagementPortal.Areas.Dgm.Controllers
             _db = db;
             _notyf = notyf;
         }
-        public IActionResult DgmAccountsDepartmentReportsList()
+        public async Task<IActionResult> DgmAccountsDepartmentReportsList()
         {
             var model = new DgmAccountsDepartmentReportsListViewModel();
-            //model.MonthlyClosingReport = _db.MonthlyClosingReports.Where(i => (Convert.ToInt32(i.Status) >= 1 && Convert.ToInt32(i.Status) <= 3)).ToList();
-            model.MonthlyClosingReport = _db.MonthlyClosingReports.Where(i => (Convert.ToInt32(i.Status) == 1 && i.DelProduction != 0)).ToList();
+            var monthlyClosingReport = await(from a in _db.MonthlyClosingReports
+                                             where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) == 1))
+                                             select new MonthlyAcountReportsViewModel
+                                             {
+                                                 Id = a.Id,
+                                                 Date = a.ValueDate,
+                                                 IsMonthlyClosingReport = true,
+                                                 Title = "Monthly Accounts Report"
+                                             }).ToListAsync();
+            var meezanBankMonthlyIncomeExpenseReports = await(from a in _db.MeezanBankMonthlyIncomeExpenseReports
+                                                              where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) == 1))
+                                                              select new MonthlyAcountReportsViewModel
+                                                              {
+                                                                  Id = a.Id,
+                                                                  Date = a.ValueDate,
+                                                                  IsMeezanBankIncomeExpenseReport = true,
+                                                                  Title = "Meezan Bank Monthly Income/Expence Report"
+                                                              }).ToListAsync();
+            model.MonthlyAcountReportsViewModel = monthlyClosingReport.Union(meezanBankMonthlyIncomeExpenseReports).OrderBy(x => x.Date);
             model.aDailyCash = _db.aDailyCashes.Where(i => (Convert.ToInt32(i.Status) == 1 && i.DelProduction != 0)).ToList();
             return View(model);
+
+            //var model = new DgmAccountsDepartmentReportsListViewModel();
+            //model.MonthlyClosingReport = _db.MonthlyClosingReports.Where(i => (Convert.ToInt32(i.Status) == 1 && i.DelProduction != 0)).ToList();
+            //model.aDailyCash = _db.aDailyCashes.Where(i => (Convert.ToInt32(i.Status) == 1 && i.DelProduction != 0)).ToList();
         }
         //GET--Ended------AccountsDepartmentReportsList----
         //POST--Start------AccountsDepartmentReportsList----
@@ -93,8 +114,8 @@ namespace AJWManagementPortal.Areas.Dgm.Controllers
             return RedirectToAction("DgmAccountsDepartmentReportsList");
         }
 
-
-        public IActionResult MonthlyClosingReportDgm(int id, bool IsEdit)
+        #region MONTHLY CLOSING REPORT
+        public IActionResult EditMonthlyClosingReport(int id, bool IsEdit)
         {
             //var model = new MonthlyClosingReport
             //{
@@ -117,7 +138,7 @@ namespace AJWManagementPortal.Areas.Dgm.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult MonthlyClosingReportDgm(MonthlyClosingReport model)
+        public ActionResult EditMonthlyClosingReport(MonthlyClosingReport model)
         {
             if (!ModelState.IsValid)
                 return View(model);
@@ -127,8 +148,8 @@ namespace AJWManagementPortal.Areas.Dgm.Controllers
 
             return RedirectToAction("DgmAccountsDepartmentReportsList");
         }
-       
-        public async Task<IActionResult> DeleteMonthlyClosingReportDgm(int id)
+
+        public async Task<IActionResult> DeleteMonthlyClosingReport(int id)
         {
 
             var report = await _db.MonthlyClosingReports.FindAsync(id);
@@ -150,6 +171,51 @@ namespace AJWManagementPortal.Areas.Dgm.Controllers
                 return RedirectToAction("DgmAccountsDepartmentReportsList");
             }
         }
+        #endregion
+
+
+        #region MEEZAN BANK INCOME/EXPENCE REPORT
+        public IActionResult EditMeezanBankIncomeExpenseReport(int id, bool IsEdit)
+        {
+            var model = _db.MeezanBankMonthlyIncomeExpenseReports.Where(x => x.Id == id).FirstOrDefault();
+            ViewBag.EditStatus = IsEdit;
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult EditMeezanBankIncomeExpenseReport(MeezanBankMonthlyIncomeExpenseReport model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            _db.Entry(model).State = EntityState.Modified;
+            _db.SaveChanges();
+            _notyf.Success("Edited successfully");
+
+            return RedirectToAction("DgmAccountsDepartmentReportsList");
+        }
+        public async Task<IActionResult> DeleteMeezanBankIncomeExpenseReport(int id)
+        {
+
+            var report = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(id);
+            if (report == null)
+            {
+                return RedirectToAction("DgmAccountsDepartmentReportsList");
+            }
+
+            try
+            {
+                report.DelProduction = 0;
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Deleted successfully");
+                return RedirectToAction("DgmAccountsDepartmentReportsList");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("DgmAccountsDepartmentReportsList");
+            }
+        }
+        #endregion
+
     }
 
 }

@@ -24,10 +24,32 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
             _notyf = notyf;
         }
         //GET--Start---gm---GmAccountsDepartmentReportsList----
-        public IActionResult GmAccountsDepartmentReportsList()
+        public async Task<IActionResult> GmAccountsDepartmentReportsList()
         {
+            //var model = new GmAccountsDepartmentReportsListViewModel();
+            //model.MonthlyClosingReport = _db.MonthlyClosingReports.Where(i => i.DelProduction != 0 && (Convert.ToInt32(i.Status) == 3)).ToList();
+            //return View(model);
+
             var model = new GmAccountsDepartmentReportsListViewModel();
-            model.MonthlyClosingReport = _db.MonthlyClosingReports.Where(i => i.DelProduction != 0 && (Convert.ToInt32(i.Status) == 3)).ToList();
+            var monthlyClosingReport = await(from a in _db.MonthlyClosingReports
+                                             where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) == 3))
+                                             select new MonthlyAcountReportsViewModel
+                                             {
+                                                 Id = a.Id,
+                                                 Date = a.ValueDate,
+                                                 IsMonthlyClosingReport = true,
+                                                 Title = "Monthly Accounts Report"
+                                             }).ToListAsync();
+            var meezanBankMonthlyIncomeExpenseReports = await(from a in _db.MeezanBankMonthlyIncomeExpenseReports
+                                                             where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) == 3))
+                                                              select new MonthlyAcountReportsViewModel
+                                                              {
+                                                                  Id = a.Id,
+                                                                  Date = a.ValueDate,
+                                                                  IsMeezanBankIncomeExpenseReport = true,
+                                                                  Title = "Meezan Bank Monthly Income/Expence Report"
+                                                              }).ToListAsync();
+            model.MonthlyAcountReportsViewModel = monthlyClosingReport.Union(meezanBankMonthlyIncomeExpenseReports).OrderBy(x => x.Date);
             return View(model);
         }
         //GET--Ended---gm---GmAccountsDepartmentReportsList----
@@ -350,8 +372,9 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
             return RedirectToAction("GmAccountsDepartmentReportsList");
         }
 
+        #region MONTHLY CLOSING REPORT
 
-        public IActionResult MonthlyClosingReportGm(int id, bool IsEdit)
+        public IActionResult EditMonthlyClosingReport(int id, bool IsEdit)
         {
             //var model = new MonthlyClosingReport
             //{
@@ -362,7 +385,7 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult MonthlyClosingReportGm(MonthlyClosingReport model)
+        public ActionResult EditMonthlyClosingReport(MonthlyClosingReport model)
         {
             if (!ModelState.IsValid)
                 return View(model);
@@ -372,7 +395,7 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
             return RedirectToAction("GmAccountsDepartmentReportsList");
         }
 
-        public async Task<IActionResult> DeleteMonthlyClosingReportGm(int id)
+        public async Task<IActionResult> DeleteMonthlyClosingReport(int id)
         {
 
             var report = await _db.MonthlyClosingReports.FindAsync(id);
@@ -394,5 +417,49 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
                 return RedirectToAction("GmAccountsDepartmentReportsList");
             }
         }
+        #endregion
+
+        #region MEEZAN BANK INCOME/EXPENCE REPORT
+        public IActionResult EditMeezanBankIncomeExpenseReport(int id, bool IsEdit)
+        {
+            var model = _db.MeezanBankMonthlyIncomeExpenseReports.Where(x => x.Id == id).FirstOrDefault();
+            ViewBag.EditStatus = IsEdit;
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult EditMeezanBankIncomeExpenseReport(MeezanBankMonthlyIncomeExpenseReport model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            _db.Entry(model).State = EntityState.Modified;
+            _db.SaveChanges();
+            _notyf.Success("Edited successfully");
+
+            return RedirectToAction("GmAccountsDepartmentReportsList");
+        }
+        public async Task<IActionResult> DeleteMeezanBankIncomeExpenseReport(int id)
+        {
+
+            var report = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(id);
+            if (report == null)
+            {
+                return RedirectToAction("GmAccountsDepartmentReportsList");
+            }
+
+            try
+            {
+                report.DelProduction = 0;
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Deleted successfully");
+                return RedirectToAction("GmAccountsDepartmentReportsList");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("GmAccountsDepartmentReportsList");
+            }
+        }
+        #endregion
+
     }
 }
