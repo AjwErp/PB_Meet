@@ -37,7 +37,7 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
                                              {
                                                  Id = a.Id,
                                                  Date = a.ValueDate,
-                                                 IsMonthlyClosingReport = true,
+                                                 IsMonthlyClosingReportGm = true,
                                                  Title = "Monthly Accounts Report"
                                              }).ToListAsync();
             var meezanBankMonthlyIncomeExpenseReports = await(from a in _db.MeezanBankMonthlyIncomeExpenseReports
@@ -46,7 +46,7 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
                                                               {
                                                                   Id = a.Id,
                                                                   Date = a.ValueDate,
-                                                                  IsMeezanBankIncomeExpenseReport = true,
+                                                                  IsMeezanBankIncomeExpenseReportGm = true,
                                                                   Title = "Meezan Bank Monthly Income/Expence Report"
                                                               }).ToListAsync();
             model.MonthlyAcountReportsViewModel = monthlyClosingReport.Union(meezanBankMonthlyIncomeExpenseReports).OrderBy(x => x.Date);
@@ -349,29 +349,27 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
         }
         //------------------------------------------Management Staff Work Plan--------------------------
 
-        public IActionResult SendMonthlyClosingReportToAccountOffice(string remarks)
+        public async Task<IActionResult> SendMonthlyClosingReportToAccountOffice(int id)
         {
-            remarks = remarks.Replace("-", "/");
-            List<MonthlyClosingReport> data = new List<MonthlyClosingReport>();
-            DateTime dateTime10 = DateTime.Parse(remarks);
-            data = _db.MonthlyClosingReports.Where(i => i.ValueDate.Equals(dateTime10) && (Convert.ToInt32(i.Status) >= 1 && Convert.ToInt32(i.Status) <= 3)).ToList();
-
-            foreach (MonthlyClosingReport technical in data)
+            var report = await _db.MonthlyClosingReports.FindAsync(id);
+            if (report == null)
             {
-                technical.Status = "4";
-                var current = _db.MonthlyClosingReports.Find(technical.Id);
-                if (current != null)
-                {
-                    _db.Entry(current).CurrentValues.SetValues(technical);
-                }
-
-                _db.SaveChanges();
+                return RedirectToAction("GmAccountsDepartmentReportsList");
             }
-            _notyf.Success("Report successfully sent to Account Office");
 
-            return RedirectToAction("GmAccountsDepartmentReportsList");
+            try
+            {
+                report.Status = "4";
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Report successfully sent to Account office");
+                return RedirectToAction("GmAccountsDepartmentReportsList");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("GmAccountsDepartmentReportsList");
+            }
         }
-
         #region MONTHLY CLOSING REPORT
 
         public IActionResult EditMonthlyClosingReport(int id, bool IsEdit)
@@ -423,6 +421,11 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
         public IActionResult EditMeezanBankIncomeExpenseReport(int id, bool IsEdit)
         {
             var model = _db.MeezanBankMonthlyIncomeExpenseReports.Where(x => x.Id == id).FirstOrDefault();
+            if (model != null)
+            {
+                model.Images = _db.MeezanBankMonthlyIncomeExpenseReportImages.Where(x => x.MeezanBankMonthlyIncomeExpenseReportId == model.Id).
+                    Select(x => x.Filepath).ToList();
+            }
             ViewBag.EditStatus = IsEdit;
             return View(model);
         }
@@ -459,7 +462,33 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
                 return RedirectToAction("GmAccountsDepartmentReportsList");
             }
         }
+        public async Task<IActionResult> SendMeezanBankIncomeExpenseReportToAccountOffice(int id)
+        {
+            var report = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(id);
+            if (report == null)
+            {
+                return RedirectToAction("GmAccountsDepartmentReportsList");
+            }
+
+            try
+            {
+                report.Status = "4";
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Report successfully sent to Account office");
+                return RedirectToAction("GmAccountsDepartmentReportsList");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("GmAccountsDepartmentReportsList");
+            }
+        }
         #endregion
 
     }
 }
+
+
+
+
+

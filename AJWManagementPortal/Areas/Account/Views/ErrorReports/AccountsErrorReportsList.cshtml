@@ -348,7 +348,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.monthlyClosingReport)
+                        @foreach (var item in Model.MonthlyAcountReportsViewModel)
                         {
                             <tr class="SubH">
                                 <td class="actionbtn">
@@ -357,19 +357,19 @@
                                             @Localizer["Action"]
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" asp-action="MonthlyClosingReportAccountOfficeFromDgm" asp-route-id="@item.Id"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                            <a class="dropdown-item" asp-action="@item.EditActionName" asp-route-id="@item.Id" asp-route-IsEdit="false"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
 @*                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Check Report"]</a>
-*@                                            <button class="dropdown-item"  asp-action="DeleteMonthlyClosingReportAccountErrorList"  asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</button>
+*@                                            <button class="dropdown-item"  asp-action="@item.DeleteActionName"  asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</button>
 @*                                            <button class="dropdown-item" asp-action="ExporDataToFile" asp-route-Month="@item.Month"  asp-route-Year="@item.Year"  asp-area="Account"><i class="fas fa-file-download"></i> @Localizer["Download"]</button>
-*@                                            <a class="dropdown-item" asp-action="SendMonthlyClosingReportToDgmOffice"
-                                               asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AccountsErrorReportsList">
+*@                                            <a class="dropdown-item" asp-action="@item.SendActionName"
+                                              asp-route-id="@item.Id"  asp-route-redirect="AccountsErrorReportsList">
                                                 <i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]
                                             </a>
                                         </div>
                                     </div>
                                 </td>
-                                <td>@item.ValueDate</td>
-                                <td>@Localizer["Monthly Accounts Reports Repository"] </td>
+                                <td>@item.Date.ToString("MM-dd-yyyy")</td>
+                                <td>@item.Title </td>
                                 <td>@item.Id</td>
                             </tr>
                         }

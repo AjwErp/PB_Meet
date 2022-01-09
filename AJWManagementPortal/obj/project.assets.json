@@ -10255,11 +10255,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Client\\AJWManagementPortal\\AJWManagementPortal.csproj",
+      "projectUniqueName": "D:\\Project Copy\\AJWManagementPortal\\AJWManagementPortal.csproj",
       "projectName": "AJWManagementPortal",
-      "projectPath": "D:\\Client\\AJWManagementPortal\\AJWManagementPortal.csproj",
+      "projectPath": "D:\\Project Copy\\AJWManagementPortal\\AJWManagementPortal.csproj",
       "packagesPath": "C:\\Users\\Chishti-Laptop\\.nuget\\packages\\",
-      "outputPath": "D:\\Client\\AJWManagementPortal\\obj\\",
+      "outputPath": "D:\\Project Copy\\AJWManagementPortal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Chishti-Laptop\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10408,6 +10408,12 @@
     }
   },
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\Project Copy\\AJWManagementPortal\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",

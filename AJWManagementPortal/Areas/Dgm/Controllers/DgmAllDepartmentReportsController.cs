@@ -21,6 +21,8 @@ namespace AJWManagementPortal.Areas.Dgm.Controllers
         //This Method use for Account Office Reports daily/Monthly/Yearly Reporsitory List for DGM office 
         private readonly ApplicationDbContext _db;
         private readonly INotyfService _notyf;
+        private string meezanBankIncomeExportReportFileUploadFolder = "Reports/MezaanBankIncomeExportReport/";
+
 
         public DgmAllDepartmentReportsController(ApplicationDbContext db, INotyfService notyf)
         {
@@ -36,7 +38,7 @@ namespace AJWManagementPortal.Areas.Dgm.Controllers
                                              {
                                                  Id = a.Id,
                                                  Date = a.ValueDate,
-                                                 IsMonthlyClosingReport = true,
+                                                 IsMonthlyClosingReportDgm = true,
                                                  Title = "Monthly Accounts Report"
                                              }).ToListAsync();
             var meezanBankMonthlyIncomeExpenseReports = await(from a in _db.MeezanBankMonthlyIncomeExpenseReports
@@ -45,7 +47,7 @@ namespace AJWManagementPortal.Areas.Dgm.Controllers
                                                               {
                                                                   Id = a.Id,
                                                                   Date = a.ValueDate,
-                                                                  IsMeezanBankIncomeExpenseReport = true,
+                                                                  IsMeezanBankIncomeExpenseReportDgm = true,
                                                                   Title = "Meezan Bank Monthly Income/Expence Report"
                                                               }).ToListAsync();
             model.MonthlyAcountReportsViewModel = monthlyClosingReport.Union(meezanBankMonthlyIncomeExpenseReports).OrderBy(x => x.Date);
@@ -69,49 +71,72 @@ namespace AJWManagementPortal.Areas.Dgm.Controllers
         //GET--Ended------AccountsDepartmentReportsList----
         //POST--Start------AccountsDepartmentReportsList----
         //POST--Ended------AccountsDepartmentReportsList----
-        public IActionResult SendMonthlyClosingReportToGmOffice(string remarks)
+        public async Task<IActionResult> SendMonthlyClosingReportToGmOffice(int id)
         {
-            remarks = remarks.Replace("-", "/");
-            List<MonthlyClosingReport> data = new List<MonthlyClosingReport>();
-            DateTime dateTime10 = DateTime.Parse(remarks);
-            data = _db.MonthlyClosingReports.Where(i => i.ValueDate.Equals(dateTime10) && (Convert.ToInt32(i.Status) >= 1 && Convert.ToInt32(i.Status) <= 3)).ToList();
 
-            foreach (MonthlyClosingReport technical in data)
+            var report = await _db.MonthlyClosingReports.FindAsync(id);
+            if (report == null)
             {
-                technical.Status = "3";
-                var current = _db.MonthlyClosingReports.Find(technical.Id);
-                if (current != null)
-                {
-                    _db.Entry(current).CurrentValues.SetValues(technical);
-                }
-
-                _db.SaveChanges();
+                return RedirectToAction("DgmAccountsDepartmentReportsList");
             }
-            _notyf.Success("Report successfully sent to G.M office");
 
-            return RedirectToAction("DgmAccountsDepartmentReportsList");
+            try
+            {
+                report.Status = "3";
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Report successfully sent to G.M office");
+                return RedirectToAction("DgmAccountsDepartmentReportsList");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("DgmAccountsDepartmentReportsList");
+            }
+       
         }
-        public IActionResult SendMonthlyClosingReportToAccountErrorList(string remarks)
+        public async Task<IActionResult> SendMeezanBankIncomeExpenseReportToAccountErrorList(int id)
         {
-            remarks = remarks.Replace("-", "/");
-            List<MonthlyClosingReport> data = new List<MonthlyClosingReport>();
-            DateTime dateTime10 = DateTime.Parse(remarks);
-            data = _db.MonthlyClosingReports.Where(i => i.ValueDate.Equals(dateTime10) && (Convert.ToInt32(i.Status) >= 1 && Convert.ToInt32(i.Status) <= 3)).ToList();
-
-            foreach (MonthlyClosingReport technical in data)
+            var report = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(id);
+            if (report == null)
             {
-                technical.Status = "5";
-                var current = _db.MonthlyClosingReports.Find(technical.Id);
-                if (current != null)
-                {
-                    _db.Entry(current).CurrentValues.SetValues(technical);
-                }
-
-                _db.SaveChanges();
+                return RedirectToAction("DgmAccountsDepartmentReportsList");
             }
-            _notyf.Success("Report successfully sent to Account error list");
 
-            return RedirectToAction("DgmAccountsDepartmentReportsList");
+            try
+            {
+                report.Status = "5";
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Report successfully sent to Account error list");
+                return RedirectToAction("DgmAccountsDepartmentReportsList");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("DgmAccountsDepartmentReportsList");
+            }
+        }
+        public async Task<IActionResult> SendMonthlyClosingReportToAccountErrorList(int id)
+        {
+            var report = await _db.MonthlyClosingReports.FindAsync(id);
+            if (report == null)
+            {
+                return RedirectToAction("DgmAccountsDepartmentReportsList");
+            }
+
+            try
+            {
+                report.Status = "5";
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Report successfully sent to Account error list");
+                return RedirectToAction("DgmAccountsDepartmentReportsList");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("DgmAccountsDepartmentReportsList");
+            }
+           
+
         }
 
         #region MONTHLY CLOSING REPORT
@@ -178,6 +203,11 @@ namespace AJWManagementPortal.Areas.Dgm.Controllers
         public IActionResult EditMeezanBankIncomeExpenseReport(int id, bool IsEdit)
         {
             var model = _db.MeezanBankMonthlyIncomeExpenseReports.Where(x => x.Id == id).FirstOrDefault();
+            if (model != null)
+            {
+                model.Images = _db.MeezanBankMonthlyIncomeExpenseReportImages.Where(x => x.MeezanBankMonthlyIncomeExpenseReportId == model.Id).
+                    Select(x => x.Filepath).ToList();
+            }
             ViewBag.EditStatus = IsEdit;
             return View(model);
         }
@@ -207,6 +237,27 @@ namespace AJWManagementPortal.Areas.Dgm.Controllers
                 _db.Entry(report).State = EntityState.Modified;
                 await _db.SaveChangesAsync();
                 _notyf.Success("Deleted successfully");
+                return RedirectToAction("DgmAccountsDepartmentReportsList");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("DgmAccountsDepartmentReportsList");
+            }
+        }
+        public async Task<IActionResult> SendMeezanBankIncomeExpenseReportToGmOffice(int id)
+        {
+            var report = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(id);
+            if (report == null)
+            {
+                return RedirectToAction("DgmAccountsDepartmentReportsList");
+            }
+
+            try
+            {
+                report.Status = "3";
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Report successfully sent to G.M office");
                 return RedirectToAction("DgmAccountsDepartmentReportsList");
             }
             catch (DbUpdateException /* ex */)
