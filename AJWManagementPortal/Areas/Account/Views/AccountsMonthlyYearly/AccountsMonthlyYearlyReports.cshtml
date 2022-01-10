@@ -86,8 +86,8 @@
     @*                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to Repository"]</a>
                                             <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to DMS"]</a>*@
                                             <a class="dropdown-item" asp-action="@item.SendActionName" 
-                                               asp-route-remarks="@item.Date.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
-                                                                                                        <i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
+                                               asp-route-id="@item.Id"asp-route-redirect="AllDailyAccountsReports">
+                                                           <i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
                                         </div>
                                     </div>
                                 </td>

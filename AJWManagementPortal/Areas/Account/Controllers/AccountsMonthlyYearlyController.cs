@@ -53,45 +53,48 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //POST --AccountsMonthlyYearlyReports--start----
         //POST --AccountsMonthlyYearlyReports--ended----
 
-        public IActionResult SendMonthlyClosingReportToDgmOffice(string remarks)
+        public async Task<IActionResult> SendMonthlyClosingReportToDgmOffice(int id)
         {
-            remarks = remarks.Replace("-", "/");
-            List<MonthlyClosingReport> data = new List<MonthlyClosingReport>();
-            DateTime dateTime10 = DateTime.Parse(remarks);
-            data = _db.MonthlyClosingReports.Where(i => i.ValueDate.Equals(dateTime10) && i.DelProduction != 0).ToList();
-
-            foreach (MonthlyClosingReport technical in data)
+            var report = await _db.MonthlyClosingReports.FindAsync(id);
+            if (report == null)
             {
-                technical.Status = "1";
-                var current = _db.MonthlyClosingReports.Find(technical.Id);
-                if (current != null)
-                {
-                    _db.Entry(current).CurrentValues.SetValues(technical);
-                }
-                _db.SaveChanges();
+                return RedirectToAction("AccountsMonthlyYearlyReports");
             }
-            _notyf.Success("Report successfully sent to D.G.M office");
-            return RedirectToAction("AccountsMonthlyYearlyReports");
+
+            try
+            {
+                report.Status = "1";
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Report successfully sent to D.G.M office");
+                return RedirectToAction("AccountsMonthlyYearlyReports");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("AccountsMonthlyYearlyReports");
+            }
+            
         }
-        public IActionResult SendMeezanBankIncomeExpenseReportToDgmOffice(string remarks)
+        public async Task<IActionResult> SendMeezanBankIncomeExpenseReportToDgmOffice(int id)
         {
-            remarks = remarks.Replace("-", "/");
-            List<MeezanBankMonthlyIncomeExpenseReport> data = new List<MeezanBankMonthlyIncomeExpenseReport>();
-            DateTime dateTime10 = DateTime.Parse(remarks);
-            data = _db.MeezanBankMonthlyIncomeExpenseReports.Where(i => i.ValueDate.Equals(dateTime10) && i.DelProduction != 0).ToList();
-
-            foreach (MeezanBankMonthlyIncomeExpenseReport technical in data)
+            var report = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(id);
+            if (report == null)
             {
-                technical.Status = "1";
-                var current = _db.MonthlyClosingReports.Find(technical.Id);
-                if (current != null)
-                {
-                    _db.Entry(current).CurrentValues.SetValues(technical);
-                }
-                _db.SaveChanges();
+                return RedirectToAction("AccountsMonthlyYearlyReports");
             }
-            _notyf.Success("Report successfully sent to D.G.M office");
-            return RedirectToAction("AccountsMonthlyYearlyReports");
+
+            try
+            {
+                report.Status = "1";
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Report successfully sent to D.G.M office");
+                return RedirectToAction("AccountsMonthlyYearlyReports");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("AccountsMonthlyYearlyReports");
+            }
         }
 
     }

@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "E:\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "E:\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
         "packagesPath": "C:\\Users\\Salik\\.nuget\\packages\\",
         "outputPath": "E:\\PB_Meet\\AJWManagementPortal\\obj\\",
+=======
+    "D:\\Project Copy\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
+  },
+  "projects": {
+    "D:\\Project Copy\\AJWManagementPortal\\AJWManagementPortal.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Project Copy\\AJWManagementPortal\\AJWManagementPortal.csproj",
+        "projectName": "AJWManagementPortal",
+        "projectPath": "D:\\Project Copy\\AJWManagementPortal\\AJWManagementPortal.csproj",
+        "packagesPath": "C:\\Users\\Chishti-Laptop\\.nuget\\packages\\",
+        "outputPath": "D:\\Project Copy\\AJWManagementPortal\\obj\\",
+>>>>>>> a23285b94f377fcf101c6a3db9f1c0c26a2aff4a
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

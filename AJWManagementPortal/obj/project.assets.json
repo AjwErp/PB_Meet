@@ -10256,11 +10256,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "E:\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
       "projectName": "AJWManagementPortal",
       "projectPath": "E:\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
       "packagesPath": "C:\\Users\\Salik\\.nuget\\packages\\",
       "outputPath": "E:\\PB_Meet\\AJWManagementPortal\\obj\\",
+=======
+      "projectUniqueName": "D:\\Project Copy\\AJWManagementPortal\\AJWManagementPortal.csproj",
+      "projectName": "AJWManagementPortal",
+      "projectPath": "D:\\Project Copy\\AJWManagementPortal\\AJWManagementPortal.csproj",
+      "packagesPath": "C:\\Users\\Chishti-Laptop\\.nuget\\packages\\",
+      "outputPath": "D:\\Project Copy\\AJWManagementPortal\\obj\\",
+>>>>>>> a23285b94f377fcf101c6a3db9f1c0c26a2aff4a
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -10398,7 +10406,11 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
       "message": "Problem reading the cache file E:\\PB_Meet\\AJWManagementPortal\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+=======
+      "message": "Problem reading the cache file D:\\Project Copy\\AJWManagementPortal\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> a23285b94f377fcf101c6a3db9f1c0c26a2aff4a
     },
     {
       "code": "NU1701",

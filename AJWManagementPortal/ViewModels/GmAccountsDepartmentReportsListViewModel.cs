@@ -8,6 +8,6 @@ namespace AJWManagementPortal.ViewModels
 {
     public class GmAccountsDepartmentReportsListViewModel
     {
-        public IEnumerable<MonthlyClosingReport> MonthlyClosingReport { get; set; }
+        public IEnumerable<MonthlyAcountReportsViewModel> MonthlyAcountReportsViewModel { get; set; }
     }
 }
