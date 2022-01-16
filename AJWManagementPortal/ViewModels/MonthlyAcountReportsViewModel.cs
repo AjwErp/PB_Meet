@@ -47,7 +47,7 @@ namespace AJWManagementPortal.ViewModels
                     _viewActionName = "EditMeezanBankIncomeExpenseReport";
                 else if (IsMonthlyClosingReportAccountsError)
                     _viewActionName = "EditMonthlyClosingReport";
-                else if (IsMonthlyClosingReportAccountsError)
+                else if (IsMeezanBankIncomeExpenseReportAccountsError)
                     _viewActionName = "EditMeezanBankIncomeExpenseReport";
                 else
                     _viewActionName = "";
@@ -78,7 +78,7 @@ namespace AJWManagementPortal.ViewModels
                     _editActionName = "EditMeezanBankIncomeExpenseReport";
                 else if (IsMonthlyClosingReportAccountsError)
                     _editActionName = "EditMonthlyClosingReport";
-                else if (IsMonthlyClosingReportAccountsError)
+                else if (IsMeezanBankIncomeExpenseReportAccountsError)
                     _editActionName = "EditMeezanBankIncomeExpenseReport";
                 else
                     _editActionName = "";
@@ -97,21 +97,21 @@ namespace AJWManagementPortal.ViewModels
                 else if (IsMeezanBankIncomeExpenseReport)
                     _deleteActionName = "DeleteMeezanBankIncomeExpenseReport";
                 else if (IsMonthlyClosingReportDgm)
-                    _deleteActionName = "SendMonthlyClosingReportToGmOffice";
+                    _deleteActionName = "DeleteMonthlyClosingReport";
                 else if (IsMeezanBankIncomeExpenseReportDgm)
-                    _deleteActionName = "SendMeezanBankIncomeExpenseReportToGmOffice";
+                    _deleteActionName = "DeleteMeezanBankIncomeExpenseReport";
                 else if (IsMonthlyClosingReportGm)
-                    _deleteActionName = "SendMonthlyClosingReportToAccountOffice";
+                    _deleteActionName = "DeleteMonthlyClosingReport";
                 else if (IsMeezanBankIncomeExpenseReportGm)
-                    _deleteActionName = "SendMeezanBankIncomeExpenseReportToAccountOffice";
+                    _deleteActionName = "DeleteMeezanBankIncomeExpenseReport";
                 else if (IsMonthlyClosingReportAccounts)
                     _deleteActionName = "DeleteMonthlyClosingReportAccountOffice";
                 else if (IsMeezanBankIncomeExpenseReportAccounts)
-                    _deleteActionName = "SendMeezanBankIncomeExpenseReportToAccountOffice";
+                    _deleteActionName = "DeleteMeezanBankIncomeExpenseReport";
                 else if (IsMonthlyClosingReportAccountsError)
-                    _deleteActionName = "SendMonthlyClosingReportToDgmOffice";
-                else if (IsMonthlyClosingReportAccountsError)
-                    _deleteActionName = "SendMeezanBankIncomeExpenseReportToAccountErrorList";
+                    _deleteActionName = "DeleteMonthlyClosingReportAccountErrorList";
+                else if (IsMeezanBankIncomeExpenseReportAccountsError)
+                    _deleteActionName = "DeleteMeezanBankIncomeExpenseReport";
                 else
                     _deleteActionName = "";
                 return _deleteActionName;
@@ -142,7 +142,7 @@ namespace AJWManagementPortal.ViewModels
                     _sendActionName = "SendMeezanBankIncomeExpenseReportToAccountOffice";
                 else if (IsMonthlyClosingReportAccountsError)
                     _sendActionName = "SendMonthlyClosingReportToDgmOffice";
-                else if (IsMonthlyClosingReportAccountsError)
+                else if (IsMeezanBankIncomeExpenseReportAccountsError)
                     _sendActionName = "SendMeezanBankIncomeExpenseReportToAccountErrorList";
                 else
                     _sendActionName = "";

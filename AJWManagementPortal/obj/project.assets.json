@@ -10250,23 +10250,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Salik\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Chishti-Laptop\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "E:\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
       "projectName": "AJWManagementPortal",
       "projectPath": "E:\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
       "packagesPath": "C:\\Users\\Salik\\.nuget\\packages\\",
       "outputPath": "E:\\PB_Meet\\AJWManagementPortal\\obj\\",
+=======
+      "projectUniqueName": "D:\\New Project\\AJWManagementPortal\\AJWManagementPortal.csproj",
+      "projectName": "AJWManagementPortal",
+      "projectPath": "D:\\New Project\\AJWManagementPortal\\AJWManagementPortal.csproj",
+      "packagesPath": "C:\\Users\\Chishti-Laptop\\.nuget\\packages\\",
+      "outputPath": "D:\\New Project\\AJWManagementPortal\\obj\\",
+>>>>>>> ae21790d0e9159d95da49fe862e3bcab2ca27c1a
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Salik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Chishti-Laptop\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10381,6 +10385,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.1.10, 3.1.10]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.22, 3.1.22]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -10389,18 +10411,21 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
     {
+<<<<<<< HEAD
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
       "message": "Problem reading the cache file E:\\PB_Meet\\AJWManagementPortal\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
     },
     {
+=======
+>>>>>>> ae21790d0e9159d95da49fe862e3bcab2ca27c1a
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,

@@ -153,17 +153,21 @@
                                     <input type="text" id="paidAmount" asp-for="AManagerRemarks" readonly="@(ViewBag.EditStatus ? null : "readonly")" class="form-control" />
                                     <span class="text-danger" asp-validation-for="AManagerRemarks"></span>
                                 </td>
-                                <td colspan="3">
-                                    @*@Localizer["Signature"]:
-                            <input type="text" id="paidAmount" class="form-control" />
-                            @Localizer["Remarks"]:
-                            <input type="text" id="paidAmount" class="form-control" />*@
+                                 <td colspan="3">
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="paidAmount" asp-for="SignDgm" readonly="@(ViewBag.EditStatus ? null : "readonly")" class="form-control" />
+                                    <br />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="paidAmount" asp-for="DgmRemarks" readonly="@(ViewBag.EditStatus ? null : "readonly")" class="form-control" />
                                 </td>
                                 <td colspan="4">
-                                    @*@Localizer["Signature"]:
-                            <input type="text" id="paidAmount" class="form-control" />
-                            @Localizer["Remarks"]:
-                            <input type="text" id="paidAmount" class="form-control" />*@
+                                  @Localizer["Signature"]:
+                                    <input type="text" id="" asp-for="SignGM" readonly="@(ViewBag.EditStatus ? null : "readonly")" class="form-control" />
+                                    <span class="text-danger" asp-validation-for="SignGM"></span><br />
+
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="" asp-for="GMRemarks" readonly="@(ViewBag.EditStatus ? null : "readonly")" class="form-control" />
+                                   <span class="text-danger" asp-validation-for="GMRemarks"></span><br />
                                 </td>
 
                             </tr>
@@ -177,8 +181,7 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <button type="submit" class="dropdown-item" asp-area="Gm"><i class="fas fa-save"></i> @Localizer["Save File"]</button>
-                                                <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore-alt"></i> @Localizer["Clear"]</a>
-                                                <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-user-edit"></i> @Localizer["Edit File"]</a>
+                                                <button type="reset" class="dropdown-item" asp-action="" asp-controller="" asp-area="Gm"><i class="fas fa-trash-restore-alt"></i> @Localizer["Clear"]</button>
                                             </div>
                                         </div>
                                     </td>

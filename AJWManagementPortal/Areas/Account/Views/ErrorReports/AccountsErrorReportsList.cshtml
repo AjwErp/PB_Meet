@@ -361,10 +361,7 @@
 @*                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Check Report"]</a>
 *@                                            <button class="dropdown-item"  asp-action="@item.DeleteActionName"  asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</button>
 @*                                            <button class="dropdown-item" asp-action="ExporDataToFile" asp-route-Month="@item.Month"  asp-route-Year="@item.Year"  asp-area="Account"><i class="fas fa-file-download"></i> @Localizer["Download"]</button>
-*@                                            <a class="dropdown-item" asp-action="@item.SendActionName"
-                                              asp-route-id="@item.Id"  asp-route-redirect="AccountsErrorReportsList">
-                                                <i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]
-                                            </a>
+*@                           
                                         </div>
                                     </div>
                                 </td>
