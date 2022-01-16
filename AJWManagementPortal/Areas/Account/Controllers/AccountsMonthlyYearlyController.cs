@@ -53,49 +53,60 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //POST --AccountsMonthlyYearlyReports--start----
         //POST --AccountsMonthlyYearlyReports--ended----
 
-        public async Task<IActionResult> SendMonthlyClosingReportToDgmOffice(int id)
+        public async Task<IActionResult> SendMonthlyClosingReportToDgmOffice(string remarks)
         {
-            var report = await _db.MonthlyClosingReports.FindAsync(id);
-            if (report == null)
+            var currentMonthlyReportData= (dynamic)null;
+            var currentMeezanBankIncomeExpenseReportData = (dynamic)null;
+            remarks = remarks.Replace("-", "/");
+            DateTime dateTime10 = DateTime.Parse(remarks);
+            var monthlyReportData = _db.MonthlyClosingReports.Where(i => i.ValueDate.Equals(dateTime10) && i.DelProduction != 0).FirstOrDefault();
+            if (monthlyReportData != null)
             {
-                return RedirectToAction("AccountsMonthlyYearlyReports");
-            }
+                monthlyReportData.Status = "1";
+                currentMonthlyReportData = await _db.MonthlyClosingReports.FindAsync(monthlyReportData.Id);
 
-            try
-            {
-                report.Status = "1";
-                _db.Entry(report).State = EntityState.Modified;
-                await _db.SaveChangesAsync();
-                _notyf.Success("Report successfully sent to D.G.M office");
-                return RedirectToAction("AccountsMonthlyYearlyReports");
             }
-            catch (DbUpdateException /* ex */)
+            var meezanBankIncomeExpenseReportData = _db.MeezanBankMonthlyIncomeExpenseReports.Where(i => i.ValueDate.Equals(dateTime10) && i.DelProduction != 0).FirstOrDefault();
+            if (meezanBankIncomeExpenseReportData != null)
             {
-                return RedirectToAction("AccountsMonthlyYearlyReports");
+                meezanBankIncomeExpenseReportData.Status = "1";
+                currentMeezanBankIncomeExpenseReportData = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(meezanBankIncomeExpenseReportData.Id);
             }
-            
-        }
-        public async Task<IActionResult> SendMeezanBankIncomeExpenseReportToDgmOffice(int id)
-        {
-            var report = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(id);
-            if (report == null)
+            if (currentMonthlyReportData != null)
             {
-                return RedirectToAction("AccountsMonthlyYearlyReports");
-            }
+                    _db.Entry(currentMonthlyReportData).CurrentValues.SetValues(monthlyReportData);
 
-            try
-            {
-                report.Status = "1";
-                _db.Entry(report).State = EntityState.Modified;
-                await _db.SaveChangesAsync();
-                _notyf.Success("Report successfully sent to D.G.M office");
-                return RedirectToAction("AccountsMonthlyYearlyReports");
             }
-            catch (DbUpdateException /* ex */)
+            if(currentMeezanBankIncomeExpenseReportData != null)
             {
-                return RedirectToAction("AccountsMonthlyYearlyReports");
+                _db.Entry(currentMeezanBankIncomeExpenseReportData).CurrentValues.SetValues(meezanBankIncomeExpenseReportData);
+
             }
+            await _db.SaveChangesAsync();
+            _notyf.Success("Report successfully sent to D.G.M office");
+            return RedirectToAction("AccountsMonthlyYearlyReports");
         }
+        //public async Task<IActionResult> SendMeezanBankIncomeExpenseReportToDgmOffice(int id)
+        //{
+        //    var report = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(id);
+        //    if (report == null)
+        //    {
+        //        return RedirectToAction("AccountsMonthlyYearlyReports");
+        //    }
+
+        //    try
+        //    {
+        //        report.Status = "1";
+        //        _db.Entry(report).State = EntityState.Modified;
+        //        await _db.SaveChangesAsync();
+        //        _notyf.Success("Report successfully sent to D.G.M office");
+        //        return RedirectToAction("AccountsMonthlyYearlyReports");
+        //    }
+        //    catch (DbUpdateException /* ex */)
+        //    {
+        //        return RedirectToAction("AccountsMonthlyYearlyReports");
+        //    }
+        //}
 
     }
 }

@@ -333,6 +333,28 @@ namespace AJWManagementPortal.Areas.Account.Controllers
                 return RedirectToAction("DailyMonthlyYearlyAuditAccountsReportsListRepository");
             }
         }
+        public async Task<IActionResult> DeleteMeezanBankIncomeExpenseReport(int id)
+        {
+
+            var report = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(id);
+            if (report == null)
+            {
+                return RedirectToAction("DailyMonthlyYearlyAuditAccountsReportsListRepository");
+            }
+
+            try
+            {
+                report.DelProduction = 0;
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Deleted successfully");
+                return RedirectToAction("DailyMonthlyYearlyAuditAccountsReportsListRepository");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("DailyMonthlyYearlyAuditAccountsReportsListRepository");
+            }
+        }
 
 
 

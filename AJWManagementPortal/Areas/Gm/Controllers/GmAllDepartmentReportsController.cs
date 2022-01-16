@@ -32,7 +32,7 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
 
             var model = new GmAccountsDepartmentReportsListViewModel();
             var monthlyClosingReport = await(from a in _db.MonthlyClosingReports
-                                             where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) == 3))
+                                             where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) <= 4))
                                              select new MonthlyAcountReportsViewModel
                                              {
                                                  Id = a.Id,
@@ -41,7 +41,7 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
                                                  Title = "Monthly Accounts Report"
                                              }).ToListAsync();
             var meezanBankMonthlyIncomeExpenseReports = await(from a in _db.MeezanBankMonthlyIncomeExpenseReports
-                                                             where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) == 3))
+                                                             where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) <= 4))
                                                               select new MonthlyAcountReportsViewModel
                                                               {
                                                                   Id = a.Id,
@@ -349,26 +349,39 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
         }
         //------------------------------------------Management Staff Work Plan--------------------------
 
-        public async Task<IActionResult> SendMonthlyClosingReportToAccountOffice(int id)
+        public async Task<IActionResult> SendMonthlyClosingReportToAccountOffice(string remarks)
         {
-            var report = await _db.MonthlyClosingReports.FindAsync(id);
-            if (report == null)
+            var currentMonthlyReportData = (dynamic)null;
+            var currentMeezanBankIncomeExpenseReportData = (dynamic)null;
+            remarks = remarks.Replace("-", "/");
+            DateTime dateTime10 = DateTime.Parse(remarks);
+            var monthlyReportData = _db.MonthlyClosingReports.Where(i => i.ValueDate.Equals(dateTime10) && i.DelProduction != 0).FirstOrDefault();
+            if (monthlyReportData != null)
             {
-                return RedirectToAction("GmAccountsDepartmentReportsList");
-            }
+                monthlyReportData.Status = "4";
+                currentMonthlyReportData = await _db.MonthlyClosingReports.FindAsync(monthlyReportData.Id);
 
-            try
-            {
-                report.Status = "4";
-                _db.Entry(report).State = EntityState.Modified;
-                await _db.SaveChangesAsync();
-                _notyf.Success("Report successfully sent to Account office");
-                return RedirectToAction("GmAccountsDepartmentReportsList");
             }
-            catch (DbUpdateException /* ex */)
+            var meezanBankIncomeExpenseReportData = _db.MeezanBankMonthlyIncomeExpenseReports.Where(i => i.ValueDate.Equals(dateTime10) && i.DelProduction != 0).FirstOrDefault();
+            if (meezanBankIncomeExpenseReportData != null)
             {
-                return RedirectToAction("GmAccountsDepartmentReportsList");
+                meezanBankIncomeExpenseReportData.Status = "4";
+                currentMeezanBankIncomeExpenseReportData = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(meezanBankIncomeExpenseReportData.Id);
             }
+            if (currentMonthlyReportData != null)
+            {
+                _db.Entry(currentMonthlyReportData).CurrentValues.SetValues(monthlyReportData);
+
+            }
+            if (currentMeezanBankIncomeExpenseReportData != null)
+            {
+                _db.Entry(currentMeezanBankIncomeExpenseReportData).CurrentValues.SetValues(meezanBankIncomeExpenseReportData);
+
+            }
+            await _db.SaveChangesAsync();
+            _notyf.Success("Report successfully sent to Account office");
+            return RedirectToAction("GmAccountsDepartmentReportsList");
+
         }
         #region MONTHLY CLOSING REPORT
 
@@ -462,27 +475,27 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
                 return RedirectToAction("GmAccountsDepartmentReportsList");
             }
         }
-        public async Task<IActionResult> SendMeezanBankIncomeExpenseReportToAccountOffice(int id)
-        {
-            var report = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(id);
-            if (report == null)
-            {
-                return RedirectToAction("GmAccountsDepartmentReportsList");
-            }
+        //public async Task<IActionResult> SendMeezanBankIncomeExpenseReportToAccountOffice(int id)
+        //{
+        //    var report = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(id);
+        //    if (report == null)
+        //    {
+        //        return RedirectToAction("GmAccountsDepartmentReportsList");
+        //    }
 
-            try
-            {
-                report.Status = "4";
-                _db.Entry(report).State = EntityState.Modified;
-                await _db.SaveChangesAsync();
-                _notyf.Success("Report successfully sent to Account office");
-                return RedirectToAction("GmAccountsDepartmentReportsList");
-            }
-            catch (DbUpdateException /* ex */)
-            {
-                return RedirectToAction("GmAccountsDepartmentReportsList");
-            }
-        }
+        //    try
+        //    {
+        //        report.Status = "4";
+        //        _db.Entry(report).State = EntityState.Modified;
+        //        await _db.SaveChangesAsync();
+        //        _notyf.Success("Report successfully sent to Account office");
+        //        return RedirectToAction("GmAccountsDepartmentReportsList");
+        //    }
+        //    catch (DbUpdateException /* ex */)
+        //    {
+        //        return RedirectToAction("GmAccountsDepartmentReportsList");
+        //    }
+        //}
         #endregion
 
     }

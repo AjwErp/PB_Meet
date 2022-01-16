@@ -138,28 +138,28 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             }
             return RedirectToAction("AccountsErrorReportsList");
         }
-        public async Task<IActionResult> SendMonthlyClosingReportToDgmOffice(int id)
-        {
-            var report = await _db.MonthlyClosingReports.FindAsync(id);
-            if (report == null)
-            {
-                return RedirectToAction("AccountsErrorReportsList");
-            }
+        //public async Task<IActionResult> SendMonthlyClosingReportToDgmOffice(int id)
+        //{
+        //    var report = await _db.MonthlyClosingReports.FindAsync(id);
+        //    if (report == null)
+        //    {
+        //        return RedirectToAction("AccountsErrorReportsList");
+        //    }
 
-            try
-            {
-                report.Status = "1";
-                _db.Entry(report).State = EntityState.Modified;
-                await _db.SaveChangesAsync();
-                _notyf.Success("Report successfully sent to D.G.M office");
-                return RedirectToAction("AccountsErrorReportsList");
-            }
-            catch (DbUpdateException /* ex */)
-            {
-                return RedirectToAction("AccountsErrorReportsList");
-            }
+        //    try
+        //    {
+        //        report.Status = "1";
+        //        _db.Entry(report).State = EntityState.Modified;
+        //        await _db.SaveChangesAsync();
+        //        _notyf.Success("Report successfully sent to D.G.M office");
+        //        return RedirectToAction("AccountsErrorReportsList");
+        //    }
+        //    catch (DbUpdateException /* ex */)
+        //    {
+        //        return RedirectToAction("AccountsErrorReportsList");
+        //    }
            
-        }
+        //}
         public async Task<IActionResult> SendMeezanBankIncomeExpenseReportToAccountErrorList(int id)
         {
             var report = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(id);
@@ -304,6 +304,28 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         {
 
             var report = await _db.MonthlyClosingReports.FindAsync(id);
+            if (report == null)
+            {
+                return RedirectToAction("AccountsErrorReportsList");
+            }
+
+            try
+            {
+                report.DelProduction = 0;
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Deleted successfully");
+                return RedirectToAction("AccountsErrorReportsList");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("AccountsErrorReportsList");
+            }
+        }
+        public async Task<IActionResult> DeleteMeezanBankIncomeExpenseReport(int id)
+        {
+
+            var report = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(id);
             if (report == null)
             {
                 return RedirectToAction("AccountsErrorReportsList");

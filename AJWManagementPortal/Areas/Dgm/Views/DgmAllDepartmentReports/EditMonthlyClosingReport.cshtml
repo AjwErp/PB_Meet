@@ -15,7 +15,7 @@
 <body>
     <div class="container-fluid backgroundWhiteBorder10Padding">
         <div class="row">
-            <form class="col-sm-12" asp-area="Dgm" asp-controller="DgmAllDepartmentReports" asp-action="MonthlyClosingReportDgm">
+            <form class="col-sm-12" asp-area="Dgm" asp-controller="DgmAllDepartmentReports" asp-action="EditMonthlyClosingReport">
                 <input type="hidden" class="form-control" asp-for="@Model.DelProduction"value="@Model.DelProduction" name="DelProduction"/>
                 <input type="hidden"class="form-control"  asp-for="@Model.Year"value="@Model.Year" name="Year"/>
                 <input type="hidden"class="form-control"  asp-for="@Model.Month"value="@Model.Month" name="Month"/>
@@ -91,8 +91,6 @@
                                         <div class="dropdown-menu">
                                             <button type="submit" class="dropdown-item"><i class="fas fa-save"></i> @Localizer["Save File"]</button>
                                             <button type="reset" class="dropdown-item"><i class="fas fa-trash-restore"></i> @Localizer["Clear Sheet"]</button>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-user-edit"></i> @Localizer["Edit File"]</a>
-
                                         </div>
                                     </div>
                                 </td>
