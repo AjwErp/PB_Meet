@@ -16307,11 +16307,7 @@ E:\PB_Meet\AJWManagementPortal\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native
 E:\PB_Meet\AJWManagementPortal\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libgrpc_csharp_ext.x64.dylib
 E:\PB_Meet\AJWManagementPortal\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\grpc_csharp_ext.x64.dll
 E:\PB_Meet\AJWManagementPortal\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\grpc_csharp_ext.x86.dll
-E:\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\ErrorReports\MonthlyClosingReportAccountOfficeFromDgm.cshtml.g.cs
 E:\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\MonthlyAccountsReport\EditMonthlyClosingReport.cshtml.g.cs
-E:\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\Repository\MonthlyClosingReportAccountOfficeFromGm.cshtml.g.cs
-E:\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Dgm\Views\DgmAllDepartmentReports\MonthlyClosingReportDgm.cshtml.g.cs
-E:\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Gm\Views\GmAllDepartmentReports\MonthlyClosingReportGm.cshtml.g.cs
 E:\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\MonthlyAccountsReport\EditMeezanBankIncomeExpenseReport.cshtml.g.cs
 D:\Project Copy\AJWManagementPortal\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\Project Copy\AJWManagementPortal\bin\Debug\netcoreapp3.1\web.config
@@ -17635,3 +17631,11 @@ D:\Project Copy\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\
 D:\Project Copy\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\ErrorReports\EditMonthlyClosingReport.cshtml.g.cs
 D:\Project Copy\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\Repository\EditMeezanBankIncomeExpenseReport.cshtml.g.cs
 D:\Project Copy\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\Repository\EditMonthlyClosingReport.cshtml.g.cs
+E:\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\ErrorReports\EditMeezanBankIncomeExpenseReport.cshtml.g.cs
+E:\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\ErrorReports\EditMonthlyClosingReport.cshtml.g.cs
+E:\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\Repository\EditMeezanBankIncomeExpenseReport.cshtml.g.cs
+E:\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\Repository\EditMonthlyClosingReport.cshtml.g.cs
+E:\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Dgm\Views\DgmAllDepartmentReports\EditMeezanBankIncomeExpenseReport.cshtml.g.cs
+E:\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Dgm\Views\DgmAllDepartmentReports\EditMonthlyClosingReport.cshtml.g.cs
+E:\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Gm\Views\GmAllDepartmentReports\EditMeezanBankIncomeExpenseReport.cshtml.g.cs
+E:\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Gm\Views\GmAllDepartmentReports\EditMonthlyClosingReport.cshtml.g.cs
