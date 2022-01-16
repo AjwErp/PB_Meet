@@ -14,7 +14,7 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <form class="tabled backgroundWhiteBorder10Padding backgroundWhiteBorder" asp-action="MeezanBankIncomeExpenseMonthlyreport" asp-controller="MonthlyAccountsReport">
+            <form id="myForm" class="tabled backgroundWhiteBorder10Padding backgroundWhiteBorder" asp-action="MeezanBankIncomeExpenseMonthlyreport" asp-controller="MonthlyAccountsReport">
                 <div class="BackToList">
                     <a type="button" asp-action="AccountsMonthlyYearlyReports" asp-area="Account" asp-controller="AccountsMonthlyYearly" class="btn btn-primary btn-lg form-control"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
                 </div>
@@ -44,50 +44,50 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td colspan="2"><input type="text" id="debit" asp-for="InnuzalProjectBalance" class="form-control text-center sumBalance" /></td>
-                                <td colspan="5"> <textarea type="text" id="desc" asp-for="InnuzalProjectDesc" class="form-control textarea"></textarea></td>
+                                <td colspan="2"><input type="text" id="debit" asp-for="InnuzalProjectBalance" class="form-control text-center sumBalance clearInput" /></td>
+                                <td colspan="5"> <textarea type="text" id="desc" asp-for="InnuzalProjectDesc" class="form-control textarea clearInput"></textarea></td>
                                 <th colspan="3">@Localizer["Innuzal Project"]</th>
                                 <td>01</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="text" id="debit" asp-for="AccessorySaleBalance" class="form-control text-center sumBalance" /></td>
-                                <td colspan="5"><textarea type="text" id="desc" asp-for="AccessorySaleDesc" class="form-control textarea"></textarea></td>
+                                <td colspan="2"><input type="text" id="debit" asp-for="AccessorySaleBalance" class="form-control text-center sumBalance clearInput" /></td>
+                                <td colspan="5"><textarea type="text" id="desc" asp-for="AccessorySaleDesc" class="form-control textarea clearInput"></textarea></td>
                                 <th colspan="3">@Localizer["Accessory Sale"]</th>
                                 <td>02</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="text" id="debit" asp-for="StoreMaterialBalance" class="form-control text-center sumBalance" /></td>
-                                <td colspan="5"><textarea type="text" id="desc" asp-for="StoreMaterialDesc" class="form-control textarea"></textarea></td>
+                                <td colspan="2"><input type="text" id="debit" asp-for="StoreMaterialBalance" class="form-control text-center sumBalance clearInput" /></td>
+                                <td colspan="5"><textarea type="text" id="desc" asp-for="StoreMaterialDesc" class="form-control textarea clearInput"></textarea></td>
                                 <th colspan="3">@Localizer["Store Material"]</th>
                                 <td>03</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="text" id="debit" asp-for="ScrabSaleBalance" class="form-control text-center sumBalance" /></td>
-                                <td colspan="5"><textarea type="text" id="desc" asp-for="ScrabSaleDesc" class="form-control textarea"></textarea></td>
+                                <td colspan="2"><input type="text" id="debit" asp-for="ScrabSaleBalance" class="form-control text-center sumBalance clearInput" /></td>
+                                <td colspan="5"><textarea type="text" id="desc" asp-for="ScrabSaleDesc" class="form-control textarea clearInput"></textarea></td>
                                 <th colspan="3">@Localizer["Scrab Sale"]</th>
                                 <td>04</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="text" id="debit" asp-for="ReparningBalance" class="form-control text-center sumBalance" /></td>
-                                <td colspan="5"><textarea type="text" id="desc" asp-for="ReparningDesc" class="form-control textarea"></textarea></td>
+                                <td colspan="2"><input type="text" id="debit" asp-for="ReparningBalance" class="form-control text-center sumBalance clearInput" /></td>
+                                <td colspan="5"><textarea type="text" id="desc" asp-for="ReparningDesc" class="form-control textarea clearInput"></textarea></td>
                                 <th colspan="3">@Localizer["Reparning"]</th>
                                 <td>05</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="text" id="debit" asp-for="DifferentIncomeBalance" class="form-control text-center sumBalance" /></td>
-                                <td colspan="5"><textarea type="text" id="desc" asp-for="DifferentIncomeDesc" class="form-control textarea"></textarea></td>
+                                <td colspan="2"><input type="text" id="debit" asp-for="DifferentIncomeBalance" class="form-control text-center sumBalance clearInput" /></td>
+                                <td colspan="5"><textarea type="text" id="desc" asp-for="DifferentIncomeDesc" class="form-control textarea clearInput"></textarea></td>
                                 <th colspan="3">@Localizer["Different Income"]</th>
                                 <td>06</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="text" id="debit" asp-for="NoTitleBalance" class="form-control text-center sumBalance" /></td>
-                                <td colspan="5"><textarea type="text" id="desc" asp-for="NoTitleDesc" class="form-control textarea"></textarea></td>
+                                <td colspan="2"><input type="text" id="debit" asp-for="NoTitleBalance" class="form-control text-center sumBalance clearInput" /></td>
+                                <td colspan="5"><textarea type="text" id="desc" asp-for="NoTitleDesc" class="form-control textarea clearInput"></textarea></td>
                                 <td colspan="3"></td>
                                 <td>07</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="text" id="debit" asp-for="NoTitle2Balance" class="form-control text-center sumBalance" /></td>
-                                <td colspan="5"><textarea type="text" id="desc" asp-for="NoTitle2Desc" class="form-control textarea"></textarea></td>
+                                <td colspan="2"><input type="text" id="debit" asp-for="NoTitle2Balance" class="form-control text-center sumBalance clearInput" /></td>
+                                <td colspan="5"><textarea type="text" id="desc" asp-for="NoTitle2Desc" class="form-control textarea clearInput"></textarea></td>
                                 <td colspan="3"> </td>
                                 <td>08</td>
                             </tr>
@@ -105,7 +105,7 @@
                                 <th id="" colspan="3">@Localizer["Total Income"]</th>
                             </tr>
                             <tr id="total">
-                                <th colspan="8"><input type="text" id="inputTotalExpense" asp-for="TotalExpense" class="form-control text-center" /></th>
+                                <th colspan="8"><input type="text" id="inputTotalExpense" asp-for="TotalExpense" class="form-control text-center clearInput" /></th>
                                 <th id="" colspan="3">@Localizer["Total Expense"]</th>
                             </tr>
                             <tr id="total">
@@ -121,7 +121,7 @@
                                 <th class="" colspan="11">
                                     <input type="file" id="myFile" name="filename" multiple>
                                     <div id="dvImages">
-                                        @if (Model.Images != null &&  Model.Images.Count > 0)
+                                        @if (Model.Images != null && Model.Images.Count > 0)
                                         {
                                             @foreach (var item in Model.Images)
                                             {
@@ -143,11 +143,11 @@
                             <tr>
                                 <td colspan="4">
                                     @Localizer["Signature"]:
-                                    <input type="text" id="paidAmount" asp-for="SignAManager" class="form-control" />
+                                    <input type="text" id="paidAmount" asp-for="SignAManager" class="form-control clearInput" />
                                     <span class="text-danger" asp-validation-for="SignAManager"></span>
                                     <br />
                                     @Localizer["Remarks"]:
-                                    <input type="text" id="paidAmount" asp-for="AManagerRemarks" class="form-control" />
+                                    <input type="text" id="paidAmount" asp-for="AManagerRemarks" class="form-control clearInput" />
                                     <span class="text-danger" asp-validation-for="AManagerRemarks"></span>
                                 </td>
                                 <td colspan="3">
@@ -172,7 +172,7 @@
                                         </button>
                                         <div class="dropdown-menu">
                                             <button type="submit" class="dropdown-item" asp-area="Account"><i class="fas fa-save"></i> @Localizer["Save File"]</button>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore-alt"></i> @Localizer["Clear"]</a>
+                                            <button type="reset" onclick="ResetForm()" class="dropdown-item"><i class="fas fa-trash-restore"></i> @Localizer["Clear Sheet"]</button>
                                             <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-user-edit"></i> @Localizer["Edit File"]</a>
                                         </div>
                                     </div>
@@ -184,11 +184,11 @@
             </form>
         </div>
     </div>
- <div id="myModal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="img01">
-  <div id="caption"></div>
-</div>
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
 </body>
 <!-- back to top button-->
 <a id="button"></a>
@@ -263,22 +263,27 @@
         });
         var modal = document.getElementById('myModal');
 
-var img = document.getElementById('Myimg');
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-document.addEventListener("click", (e) => {
-  const elem = e.target;
-  if (elem.id==="Myimg") {
-    modal.style.display = "block";
-    modalImg.src = elem.dataset.biggerSrc || elem.src;
-    captionText.innerHTML = elem.alt; 
-  }
-})
-var span = document.getElementsByClassName("close")[0];
+        var img = document.getElementById('Myimg');
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        document.addEventListener("click", (e) => {
+            const elem = e.target;
+            if (elem.id === "Myimg") {
+                modal.style.display = "block";
+                modalImg.src = elem.dataset.biggerSrc || elem.src;
+                captionText.innerHTML = elem.alt;
+            }
+        })
+        var span = document.getElementsByClassName("close")[0];
 
-span.onclick = function() { 
-    modal.style.display = "none";
-}
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        ResetForm = function () {
+            $("#myForm")[0].reset()
+        }
+
     </script>
 }
 @*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
@@ -377,75 +382,76 @@ span.onclick = function() {
         text-align: center;
         color: black;
     }
-    
-#Myimg {
 
-border-radius: 5px;
-cursor: pointer;
-transition: 0.3s;
-}
+    #Myimg {
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-#Myimg:hover {opacity: 0.7;}
+        #Myimg:hover {
+            opacity: 0.7;
+        }
 
-/* The Modal (background) */
-.modal {
-display: none; /* Hidden by default */
-position: fixed; /* Stay in place */
-z-index: 1; /* Sit on top */
-padding-top: 100px; /* Location of the box */
-left: 0;
-top: 0;
-width: 100%; /* Full width */
-height: 100%; /* Full height */
-overflow: auto; /* Enable scroll if needed */
-background-color: rgb(0,0,0); /* Fallback color */
-background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-}
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    }
 
-/* Modal Content (image) */
-.modal-content {
-margin: auto;
-display: block;
-width: 80%;
-max-width: 700px;
-}
+    /* Modal Content (image) */
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+    }
 
-/* Caption of Modal Image */
-#caption {
-margin: auto;
-display: block;
-width: 80%;
-max-width: 700px;
-text-align: center;
-color: #ccc;
-padding: 10px 0;
-height: 150px;
-}
+    /* Caption of Modal Image */
+    #caption {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        text-align: center;
+        color: #ccc;
+        padding: 10px 0;
+        height: 150px;
+    }
 
-/* Add Animation */
-.modal-content, #caption {  
--webkit-animation-name: zoom;
--webkit-animation-duration: 0.6s;
-animation-name: zoom;
-animation-duration: 0.6s;
-}
+    /* Add Animation */
+    .modal-content, #caption {
+        -webkit-animation-name: zoom;
+        -webkit-animation-duration: 0.6s;
+        animation-name: zoom;
+        animation-duration: 0.6s;
+    }
 
-/* The Close Button */
-.close {
-position: absolute;
-top: 15px;
-right: 35px;
-color: #f1f1f1;
-font-size: 40px;
-font-weight: bold;
-transition: 0.3s;
-}
+    /* The Close Button */
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
 
-.close:hover,
-.close:focus {
-color: #bbb;
-text-decoration: none;
-cursor: pointer;
-}
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
 </style>
 @*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@
