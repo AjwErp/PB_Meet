@@ -32,7 +32,7 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
 
             var model = new GmAccountsDepartmentReportsListViewModel();
             var monthlyClosingReport = await(from a in _db.MonthlyClosingReports
-                                             where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) <= 4))
+                                             where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) > 1) && (Convert.ToInt32(a.Status) <= 4))
                                              select new MonthlyAcountReportsViewModel
                                              {
                                                  Id = a.Id,
@@ -41,7 +41,7 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
                                                  Title = "Monthly Accounts Report"
                                              }).ToListAsync();
             var meezanBankMonthlyIncomeExpenseReports = await(from a in _db.MeezanBankMonthlyIncomeExpenseReports
-                                                             where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) <= 4))
+                                                             where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) > 1) && (Convert.ToInt32(a.Status) <= 4))
                                                               select new MonthlyAcountReportsViewModel
                                                               {
                                                                   Id = a.Id,

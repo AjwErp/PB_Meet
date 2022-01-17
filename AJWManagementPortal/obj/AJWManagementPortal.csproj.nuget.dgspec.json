@@ -1,27 +1,17 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "E:\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
-=======
-    "D:\\New Project\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
->>>>>>> ae21790d0e9159d95da49fe862e3bcab2ca27c1a
+    "D:\\FinalProject\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
   },
   "projects": {
-    "D:\\New Project\\AJWManagementPortal\\AJWManagementPortal.csproj": {
+    "D:\\FinalProject\\AJWManagementPortal\\AJWManagementPortal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\New Project\\AJWManagementPortal\\AJWManagementPortal.csproj",
+        "projectUniqueName": "D:\\FinalProject\\AJWManagementPortal\\AJWManagementPortal.csproj",
         "projectName": "AJWManagementPortal",
-<<<<<<< HEAD
-        "projectPath": "E:\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
-        "packagesPath": "C:\\Users\\Salik\\.nuget\\packages\\",
-        "outputPath": "E:\\PB_Meet\\AJWManagementPortal\\obj\\",
-=======
-        "projectPath": "D:\\New Project\\AJWManagementPortal\\AJWManagementPortal.csproj",
+        "projectPath": "D:\\FinalProject\\AJWManagementPortal\\AJWManagementPortal.csproj",
         "packagesPath": "C:\\Users\\Chishti-Laptop\\.nuget\\packages\\",
-        "outputPath": "D:\\New Project\\AJWManagementPortal\\obj\\",
->>>>>>> ae21790d0e9159d95da49fe862e3bcab2ca27c1a
+        "outputPath": "D:\\FinalProject\\AJWManagementPortal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Chishti-Laptop\\AppData\\Roaming\\NuGet\\NuGet.Config",
