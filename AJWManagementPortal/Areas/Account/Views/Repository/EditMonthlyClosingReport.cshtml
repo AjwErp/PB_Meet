@@ -16,7 +16,7 @@
     <div class="container-fluid backgroundWhiteBorder10Padding">
         <div class="row">
             <form class="col-sm-12" asp-area="Account" asp-controller="Repository" asp-action="EditMonthlyClosingReport">
-              
+
                 <div class="BackToList">
                     <a type="button" asp-action="DailyMonthlyYearlyAuditAccountsReportsListRepository" asp-area="Account" asp-controller="Repository" class="btn btn-primary btn-lg form-control"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
                 </div>
@@ -24,13 +24,17 @@
                     <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
                 </div>
                 @*main table*@
-                <div class="table-responsive">
+
+            <div class="table-responsive">
+                <div id="Grid">
+
                     <table class="table table-bordered table-hover table-condensed table-sm SubH">
                         <thead>
                             <tr class="">
                                 <th colspan="3"><img src="~/Image/1.png" alt="Image" /></th>
                             </tr>
                         </thead>
+
                         <tbody>
                             <tr></tr>
                             <tr></tr>
@@ -40,8 +44,9 @@
                                         Monthly Closing Report For the Month Of
 
                                         <input asp-for="ValueDate" readonly class="form-control fa-align-center text-center text-warning" />
-@*                                        <span class="text-danger" asp-validation-for="ValueDate"></span>
-*@                                    </h1>
+                                        @*                                        <span class="text-danger" asp-validation-for="ValueDate"></span>
+                                        *@
+                                    </h1>
                                 </td>
                             </tr>
                             <tr>
@@ -58,25 +63,26 @@
                             <tr>
                                 <td>
                                     @Localizer["Signature"]:
-                                    <input id="" asp-for="SignAManager" readonly class="form-control" value="@Model.SignAManager"  />
-@*                                    <span class="text-danger" asp-validation-for="SignAManager"></span><br />
-*@                                    @Localizer["Remarks"]:
-                                    <input type="text" id="" asp-for="AManagerRemarks" readonly class="form-control" value="@Model.AManagerRemarks"/>
-@*                                    <span class="text-danger" asp-validation-for="AManagerRemarks"></span>
-*@                                </td>
-                                <td>
-                                    @Localizer["Signature"]:
-                                    <input type="text" id="" asp-for="SignDgm"  readonly class="form-control" value="@Model.SignDgm" />
-@*                                    <span class="text-danger" asp-validation-for="SignDgm"></span><br />
-*@
-                                    @Localizer["Remarks"]:
-                                    <input type="text" id="" asp-for="DgmRemarks"  readonly class="form-control" value="@Model.DgmRemarks" />
-@*                                    <span class="text-danger" asp-validation-for="DgmRemarks"></span><br />
-*@
+                                    <input id="" asp-for="SignAManager" class="form-control" value="@Model.SignAManager" />
+                                    @*                                    <span class="text-danger" asp-validation-for="SignAManager"></span><br />
+                                    *@                                    @Localizer["Remarks"]:
+                                    <input type="text" id="" asp-for="AManagerRemarks" class="form-control" value="@Model.AManagerRemarks" />
+                                    @*                                    <span class="text-danger" asp-validation-for="AManagerRemarks"></span>
+                                    *@
                                 </td>
                                 <td>
                                     @Localizer["Signature"]:
-                                    <input type="text" id="" asp-for="SignGM" readonly class="form-control" value="@Model.SignGM"  />
+                                    <input type="text" id="" asp-for="SignDgm" readonly class="form-control" value="@Model.SignDgm" />
+                                    @*                                    <span class="text-danger" asp-validation-for="SignDgm"></span><br />
+                                    *@
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="" asp-for="DgmRemarks" readonly class="form-control" value="@Model.DgmRemarks" />
+                                    @*                                    <span class="text-danger" asp-validation-for="DgmRemarks"></span><br />
+                                    *@
+                                </td>
+                                <td>
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="" asp-for="SignGM" readonly class="form-control" value="@Model.SignGM" />
 
                                     @Localizer["Remarks"]:
                                     <input type="text" id="" asp-for="GMRemarks" readonly class="form-control" value="@Model.GMRemarks" />
@@ -84,24 +90,31 @@
                                 </td>
                             </tr>
                             @*sign table end here*@
-                           @* <tr>
-                                <td colspan="3">
-                                    <div class="btn-group">
-                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            @Localizer["Action"]
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <button type="submit" class="dropdown-item"><i class="fas fa-save"></i> @Localizer["Save File"]</button>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore"></i> @Localizer["Clear Sheet"]</a>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-user-edit"></i> @Localizer["Edit File"]</a>
+                            @* <tr>
+                        <td colspan="3">
+                            <div class="btn-group">
+                                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    @Localizer["Action"]
+                                </button>
+                                <div class="dropdown-menu">
+                                    <button type="submit" class="dropdown-item"><i class="fas fa-save"></i> @Localizer["Save File"]</button>
+                                    <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore"></i> @Localizer["Clear Sheet"]</a>
+                                    <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-user-edit"></i> @Localizer["Edit File"]</a>
 
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>*@
+                                </div>
+                            </div>
+                        </td>
+                    </tr>*@
                         </tbody>
+
                     </table>
                 </div>
+
+            </div>
+            </form>
+            <form asp-action="Export" asp-controller="Repository" method="post">
+                <input type="hidden" name="MonthlyReport" />
+                <input type="submit" value="Download" class="btnSubmit btn-success" />
             </form>
         </div>
     </div>
@@ -114,7 +127,12 @@
 
 @*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
 @section Scripts{
-    <script>
+    <script type="text/javascript">
+        $(function () {
+            $(".btnSubmit").click(function () {
+                $("input[name='MonthlyReport']").val($("#Grid").html());
+            });
+        });
     </script>
 }
 @*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
