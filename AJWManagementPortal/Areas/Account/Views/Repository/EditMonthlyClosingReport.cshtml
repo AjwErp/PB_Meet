@@ -63,10 +63,10 @@
                             <tr>
                                 <td>
                                     @Localizer["Signature"]:
-                                    <input id="" asp-for="SignAManager" class="form-control" value="@Model.SignAManager" />
+                                    <input id="" asp-for="SignAManager" readonly class="form-control" value="@Model.SignAManager" />
                                     @*                                    <span class="text-danger" asp-validation-for="SignAManager"></span><br />
                                     *@                                    @Localizer["Remarks"]:
-                                    <input type="text" id="" asp-for="AManagerRemarks" class="form-control" value="@Model.AManagerRemarks" />
+                                    <input type="text" id="" readonly asp-for="AManagerRemarks" class="form-control" value="@Model.AManagerRemarks" />
                                     @*                                    <span class="text-danger" asp-validation-for="AManagerRemarks"></span>
                                     *@
                                 </td>
