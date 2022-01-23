@@ -11,7 +11,6 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-AJWManagementPortal-EC09667F-3518-4B07-A386-2A369A59426B")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("AJWManagementPortal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
