@@ -5,8 +5,10 @@ using AJWManagementPortal.ViewModels;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using DinkToPdf;
 using DinkToPdf.Contracts;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SautinSoft.Document;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,16 +24,20 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         private IConverter _converter;
         private readonly ApplicationDbContext _db;
         private readonly INotyfService _notyf;
+        private IHostingEnvironment Environment;
+
 
         //private readonly IWebHostEnvironment _iwebhost;
         //IWebHostEnvironment iwebhost
         //                _iwebhost = iwebhost;
 
-        public RepositoryController(ApplicationDbContext db, IConverter converter, INotyfService notyf)
+        public RepositoryController(ApplicationDbContext db, IConverter converter, INotyfService notyf, IHostingEnvironment _environment)
         {
             _db = db;
             _converter = converter;
             _notyf = notyf;
+            Environment = _environment;
+
 
 
         }
@@ -268,7 +274,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             var globalSettings = new GlobalSettings
             {
                 ColorMode = ColorMode.Color,
-                Orientation = Orientation.Portrait,
+                Orientation = DinkToPdf.Orientation.Portrait,
                 PaperSize = PaperKind.A4,
                 Margins = new MarginSettings { Top = 10 },
                 DocumentTitle = "PDF Report",
@@ -354,6 +360,26 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             {
                 return RedirectToAction("DailyMonthlyYearlyAuditAccountsReportsListRepository");
             }
+        }
+        [HttpPost]
+        public IActionResult Export(string MonthlyReport)
+        {
+            string path = Path.Combine(this.Environment.WebRootPath, "HTML");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            string input = Path.Combine(path, "html1.html");
+            string output = Path.Combine(path, "MonthlyReport.docx");
+            System.IO.File.WriteAllText(input, MonthlyReport);
+            DocumentCore documentCore = DocumentCore.Load(input);
+            documentCore.Save(output);
+            byte[] bytes = System.IO.File.ReadAllBytes(output);
+
+            Directory.Delete(path, true);
+
+            return File(bytes, "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "MonthlyReport.docx");
         }
 
 
