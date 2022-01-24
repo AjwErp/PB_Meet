@@ -1,41 +1,23 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "E:\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
+    "E:\\Projects\\Freelancing Projects\\Saqib (Pakistan)\\PB_Meet\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
   },
   "projects": {
-    "E:\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {
+    "E:\\Projects\\Freelancing Projects\\Saqib (Pakistan)\\PB_Meet\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
+        "projectUniqueName": "E:\\Projects\\Freelancing Projects\\Saqib (Pakistan)\\PB_Meet\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
         "projectName": "AJWManagementPortal",
-        "projectPath": "E:\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
-        "packagesPath": "C:\\Users\\Salik\\.nuget\\packages\\",
-        "outputPath": "E:\\PB_Meet\\AJWManagementPortal\\obj\\",
-=======
-    "C:\\Users\\shabahat.ali\\source\\repos\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\shabahat.ali\\source\\repos\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\shabahat.ali\\source\\repos\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
-        "projectName": "AJWManagementPortal",
-        "projectPath": "C:\\Users\\shabahat.ali\\source\\repos\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
-        "packagesPath": "C:\\Users\\shabahat.ali\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\shabahat.ali\\source\\repos\\PB_Meet\\AJWManagementPortal\\obj\\",
->>>>>>> 93096072432d40920c8e9827977cd7a60e397997
+        "projectPath": "E:\\Projects\\Freelancing Projects\\Saqib (Pakistan)\\PB_Meet\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
+        "packagesPath": "C:\\Users\\YOUSUF RAKIB\\.nuget\\packages\\",
+        "outputPath": "E:\\Projects\\Freelancing Projects\\Saqib (Pakistan)\\PB_Meet\\PB_Meet\\AJWManagementPortal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\Salik\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-          "C:\\Users\\shabahat.ali\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 93096072432d40920c8e9827977cd7a60e397997
+          "C:\\Users\\YOUSUF RAKIB\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -162,11 +144,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
-=======
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
->>>>>>> 93096072432d40920c8e9827977cd7a60e397997
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

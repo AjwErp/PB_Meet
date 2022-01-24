@@ -25,6 +25,8 @@ namespace AJWManagementPortal.Data
         public DbSet<DailyPlanOut> DailyPlanOut { get; set; }
         public DbSet<DailyPlanInAccounts> DailyPlanInAccountss { get; set; }
         public DbSet<DailyPlanOutAccounts> DailyPlanOutAccountss { get; set; }
+        public DbSet<MonthlyGeneralLedgerBook> MonthlyGeneralLedgerBook { get; set; }
+        public DbSet<YearlyGeneralLedgerBook> YearlyGeneralLedgerBook { get; set; }
         public DbSet<Img> Img { get; set; }
         public DbSet<AccountDailyContinueSheetM> DailyContinueSheetMs { get; set; }
         public DbSet<aDailyCash> aDailyCashes { get; set; }

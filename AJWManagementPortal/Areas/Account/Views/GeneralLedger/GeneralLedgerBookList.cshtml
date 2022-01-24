@@ -1,4 +1,5 @@
-﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+﻿@model AJWManagementPortal.Models.ViewModels.GeneralLedgerBookListViewModel
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 @{
     ViewData["Title"] = "GeneralLedgerBookList";
@@ -18,44 +19,44 @@
             @*----------start-----general ledger  report lisst------------------*@
             <form class="col-sm-12">
                 @*<hr />
-                <div class="col-sm-12 Createbtn">
-                    <a type="button" class="btn btn-primary" asp-area="Account" asp-controller="GeneralLedger" asp-action="DailyGeneralLedgerBook"><i class="fas fa-plus"> @Localizer["Create New Daily Industry Internal Account-General Ledger"]</i> </a>
-                </div>
-                <br />
-                <div class="col-sm-12 text-center">
-                    <a class="titleAccountofficeReport" colspan="10">@Localizer["Daily Industry Internal Account-General Ledger-Account Office"]</a>
-                </div>
-                <br />
-                <table class="table table-bordered SubH" id="DGLBook">
-                    <thead>
-                        <tr class="Subhdr SubH">
-                            <th>@Localizer["Action"] </th>
-                            <th>@Localizer["Date"]</th>
-                            <th>@Localizer["Title"]</th>
-                            <th>@Localizer["ID#"]</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="SubH">
-                            <td class="actionbtn">
-                                <div class="btn-group">
-                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        @Localizer["Action"]
-                                    </button>
-                                    <div class="dropdown-menu ">
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["View"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["Edit"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Send To D.G.M"]</a>
+                    <div class="col-sm-12 Createbtn">
+                        <a type="button" class="btn btn-primary" asp-area="Account" asp-controller="GeneralLedger" asp-action="DailyGeneralLedgerBook"><i class="fas fa-plus"> @Localizer["Create New Daily Industry Internal Account-General Ledger"]</i> </a>
+                    </div>
+                    <br />
+                    <div class="col-sm-12 text-center">
+                        <a class="titleAccountofficeReport" colspan="10">@Localizer["Daily Industry Internal Account-General Ledger-Account Office"]</a>
+                    </div>
+                    <br />
+                    <table class="table table-bordered SubH" id="DGLBook">
+                        <thead>
+                            <tr class="Subhdr SubH">
+                                <th>@Localizer["Action"] </th>
+                                <th>@Localizer["Date"]</th>
+                                <th>@Localizer["Title"]</th>
+                                <th>@Localizer["ID#"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="SubH">
+                                <td class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu ">
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["View"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["Edit"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Send To D.G.M"]</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td>@Localizer["Daily Industry Internal Account-General Ledger"] </td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>*@
+                                </td>
+                                <td></td>
+                                <td>@Localizer["Daily Industry Internal Account-General Ledger"] </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>*@
 
                 @*------------------------ended---------------------------- Table for Daily GeneralLedgerBook List----------------------------------------------------------*@
                 @*------------------------start---------------------------- Table for Monthly GeneralLedgerBook List----------------------------------------------------------*@
@@ -71,31 +72,34 @@
                 <table class="table table-bordered" id="MGLBook">
                     <thead>
                         <tr class="Subhdr SubH">
+                            <th>@Localizer["ID#"]</th>
                             <th>@Localizer["Action"] </th>
                             <th>@Localizer["Date"]</th>
                             <th>@Localizer["Title"]</th>
-                            <th>@Localizer["ID#"]</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="SubH">
-                            <td class="actionbtn">
-                                <div class="btn-group">
-                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        @Localizer["Action"]
-                                    </button>
-                                    <div class="dropdown-menu ">
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["View"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["Edit"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Send To D.G.M"]</a>
+                        @foreach (var item in Model.MonthlyGeneralLedgerBooks)
+                        {
+                            <tr>
+                                <td class="text-center" scope="col">@item.DailyCashId</td>
+                                <td class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="DailyGeneralLedgerReport" asp-route-Id="@item.DailyCashDate.ToString("yyyy-MM-dd")" asp-route-hide="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                            <a class="dropdown-item" asp-action="DailyGeneralLedgerReport" asp-route-Id="@item.DailyCashDate.ToString("yyyy-MM-dd")" asp-route-hide="false"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                            <a class="dropdown-item" asp-action="DeleteSheet" asp-route-remarks="@item.DailyCashDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                            <a class="dropdown-item " asp-action="" asp-route-remarks="" asp-route-redirect=""><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td>@Localizer["Monthly Industry Internal Account-General Ledger"] </td>
-                            <td></td>
-                        </tr>
+                                </td>
+                                <td class="text-center" scope="col">@item.DailyCashDate </td>
+                                <td class="text-center" scope="col">Monthly Industry Internal Account-General Ledger report</td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
                 @*------------------------ended---------------------------- Table for Monthly GeneralLedgerBook List----------------------------------------------------------*@
@@ -112,31 +116,35 @@
                 <table class="table table-bordered" id="YGLBook">
                     <thead>
                         <tr class="Subhdr SubH">
+                            <th>@Localizer["ID#"]</th>
                             <th>@Localizer["Action"] </th>
                             <th>@Localizer["Date"]</th>
                             <th>@Localizer["Title"]</th>
-                            <th>@Localizer["ID#"]</th>
                         </tr>
                     </thead>
+
                     <tbody>
-                        <tr class="SubH">
-                            <td class="actionbtn">
-                                <div class="btn-group">
-                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        @Localizer["Action"]
-                                    </button>
-                                    <div class="dropdown-menu ">
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["View"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["Edit"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Send To D.G.M"]</a>
+                        @foreach (var item in Model.YearlyGeneralLedgerBooks)
+                        {
+                            <tr>
+                                <td class="text-center" scope="col">@item.DailyCashId</td>
+                                <td class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="DailyGeneralLedgerReport" asp-route-Id="@item.DailyCashDate.ToString("yyyy-MM-dd")" asp-route-hide="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                            <a class="dropdown-item" asp-action="DailyGeneralLedgerReport" asp-route-Id="@item.DailyCashDate.ToString("yyyy-MM-dd")" asp-route-hide="false"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                            <a class="dropdown-item" asp-action="DeleteSheet" asp-route-remarks="@item.DailyCashDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                            <a class="dropdown-item " asp-action="" asp-route-remarks="" asp-route-redirect=""><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td>@Localizer["Yearly Industry Internal Account-General Ledger"] </td>
-                            <td></td>
-                        </tr>
+                                </td>
+                                <td class="text-center" scope="col">@item.DailyCashDate </td>
+                                <td class="text-center" scope="col">Yearly Industry Internal Account-General Ledger report</td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
                 @*------------------------ended---------------------------- Table for Yearly GeneralLedgerBook List----------------------------------------------------------*@
@@ -164,11 +172,11 @@
             });
         });
 
-    $(document).ready(function () {
-    $('#YGLBook').DataTable({
-    "sPaginationType": "full_numbers"
-    });
-    });
+        $(document).ready(function () {
+            $('#YGLBook').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
     </script>
 }
 @*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
@@ -180,6 +188,7 @@
     body {
         font-family: 'Jameel Noori Nastaleeq';
     }
+
     body {
         font: 90%/1.45em "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, sans-serif;
         margin: 0;
@@ -206,6 +215,7 @@
         margin-bottom: 30px;
         border: 1px solid #ddd;
     }
+
     .backgroundWhiteBorder10Padding {
         background-color: white;
         padding: 10px;
@@ -237,6 +247,7 @@
         table-layout: fixed;
         width: 100%
     }
+
     .Subhdr {
         color: white;
         text-align: center;
