@@ -89,40 +89,7 @@
                         </tbody>
                     </table>
                 }
-                @*<hr />
-        <div class="col-sm-12 text-center">
-            <a class="titleDmsofficeReport" scope="col" id="MP" colspan="10">@Localizer["Ajw Management Staff Working Plan File List"]</a>
-        </div>
-        <br />
-        <table class="table table-bordered" id="MSWPList">
-            <thead>
-                <tr class="Subhdr SubH">
-                    <th>@Localizer["Action"] </th>
-                    <th>@Localizer["Date"]</th>
-                    <th>@Localizer["Title"]</th>
-                    <th>@Localizer["ID#"]</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="SubH">
-                    <td class="actionbtn">
-                        <div class="btn-group">
-                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                @Localizer["Action"]
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
-                                <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
-                                <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-file-download"></i> @Localizer["Download"]</a>
-                            </div>
-                        </div>
-                    </td>
-                    <td></td>
-                    <td>@Localizer["Ajw Management Staff Working Plan"] </td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>*@
+               
 
 
                 @*------------------------------------*@
@@ -131,12 +98,12 @@
                     <a class="titleDmsofficeReport" scope="col" id="TP" colspan="10">@Localizer["Ajw Technical Staff Working Plan File List"]</a>
                 </div>
                 <br />
-                @*@if (Model.ProductionFilesOnDatabaseDms.Count == 0)
+                @if (Model.ProductionFilesOnDatabaseDms.Count == 0)
                 {
                     <p>System Message :No Technical Staff Work Plan File Exist....</p>
                 }
                 else
-                {*@
+                {
                     <table class="table table-bordered" id="MSWPList">
                         <thead>
                             <tr class="Subhdr SubH">
@@ -178,7 +145,7 @@
                             }
                         </tbody>
                     </table>
-                @*}*@
+                }
 
                 @*------------------------------------*@
                 <hr />

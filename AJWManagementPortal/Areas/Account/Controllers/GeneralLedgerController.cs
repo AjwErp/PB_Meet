@@ -40,7 +40,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //GET 1 - for General Ledger List ended
         //POST 1- for General ledger Report List
         //POST 1- for General ledger Report List ended
-     
+
         public IActionResult DailyGeneralLedgerBook()
         {
             return View();

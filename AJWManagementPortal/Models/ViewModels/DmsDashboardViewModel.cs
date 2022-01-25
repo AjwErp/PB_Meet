@@ -11,5 +11,7 @@ namespace AJWManagementPortal.Models
        public int Hrmlength;
        public int Accountslength;
        public int Productionlength;
+       public int ProductionMlength;
+       public int Storelength;
     }
 }

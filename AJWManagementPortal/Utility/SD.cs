@@ -17,5 +17,6 @@ namespace AJWManagementPortal.Utility
         public const string Production = "Production";
         public const string Hrm = "HRM";
         public const string Dms = "D.M.S";
+        public const string Store = "Store";
     }
 }

@@ -1,9 +1,6 @@
 ﻿using AJWManagementPortal.Data;
 using AJWManagementPortal.Models;
-using AJWManagementPortal.ViewModels;
-using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,41 +13,14 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
     public class GmAllDepartmentReportsController : Controller
     { //here we create constrauctor of DB class
         private readonly ApplicationDbContext _db;
-        private readonly INotyfService _notyf;
-
-        public GmAllDepartmentReportsController(ApplicationDbContext db ,INotyfService notyf)
+        public GmAllDepartmentReportsController(ApplicationDbContext db)
         {
             _db = db;
-            _notyf = notyf;
         }
         //GET--Start---gm---GmAccountsDepartmentReportsList----
-        public async Task<IActionResult> GmAccountsDepartmentReportsList()
+        public IActionResult GmAccountsDepartmentReportsList()
         {
-            //var model = new GmAccountsDepartmentReportsListViewModel();
-            //model.MonthlyClosingReport = _db.MonthlyClosingReports.Where(i => i.DelProduction != 0 && (Convert.ToInt32(i.Status) == 3)).ToList();
-            //return View(model);
-
-            var model = new GmAccountsDepartmentReportsListViewModel();
-            var monthlyClosingReport = await(from a in _db.MonthlyClosingReports
-                                             where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) > 1) && (Convert.ToInt32(a.Status) <= 4))
-                                             select new MonthlyAcountReportsViewModel
-                                             {
-                                                 Id = a.Id,
-                                                 Date = a.ValueDate,
-                                                 IsMonthlyClosingReportGm = true,
-                                                 Title = "Monthly Accounts Report"
-                                             }).ToListAsync();
-            var meezanBankMonthlyIncomeExpenseReports = await(from a in _db.MeezanBankMonthlyIncomeExpenseReports
-                                                             where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) > 1) && (Convert.ToInt32(a.Status) <= 4))
-                                                              select new MonthlyAcountReportsViewModel
-                                                              {
-                                                                  Id = a.Id,
-                                                                  Date = a.ValueDate,
-                                                                  IsMeezanBankIncomeExpenseReportGm = true,
-                                                                  Title = "Meezan Bank Monthly Income/Expence Report"
-                                                              }).ToListAsync();
-            model.MonthlyAcountReportsViewModel = monthlyClosingReport.Union(meezanBankMonthlyIncomeExpenseReports).OrderBy(x => x.Date);
-            return View(model);
+            return View();
         }
         //GET--Ended---gm---GmAccountsDepartmentReportsList----
         //POST--Start--gm----GmAccountsDepartmentReportsList----
@@ -348,160 +318,5 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
 
         }
         //------------------------------------------Management Staff Work Plan--------------------------
-
-        public async Task<IActionResult> SendMonthlyClosingReportToAccountOffice(string remarks)
-        {
-            var currentMonthlyReportData = (dynamic)null;
-            var currentMeezanBankIncomeExpenseReportData = (dynamic)null;
-            remarks = remarks.Replace("-", "/");
-            DateTime dateTime10 = DateTime.Parse(remarks);
-            var monthlyReportData = _db.MonthlyClosingReports.Where(i => i.ValueDate.Equals(dateTime10) && i.DelProduction != 0).FirstOrDefault();
-            if (monthlyReportData != null)
-            {
-                monthlyReportData.Status = "4";
-                currentMonthlyReportData = await _db.MonthlyClosingReports.FindAsync(monthlyReportData.Id);
-
-            }
-            var meezanBankIncomeExpenseReportData = _db.MeezanBankMonthlyIncomeExpenseReports.Where(i => i.ValueDate.Equals(dateTime10) && i.DelProduction != 0).FirstOrDefault();
-            if (meezanBankIncomeExpenseReportData != null)
-            {
-                meezanBankIncomeExpenseReportData.Status = "4";
-                currentMeezanBankIncomeExpenseReportData = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(meezanBankIncomeExpenseReportData.Id);
-            }
-            if (currentMonthlyReportData != null)
-            {
-                _db.Entry(currentMonthlyReportData).CurrentValues.SetValues(monthlyReportData);
-
-            }
-            if (currentMeezanBankIncomeExpenseReportData != null)
-            {
-                _db.Entry(currentMeezanBankIncomeExpenseReportData).CurrentValues.SetValues(meezanBankIncomeExpenseReportData);
-
-            }
-            await _db.SaveChangesAsync();
-            _notyf.Success("Report successfully sent to Account office");
-            return RedirectToAction("GmAccountsDepartmentReportsList");
-
-        }
-        #region MONTHLY CLOSING REPORT
-
-        public IActionResult EditMonthlyClosingReport(int id, bool IsEdit)
-        {
-            //var model = new MonthlyClosingReport
-            //{
-            //    ValueDate = System.Convert.ToDateTime(DateTime.Now.ToString("MM-dd-yyyy"))
-            //};
-            var model = _db.MonthlyClosingReports.Where(x => x.Id == id).FirstOrDefault();
-            ViewBag.EditStatus = IsEdit;
-            return View(model);
-        }
-        [HttpPost]
-        public ActionResult EditMonthlyClosingReport(MonthlyClosingReport model)
-        {
-            if (!ModelState.IsValid)
-                return View(model);
-            _db.Entry(model).State = EntityState.Modified;
-            _db.SaveChanges();
-            _notyf.Success("Edited successfully");
-            return RedirectToAction("GmAccountsDepartmentReportsList");
-        }
-
-        public async Task<IActionResult> DeleteMonthlyClosingReport(int id)
-        {
-
-            var report = await _db.MonthlyClosingReports.FindAsync(id);
-            if (report == null)
-            {
-                return RedirectToAction("GmAccountsDepartmentReportsList");
-            }
-
-            try
-            {
-                report.DelProduction = 0;
-                _db.Entry(report).State = EntityState.Modified;
-                await _db.SaveChangesAsync();
-                _notyf.Success("Deleted successfully");
-                return RedirectToAction("GmAccountsDepartmentReportsList");
-            }
-            catch (DbUpdateException /* ex */)
-            {
-                return RedirectToAction("GmAccountsDepartmentReportsList");
-            }
-        }
-        #endregion
-
-        #region MEEZAN BANK INCOME/EXPENCE REPORT
-        public IActionResult EditMeezanBankIncomeExpenseReport(int id, bool IsEdit)
-        {
-            var model = _db.MeezanBankMonthlyIncomeExpenseReports.Where(x => x.Id == id).FirstOrDefault();
-            if (model != null)
-            {
-                model.Images = _db.MeezanBankMonthlyIncomeExpenseReportImages.Where(x => x.MeezanBankMonthlyIncomeExpenseReportId == model.Id).
-                    Select(x => x.Filepath).ToList();
-            }
-            ViewBag.EditStatus = IsEdit;
-            return View(model);
-        }
-        [HttpPost]
-        public ActionResult EditMeezanBankIncomeExpenseReport(MeezanBankMonthlyIncomeExpenseReport model)
-        {
-            if (!ModelState.IsValid)
-                return View(model);
-            _db.Entry(model).State = EntityState.Modified;
-            _db.SaveChanges();
-            _notyf.Success("Edited successfully");
-
-            return RedirectToAction("GmAccountsDepartmentReportsList");
-        }
-        public async Task<IActionResult> DeleteMeezanBankIncomeExpenseReport(int id)
-        {
-
-            var report = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(id);
-            if (report == null)
-            {
-                return RedirectToAction("GmAccountsDepartmentReportsList");
-            }
-
-            try
-            {
-                report.DelProduction = 0;
-                _db.Entry(report).State = EntityState.Modified;
-                await _db.SaveChangesAsync();
-                _notyf.Success("Deleted successfully");
-                return RedirectToAction("GmAccountsDepartmentReportsList");
-            }
-            catch (DbUpdateException /* ex */)
-            {
-                return RedirectToAction("GmAccountsDepartmentReportsList");
-            }
-        }
-        //public async Task<IActionResult> SendMeezanBankIncomeExpenseReportToAccountOffice(int id)
-        //{
-        //    var report = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(id);
-        //    if (report == null)
-        //    {
-        //        return RedirectToAction("GmAccountsDepartmentReportsList");
-        //    }
-
-        //    try
-        //    {
-        //        report.Status = "4";
-        //        _db.Entry(report).State = EntityState.Modified;
-        //        await _db.SaveChangesAsync();
-        //        _notyf.Success("Report successfully sent to Account office");
-        //        return RedirectToAction("GmAccountsDepartmentReportsList");
-        //    }
-        //    catch (DbUpdateException /* ex */)
-        //    {
-        //        return RedirectToAction("GmAccountsDepartmentReportsList");
-        //    }
-        //}
-        #endregion
-
     }
 }
-
-
-
-
-
