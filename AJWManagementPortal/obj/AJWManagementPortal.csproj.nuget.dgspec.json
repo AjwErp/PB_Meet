@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\YOUSUF RAKIB\\Downloads\\PB_Meet\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
+    "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\26-01-2022\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\YOUSUF RAKIB\\Downloads\\PB_Meet\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {
+    "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\26-01-2022\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\YOUSUF RAKIB\\Downloads\\PB_Meet\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
+        "projectUniqueName": "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\26-01-2022\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
         "projectName": "AJWManagementPortal",
-        "projectPath": "C:\\Users\\YOUSUF RAKIB\\Downloads\\PB_Meet\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
-        "packagesPath": "C:\\Users\\YOUSUF RAKIB\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\YOUSUF RAKIB\\Downloads\\PB_Meet\\PB_Meet\\AJWManagementPortal\\obj\\",
+        "projectPath": "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\26-01-2022\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
+        "packagesPath": "C:\\Users\\A J W\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\A J W\\source\\repos\\HAJ Updation\\25-12-202111\\26-01-2022\\PB_Meet\\AJWManagementPortal\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\YOUSUF RAKIB\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\A J W\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -104,6 +101,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.13, 3.1.13]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -112,7 +115,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     }

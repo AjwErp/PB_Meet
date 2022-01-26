@@ -1499,6 +1499,72 @@ namespace AJWManagementPortal.Migrations
                     b.ToTable("MeezanBankIEVouchers");
                 });
 
+            modelBuilder.Entity("AJWManagementPortal.Models.MonthlyGeneralLedgerBook", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal?>("Balance")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("CeoRemarks")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CreatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal?>("Credit")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("DailyCashDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DailyCashId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("Devit")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("GMRemarks")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LedgerType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PManagerRemarks")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PreOrderCheckNo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SignCeo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SignGM")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SignPManager")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MonthlyGeneralLedgerBook");
+                });
+
             modelBuilder.Entity("AJWManagementPortal.Models.NoticBoard", b =>
                 {
                     b.Property<int>("Id")
@@ -1891,6 +1957,75 @@ namespace AJWManagementPortal.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("UserTable");
+                });
+
+            modelBuilder.Entity("AJWManagementPortal.Models.YearlyGeneralLedgerBook", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AMRemark")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AMSignature")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("Balance")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("CreatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal?>("Credit")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("DGMRemark")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DGMSignature")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DailyCashDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DailyCashId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("Devit")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("GMRemark")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GMSignature")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LedgerType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MonthlyGeneralLedgerBookId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PreOrderCheckNo")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("YearlyGeneralLedgerBook");
                 });
 
             modelBuilder.Entity("AJWManagementPortal.Models.aDailyCash", b =>
