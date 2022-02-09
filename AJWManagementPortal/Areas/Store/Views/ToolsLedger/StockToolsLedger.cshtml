@@ -1,0 +1,304 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "StockToolsLedger";
+    Layout = "~/Views/Shared/_LayoutStore.cshtml";
+}
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+<br />
+<body>
+    <div class="container-fluid backgroundWhiteBorder10Padding AccountofficeReport">
+        <div class="row">
+            <form class="tabled col-sm-12 SubH">
+                <div class="topbtnlist col-sm-12">
+                    @*<a class="logo font-weight-bold font-weight-bolder">*@
+                    <div class="btn-group">
+                        <a asp-area="Store" asp-controller="ToolsLedger" asp-action="VehicleToolsInOutLedger"><button type="button" class="btn btn-outline-dark">Vehicle Tools In/Out Ledger</button></a>
+                        <a asp-area="Store" asp-controller="ToolsLedger" asp-action="DailyToolsInOutLedger"><button type="button" class="btn btn-outline-dark">Daily Tools In/Out Ledger</button></a>
+                    </div>
+                    @*</a>*@
+                </div>
+                <hr />
+                <div class="header col-sm-12">
+                    <a class="logo font-weight-bold font-weight-bolder">@Localizer["STORE MONTHLY TOOLS LEDGER LIST"]</a>
+                </div>
+                <hr />
+                @*----------1----------Start------------Daily Continue accounts Reports List----------------------------------*@
+                <hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary " asp-area="" asp-controller="" asp-action=""><i class="fas fa-plus"> @Localizer["Create New Monthly Stock Tools Ledger"]</i> </a>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <a class="titleAccountofficeReport" id="MTR" colspan="10">@Localizer["Monthly Stcok Tools Ledger"]</a>
+                </div>
+                <table class="table table-bordered" id="MT">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+
+                                        <a class="dropdown-item" asp-action="" asp-route-id="" asp-route-hide="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-route-id="" asp-route-hide="false"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-route-remarks="" asp-route-redirect=""><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item " asp-action="" asp-route-remarks="" asp-route-redirect=""><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
+
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td class="text-center" scope="col"> </td>
+                            <td class="text-center" scope="col"></td>
+                            <td class="text-center" scope="col"></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                @*---------------1-------Ended------------ Daily Continue Report List --Account Office----------------------------------------------------------------*@
+                <hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary " asp-area="" asp-controller="" asp-action=""><i class="fas fa-plus"> @Localizer["Create New Yearly Stcok Tools Ledger"]</i> </a>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <a class="titleAccountofficeReport" id="MVTR" colspan="10">@Localizer["Yearly Stcok Tools Ledger"]</a>
+                </div>
+                <table class="table table-bordered" id="MVT">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+
+                                        <a class="dropdown-item" asp-action="" asp-route-id="" asp-route-hide="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-route-id="" asp-route-hide="false"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-route-remarks="" asp-route-redirect=""><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item " asp-action="" asp-route-remarks="" asp-route-redirect=""><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
+
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td class="text-center" scope="col"></td>
+                            <td class="text-center" scope="col"></td>
+                            <td class="text-center" scope="col"></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+
+
+
+                @*----------------------ended------------ Daily General Ledger Report List --Account Office----------------------------------------------------------------*@
+            </form>
+        </div>
+    </div>
+</body>
+<!-- back to top button-->
+<a id="button"></a>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#DMR').DataTable();
+        });
+        ////---------JS for Back To Top Button On Each Page------------------Start-------
+        var btn = $('#button');
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+
+        btn.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+        //----JS for Pagination and Datatables----------------Start----
+        $(document).ready(function () {
+            $('#MT').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+
+        //-----------
+        $(document).ready(function () {
+            $('#MVT').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+
+
+                                    //-----------
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+    /* Css for Heading on every Sheet of ccount office----*/
+    .header {
+        overflow: hidden;
+        padding: 10px 10px;
+        font-size: 40px;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+    }
+    /*//--CSS For Create button & Action Button of Each Page------start---------*/
+    .Createbtn {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: large;
+        text-align: right;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+
+    .Subhdr {
+        color: white;
+        text-align: center;
+        background-color: slategrey;
+    }
+    /* Css for Table Body on each page in Accounts----*/
+    .tabbody {
+        text-align: center;
+        color: black;
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*----Accounts All Daily Accounts Reportss--css--Start-------*/
+    .AccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: x-large;
+    }
+
+    .topbtnlist {
+        overflow: hidden;
+        padding: 1px 1px;
+        font-size: 40px;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@
+
+
+
+
+
+
+
+
+
+

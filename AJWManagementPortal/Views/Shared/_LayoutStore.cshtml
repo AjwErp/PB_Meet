@@ -124,6 +124,14 @@
 
                                 </ul>
                             </li>
+                            <li class="border-top border-bottom">
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fas fa-file"></i><span>@Localizer["Store Ledger Reports"]</span></a>
+                                <ul class="collapse">
+                                    <li class="border-top"><a asp-controller="MaterialLedger" asp-area="Store" asp-action="MaterialStockLedgerList" class="dropdown-item"><span class="">@Localizer["Material Ledgers"]</span></a></li>
+                                    <li class="border-top"><a asp-controller="ToolsLedger" asp-area="Store" asp-action="StockToolsLedger" class="dropdown-item"><span class="">@Localizer["Tools Ledgers"]</span></a></li>
+                                    <li class="border-top"><a asp-controller="RequisitionLedger" asp-area="Store" asp-action="MaterialRequisitionLedger" class="dropdown-item"><span class="">@Localizer["Recusitation Ledger"]</span></a></li>
+                                </ul>
+                            </li>
                             <li class="border-top">
                                 <a asp-area="Store" asp-controller="StoreReportsRepository" asp-action="StoreReportsRepositoryList" aria-expanded="true">
                                     <i class="fa fa-building"></i>

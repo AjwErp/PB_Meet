@@ -20,6 +20,7 @@
                         <a href="#MDR"><button type="button" class="btn btn-outline-dark"> Material Demand Report </button></a>
                         <a href="#MTRPPC"><button type="button" class="btn btn-outline-dark"> Material Demand Report(PPC) </button></a>
                         <a href="#MIO"><button type="button" class="btn btn-outline-dark"> Material In/Out Report</button></a>
+                        <a href="#GP"><button type="button" class="btn btn-outline-dark"> Store Gate Pass Report</button></a>
                     </div>
                     @*</a>*@
                 </div>
@@ -159,6 +160,49 @@
                 </table>
                 @*---------------1-------Ended------------ Daily Continue Report List --Account Office----------------------------------------------------------------*@
 
+                <hr />
+                <div class="col-sm-12 Createbtn">
+                    <a type="button" class="btn btn-primary " asp-area="" asp-controller="" asp-action=""><i class="fas fa-plus"> @Localizer["Create New Store Gate Pass Report"]</i> </a>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <a class="titleAccountofficeReport" id="GP" colspan="10">@Localizer["Store Gate Pass Report"]</a>
+                </div>
+                <table class="table table-bordered" id="SGP">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+
+                                        <a class="dropdown-item" asp-action="" asp-route-id="" asp-route-hide="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-route-id="" asp-route-hide="false"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-route-remarks="" asp-route-redirect=""><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item " asp-action="" asp-route-remarks="" asp-route-redirect=""><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
+
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td class="text-center" scope="col"> </td>
+                            <td class="text-center" scope="col"></td>
+                            <td class="text-center" scope="col"></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                @*---------------1-------Ended------------ Daily Continue Report List --Account Office----------------------------------------------------------------*@
 
 
 
@@ -213,6 +257,12 @@
             });
         });
                     //-----------
+        //-----------
+        $(document).ready(function () {
+            $('#SGP').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
     </script>
 }
 @*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
