@@ -23,22 +23,37 @@
   <ItemGroup>
     <Compile Remove="Areas\Home\Data\**" />
     <Compile Remove="Areas\Home\Models\**" />
+    <Compile Remove="Areas\Store\Data\**" />
+    <Compile Remove="Areas\Store\Models\**" />
+    <Compile Remove="Areas\Store\Views\StoreMonthlyVoucherReport\**" />
     <Compile Remove="wwwroot\startbootstrap-sb-admin-2-gh-pages\**" />
     <Compile Remove="wwwroot\startmin-master\**" />
     <Content Remove="Areas\Home\Data\**" />
     <Content Remove="Areas\Home\Models\**" />
+    <Content Remove="Areas\Store\Data\**" />
+    <Content Remove="Areas\Store\Models\**" />
+    <Content Remove="Areas\Store\Views\StoreMonthlyVoucherReport\**" />
     <Content Remove="wwwroot\startbootstrap-sb-admin-2-gh-pages\**" />
     <Content Remove="wwwroot\startmin-master\**" />
     <EmbeddedResource Remove="Areas\Home\Data\**" />
     <EmbeddedResource Remove="Areas\Home\Models\**" />
+    <EmbeddedResource Remove="Areas\Store\Data\**" />
+    <EmbeddedResource Remove="Areas\Store\Models\**" />
+    <EmbeddedResource Remove="Areas\Store\Views\StoreMonthlyVoucherReport\**" />
     <EmbeddedResource Remove="wwwroot\startbootstrap-sb-admin-2-gh-pages\**" />
     <EmbeddedResource Remove="wwwroot\startmin-master\**" />
     <None Remove="Areas\Home\Data\**" />
     <None Remove="Areas\Home\Models\**" />
+    <None Remove="Areas\Store\Data\**" />
+    <None Remove="Areas\Store\Models\**" />
+    <None Remove="Areas\Store\Views\StoreMonthlyVoucherReport\**" />
     <None Remove="wwwroot\startbootstrap-sb-admin-2-gh-pages\**" />
     <None Remove="wwwroot\startmin-master\**" />
     <TypeScriptCompile Remove="Areas\Home\Data\**" />
     <TypeScriptCompile Remove="Areas\Home\Models\**" />
+    <TypeScriptCompile Remove="Areas\Store\Data\**" />
+    <TypeScriptCompile Remove="Areas\Store\Models\**" />
+    <TypeScriptCompile Remove="Areas\Store\Views\StoreMonthlyVoucherReport\**" />
     <TypeScriptCompile Remove="wwwroot\startbootstrap-sb-admin-2-gh-pages\**" />
     <TypeScriptCompile Remove="wwwroot\startmin-master\**" />
   </ItemGroup>
@@ -101,9 +116,6 @@
     <Folder Include="Areas\Security\Models\" />
     <Folder Include="Areas\Sheets\Controllers\" />
     <Folder Include="Areas\Sheets\Views\" />
-    <Folder Include="Areas\Store\Data\" />
-    <Folder Include="Areas\Store\Models\" />
-    <Folder Include="Areas\Store\Views\StoreMonthlyVoucherReport\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
 
