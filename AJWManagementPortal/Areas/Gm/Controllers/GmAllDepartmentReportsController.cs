@@ -403,6 +403,7 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
         #region MEEZAN BANK INCOME/EXPENCE REPORT
         public IActionResult EditMeezanBankIncomeExpenseReport(int id, bool IsEdit)
         {
+
             var model = _db.MeezanBankMonthlyIncomeExpenseReports.Where(x => x.Id == id).FirstOrDefault();
             if (model != null)
             {
