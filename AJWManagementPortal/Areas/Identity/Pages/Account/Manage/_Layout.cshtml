@@ -25,5 +25,6 @@
 </div>
 
 @section Scripts {
+    @await Component.InvokeAsync("Notyf")
     @RenderSection("Scripts", required: false)
 }

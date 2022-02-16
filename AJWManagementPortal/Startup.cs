@@ -1,8 +1,8 @@
 using AJWManagementPortal.Data;
-using AJWManagementPortal.Extensions.IRepository;
-using AJWManagementPortal.Extensions.Repository;
 using AJWManagementPortal.Models;
 using AJWManagementPortal.Models.Services;
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
 using DinkToPdf;
 using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Builder;
@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection; 
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using System;
@@ -35,7 +35,7 @@ namespace AJWManagementPortal
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {//for PDf Downloading in POroduction repository
-            services.AddSingleton(typeof(IConverter),new SynchronizedConverter(new PdfTools()));
+            services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
             services.AddControllers();
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -44,11 +44,8 @@ namespace AJWManagementPortal
             services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddDefaultTokenProviders()
                 .AddDefaultUI()
-                
-                .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddScoped<IMonthlyGeneralLedgerBookRepository, MonthlyGeneralLedgerBookRepository>();
-            services.AddScoped<IYearlyGeneralLedgerBookRepository, YearlyGeneralLedgerBookRepository>();
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
             //services.AddScoped<IDbInitializer, DbInitializer>();
             //here we add for emailsender if login error occure if not then ignor it
@@ -56,6 +53,11 @@ namespace AJWManagementPortal
             //services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
             services.AddSingleton<IEmailSender, EmailSender>();
             //services.Configure<EmailOptions>(Configuration);
+
+            // sessiON
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(5);//You can set Time   
+            });
 
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();
@@ -65,10 +67,12 @@ namespace AJWManagementPortal
                 .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
                 .AddDataAnnotationsLocalization();
 
+            services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.TopCenter; });
+
             services.Configure<RequestLocalizationOptions>(options =>
             {
-                        //Startup here localization
-                        var cultures = new List<CultureInfo> {
+                //Startup here localization
+                var cultures = new List<CultureInfo> {
                 new CultureInfo("en"),
                 new CultureInfo("ur")
     };
@@ -99,11 +103,15 @@ namespace AJWManagementPortal
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseSession();
+
             app.UseRouting();
 
             //Startup here localization---------------
             app.UseRequestLocalization(app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
             //Startup here localization---------------
+
+            app.UseNotyf();
 
             app.UseAuthentication();
             app.UseAuthorization();

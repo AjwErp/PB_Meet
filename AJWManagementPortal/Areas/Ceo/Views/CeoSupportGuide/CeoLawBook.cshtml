@@ -21,11 +21,38 @@
                 <div class="portlet light">
                     <div class="portlet-body">
                         <div class="table-responsive">
-
+                            @*<div class="titleLaw">
+                                    <span class="font-weight-bold">@localizer["Account DEPARTMENT LAW BOOK"]</span>
+                                </div>*@
                             <br />
                             <div class="titleLaw" style="direction:ltr">
                                 <input type="text" class="form-control" id="title" name="title" style="height:50px;width:320px;border:hidden;font:message-box" value="@ViewBag.dept Department Law Book" />
-                               
+                                @*<select id="title" name="title" style="height:50px;width:370px;" class="form-control">
+                                    <option>@ViewBag.dept</option>\*@
+
+                                    @*<option>@localizer["Select Department"]</option>
+            <option>@localizer["ADMIN"]</option>
+            <option>@localizer["ACCOUNTS"]</option>
+            <option>@localizer["CEO"]</option>
+            <option>@localizer["DGM"]</option>
+            <option>@localizer["GM"]</option>
+            <option>@localizer["PRODUCTION"]</option>
+            <option>@localizer["HRM"]</option>
+            <option>@localizer["PURCHASE"]</option>
+            <option>@localizer["SALES"]</option>
+            <option>@localizer["PPC"]</option>
+            <option>@localizer["ACCESSORY"]</option>
+            <option>@localizer["MAINTENANCE"]</option>
+            <option>@localizer["DESIGN"]</option>
+            <option>@localizer["STORE"]</option>
+            <option>@localizer["ELECTRIC"]</option>
+            <option>@localizer["SECURITY"]</option>
+            <option>@localizer["MEETING"]</option>
+            <option>@localizer["KITCHEN"]</option>
+            <option>@localizer["IT"]</option>
+            <option>@localizer["DMS"]</option>*@
+                                @*</select>*@
+                                @*<span class="font-weight-bold"><input type="text" id="" class="form-control text-center font-weight-bold" style="width:360px;" /></span>*@
                             </div>
                             <table style="width:100%" id="tbllawbook" class="display nowrap table table-bordered table-hover table-condensed table-sm SubH">
                                 <thead>
@@ -46,21 +73,43 @@
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.lawDescription)
                                             </td>
-                                            <td>@Html.DisplayFor(modelItem => item.editNumber)</td>
-                                            <td>@Html.DisplayFor(modelItem => item.pageNumber)</td>
-                                            <td>@Html.DisplayFor(modelItem => item.previousEditNumber)</td>
-                                            <td>@Html.DisplayFor(modelItem => item.previousPageNumber)</td>
+                                            <td><input type="text" id="" class="form-control" value="@Html.DisplayFor(modelItem => item.editNumber)" /></td>
+                                            <td><input type="text" id="" class="form-control" value="@Html.DisplayFor(modelItem => item.pageNumber)" /></td>
+                                            <td><input type="text" id="" class="form-control" value="@Html.DisplayFor(modelItem => item.previousEditNumber)" /></td>
+                                            <td><input type="text" id="" class="form-control" value="@Html.DisplayFor(modelItem => item.previousPageNumber)" /></td>
 
                                         </tr>
 
                                     }
                                 </tbody>
-                                <tfoot>                                  
+                                <tfoot>
+                                    <tr>
+                                        <td> <span class="en"> <button type="button" id="btnAdd" value="Add" class="btn btn-primary btn-sm form-control">@localizer["Add"]<br />@localizer["Row"]</button></span> </td>
+                                        <td>
+                                            <textarea type="text" class="form-control" id="txtDesc" name="txtDesc"></textarea>
+                                        </td>
+                                        <td><input type="text" id="txtEditNumber" name="txtEditNumber" class="form-control" /></td>
+                                        <td><input type="text" id="txtPageNumber" name="txtPageNumber" class="form-control" /></td>
+                                        <td><input type="text" id="txtPreviousEditNumber" name="txtPreviousEditNumber" class="form-control" /></td>
+                                        <td><input type="text" id="txtPreviousPageNumber" name="txtPreviousPageNumber" class="form-control" /></td>
+                                    </tr>
                                     <tr>
                                         <td scope="row" colspan="13" class="actionbtn">
                                             <a asp-action="CeoLawBookList" asp-area="Ceo" asp-controller="CeoSupportGuide" type="button" class="btn btn-primary btn-md fas fa-step-backward" value="Back To List">@localizer["Back To List"]</a>
+
+                                            <!--<div class="btn-group">
+                                                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    @localizer["Action"]
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @localizer["Edit File"]</a>-->
+                                                    <!--<input id="btnSave" class="dropdown-item fas fa-save" name="btnSave" value="Save File " type="button" />-->
+                                                    <!--<a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-file-download"></i> @localizer["Download File"]</a>
+                                                </div>
+                                            </div>-->
                                         </td>
                                     </tr>
+
                                 </tfoot>
 
                             </table>

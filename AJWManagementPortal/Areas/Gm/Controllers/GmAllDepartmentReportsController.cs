@@ -1,6 +1,9 @@
 ﻿using AJWManagementPortal.Data;
 using AJWManagementPortal.Models;
+using AJWManagementPortal.ViewModels;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +16,41 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
     public class GmAllDepartmentReportsController : Controller
     { //here we create constrauctor of DB class
         private readonly ApplicationDbContext _db;
-        public GmAllDepartmentReportsController(ApplicationDbContext db)
+        private readonly INotyfService _notyf;
+
+        public GmAllDepartmentReportsController(ApplicationDbContext db ,INotyfService notyf)
         {
             _db = db;
+            _notyf = notyf;
         }
         //GET--Start---gm---GmAccountsDepartmentReportsList----
-        public IActionResult GmAccountsDepartmentReportsList()
+        public async Task<IActionResult> GmAccountsDepartmentReportsList()
         {
-            return View();
+            //var model = new GmAccountsDepartmentReportsListViewModel();
+            //model.MonthlyClosingReport = _db.MonthlyClosingReports.Where(i => i.DelProduction != 0 && (Convert.ToInt32(i.Status) == 3)).ToList();
+            //return View(model);
+
+            var model = new GmAccountsDepartmentReportsListViewModel();
+            var monthlyClosingReport = await(from a in _db.MonthlyClosingReports
+                                             where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) > 1) && (Convert.ToInt32(a.Status) <= 4))
+                                             select new MonthlyAcountReportsViewModel
+                                             {
+                                                 Id = a.Id,
+                                                 Date = a.ValueDate,
+                                                 IsMonthlyClosingReportGm = true,
+                                                 Title = "Monthly Accounts Report"
+                                             }).ToListAsync();
+            var meezanBankMonthlyIncomeExpenseReports = await(from a in _db.MeezanBankMonthlyIncomeExpenseReports
+                                                             where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) > 1) && (Convert.ToInt32(a.Status) <= 4))
+                                                              select new MonthlyAcountReportsViewModel
+                                                              {
+                                                                  Id = a.Id,
+                                                                  Date = a.ValueDate,
+                                                                  IsMeezanBankIncomeExpenseReportGm = true,
+                                                                  Title = "Meezan Bank Monthly Income/Expence Report"
+                                                              }).ToListAsync();
+            model.MonthlyAcountReportsViewModel = monthlyClosingReport.Union(meezanBankMonthlyIncomeExpenseReports).OrderBy(x => x.Date);
+            return View(model);
         }
         //GET--Ended---gm---GmAccountsDepartmentReportsList----
         //POST--Start--gm----GmAccountsDepartmentReportsList----
@@ -403,7 +433,6 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
         #region MEEZAN BANK INCOME/EXPENCE REPORT
         public IActionResult EditMeezanBankIncomeExpenseReport(int id, bool IsEdit)
         {
-
             var model = _db.MeezanBankMonthlyIncomeExpenseReports.Where(x => x.Id == id).FirstOrDefault();
             if (model != null)
             {

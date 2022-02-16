@@ -23,37 +23,22 @@
   <ItemGroup>
     <Compile Remove="Areas\Home\Data\**" />
     <Compile Remove="Areas\Home\Models\**" />
-    <Compile Remove="Areas\Store\Data\**" />
-    <Compile Remove="Areas\Store\Models\**" />
-    <Compile Remove="Areas\Store\Views\StoreMonthlyVoucherReport\**" />
     <Compile Remove="wwwroot\startbootstrap-sb-admin-2-gh-pages\**" />
     <Compile Remove="wwwroot\startmin-master\**" />
     <Content Remove="Areas\Home\Data\**" />
     <Content Remove="Areas\Home\Models\**" />
-    <Content Remove="Areas\Store\Data\**" />
-    <Content Remove="Areas\Store\Models\**" />
-    <Content Remove="Areas\Store\Views\StoreMonthlyVoucherReport\**" />
     <Content Remove="wwwroot\startbootstrap-sb-admin-2-gh-pages\**" />
     <Content Remove="wwwroot\startmin-master\**" />
     <EmbeddedResource Remove="Areas\Home\Data\**" />
     <EmbeddedResource Remove="Areas\Home\Models\**" />
-    <EmbeddedResource Remove="Areas\Store\Data\**" />
-    <EmbeddedResource Remove="Areas\Store\Models\**" />
-    <EmbeddedResource Remove="Areas\Store\Views\StoreMonthlyVoucherReport\**" />
     <EmbeddedResource Remove="wwwroot\startbootstrap-sb-admin-2-gh-pages\**" />
     <EmbeddedResource Remove="wwwroot\startmin-master\**" />
     <None Remove="Areas\Home\Data\**" />
     <None Remove="Areas\Home\Models\**" />
-    <None Remove="Areas\Store\Data\**" />
-    <None Remove="Areas\Store\Models\**" />
-    <None Remove="Areas\Store\Views\StoreMonthlyVoucherReport\**" />
     <None Remove="wwwroot\startbootstrap-sb-admin-2-gh-pages\**" />
     <None Remove="wwwroot\startmin-master\**" />
     <TypeScriptCompile Remove="Areas\Home\Data\**" />
     <TypeScriptCompile Remove="Areas\Home\Models\**" />
-    <TypeScriptCompile Remove="Areas\Store\Data\**" />
-    <TypeScriptCompile Remove="Areas\Store\Models\**" />
-    <TypeScriptCompile Remove="Areas\Store\Views\StoreMonthlyVoucherReport\**" />
     <TypeScriptCompile Remove="wwwroot\startbootstrap-sb-admin-2-gh-pages\**" />
     <TypeScriptCompile Remove="wwwroot\startmin-master\**" />
   </ItemGroup>
@@ -70,23 +55,28 @@
     <Compile Remove="Migrations\20211124084705_AddHAJToDatabase.Designer.cs" />
     <Compile Remove="Migrations\20211124084849_AddHajToDatabase.cs" />
     <Compile Remove="Migrations\20211124084849_AddHajToDatabase.Designer.cs" />
-    <Compile Remove="Migrations\20220125034905_AddMonthlyGeneralLedgerBookToDatabase.cs" />
-    <Compile Remove="Migrations\20220125034905_AddMonthlyGeneralLedgerBookToDatabase.Designer.cs" />
-    <Compile Remove="Migrations\20220126074344_AddYearlyGeneralLedgerBookToDatabase.cs" />
-    <Compile Remove="Migrations\20220126074344_AddYearlyGeneralLedgerBookToDatabase.Designer.cs" />
-    <Compile Remove="Migrations\20220126074612_AddYearlyGeneralLedgerBookToDatabase.cs" />
-    <Compile Remove="Migrations\20220126074612_AddYearlyGeneralLedgerBookToDatabase.Designer.cs" />
-    <Compile Remove="Migrations\20220207034751_addAllTableToDatabase.cs" />
-    <Compile Remove="Migrations\20220207034751_addAllTableToDatabase.Designer.cs" />
+    <Compile Remove="Migrations\20220101075226_MonthlyClosingReports.cs" />
+    <Compile Remove="Migrations\20220101075226_MonthlyClosingReports.Designer.cs" />
+    <Compile Remove="Migrations\20220104071227_MeezanBankMonthlyIncomeExpenseReport.cs" />
+    <Compile Remove="Migrations\20220104071227_MeezanBankMonthlyIncomeExpenseReport.Designer.cs" />
+    <Compile Remove="Migrations\20220104073219_MeezanBankMonthlyIncomeExpenseReport.cs" />
+    <Compile Remove="Migrations\20220104073219_MeezanBankMonthlyIncomeExpenseReport.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
+    <PackageReference Include="ClosedXML" Version="0.95.4" />
     <PackageReference Include="DinkToPdf" Version="1.0.8" />
+    <PackageReference Include="Grpc.Core" Version="2.43.0" />
+    <PackageReference Include="iTextSharp" Version="5.5.13.2" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="4.0.30506" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.13" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.13" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.13" />
@@ -116,7 +106,11 @@
     <Folder Include="Areas\Security\Models\" />
     <Folder Include="Areas\Sheets\Controllers\" />
     <Folder Include="Areas\Sheets\Views\" />
+    <Folder Include="Areas\Store\Data\" />
+    <Folder Include="Areas\Store\Models\" />
     <Folder Include="Controllers\" />
+    <Folder Include="wwwroot\PdfFiles\pdf\" />
+    <Folder Include="wwwroot\Reports\MezaanBankIncomeExportReport\MezaanBankIncomeExportReportTemp\" />
   </ItemGroup>
 
   <ItemGroup>

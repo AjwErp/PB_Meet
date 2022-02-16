@@ -65,17 +65,7 @@
 
                             <tr>
                                 <td colspan="2">
-                                    <div class="btn-group">
-                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            @Localizer["Action"]
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <input type="button" value="Remove" onclick="Remove(this)" />
-
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-save"></i> @Localizer["Edit"]</a>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore"></i> @Localizer["Remove Row"]</a>
-                                        </div>
-                                    </div>
+                                    <input type="button" value="Remove" onclick="Remove(this)" />
                                 </td>
                                 <td colspan="2" scope="row">@Html.DisplayFor(modelItem => item.Remarks)</td>
                                 <td scope="row">@Html.DisplayFor(modelItem => item.Cradit)</td>
@@ -92,9 +82,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th colspan="2">
-                                <button type="button" id="btnAdd" value="Add" class="btn btn-primary form-control">@Localizer["Add Row"]</button>
-                            </th>
+                            <th colspan="2"></th>
                             <th colspan="2"><input type="text" id="Remarks" class="form-control" /></th>
                             <th><input type="text" id="Cradit" class="form-control" /></th>
                             <th><input type="text" id="Debit" class="form-control" /></th>
@@ -156,6 +144,7 @@
                             <th colspan="3"><input type="date" style="width: 90%; box-sizing: border-box;" class="form-control" id="ValueDate"></th>
 
                             <th colspan="2">
+                                <button type="button" id="btnAdd" value="Add" class="btn btn-primary form-control">@Localizer["Add Row"]</button>
                             </th>
                         </tr>
                         <tr id="total">
@@ -188,9 +177,9 @@
                                 @*@if (!Model.hide)
                                 {*@
                                     @Localizer["Signature"]:
-                                    <input type="hidden" id="txtgmsign" name="txtgmsign" class="form-control" value="@teswp.SignGM" />
+                                    <input disabled type="text" id="txtgmsign" name="txtgmsign" class="form-control" value="@teswp.SignGM" />
                                     @Localizer["Remarks"]:
-                                    <input  type="hidden" id="txtgmremarks" name="txtgmremarks" value="@teswp.GMRemarks" class="form-control" />
+                                    <input disabled type="text" id="txtgmremarks" name="txtgmremarks" value="@teswp.GMRemarks" class="form-control" />
 
                                 @*}
                                 else
@@ -205,9 +194,9 @@
                                 @*@if (!Model.hide)
         {*@
                                 @Localizer["Signature"]:
-                                <input  type="hidden" id="txtceosign" name="txtceosign" class="form-control" value="@teswp.SignCeo" />
+                                <input disabled type="text" id="txtceosign" name="txtceosign" class="form-control" value="@teswp.SignCeo" />
                                 @Localizer["Remarks"]:
-                                <input  type="hidden" id="txtceoremarks" name="txtceoremarks" class="form-control" value="@teswp.CeoRemarks" />
+                                <input disabled type="text" id="txtceoremarks" name="txtceoremarks" class="form-control" value="@teswp.CeoRemarks" />
 
                                 @*}
         else
