@@ -106,19 +106,9 @@
                             <tr>
                                 @if (!Model.hide)
                                 {
-                                <td colspan="3">
-                                    
-                                    <div class="btn-group">
-                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            @Localizer["Action"]
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <input type="button" value="Remove" onclick="Remove(this)" />
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-save"></i> @Localizer["Edit"]</a>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore"></i> @Localizer["Remove Row"]</a>
-                                        </div>
-                                    </div>
-                                </td>
+                                    <td colspan="3">
+                                        <input type="button" value="Remove" onclick="Remove(this)" />
+                                    </td>
                                 }
                                 else
                                 {
