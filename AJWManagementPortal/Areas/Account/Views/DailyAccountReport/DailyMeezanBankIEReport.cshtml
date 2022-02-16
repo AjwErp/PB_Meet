@@ -95,16 +95,16 @@
                     <table id="tblcustomers" class="table table-hover table-bordered table-hover table-striped table-responsive-sm SubH">
                         <thead>
                             <tr>
-                                <th colspan="12"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+                                <th colspan="11"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
                             </tr>
                             <tr>
-                                <th class="titleAccountofficeReport" colspan="12">@Localizer["Daily Meezan Bank Income/Expence Report"]</th>
+                                <th class="titleAccountofficeReport" colspan="11">@Localizer["Daily Meezan Bank Income/Expence Report"]</th>
                             </tr>
                             <tr>
-                                <th class="text-left" colspan="12"> <input type="date" id=" " name="">  :<span class=""> @Localizer["Sheet Date"]</span> </th>
+                                <th class="text-left" colspan="11"> <input type="date" id=" " name="">  :<span class=""> @Localizer["Sheet Date"]</span> </th>
                             </tr>
                             <tr>
-                                <th class="text-center" scope="col"></th>
+                                @*<th class="text-center" scope="col"></th>*@
 
                                 <th colspan="2" scope="col">@Localizer["Action"] </th>
                                 <th scope="col">@Localizer["Balance"]</th>
@@ -144,43 +144,55 @@
                                     if (ViewBag.hide != null)
                                     //if (!Boolean.Parse(ViewBag.hide))
                                     {
-                                            <td>
-                                @*<input type="button" class="btn btn-success" value="Remove" onclick="Remove(this)" />*@
-                                            </td>
+                                        <!--<td>-->
+                                        @*<input type="button" class="btn btn-success" value="Remove" onclick="Remove(this)" />*@
+                                        <!--</td>-->
 
 
-                                <td colspan="2">
-                                    <input type="button" class="btn btn-success" value="Remove" onclick="Remove(this)" />
+                                        <td colspan="2" class="actionbtn">
+                                       
+                                            <div class="btn-group">
+                                                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    @Localizer["Action"]
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <input type="button" class="dropdown-item fas fa-trash-restore" value="Remove" onclick="Remove(this)" />
 
-                                    @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                                                    <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account" ><i class="fas fa-save"></i> @Localizer["Edit"]</a>
+                                                    <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore"></i> @Localizer["Remove Row"]</a>
+                                                </div>
+                                            </div>
+                                
+                                        @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
 
 
-                                </td>
+                                        </td>
                                     }
                                     else
                                     {
-                                            <td></td>
-                                            <td colspan="2"></td>
+                                        <td></td>
+                                        <td colspan="2"></td>
                                     }
                                 }
-                              <td>
-                                @Html.DisplayFor(modelItem => item.Balance)
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Balance)
 
-                                @{
-                                    if (flag == 0) {
-                                        openingBalan = item.Balance;
+                                    @{
+                                        if (flag == 0)
+                                        {
+                                            openingBalan = item.Balance;
 
+                                        }
+                                        flag = 1;
+                                        debit += item.Debit;
+                                        vredit += item.Cradit;
+                                        p = item.Balance;
+                                        vlosingBalanve = p;
                                     }
-                                    flag = 1;
-                                    debit += item.Debit;
-                                    vredit += item.Cradit;
-                                    p = item.Balance ;
-                                    vlosingBalanve = p;
-        }
-        @*@p*@
-                               </td>
+                                    @*@p*@
+                                </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Cradit)
                                 </td>
@@ -205,22 +217,23 @@
                         <tfoot>
 
                             <tr id="total">
+
+                                <th colspan="2"></th>
                                 <th></th>
-                                <th colspan="2">ٹوٹل</th>
+
                                 <th id="t1"></th>
                                 <th id="t2"></th>
                                 <th id="t3"></th>
                                 <th id=""></th>
-                                <th></th>
-                                <th id="" colspan="3"></th>
+                                <th id="" colspan="4">Total</th>
                             </tr>
                             @{
                                 if (ViewBag.hide != null)
                                 //if (!Boolean.Parse(ViewBag.hide))
                                 {
                                                         <tr class="">
-                                                            <th colspan="1"><input type="button" id="btnAdd" value="Add" class="btn btn-primary form-control"/></th>
-                                                            <th colspan="2"></th>
+                                                            @*<th colspan="1"><input type="button" id="btnAdd" value="Add" class="btn btn-primary form-control"/></th>*@
+                                                            <th colspan="2"><input type="button" id="btnAdd" value="Add Row" class="btn btn-primary form-control" /></th>
 
                                                             <th colspan="1"><input type="text" id="balance" /></th>
                                                             <th colspan="1"><input type="text" id="credit" /></th>
@@ -231,14 +244,14 @@
                                                             <th><input type="text" id="id" /></th>
                                                         </tr>
                                         <tr>
-                                            <td class="text-center text-white " colspan="12">   <button type="button" id="btnSave" value="Save All" class="btn btn-primary btn-sm btn-block form-control fas fa-save"> Save All Rows</button></td>
+                                            <td class="text-center text-white " colspan="11">   <button type="button" id="btnSave" value="Save All" class="btn btn-primary btn-sm btn-block form-control fas fa-save"> Save All Rows</button></td>
                                         </tr>
                                 } }
                             <tr>
-                                <th colspan="12"></th>
+                                <th colspan="11"></th>
                             </tr>
                             <tr>
-                                <th colspan="3" rowspan="5" scope="row"></th>
+                                <th colspan="2" rowspan="5" scope="row"></th>
                                 <th colspan="3" scope="row">@openingBalan</th>
                                 <th colspan="3" scope="row">@Localizer["Opening balance"]</th>
                                 <th colspan="3" rowspan="5" scope="row"></th>
@@ -260,11 +273,11 @@
                                 <th colspan="3" scope="row">@Localizer["Closing balance"]</th>
                             </tr>
                             <tr>
-                                <th colspan="12" scope="col">@Localizer["Signature"]</th>
+                                <th colspan="11" scope="col">@Localizer["Signature"]</th>
                             </tr>
                             <tr>
                                 <th scope="row" colspan="4">@Localizer["Account Manager"]</th>
-                                <th colspan="4">@Localizer["D.G.M"]</th>
+                                <th colspan="3">@Localizer["D.G.M"]</th>
                                 <th colspan="4">@Localizer["G.M"]</th>
                             </tr>
                             <tr>
@@ -274,7 +287,7 @@
                                     @Localizer["Remarks"]:
                                     <input type="text" id="txtpmremarks" name="txtpmremarks" value="@teswp.PManagerRemarks" class="form-control" />
                                 </td>
-                                <td colspan="4">
+                                <td colspan="3">
                                     @*@if (!Boolean.Parse(ViewBag.hide))*@
                                     @*{*@
                                         @Localizer["Signature"]:
@@ -311,7 +324,7 @@
 
                             </tr>
                             <tr>
-                                <td scope="row" colspan="12" class="actionbtn">
+                                <td scope="row" colspan="11" class="actionbtn">
                                     <div class="btn-group">
                                         <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             @Localizer["Action"]

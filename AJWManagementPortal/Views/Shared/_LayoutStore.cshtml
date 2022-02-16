@@ -68,15 +68,15 @@
                 <div class="menu-inner">
                     <nav>
                         <ul class="metismenu font fontlarge mainul" id="menu">
-                            <li class="active">
+                            <li class="active" id="up">
                                 <a asp-action="StoreDashboard" asp-controller="Store" asp-area="Store" aria-expanded="true"><h4><span class="text-warning">@Localizer["Store"]</span><br /><span>@Localizer["Dashboard"]</span></h4></a>
                             </li>
                             @*<li class="search-box border-top">
-                                    <form action="#">
-                                        <input type="text" name="search" id="mySearch" onkeyup="myFunction()" placeholder="@Localizer["Search for something..."]" required>
-                                        <i class="ti-search"></i>
-                                    </form>
-                                </li>*@
+            <form action="#">
+                <input type="text" name="search" id="mySearch" onkeyup="myFunction()" placeholder="@Localizer["Search for something..."]" required>
+                <i class="ti-search"></i>
+            </form>
+        </li>*@
                             <li class="border-top border-bottom">
                                 <a asp-controller="Store" asp-area="Store" asp-action="StoreDashboard" aria-expanded="true">
                                     <i class="ti-layout-sidebar-left"></i><span>
@@ -92,24 +92,65 @@
                                     <li class="border-top"><a asp-controller="StoreSupportGuide" asp-area="Store" asp-action="StoreLawBookList" class="dropdown-item"><span class="">@Localizer["Store Law Book List"]</span></a></li>
                                 </ul>
                             </li>
+                            <li class="border-top ">
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fas fa-house-user"></i><span>@Localizer["Store WhareHouse"]</span></a>
+                                <ul class="collapse">
+                                    <li class="border-top"><a asp-controller="StoreWharehouse" asp-area="Store" asp-action="StoreWharehouseList" class="dropdown-item"><span class="">@Localizer["Whare-House"]</span></a></li>
+                                    <li class="border-top"><a asp-controller="Category" asp-area="Store" asp-action="Index" class="dropdown-item"><span class="">@Localizer["Category List"]</span></a></li>
+                                    <li class="border-top"><a asp-controller="Item" asp-area="Store" asp-action="Index" class="dropdown-item"><span class="">@Localizer["Item List"]</span></a></li>
+                                </ul>
+                            </li>
 
+                            <li class="border-top ">
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fas fa-book"></i><span>@Localizer["Store Reports"]</span></a>
+                                <ul class="collapse">
+                                    <li class="border-top"><a asp-controller="StoreMaterialReport" asp-area="Store" asp-action="StoreMaterialReportList" class="dropdown-item"><span class="">@Localizer["Store Material Reports"]</span></a></li>
+                                    <li class="border-top"><a asp-controller="StoreVoucherReport" asp-area="Store" asp-action="StoreVoucherReportList" class="dropdown-item"><span class="">@Localizer["Store Voucher Reports"]</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="border-top border-bottom">
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fas fa-file"></i><span>@Localizer["Store Monthly Reports"]</span></a>
+                                <ul class="collapse">
+                                    <li class="border-top"><a asp-controller="StoreMonthlySME" asp-area="Store" asp-action="MonthlySMEReportList" class="dropdown-item"><span class="">@Localizer["Monthly S/M/E Report"]</span></a></li>
+                                    <li class="border-top"><a asp-controller="StoreMonthlyToolsReport" asp-area="Store" asp-action="MonthlyToolsReportList" class="dropdown-item"><span class="">@Localizer["Monthly Tools Report"]</span></a></li>
+                                    <li class="border-top"><a asp-controller="StoreMonthlyAllDepartmentReport" asp-area="Store" asp-action="StoreMonthlyAllDepartmentReportList" class="dropdown-item"><span class="">@Localizer["All Department Report"]</span></a></li>
+                                    <li class="border-top"><a asp-controller="StoreMonthlyAllDepartmentReport" asp-area="Store" asp-action="StoreMonthlyAllDepartmentElectricReportList" class="dropdown-item"><span class="">@Localizer["AllDepartment Electric Report"]</span></a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fas fa-file-alt"></i><span>@Localizer["Store Yearly Reports"]</span></a>
+                                <ul class="collapse">
+                                    <li class="border-top"><a asp-controller="StoreYearlyReport" asp-area="Store" asp-action="StoreYearlyReportList" class="dropdown-item"><span class="">@Localizer["Yearly S/M/E Report List"]</span></a></li>
+
+                                </ul>
+                            </li>
+                            <li class="border-top border-bottom">
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fas fa-file"></i><span>@Localizer["Store Ledger Reports"]</span></a>
+                                <ul class="collapse">
+                                    <li class="border-top"><a asp-controller="MaterialLedger" asp-area="Store" asp-action="MaterialStockLedgerList" class="dropdown-item"><span class="">@Localizer["Material Ledgers"]</span></a></li>
+                                    <li class="border-top"><a asp-controller="ToolsLedger" asp-area="Store" asp-action="StockToolsLedger" class="dropdown-item"><span class="">@Localizer["Tools Ledgers"]</span></a></li>
+                                    <li class="border-top"><a asp-controller="RequisitionLedger" asp-area="Store" asp-action="MaterialRequisitionLedger" class="dropdown-item"><span class="">@Localizer["Recusitation Ledger"]</span></a></li>
+                                </ul>
+                            </li>
                             <li class="border-top">
-                                <a asp-area="Accessory" asp-controller="Repository" asp-action="DailyMonthlyYearlyAuditAccountsReportsListRepository" aria-expanded="true">
+                                <a asp-area="Store" asp-controller="StoreReportsRepository" asp-action="StoreReportsRepositoryList" aria-expanded="true">
                                     <i class="fa fa-building"></i>
-                                    <span>@Localizer["Store Repository"]</span>
+                                    <span>@Localizer["Store Report Repository"]</span>
+                                </a>
+
+                            </li>
+                            <li class="border-top">
+                                <a asp-area="Store" asp-controller="StoreErrorReport" asp-action="StoreErrorReportList" aria-expanded="true">
+                                    <i class="fa fa-building"></i>
+                                    <span>@Localizer["Store Error Report"]</span>
                                 </a>
 
                             </li>
                             <li class="border-top border-bottom">
-                                <a asp-area="Store" asp-controller="StoreReportPdf" asp-action="StorePdfReports" aria-expanded="true"><i class="fas fa-file-pdf-o"></i><span>@Localizer["Store PDF Report"]</span></a>
+                                <a asp-area="Store" asp-controller="StorePdfReport" asp-action="StorePdfReports" aria-expanded="true"><i class="fas fa-file-pdf-o"></i><span>@Localizer["Store PDF Report"]</span></a>
                             </li>
-                            <li class="border-bottom">
-                                <a asp-area="Store" asp-controller="Audit" asp-action="StoreAuditReportsList" aria-expanded="true">
-                                    <i class="fas fa-file-contract"></i> <span>
-                                        @Localizer["Store Audit Report"]
-                                    </span>
-                                </a>
-
+                            <li class="border-top border-bottom">
+                                <div class="text-center bg-warning text-white"> <a href="#up">   <img src="~/Image/up.png" style="height:40px;width:60px;position:center" /></a></div>
                             </li>
 
                         </ul>

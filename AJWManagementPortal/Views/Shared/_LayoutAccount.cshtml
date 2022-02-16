@@ -74,11 +74,11 @@
                                 <a asp-action="AccountDashboard" asp-controller="Account" asp-area="Account" aria-expanded="true" title="اکاؤنٹس ڈیش بورڈ ہوم پیج پر جائیں"><h4><span class="text-warning">@Localizer["Accounts"]</span><br /><span>@Localizer["Dashboard"]</span></h4></a>
                             </li>
                             @*<li class="search-box border-top">
-                                    <form action="#">
-                                        <input type="text" name="search" id="mySideSearch" onkeyup="myFunction()" placeholder="@Localizer["Search for something..."]" required>
-                                        <i class="ti-search"></i>
-                                    </form>
-                                </li>*@
+            <form action="#">
+                <input type="text" name="search" id="mySideSearch" onkeyup="myFunction()" placeholder="@Localizer["Search for something..."]" required>
+                <i class="ti-search"></i>
+            </form>
+        </li>*@
                             <li class="border-top border-bottom">
                                 <a asp-controller="Account" asp-area="Account" asp-action="AccountDashboard" aria-expanded="true">
                                     <i class="ti-layout-sidebar-left"></i><span>
@@ -97,8 +97,8 @@
                             <li class="border-top">
                                 <a asp-area="Account" asp-controller="DailyAccountReport" asp-action="AllDailyAccountsReports" aria-expanded="true"><i class="fas fa-files-o"></i><span>@Localizer["All Daily Accounts Reports"]</span></a>
                                 @*<ul class="collapse">
-                                        <li class="border-top border-bottom"><a font-size:large" asp-area="Sheets" asp-controller="aDailyCashes" asp-action="sheetsList" class="dropdown-item"><span class=""></span>@Localizer["Daily Reports Accounts"]</a></li>
-                                    </ul>*@
+                <li class="border-top border-bottom"><a font-size:large" asp-area="Sheets" asp-controller="aDailyCashes" asp-action="sheetsList" class="dropdown-item"><span class=""></span>@Localizer["Daily Reports Accounts"]</a></li>
+            </ul>*@
                             </li>
                             <li class="border-top border-bottom">
                                 <a asp-area="Account" asp-controller="AccountsMonthlyYearly" asp-action="AccountsMonthlyYearlyReports" aria-expanded="true">
@@ -107,8 +107,8 @@
                                     </span>
                                 </a>
                                 @*<ul class="collapse">
-                                        <li class="border-top"><a asp-area="Account" asp-controller="AccountsMonthlyYearly" asp-action="AccountsMonthlyYearlyReports" class="dropdown-item">@Localizer["Accounts Monthly/Yearly Reports"]</a></li>
-                                    </ul>*@
+                <li class="border-top"><a asp-area="Account" asp-controller="AccountsMonthlyYearly" asp-action="AccountsMonthlyYearlyReports" class="dropdown-item">@Localizer["Accounts Monthly/Yearly Reports"]</a></li>
+            </ul>*@
                             </li>
                             <li class="border-top border-bottom">
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="fas fa-layer-group"></i> <span>@Localizer["Ledger Report"]</span></a>
@@ -125,8 +125,8 @@
                             <li class="border-top border-bottom">
                                 <a asp-area="Account" asp-controller="SupplierAccountsReport" asp-action="AccountsSupplierAllReport" aria-expanded="true"><i class="fas fa-user-astronaut"></i><span>@Localizer["Supplier Accounts Report"]</span></a>
                                 @*<ul class="collapse">
-                                        <li class="border-top"><a  class="dropdown-item"><span class="">@Localizer["Accounts Supplier Reports List"]</span></a></li>
-                                    </ul>*@
+                <li class="border-top"><a  class="dropdown-item"><span class="">@Localizer["Accounts Supplier Reports List"]</span></a></li>
+            </ul>*@
                             </li>
                             <li>
                                 <a href="javascript:void(0)" aria-expanded="true">
@@ -204,10 +204,10 @@
 
                             <li>
 
-                                @*<a  asp-area="Account" asp-controller="NoticePopup" asp-action="NoticePopup">*@
+                                @*<a  asp-area="Account" asp-controller="NoticePopup" asp-action="NoticePopup">*@ 
                                 <i class="fas fa-clipboard-list" title="نوٹس بورڈ">
 
-                                </i>
+                                </i> 
                             </li>
 
                             <li class="dropdown" title="نوٹیفیکیشن دیکھنے کے لیے">
@@ -257,7 +257,7 @@
                             </div>
                         </div>*@
                     @*--------------User Profile code using Identity-----------------*@
-                    <div class="col-sm-6 clearfix">
+                    <div class="col-sm-6 clearfix" >
                         <div class="user-profile pull-right" title="پروفائل کی ترتیب اور لاگ آؤٹ کے لیے">
                             <img style="width:40px;height:40px; object-fit:cover;  border-radius:30px" src="data:image/*;base64,@(Convert.ToBase64String(UserManager.GetUserAsync(User).Result.Profile))" />&nbsp;&nbsp;&nbsp;&nbsp;
                             <h4 class="user-name dropdown-toggle" data-toggle="dropdown">@await Component.InvokeAsync("UserName")<i class="fa fa-angle-down"></i></h4>
@@ -329,8 +329,6 @@
     @*<script src="~/js/site.js"></script>
         <script src="~/js/AccountsLayout.js"></script>-->*@
     <script src="~/srtdash/assets/js/vendor/jquery-2.2.4.min.js"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <!-- bootstrap 4 js -->
     <script src="~/srtdash/assets/js/popper.min.js"></script>
     <script src="~/srtdash/assets/js/bootstrap.min.js"></script>
@@ -354,7 +352,7 @@
     <script src="~/js/AccountsLayout.js"></script>
     <!-- search function dashboard-->
 
-    @await Component.InvokeAsync("Notyf")
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

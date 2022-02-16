@@ -119,6 +119,10 @@ namespace AJWManagementPortal.Areas.Identity.Pages.Account
                     {
                         return Redirect("~/Admin/Admin/AdminDashboard");
                     }
+                    else if (user.Result.Department.Equals(SD.Store) && role == SD.Store)
+                    {
+                        return Redirect("~/Store/Store/StoreDashboard");
+                    }
                     else if (user.Result.Department.Equals(SD.AccountManager) && role == SD.AccountManager)
                     {
                         return Redirect("~/Account/Account/AccountDashboard");

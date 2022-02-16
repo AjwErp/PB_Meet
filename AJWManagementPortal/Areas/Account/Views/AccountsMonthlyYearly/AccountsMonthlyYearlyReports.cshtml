@@ -1,4 +1,4 @@
-﻿@model AJWManagementPortal.ViewModels.AccountsYearlyReportViewModel
+﻿@model IEnumerable<AccountsYearlyReportTitlePage>
 @*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
@@ -29,7 +29,6 @@
                                 </button>
                                 <div class="smallfontHeading dropdown-menu" aria-labelledby="navbarDropDownMenuLink">
                                     <a class="dropdown-item" asp-action="MonthlyClosingReportTitlePage" asp-controller="MonthlyAccountsReport" asp-area="Account">1:@Localizer["Monthly Closing Report's Title Page"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyClosingReport" asp-controller="MonthlyAccountsReport" asp-area="Account">1:@Localizer["Monthly Closing Report's Title Page 2"]</a>
                                     <a class="dropdown-item" asp-action="MeezanBankIncomeExpenseMonthlyreport" asp-controller="MonthlyAccountsReport" asp-area="Account">2:@Localizer["Meezan Bank Income/Expense Monthly report"]</a>
                                     @*<a style="font-size:large" class="dropdown-item font-weight-bold" asp-action="MonthlyIncomeExpenseMainBankAccountMeezan" asp-controller="MonthlyAccountsReport" asp-area="Account">2:@Localizer["Monthly Income/Expense Main Bank Account Meezan"]</a>*@
                                     @*<a style="font-size:large" class="dropdown-item font-weight-bold" asp-action="BOPMonthlyIncomeExpenceReport" asp-controller="MonthlyAccountsReport" asp-area="Account">3:@Localizer["BOP Monthly Income/Expence Report"]</a>*@
@@ -71,29 +70,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.MonthlyAcountReportsViewModel)
-                        {
-                            <tr class="tabbody SubH">
-                                <td class="actionbtn">
-                                    <div class="btn-group">
-                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            @Localizer["Action"]
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item"  asp-action="@item.ViewActionName" asp-controller="MonthlyAccountsReport" asp-area="Account" asp-route-id="@item.Id" asp-route-IsEdit="false"><i class="fas fa-edit"></i> @Localizer["View"]</a>
-                                            <a class="dropdown-item" asp-action="@item.EditActionName" asp-controller="MonthlyAccountsReport" asp-area="Account" asp-route-id="@item.Id" asp-route-IsEdit="true"><i class="fas fa-list-alt"></i> @Localizer["Edit"]</a>
-                                            <button class="dropdown-item"  asp-action="@item.DeleteActionName" asp-controller="MonthlyAccountsReport" asp-area="Account"  asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</button>
-                                            <a class="dropdown-item" asp-action="SendMonthlyClosingReportToDgmOffice" 
-                                            asp-route-remarks="@item.Date.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
-                                            <i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
-                                        </div>
+                        <tr class="tabbody SubH">
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["Edit"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to Repository"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to DMS"]</a>
                                     </div>
-                                </td>
-                                <td>@item.Date.ToString("MM-dd-yyyy")</td>
-                                <td>@item.Title </td>
-                                <td>@item.Id</td>
-                            </tr>
-                        }
+                                </div>
+                            </td>
+                            <td></td>
+                            <td>@Localizer["Monthly Accounts Report"] </td>
+                            <td></td>
+                        </tr>
                     </tbody>
                 </table>
 
@@ -155,7 +150,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.AccountsYearlyReportTitlePage)
+                        @foreach (var item in Model)
                         {
                             <tr class="tabbody SubH">
                                 <td class="actionbtn">
@@ -177,8 +172,8 @@
                                 <td>@item.Id</td>
                             </tr>
                         }
-                    </tbody>
-
+                        </tbody>
+                    
                 </table>
             </form>
         </div>

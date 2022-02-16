@@ -23,15 +23,9 @@
                 <div class="portlet light">
                     <div class="portlet-body">
                         <div class="table-responsive">
-                            @*<div class="titleLaw">
-                                    <span class="font-weight-bold">@localizer["Account DEPARTMENT LAW BOOK"]</span>
-                                </div>*@
                             <br />
                             <div class="titleLaw" style="direction:ltr">
                                 <input type="text" class="form-control" id="title" name="title" style="height:50px;width:320px;border:hidden;font:message-box" value="@ViewBag.dept Department Law Book" />
-
-
-                                @*<span class="font-weight-bold"><input type="text" id="" class="form-control text-center font-weight-bold" style="width:360px;" /></span>*@
                             </div>
                             @*<div class="PrintP">
                                     <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
@@ -55,31 +49,20 @@
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.lawDescription)
                                             </td>
-                                            <td><input type="text" id="" class="form-control" value="@Html.DisplayFor(modelItem => item.editNumber)" /></td>
-                                            <td><input type="text" id="" class="form-control" value="@Html.DisplayFor(modelItem => item.pageNumber)" /></td>
-                                            <td><input type="text" id="" class="form-control" value="@Html.DisplayFor(modelItem => item.previousEditNumber)" /></td>
-                                            <td><input type="text" id="" class="form-control" value="@Html.DisplayFor(modelItem => item.previousPageNumber)" /></td>
+                                            <td>@Html.DisplayFor(modelItem => item.editNumber)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.pageNumber)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.previousEditNumber)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.previousPageNumber)</td>
 
                                         </tr>
 
                                     }
                                 </tbody>
                                 <tfoot>
-                                    <tr>
-                                        <td> <span class="en"> <button type="button" id="btnAdd" value="Add" class="btn btn-primary btn-sm form-control">@localizer["Add"]<br />@localizer["Row"]</button></span> </td>
-                                        <td>
-                                            <textarea type="text" class="form-control" id="txtDesc" name="txtDesc"></textarea>
-                                        </td>
-                                        <td><input type="text" id="txtEditNumber" name="txtEditNumber" class="form-control" /></td>
-                                        <td><input type="text" id="txtPageNumber" name="txtPageNumber" class="form-control" /></td>
-                                        <td><input type="text" id="txtPreviousEditNumber" name="txtPreviousEditNumber" class="form-control" /></td>
-                                        <td><input type="text" id="txtPreviousPageNumber" name="txtPreviousPageNumber" class="form-control" /></td>
-                                    </tr>
+                                    
                                     <tr>
                                         <td scope="row" colspan="13" class="actionbtn">
                                             <a asp-action="HrmLawBookList" asp-area="Hrm" asp-controller="HrmSupportGuide" type="button" class="btn btn-primary btn-md fas fa-step-backward" value="Back To List">@localizer["Back To List"]</a>
-
-
                                         </td>
                                     </tr>
 

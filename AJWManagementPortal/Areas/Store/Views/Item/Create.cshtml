@@ -1,0 +1,267 @@
+﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@*---Language Tranlator--Localizer*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@model AJWManagementPortal.Models.ViewModels.ItemAndCategoryViewModel
+@using AJWManagementPortal.Extensions
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutStore.cshtml";
+}
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+@*This HTML for ::SubLedger Create=view for account office::*@
+
+<br />
+<h2 class="text-info text-center">Create Item of Category</h2>
+<br />
+
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+@*Here we Display Ledger ID*@
+<div class="border backgroundWhiteBorder row">
+    <div class="col-8 border-right">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Item.Id" class="col-form-label"></label>
+                </div>
+                <div class="col-4">
+                    <Input asp-for="Item.Id" class="form-control">
+                </div>
+                @*--------------------*@
+                <div class="col-2">
+                    <label asp-for="Item.Date" class="col-form-label"></label>
+                </div>
+                <div class="col-3">
+                    <input asp-for="Item.Date" class="form-control" />
+                </div>
+                @*<span asp-validation-for="Item.ItemName" class="text-danger"></span>*@
+                @*--------------------*@
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Item.CategoryId" class="col-form-label"></label>
+                </div>
+                <div class="col-4">
+                    <select id="ddlCategorylist" asp-for="Item.CategoryId" asp-items="Model.CategoryList.ToSelectListItem(Model.Item.CategoryId)" class="form-control"></select>
+                </div>
+                @*--------------------*@
+                <div class="col-2">
+                    <label asp-for="Item.ItemSize" class="col-form-label"></label>
+                </div>
+                <div class="col-3">
+                    <input asp-for="Item.ItemSize" class="form-control" />
+                </div>
+                @*<span asp-validation-for="Item.ItemSize" class="text-danger"></span>*@
+                @*--------------------*@
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Item.ItemName" class="col-form-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="Item.ItemName" class="form-control" />
+                </div>
+                @*<span asp-validation-for="Item.ItemName" class="text-danger"></span>*@
+                
+                @*------------------------------*@
+                <div class="col-2">
+                    <label asp-for="Item.ArrivalWeight" class="col-form-label"></label>
+                </div>
+                <div class="col-3">
+                    <input asp-for="Item.ArrivalWeight" class="form-control" />
+                </div>
+                @*<span asp-validation-for="Item.ArrivalWeight" class="text-danger"></span>*@
+                @*------------------------------*@
+            </div>
+
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Item.ArrivalQuantity" class="col-form-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="Item.ArrivalQuantity" class="form-control" />
+                </div>
+                @*<span asp-validation-for="Item.ArrivalQuantity" class="text-danger"></span>*@
+                @*--------------------------------*@
+                <div class="col-2">
+                    <label asp-for="Item.ArrivalPrice" class="col-form-label"></label>
+                </div>
+                <div class="col-3">
+                    <input asp-for="Item.ArrivalPrice" class="form-control" />
+                </div>
+                @*<span asp-validation-for="Item.ArrivalPrice" class="text-danger"></span>*@
+                @*--------------------------------*@
+            </div>
+
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Item.TotalPrice" class="col-form-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="Item.TotalPrice" class="form-control" />
+                </div>
+                @*<span asp-validation-for="Item.TotalPrice" class="text-danger"></span>*@
+                @*-------------------------------*@
+                <div class="col-2">
+                    <label asp-for="Item.TotalUnit" class="col-form-label"></label>
+                </div>
+                <div class="col-3">
+                    <input asp-for="Item.TotalUnit" class="form-control" />
+                </div>
+                @*<span asp-validation-for="Item.TotalUnit" class="text-danger"></span>*@
+                @*-------------------------------*@
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Item.RemainUnit" class="col-form-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="Item.RemainUnit" class="form-control" />
+                </div>
+                @*<span asp-validation-for="Item.RemainUnit" class="text-danger"></span>*@
+                @*------------------------------------*@
+                <div class="col-2">
+                    <label asp-for="Item.TotalWeight" class="col-form-label"></label>
+                </div>
+                <div class="col-3">
+                    <input asp-for="Item.TotalWeight" class="form-control" />
+                </div>
+                @*<span asp-validation-for="Item.TotalWeight" class="text-danger"></span>*@
+                @*------------------------------------*@
+            </div>
+
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Item.OfficerName" class="col-form-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="Item.OfficerName" class="form-control" />
+                </div>
+                @*<span asp-validation-for="Item.OfficerName" class="text-danger"></span>*@
+                @*----------------------------*@
+
+                <div class="col-2">
+                    <label asp-for="Item.RemainWeight" class="col-form-label"></label>
+                </div>
+                <div class="col-3">
+                    <input asp-for="Item.RemainWeight" class="form-control" />
+                </div>
+                @*<span asp-validation-for="Item.RemainWeight" class="text-danger"></span>*@
+                @*----------------------------*@
+            </div>
+
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Item.SupplierName" class="col-form-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="Item.SupplierName" class="form-control" />
+                </div>
+                @*<span asp-validation-for="Item.SupplierName" class="text-danger"></span>*@
+                @*----------------------------------*@
+                <div class="col-2">
+                    <label asp-for="Item.PurchaseOrderNo" class="col-form-label"></label>
+                </div>
+                <div class="col-3">
+                    <input asp-for="Item.PurchaseOrderNo" class="form-control" />
+                </div>
+                @*<span asp-validation-for="Item.PurchaseOrderNo" class="text-danger"></span>*@
+                @*----------------------------------*@
+            </div>
+
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Item.Description" class="col-form-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="Item.Description" class="form-control" />
+                </div>
+                @*<span asp-validation-for="Item.Description" class="text-danger"></span>*@
+                @*------------------------------------*@
+                <div class="col-2">
+                    <label asp-for="Item.MaterialvoucherNo" class="col-form-label"></label>
+                </div>
+                <div class="col-3">
+                    <input asp-for="Item.MaterialvoucherNo" class="form-control" />
+                </div>
+                @*<span asp-validation-for="Item.MaterialvoucherNo" class="text-danger"></span>*@
+                
+                @*------------------------------------*@
+            </div>
+
+            <div class="form-group row">
+                <div class="col-12 offset-1">
+                    <partial name="_CreateAndBackToListButtonItem" />
+                </div>
+            </div>
+        </form>
+    </div>
+    @*Here we display All Sub Ledger of Mian Ledger by LOOP*@
+    <div class="col-3 offset-1">
+        @if (Model.ItemList.Count() > 0)
+        {
+            <p> Existing Store's Item: </p>
+
+            <div id="ItemList">
+                <ul class="list-group"></ul>
+            </div>
+        }
+    </div>
+
+
+
+</div>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @*// for Get Subledger Name by JS on right side of Create UI Page*@
+    <script>
+        function updateItemList() {
+            var categorySelected = document.getElementById("ddlCategorylist").value;
+            $list = $('#ItemList');
+            $.ajax({
+                url: '/Store/Item/GetItem/' + categorySelected,
+                type: 'GET',
+                dataType: 'text',
+                success: function (data) {
+                    results = JSON.parse(data);
+                    $list.html('');
+                    $list.append(' <ul class="list-group"> ');
+                    for (i in results) {
+                        $list.append('<li class="list-group-item">' + results[i].text + '</li>');
+                    }
+                    $list.append('</ul>');
+                }
+            });
+        }
+        $(document).ready(function () {
+            updateItemList();
+        });
+        $("#ddlCategorylist").on("change", function () {
+            updateItemList();
+        });
+    </script>
+
+
+}
+
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@*@section Scripts{
+        <script>
+        </script>
+    }*@
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@
+
+
+

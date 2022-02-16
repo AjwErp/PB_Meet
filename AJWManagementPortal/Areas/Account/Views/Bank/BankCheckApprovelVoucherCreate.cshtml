@@ -144,9 +144,19 @@
                         <tr>
                             <td scope="row" colspan="10" class="actionbtn">
                                 <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <input type="submit" value="Create" class="dropdown-item" />
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-save"></i> @Localizer["Save File"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore"></i> @Localizer["Clear Sheet"]</a>
+                                    </div>
+                                </div>
+                                @*<div class="btn-group">
                                     <i class="fas fa-save"></i><input type="submit" value="Create" class="btn btn-primary" />
 
-                                </div>
+                                </div>*@
                             </td>
                         </tr>
                     </tbody>
