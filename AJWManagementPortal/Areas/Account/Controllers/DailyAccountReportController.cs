@@ -65,22 +65,6 @@ namespace AJWManagementPortal.Areas.Account.Controllers
 
             return View("DailyContinueReport", trans);
         }
-        public async Task<IActionResult> IndexByNameRepository(String id, String hide)
-        {
-            trans.hide = Boolean.Parse(hide);
-            if (id == null)
-            {
-                return NotFound();
-            }
-            id = id.Replace("-", "/");
-            DateTime dateTime10 = DateTime.Parse(id);
-            trans.date = dateTime10;
-            trans.aDailyCashes = _db.aDailyCashes.
-                Where(z => z.ValueDate <= dateTime10 && z.DelProduction != 0)
-                .ToList();
-
-            return View("IndexByNameRepository", trans);
-        }
         // Method For :Daily Continue Sheet 
         public async Task<IActionResult> Index()
         {
@@ -337,7 +321,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             DateTime dateTime10 = DateTime.Parse(id);
             trans.date = dateTime10;
             trans.suppliers = _db.dailySuppliers.
-                Where(z => z.ValueDate == dateTime10 && z.DelProduction != 0)
+                Where(z => z.ValueDate <= dateTime10 && z.DelProduction != 0)
                 .ToList();
 
             return View("DailySuppliersCashTransactionReport", trans);

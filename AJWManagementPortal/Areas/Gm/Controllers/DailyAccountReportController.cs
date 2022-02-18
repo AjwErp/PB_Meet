@@ -306,7 +306,7 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
             DateTime dateTime10 = DateTime.Parse(id);
             trans.date = dateTime10;
             trans.suppliers = _db.dailySuppliers.
-                Where(z => z.ValueDate == dateTime10 && z.DelGm != 0)
+                Where(z => z.ValueDate <= dateTime10 && z.DelGm != 0)
                 .ToList();
 
             return View("DailySuppliersCashTransactionReport", trans);

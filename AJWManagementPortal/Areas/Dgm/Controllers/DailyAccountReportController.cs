@@ -371,7 +371,7 @@ namespace AJWManagementPortal.Areas.Dgm.Controllers
             DateTime dateTime10 = DateTime.Parse(id);
             trans.date = dateTime10;
             trans.suppliers = _db.dailySuppliers.
-                Where(z => z.ValueDate == dateTime10 && z.DelProduction != 0)
+                Where(z => z.ValueDate <= dateTime10 && z.DelProduction != 0)
                 .ToList();
 
             return View("DailySuppliersCashTransactionReport", trans);
@@ -395,7 +395,7 @@ namespace AJWManagementPortal.Areas.Dgm.Controllers
 
             dM.BankVo = _db.MeezanBankIEVouchers.ToList().GroupBy(elem => elem.dateTime).Select(group => group.First());
             //dM.dSuppliers = _db.dailySuppliers.Where(i => i.DelCeo != 0 && (Convert.ToInt32(i.Status) >= 1 && Convert.ToInt32(i.Status) <= 3)).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First()); ;
-            dM.dSuppliers = _db.dailySuppliers.Where(i => i.DelCeo != 0).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First()); ;
+            dM.dSuppliers = _db.dailySuppliers.Where(i => i.DelProduction != 0).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First()); ;
 
             return View(dM);
         }
