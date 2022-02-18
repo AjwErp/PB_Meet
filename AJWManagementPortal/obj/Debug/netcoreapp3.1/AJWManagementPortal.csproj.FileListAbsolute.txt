@@ -1320,7 +1320,6 @@ D:\FinalProject\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.
 D:\FinalProject\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.dll
 D:\FinalProject\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.pdb
 D:\FinalProject\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.genruntimeconfig.cache
-C:\Users\HP\source\repos\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.csproj.AssemblyReference.cache
 C:\Users\HP\source\repos\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.Resources.Areas.Account.Controllers.API.LanguageController.en.resources
 C:\Users\HP\source\repos\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.Resources.Areas.Account.Controllers.API.LanguageController.ur.resources
 C:\Users\HP\source\repos\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.Resources.Areas.Account.Views.AccountDMY.AccountDailyReportList.ur.resources
@@ -1536,5 +1535,3 @@ C:\Users\HP\source\repos\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJW
 C:\Users\HP\source\repos\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\HP\source\repos\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.RazorAssemblyInfo.cache
 C:\Users\HP\source\repos\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.RazorAssemblyInfo.cs
-C:\Users\HP\source\repos\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.dll
-C:\Users\HP\source\repos\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.pdb
