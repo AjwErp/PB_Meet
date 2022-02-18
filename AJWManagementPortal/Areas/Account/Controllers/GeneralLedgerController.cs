@@ -22,10 +22,11 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //IWebHostEnvironment iwebhost
         //                _iwebhost = iwebhost;
 
-        public GeneralLedgerController(ApplicationDbContext db)
+        public GeneralLedgerController(ApplicationDbContext db, IMonthlyGeneralLedgerBookRepository monthlyGeneralLadgerBookRepository, IYearlyGeneralLedgerBookRepository yearlyGeneralLadgerBookRepository)
         {
             _db = db;
-
+            this._monthlyGeneralLadgerBookRepository = monthlyGeneralLadgerBookRepository;
+            this._yearlyGeneralLadgerBookRepository = yearlyGeneralLadgerBookRepository;
         }
         //--------------------------------------------------start-----------------general ledger BOOK---Daily/Monthly/Yearly--------------
 
