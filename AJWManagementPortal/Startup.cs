@@ -1,4 +1,6 @@
 using AJWManagementPortal.Data;
+using AJWManagementPortal.Extensions.IRepository;
+using AJWManagementPortal.Extensions.Repository;
 using AJWManagementPortal.Models;
 using AJWManagementPortal.Models.Services;
 using AspNetCoreHero.ToastNotification;
@@ -46,6 +48,11 @@ namespace AJWManagementPortal
                 .AddDefaultUI()
 
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddScoped<IMonthlyGeneralLedgerBookRepository, MonthlyGeneralLedgerBookRepository>();
+            services.AddScoped<IYearlyGeneralLedgerBookRepository, YearlyGeneralLedgerBookRepository>();
+            services.AddScoped<IMonthlyMainBankLedgerBookRepository, MonthlyMainBankLedgerBookRepository>();
+            services.AddScoped<IYearlyMainBankLedgerBookRepository, YearlyMainBankLedgerBookRepository>();
 
             //services.AddScoped<IDbInitializer, DbInitializer>();
             //here we add for emailsender if login error occure if not then ignor it
