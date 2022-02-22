@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\source\\repos\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
+    "C:\\Users\\HP\\source\\repos\\2022\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\source\\repos\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {
+    "C:\\Users\\HP\\source\\repos\\2022\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\2022\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
         "projectName": "AJWManagementPortal",
-        "projectPath": "C:\\Users\\HP\\source\\repos\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
+        "projectPath": "C:\\Users\\HP\\source\\repos\\2022\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\source\\repos\\PB_Meet\\AJWManagementPortal\\obj\\",
+        "outputPath": "C:\\Users\\HP\\source\\repos\\2022\\PB_Meet\\AJWManagementPortal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,33 +40,13 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "AspNetCoreHero.ToastNotification": {
-              "target": "Package",
-              "version": "[1.1.0, )"
-            },
-            "ClosedXML": {
-              "target": "Package",
-              "version": "[0.95.4, )"
-            },
             "DinkToPdf": {
               "target": "Package",
               "version": "[1.0.8, )"
             },
-            "Grpc.Core": {
-              "target": "Package",
-              "version": "[2.43.0, )"
-            },
-            "Microsoft.AspNet.WebApi.Core": {
-              "target": "Package",
-              "version": "[4.0.30506, )"
-            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.13, )"
-            },
-            "Microsoft.AspNetCore.Hosting": {
-              "target": "Package",
-              "version": "[2.2.7, )"
             },
             "Microsoft.AspNetCore.Hosting.Abstractions": {
               "target": "Package",
@@ -83,10 +63,6 @@
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[3.1.13, )"
-            },
-            "Microsoft.AspNetCore.Session": {
-              "target": "Package",
-              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -113,10 +89,6 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
-            },
-            "iTextSharp": {
-              "target": "Package",
-              "version": "[5.5.13.2, )"
             }
           },
           "imports": [

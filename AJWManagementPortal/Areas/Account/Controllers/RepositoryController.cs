@@ -1,12 +1,9 @@
 ﻿using AJWManagementPortal.Data;
 using AJWManagementPortal.Models;
 using AJWManagementPortal.Utility;
-using AJWManagementPortal.ViewModels;
-using AspNetCoreHero.ToastNotification.Abstractions;
 using DinkToPdf;
 using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,54 +18,30 @@ namespace AJWManagementPortal.Areas.Account.Controllers
     {
         private IConverter _converter;
         private readonly ApplicationDbContext _db;
-        private readonly INotyfService _notyf;
-
         //private readonly IWebHostEnvironment _iwebhost;
         //IWebHostEnvironment iwebhost
         //                _iwebhost = iwebhost;
 
-        public RepositoryController(ApplicationDbContext db, IConverter converter, INotyfService notyf)
+        public RepositoryController(ApplicationDbContext db, IConverter converter)
         {
             _db = db;
             _converter = converter;
-            _notyf = notyf;
-
 
         }
         //GET---DailyMonthlyYearlyAuditAccountsReportsListRepository--Start--
-        public async Task<IActionResult> DailyMonthlyYearlyAuditAccountsReportsListRepository()
+        public IActionResult DailyMonthlyYearlyAuditAccountsReportsListRepository()
         {
-            DailyMeezan model = new DailyMeezan();
-
-            IEnumerable<aDailyCash> dailycash =  _db.aDailyCashes.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 4).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First());
+            IEnumerable<aDailyCash> a =  _db.aDailyCashes.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 4).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First());
             IEnumerable<MeezanBankIEVoucher> a1 =  _db.MeezanBankIEVouchers.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 4).ToList().GroupBy(elem => elem.dateTime).Select(group => group.First());
             IEnumerable<MeezanBankIEReport> a2 =  _db.MeezanBankIEReports.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 4).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First());
             IEnumerable<DailySuppliersCashTransactionReport> a3 =  _db.dailySuppliers.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 4).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First());
-            IEnumerable<MonthlyClosingReport> a4 = _db.MonthlyClosingReports.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 4).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First());
-            var monthlyClosingReport = await(from a in _db.MonthlyClosingReports
-                                             where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) == 4))
-                                             select new MonthlyAcountReportsViewModel
-                                             {
-                                                 Id = a.Id,
-                                                 Date = a.ValueDate,
-                                                 IsMonthlyClosingReportAccounts = true,
-                                                 Title = "Monthly Accounts Report"
-                                             }).ToListAsync();
-            var meezanBankMonthlyIncomeExpenseReports = await(from a in _db.MeezanBankMonthlyIncomeExpenseReports
-                                                              where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) == 4))
-                                                              select new MonthlyAcountReportsViewModel
-                                                              {
-                                                                  Id = a.Id,
-                                                                  Date = a.ValueDate,
-                                                                  IsMeezanBankIncomeExpenseReportAccounts = true,
-                                                                  Title = "Meezan Bank Monthly Income/Expence Report"
-                                                              }).ToListAsync();
-            model.MonthlyAcountReportsViewModel = monthlyClosingReport.Union(meezanBankMonthlyIncomeExpenseReports).OrderBy(x => x.Date);
-            model.aDailyCashes = dailycash;
-            model.BankVo = a1;
-            model.Bank = a2;
-            model.dSuppliers = a3;
-            return View(model);
+            
+            DailyMeezan t = new DailyMeezan();
+            t.aDailyCashes = a;
+            t.BankVo = a1;
+            t.Bank = a2;
+            t.dSuppliers = a3;
+            return View(t);
         }
         //GET---DailyMonthlyYearlyAuditAccountsReportsListRepository--ended--
         //POST---DailyMonthlyYearlyAuditAccountsReportsListRepository--Start--
@@ -290,74 +263,6 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             _converter.Convert(pdf);
             return Ok("Successfully created PDF document.");
         }
-
-        public IActionResult EditMonthlyClosingReport(int id, bool IsEdit)
-        {
-
-            var model = _db.MonthlyClosingReports.Where(x => x.Id == id).FirstOrDefault();
-            ViewBag.EditStatus = IsEdit;
-            return View(model);
-        }
-        public IActionResult EditMeezanBankIncomeExpenseReport(int id, bool IsEdit)
-        {
-
-            var model = _db.MeezanBankMonthlyIncomeExpenseReports.Where(x => x.Id == id).FirstOrDefault();
-            if (model != null)
-            {
-                model.Images = _db.MeezanBankMonthlyIncomeExpenseReportImages.Where(x => x.MeezanBankMonthlyIncomeExpenseReportId == model.Id).
-                    Select(x => x.Filepath).ToList();
-            }
-            ViewBag.EditStatus = IsEdit;
-            return View(model);
-        }
-
-        public async Task<IActionResult> DeleteMonthlyClosingReportAccountOffice(int id)
-        {
-
-            var report = await _db.MonthlyClosingReports.FindAsync(id);
-            if (report == null)
-            {
-                return RedirectToAction("DailyMonthlyYearlyAuditAccountsReportsListRepository");
-            }
-
-            try
-            {
-                report.DelProduction = 0;
-                _db.Entry(report).State = EntityState.Modified;
-                await _db.SaveChangesAsync();
-                _notyf.Success("Deleted successfully");
-                return RedirectToAction("DailyMonthlyYearlyAuditAccountsReportsListRepository");
-            }
-            catch (DbUpdateException /* ex */)
-            {
-                return RedirectToAction("DailyMonthlyYearlyAuditAccountsReportsListRepository");
-            }
-        }
-        public async Task<IActionResult> DeleteMeezanBankIncomeExpenseReport(int id)
-        {
-
-            var report = await _db.MeezanBankMonthlyIncomeExpenseReports.FindAsync(id);
-            if (report == null)
-            {
-                return RedirectToAction("DailyMonthlyYearlyAuditAccountsReportsListRepository");
-            }
-
-            try
-            {
-                report.DelProduction = 0;
-                _db.Entry(report).State = EntityState.Modified;
-                await _db.SaveChangesAsync();
-                _notyf.Success("Deleted successfully");
-                return RedirectToAction("DailyMonthlyYearlyAuditAccountsReportsListRepository");
-            }
-            catch (DbUpdateException /* ex */)
-            {
-                return RedirectToAction("DailyMonthlyYearlyAuditAccountsReportsListRepository");
-            }
-        }
-
-
-
         //----------------
     }
 }

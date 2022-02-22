@@ -25,10 +25,6 @@ namespace AJWManagementPortal.Data
         public DbSet<DailyPlanOut> DailyPlanOut { get; set; }
         public DbSet<DailyPlanInAccounts> DailyPlanInAccountss { get; set; }
         public DbSet<DailyPlanOutAccounts> DailyPlanOutAccountss { get; set; }
-        public DbSet<MonthlyGeneralLedgerBook> MonthlyGeneralLedgerBook { get; set; }
-        public DbSet<YearlyGeneralLedgerBook> YearlyGeneralLedgerBook { get; set; }
-        public DbSet<MonthlyMainBankLedgerBook> MonthlyMainBankLedgerBook { get; set; }
-        public DbSet<YearlyMainBankLedgerBook> YearlyMainBankLedgerBook { get; set; }
         public DbSet<Img> Img { get; set; }
         public DbSet<AccountDailyContinueSheetM> DailyContinueSheetMs { get; set; }
         public DbSet<aDailyCash> aDailyCashes { get; set; }
@@ -124,11 +120,23 @@ namespace AJWManagementPortal.Data
         public DbSet<DCashClosingSupplierLedger> DCashClosingSupplierLedgers { get; set; }
         //This given referance is for Accounts Yearly Report Titile Page
         public DbSet<AccountsYearlyReportTitlePage> AccountsYearlyReportTitlePages { get; set; }
-        //-------------Ended----------------Accounts Department---File Uploading by PDf Form----------------------------------
-        public DbSet<MonthlyClosingReport> MonthlyClosingReports { get; set; }
-        public DbSet<MeezanBankMonthlyIncomeExpenseReport> MeezanBankMonthlyIncomeExpenseReports { get; set; }
-        public DbSet<MeezanBankMonthlyIncomeExpenseReportImage> MeezanBankMonthlyIncomeExpenseReportImages { get; set; }
-        
+        //------------------
 
+        //------------------
+        //-------------Ended----------------Accounts Department---File Uploading by PDf Form----------------------------------
+        //-------------Ended----------------Store Department---Category And Item ----------------------------------
+       //This referance is used for Category of item just
+        public DbSet<Category> Categories { get; set; }
+
+        //This Referance used for Item for Category
+        public DbSet<Item> Items { get; set; }
+        //-------------Ended----------------Store Department---Category And Item----------------------------------
+        //This is Valid FilesOnDatabase referance and DB Table
+        public DbSet<StoreFileOnDatabaseModel> StoreFilesOnDatabase { get; set; }
+        public DbSet<StoreFileOnDatabaseDmsModel> StoreFilesOnDatabaseDms { get; set; }
+
+        //This is Valid  FilesOnFileSystem referance and DB Table
+        public DbSet<StoreFileOnFileSystem> StoreFilesOnFileSystem { get; set; }
+        //-------------Ended----------------Production Department---File Uploading by PDf Form----------------------------------
     }
 }

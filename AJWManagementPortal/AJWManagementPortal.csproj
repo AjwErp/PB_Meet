@@ -55,28 +55,15 @@
     <Compile Remove="Migrations\20211124084705_AddHAJToDatabase.Designer.cs" />
     <Compile Remove="Migrations\20211124084849_AddHajToDatabase.cs" />
     <Compile Remove="Migrations\20211124084849_AddHajToDatabase.Designer.cs" />
-    <Compile Remove="Migrations\20220101075226_MonthlyClosingReports.cs" />
-    <Compile Remove="Migrations\20220101075226_MonthlyClosingReports.Designer.cs" />
-    <Compile Remove="Migrations\20220104071227_MeezanBankMonthlyIncomeExpenseReport.cs" />
-    <Compile Remove="Migrations\20220104071227_MeezanBankMonthlyIncomeExpenseReport.Designer.cs" />
-    <Compile Remove="Migrations\20220104073219_MeezanBankMonthlyIncomeExpenseReport.cs" />
-    <Compile Remove="Migrations\20220104073219_MeezanBankMonthlyIncomeExpenseReport.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
-    <PackageReference Include="ClosedXML" Version="0.95.4" />
     <PackageReference Include="DinkToPdf" Version="1.0.8" />
-    <PackageReference Include="Grpc.Core" Version="2.43.0" />
-    <PackageReference Include="iTextSharp" Version="5.5.13.2" />
-    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="4.0.30506" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.13" />
-    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.13" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.13" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.13" />
-    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.13" />
@@ -108,9 +95,8 @@
     <Folder Include="Areas\Sheets\Views\" />
     <Folder Include="Areas\Store\Data\" />
     <Folder Include="Areas\Store\Models\" />
+    <Folder Include="Areas\Store\Views\StoreMonthlyVoucherReport\" />
     <Folder Include="Controllers\" />
-    <Folder Include="wwwroot\PdfFiles\pdf\" />
-    <Folder Include="wwwroot\Reports\MezaanBankIncomeExportReport\MezaanBankIncomeExportReportTemp\" />
   </ItemGroup>
 
   <ItemGroup>

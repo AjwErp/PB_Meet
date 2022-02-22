@@ -13,7 +13,7 @@ namespace AJWManagementPortal.Utility
     {
         public static string GetHTMLString()
         {
-            var connectionstring = "Server=DESKTOP-UQ4ORVG\\SQLEXPRESS;Database=AJWManagementPortal;Trusted_Connection=True;MultipleActiveResultSets=true"
+            var connectionstring = "Server=DESKTOP-L5NG9E6\\SQLEXPRESS;Database=AJWManagementPortal0001;Trusted_Connection=True;MultipleActiveResultSets=true"
 ;
 
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();

@@ -107,11 +107,6 @@ namespace AJWManagementPortal.Areas.Admin.Controllers
             return Json(insertedRecords);
 
         }
-
-
-
-
-
         public IActionResult AdminUserGuide()
         {
             return View();

@@ -14,7 +14,7 @@ namespace AJWManagementPortal.Areas.Production.Controllers
     public class ProductionSupportGuideController : Controller
     {
         private readonly ApplicationDbContext _context;
-
+  
         public ProductionSupportGuideController(ApplicationDbContext context)
         {
             _context = context;
@@ -56,7 +56,6 @@ namespace AJWManagementPortal.Areas.Production.Controllers
         }
         public JsonResult InsertLawBooks(List<LawBook> data, String title, String Dept)
         {
-
             ////Check for NULL.
             if (data == null)
             {
@@ -80,11 +79,11 @@ namespace AJWManagementPortal.Areas.Production.Controllers
                 lawbook.title = title;
                 _context.LawBooks.Add(lawbook);
             }
-
             int insertedRecords = _context.SaveChanges();
             return Json(insertedRecords);
 
         }
+
         public JsonResult InsertLawBook(List<LawBook> data, String title, String Dept)
         {
 

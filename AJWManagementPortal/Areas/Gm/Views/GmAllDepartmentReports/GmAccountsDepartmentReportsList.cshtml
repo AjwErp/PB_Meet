@@ -1,4 +1,4 @@
-﻿@model AJWManagementPortal.ViewModels.GmAccountsDepartmentReportsListViewModel
+﻿
 @*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
 @*---Language Tranlator--Localizer*@
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
@@ -40,44 +40,44 @@
                 @*-----------1-------------start---------------------------- Table for Daily Accounts Reports Repository List----------------------------------------------------------*@
 
                 @*<hr />
-                    <hr />
+                <hr />
 
-                    <div class="col-sm-12 text-center">
-                        <a class="TitleGmAccountReport" id="BCA" scope="col" colspan="10">@Localizer["Bank Check Approvel Voucher List-Account Office"]</a>
-                    </div>
-                    <br />
-                    <table class="table table-bordered" id="BCVList">
-                        <thead>
-                            <tr class="Subhdr SubH">
-                                <th>@Localizer["Action"] </th>
-                                <th>@Localizer["Date"]</th>
-                                <th>@Localizer["Title"]</th>
-                                <th>@Localizer["ID#"]</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="SubH">
-                                <td class="actionbtn">
-                                    <div class="btn-group">
-                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            @Localizer["Action"]
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Check Report"]</a>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To Accounts Office"]</a>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To C.E.O Office"]</a>
-                                        </div>
+                <div class="col-sm-12 text-center">
+                    <a class="TitleGmAccountReport" id="BCA" scope="col" colspan="10">@Localizer["Bank Check Approvel Voucher List-Account Office"]</a>
+                </div>
+                <br />
+                <table class="table table-bordered" id="BCVList">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="SubH">
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Check Report"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To Accounts Office"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To C.E.O Office"]</a>
                                     </div>
-                                </td>
-                                <td></td>
-                                <td>@Localizer["Bank Check Approval Voucher"] </td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>*@
+                                </div>
+                            </td>
+                            <td></td>
+                            <td>@Localizer["Bank Check Approval Voucher"] </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>*@
 
 
                 @*------------------------------------*@
@@ -138,29 +138,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.MonthlyAcountReportsViewModel)
-                        {
-                            <tr class="SubH">
-                                <td class="actionbtn">
-                                    <div class="btn-group">
-                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            @Localizer["Action"]
-                                        </button>
-                                        <div class="dropdown-menu">
-                                           <a class="dropdown-item"  asp-action="@item.EditActionName" asp-route-id="@item.Id" asp-route-IsEdit="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
-                                            <a class="dropdown-item" asp-action="@item.ViewActionName"  asp-route-id="@item.Id" asp-route-IsEdit="false"><i class="fas fa-edit"></i> @Localizer["Check Report"]</a>
-                                            <a class="dropdown-item"  asp-action="@item.DeleteActionName" asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
-                                            <a class="dropdown-item" asp-action="SendMonthlyClosingReportToAccountOffice" 
-                                            asp-route-remarks="@item.Date.ToString("yyyy-MM-dd")"  asp-route-redirect="GmAccountsDepartmentReportsList"><i class="fas fa-send"></i> @Localizer["Send To Accounts Office"]</a>
-                                            @*<a class="dropdown-item" asp-action="SendMonthlyClosingReportToAccountOffice" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>*@
-                                        </div>
+
+                        <tr class="SubH">
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Check Report"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To Accounts Office"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
                                     </div>
-                                </td>
-                                <td>@item.Date.ToString("MM-dd-yyyy")</td>
-                                <td>@item.Title</td>
-                                <td>@item.Id</td>
-                            </tr>
-                        }
+                                </div>
+                            </td>
+                            <td></td>
+                            <td>@Localizer["Monthly Accounts Reports Repository"] </td>
+                            <td></td>
+                        </tr>
                     </tbody>
                 </table>
 
@@ -209,7 +206,7 @@
 
 
 
-
+               
             </form>
         </div>
     </div>
@@ -222,8 +219,8 @@
 @*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
 @section scripts{
     <script>
-
-        //----
+   
+//----
         $(document).ready(function () {
             $('#DARReport').DataTable({
                 "sPaginationType": "full_numbers"
@@ -260,7 +257,6 @@
         text-align: center;
         font-weight: bold;
     }
-
     .header {
         overflow: hidden;
         padding: 10px 10px;
@@ -338,7 +334,6 @@
         height: 39px;
         border: solid 1px #C82333;
     }
-
     html {
         scroll-behavior: smooth;
     }

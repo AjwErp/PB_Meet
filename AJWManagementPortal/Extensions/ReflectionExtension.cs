@@ -12,5 +12,9 @@ namespace AJWManagementPortal.Extensions
         {
             return item.GetType().GetProperty(propertyName).GetValue(item, null).ToString();
         }
+        //public static string GetPropertyValue<T>(this T item, string propertyName)
+        //{
+        //    return item.GetType().GetProperty(propertyName).GetValue(item, null).ToString();
+        //}
     }
 }
