@@ -179,42 +179,42 @@ namespace AJWManagementPortal.Areas.Dms.Controllers
 
         //---------------------------------------------Store Department-------------------Start----------------------
         //GET--Start---6---DmsStoreDepartment----start-----
-        public async Task<IActionResult> DmsStoreDepartmentAsync()
-        {
-            var fileuploadViewModel = await StoreLoadAllFiles();
-            ViewBag.Message = TempData["Message"];
-            return View(fileuploadViewModel);
-        }
+        //public async Task<IActionResult> DmsStoreDepartmentAsync()
+        //{
+        //    var fileuploadViewModel = await StoreLoadAllFiles();
+        //    ViewBag.Message = TempData["Message"];
+        //    return View(fileuploadViewModel);
+        //}
         //GET--Ended---6---DmsStoreDepartment-----ended----
         //POST--Start---6---DmsStoreDepartment----start----
         //POST--Ended---6---DmsStoreDepartment----ended----
         //Loadfiles from system----------
-        private async Task<StoreFileUploadViewModel> StoreLoadAllFiles()
-        {
-            var viewModel = new StoreFileUploadViewModel();
-            viewModel.StoreFilesOnDatabaseDms = await _db.StoreFilesOnDatabaseDms.ToListAsync();
-            viewModel.StoreFilesOnFileSystem = await _db.StoreFilesOnFileSystem.ToListAsync();
-            return viewModel;
-        }
+        //private async Task<StoreFileUploadViewModel> StoreLoadAllFiles()
+        //{
+        //    var viewModel = new StoreFileUploadViewModel();
+        //    viewModel.StoreFilesOnDatabaseDms = await _db.StoreFilesOnDatabaseDms.ToListAsync();
+        //    viewModel.StoreFilesOnFileSystem = await _db.StoreFilesOnFileSystem.ToListAsync();
+        //    return viewModel;
+        //}
         // Download File From Databbase--------------
-        public async Task<IActionResult> StoreDownloadFileFromDatabase(int id)
-        {
+        //public async Task<IActionResult> StoreDownloadFileFromDatabase(int id)
+        //{
 
-            var file = await _db.StoreFilesOnDatabaseDms.Where(x => x.Id == id).FirstOrDefaultAsync();
-            if (file == null) return null;
-            return File(file.Data, file.FileType, file.Name + file.Extension);
-        }
+        //    var file = await _db.StoreFilesOnDatabaseDms.Where(x => x.Id == id).FirstOrDefaultAsync();
+        //    if (file == null) return null;
+        //    return File(file.Data, file.FileType, file.Name + file.Extension);
+        //}
 
         // Delete File From Database-------------------
-        public async Task<IActionResult> StoreDeleteFileFromDatabase(int id)
-        {
+        //public async Task<IActionResult> StoreDeleteFileFromDatabase(int id)
+        //{
 
-            var file = await _db.StoreFilesOnDatabaseDms.Where(x => x.Id == id).FirstOrDefaultAsync();
-            _db.StoreFilesOnDatabaseDms.Remove(file);
-            _db.SaveChanges();
-            TempData["Message"] = $"Removed {file.Name + file.Extension} successfully :Store: from Database.";
-            return RedirectToAction("DmsStoreDepartment");
-        }
+        //    var file = await _db.StoreFilesOnDatabaseDms.Where(x => x.Id == id).FirstOrDefaultAsync();
+        //    _db.StoreFilesOnDatabaseDms.Remove(file);
+        //    _db.SaveChanges();
+        //    TempData["Message"] = $"Removed {file.Name + file.Extension} successfully :Store: from Database.";
+        //    return RedirectToAction("DmsStoreDepartment");
+        //}
         //---------------------------------------------Store Department-------------------Ended----------------------
 
     }

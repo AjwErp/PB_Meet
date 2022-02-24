@@ -30,7 +30,7 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
         }
 
         //GET--start---for All Daily Accounts Reports----- 
-        
+
         //GET--ended---for All Daily Accounts Reports----- 
         //POST--ended---for All Daily Accounts Reports----- 
         //POST--ended---for All Daily Accounts Reports----- 
@@ -55,7 +55,7 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
             DateTime dateTime10 = DateTime.Parse(id);
             trans.date = dateTime10;
             trans.aDailyCashes = _db.aDailyCashes.
-                Where(z => z.ValueDate <= dateTime10 && z.DelGm !=0 && (Convert.ToInt32(z.Status) >= 2 && Convert.ToInt32(z.Status) <= 3))
+                Where(z => z.ValueDate <= dateTime10 && z.DelGm != 0 && (Convert.ToInt32(z.Status) >= 2 && Convert.ToInt32(z.Status) <= 3))
                 .ToList();
 
             return View("DailyContinueReport", trans);
@@ -649,7 +649,7 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
             //return View("AjwTechnicalStaffWorkPlanList", _db.TechnicalStaffWorkPlans.ToList());
             List<aDailyCash> data = new List<aDailyCash>();
             DateTime dateTime10 = DateTime.Parse(remarks);
-            data = _db.aDailyCashes.Where(i => i.ValueDate.Equals(dateTime10) && i.DelGm!= 0 && (Convert.ToInt32(i.Status) >= 2 && Convert.ToInt32(i.Status) <= 3)).ToList();
+            data = _db.aDailyCashes.Where(i => i.ValueDate.Equals(dateTime10) && i.DelGm != 0 && (Convert.ToInt32(i.Status) >= 2 && Convert.ToInt32(i.Status) <= 3)).ToList();
 
             foreach (aDailyCash technical in data)
             {
@@ -759,7 +759,7 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
             //return View("AjwTechnicalStaffWorkPlanList", _db.TechnicalStaffWorkPlans.ToList());
             List<DailySuppliersCashTransactionReport> data = new List<DailySuppliersCashTransactionReport>();
             DateTime dateTime10 = DateTime.Parse(remarks);
-            data = _db.dailySuppliers.Where(i => i.ValueDate.Equals(dateTime10) && i.DelGm!= 0 && (Convert.ToInt32(i.Status) >= 2 && Convert.ToInt32(i.Status) <= 3)).ToList();
+            data = _db.dailySuppliers.Where(i => i.ValueDate.Equals(dateTime10) && i.DelGm != 0 && (Convert.ToInt32(i.Status) >= 2 && Convert.ToInt32(i.Status) <= 3)).ToList();
 
             foreach (DailySuppliersCashTransactionReport technical in data)
             {
@@ -821,7 +821,7 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
                 data = new List<aDailyCash>();
             }
 
-            trans.aDailyCashes = _db.aDailyCashes.Where(z => z.ValueDate == dateTime10 || (z.ValueDate < dateTime10 && z.lnClearedAmount != 0) && z.DelGm!= 0 && (Convert.ToInt32(z.Status) >= 2 && Convert.ToInt32(z.Status) <= 3)).ToList();
+            trans.aDailyCashes = _db.aDailyCashes.Where(z => z.ValueDate == dateTime10 || (z.ValueDate < dateTime10 && z.lnClearedAmount != 0) && z.DelGm != 0 && (Convert.ToInt32(z.Status) >= 2 && Convert.ToInt32(z.Status) <= 3)).ToList();
             //List<int> intersection = trans.aDailyCashes.Cast<int>().Intersect(data.Cast<int>()).ToList();
             var list3 = trans.aDailyCashes.Except(data).ToList();
             //Loop and insert records.
@@ -859,11 +859,11 @@ namespace AJWManagementPortal.Areas.Gm.Controllers
                 data = new List<aDailyCash>();
             }
 
-            trans.aDailyCashes = _db.aDailyCashes.Where(z => z.ValueDate == dateTime10 || (z.ValueDate < dateTime10 && z.lnClearedAmount != 0) && z.DelGm!= 0 && (Convert.ToInt32(z.Status) >= 2 && Convert.ToInt32(z.Status) <= 3)).ToList();
+            trans.aDailyCashes = _db.aDailyCashes.Where(z => z.ValueDate == dateTime10 || (z.ValueDate < dateTime10 && z.lnClearedAmount != 0) && z.DelGm != 0 && (Convert.ToInt32(z.Status) >= 2 && Convert.ToInt32(z.Status) <= 3)).ToList();
             //List<int> intersection = trans.aDailyCashes.Cast<int>().Intersect(data.Cast<int>()).ToList();
             var list3 = trans.aDailyCashes.Except(data).ToList();
             //Loop and insert records.
-            
+
             foreach (aDailyCash customer in data)
             {
                 customer.DelProduction = 1;

@@ -120,23 +120,27 @@ namespace AJWManagementPortal.Data
         public DbSet<DCashClosingSupplierLedger> DCashClosingSupplierLedgers { get; set; }
         //This given referance is for Accounts Yearly Report Titile Page
         public DbSet<AccountsYearlyReportTitlePage> AccountsYearlyReportTitlePages { get; set; }
+
+        public DbSet<MonthlyClosingReport> MonthlyClosingReports { get; set; }
+        public DbSet<MeezanBankMonthlyIncomeExpenseReport> MeezanBankMonthlyIncomeExpenseReports { get; set; }
+        public DbSet<MeezanBankMonthlyIncomeExpenseReportImage> MeezanBankMonthlyIncomeExpenseReportImages { get; set; }
         //------------------
 
         //------------------
         //-------------Ended----------------Accounts Department---File Uploading by PDf Form----------------------------------
         //-------------Ended----------------Store Department---Category And Item ----------------------------------
-       //This referance is used for Category of item just
-        public DbSet<Category> Categories { get; set; }
+        //This referance is used for Category of item just
+        //public DbSet<Category> Categories { get; set; }
 
         //This Referance used for Item for Category
-        public DbSet<Item> Items { get; set; }
+        //public DbSet<Item> Items { get; set; }
         //-------------Ended----------------Store Department---Category And Item----------------------------------
         //This is Valid FilesOnDatabase referance and DB Table
-        public DbSet<StoreFileOnDatabaseModel> StoreFilesOnDatabase { get; set; }
-        public DbSet<StoreFileOnDatabaseDmsModel> StoreFilesOnDatabaseDms { get; set; }
+        //public DbSet<StoreFileOnDatabaseModel> StoreFilesOnDatabase { get; set; }
+        //public DbSet<StoreFileOnDatabaseDmsModel> StoreFilesOnDatabaseDms { get; set; }
 
         //This is Valid  FilesOnFileSystem referance and DB Table
-        public DbSet<StoreFileOnFileSystem> StoreFilesOnFileSystem { get; set; }
+        //public DbSet<StoreFileOnFileSystem> StoreFilesOnFileSystem { get; set; }
         //-------------Ended----------------Production Department---File Uploading by PDf Form----------------------------------
     }
 }

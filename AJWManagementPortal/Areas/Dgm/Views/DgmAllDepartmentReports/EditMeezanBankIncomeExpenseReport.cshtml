@@ -1,0 +1,417 @@
+﻿@model MeezanBankMonthlyIncomeExpenseReport
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "MeezanBankIncomeExpenseMonthlyreport";
+      Layout = "~/Views/Shared/_LayoutDgm.cshtml";
+
+}
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@ 
+@*This HTML for ::Monthly Acconts Reports ::*@
+
+<br />
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <form class="tabled backgroundWhiteBorder10Padding backgroundWhiteBorder" asp-action="EditMeezanBankIncomeExpenseReport" asp-area="Dgm" asp-controller="DgmAllDepartmentReports">
+                <input type="hidden" asp-for="Status" />
+                <input type="hidden" asp-for="DelProduction" />
+                <input type="hidden" asp-for="Month" />
+                <input type="hidden" asp-for="Year" />
+                <div class="BackToList">
+                    <a type="button" asp-action="DgmAccountsDepartmentReportsList" asp-area="Dgm"  asp-controller="DgmAllDepartmentReports" class="btn btn-primary btn-lg form-control"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
+                </div>
+                <div class="PrintP">
+                    <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                </div>
+
+                @*main table*@
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered table-sm SubH">
+                        <thead>
+                            <tr>
+                                <th colspan="11"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+                            </tr>
+                            <tr>
+                                <th class="titleAccountofficeReport" colspan="11">@Localizer["Meezan Bank Monthly Income/Expence Report-"]</th>
+                            </tr>
+                            <tr>
+                                <th class="text-left" colspan="11"><input type="date" id="" asp-for="ValueDate" readonly="@(ViewBag.EditStatus ? null : "readonly")" style="width:200px;height:40px;" class="form-control" /> </th>
+                            </tr>
+                            <tr>
+                                <th colspan="2">@Localizer["Balance"]</th>
+                                <th colspan="5">@Localizer["Description"]</th>
+                                <th colspan="3">@Localizer["Title"]</th>
+                                <th>@Localizer["ID#"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2"><input type="text" id="debit" asp-for="InnuzalProjectBalance" class="form-control text-center sumBalance" readonly="@(ViewBag.EditStatus ? null : "readonly")" /></td>
+                                <td colspan="5"> <textarea type="text" id="desc" asp-for="InnuzalProjectDesc" class="form-control textarea" readonly="@(ViewBag.EditStatus ? null : "readonly")"></textarea></td>
+                                <th colspan="3">@Localizer["Innuzal Project"]</th>
+                                <td>01</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input type="text" id="debit" asp-for="AccessorySaleBalance" class="form-control text-center sumBalance" readonly="@(ViewBag.EditStatus ? null : "readonly")" /></td>
+                                <td colspan="5"><textarea type="text" id="desc" asp-for="AccessorySaleDesc" class="form-control textarea" readonly="@(ViewBag.EditStatus ? null : "readonly")"></textarea></td>
+                                <th colspan="3">@Localizer["Accessory Sale"]</th>
+                                <td>02</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input type="text" id="debit" asp-for="StoreMaterialBalance" class="form-control text-center sumBalance" readonly="@(ViewBag.EditStatus ? null : "readonly")" /></td>
+                                <td colspan="5"><textarea type="text" id="desc" asp-for="StoreMaterialDesc" class="form-control textarea" readonly="@(ViewBag.EditStatus ? null : "readonly")"></textarea></td>
+                                <th colspan="3">@Localizer["Store Material"]</th>
+                                <td>03</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input type="text" id="debit" asp-for="ScrabSaleBalance" class="form-control text-center sumBalance" readonly="@(ViewBag.EditStatus ? null : "readonly")" /></td>
+                                <td colspan="5"><textarea type="text" id="desc" asp-for="ScrabSaleDesc" class="form-control textarea" readonly="@(ViewBag.EditStatus ? null : "readonly")"></textarea></td>
+                                <th colspan="3">@Localizer["Scrab Sale"]</th>
+                                <td>04</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input type="text" id="debit" asp-for="ReparningBalance" class="form-control text-center sumBalance" readonly="@(ViewBag.EditStatus ? null : "readonly")" /></td>
+                                <td colspan="5"><textarea type="text" id="desc" asp-for="ReparningDesc" class="form-control textarea" readonly="@(ViewBag.EditStatus ? null : "readonly")"></textarea></td>
+                                <th colspan="3">@Localizer["Reparning"]</th>
+                                <td>05</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input type="text" id="debit" asp-for="DifferentIncomeBalance" class="form-control text-center sumBalance" readonly="@(ViewBag.EditStatus ? null : "readonly")" /></td>
+                                <td colspan="5"><textarea type="text" id="desc" asp-for="DifferentIncomeDesc" class="form-control textarea" readonly="@(ViewBag.EditStatus ? null : "readonly")"></textarea></td>
+                                <th colspan="3">@Localizer["Different Income"]</th>
+                                <td>06</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input type="text" id="debit" asp-for="NoTitleBalance" class="form-control text-center sumBalance" readonly="@(ViewBag.EditStatus ? null : "readonly")" /></td>
+                                <td colspan="5"><textarea type="text" id="desc" asp-for="NoTitleDesc" class="form-control textarea" readonly="@(ViewBag.EditStatus ? null : "readonly")"></textarea></td>
+                                <td colspan="3"></td>
+                                <td>07</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input type="text" id="debit" asp-for="NoTitle2Balance" class="form-control text-center sumBalance" readonly="@(ViewBag.EditStatus ? null : "readonly")" /></td>
+                                <td colspan="5"><textarea type="text" id="desc" asp-for="NoTitle2Desc" class="form-control textarea" readonly="@(ViewBag.EditStatus ? null : "readonly")"></textarea></td>
+                                <td colspan="3"> </td>
+                                <td>08</td>
+                            </tr>
+
+                            <tr id="total" class="">
+                                <th colspan="2"><span id="spanTotalBalance"></span></th>
+                                <th id="" colspan="9">@Localizer["Total Balance"]</th>
+                            </tr>
+                            <tr id="total" class="">
+                                <th colspan="11"></th>
+
+                            </tr>
+                            <tr id="total">
+                                <th colspan="8"><input type="text" style="background-color: #f2f2f2; border: 0px none;" id="inputTotalIncome" asp-for="TotalIncome" readonly /></th>
+                                <th id="" colspan="3">@Localizer["Total Income"]</th>
+                            </tr>
+                            <tr id="total">
+                                <th colspan="8"><input type="text" id="inputTotalExpense" asp-for="TotalExpense" readonly="@(ViewBag.EditStatus ? null : "readonly")" class="form-control text-center" /></th>
+                                <th id="" colspan="3">@Localizer["Total Expense"]</th>
+                            </tr>
+                            <tr id="total">
+                                <th colspan="8"><input type="text" style="background-color: #f2f2f2; border: 0px none;" id="inputClosingBalance" asp-for="ClosingBalance" readonly /></th>
+                                <th id="" colspan="3">@Localizer["Closing Balance"]</th>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                         
+                             <tr>
+                                <th class="" colspan="11">
+
+                                    <div id="dvImages">
+                                        @if (Model.Images != null && Model.Images.Count > 0)
+                                        {
+                                            @foreach (var item in Model.Images)
+                                            {
+                                                <img src="/@item" class="img-rounded" id="Myimg" alt="Cinque Terre" width="100" height="10">
+                                            }
+                                        }
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th colspan="11" scope="col">@Localizer["Signature"]</th>
+                            </tr>
+
+                            <tr>
+                                <th colspan="4">@Localizer["Account Manager"]</th>
+                                <th colspan="3">@Localizer["D.G.M"]</th>
+                                <th colspan="4">@Localizer["G.M"]</th>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="paidAmount" asp-for="SignAManager" readonly="@(ViewBag.EditStatus ? null : "readonly")" class="form-control" />
+                                    <span class="text-danger" asp-validation-for="SignAManager"></span>
+                                    <br />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="paidAmount" asp-for="AManagerRemarks" readonly="@(ViewBag.EditStatus ? null : "readonly")" class="form-control" />
+                                    <span class="text-danger" asp-validation-for="AManagerRemarks"></span>
+                                </td>
+                                <td colspan="3">
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="paidAmount" asp-for="SignDgm" readonly="@(ViewBag.EditStatus ? null : "readonly")" class="form-control" />
+                                    <br />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="paidAmount" asp-for="DgmRemarks" readonly="@(ViewBag.EditStatus ? null : "readonly")" class="form-control" />
+                                </td>
+                                <td colspan="4">
+                                    @*@Localizer["Signature"]:
+                            <input type="text" id="paidAmount" class="form-control" />
+                            @Localizer["Remarks"]:
+                            <input type="text" id="paidAmount" class="form-control" />*@
+                                </td>
+
+                            </tr>
+                            @if (ViewBag.EditStatus)
+                            {
+                                <tr>
+                                    <td colspan="11" class="actionbtn">
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                @Localizer["Action"]
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <button type="submit" class="dropdown-item" asp-area="Dgm"><i class="fas fa-save"></i> @Localizer["Save File"]</button>
+                                                <button type="reset" class="dropdown-item" asp-action="" asp-controller="" asp-area="Dgm"><i class="fas fa-trash-restore-alt"></i> @Localizer["Clear"]</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tfoot>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+      <div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+</body>
+<!-- back to top button-->
+<a id="button"></a>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+
+        $(".sumBalance").keyup(function () {
+            var totalBalance = 0;
+            $('.sumBalance').each(function (i, obj) {
+                if (obj.value) {
+
+                    totalBalance += parseInt(obj.value);
+
+                }
+            });
+            $('#spanTotalBalance').text(totalBalance);
+            $('#inputTotalIncome').val(totalBalance);
+        });
+        $("#inputTotalExpense").keyup(function () {
+            var income = parseInt($('#inputTotalIncome').val());
+            var expense = parseInt($(this).val());
+            if (income && expense)
+                $('#inputClosingBalance').val(income - expense);
+            else
+                $('#inputClosingBalance').val('');
+        });
+       
+
+var modal = document.getElementById('myModal');
+
+var img = document.getElementById('Myimg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+document.addEventListener("click", (e) => {
+  const elem = e.target;
+  if (elem.id==="Myimg") {
+    modal.style.display = "block";
+    modalImg.src = elem.dataset.biggerSrc || elem.src;
+    captionText.innerHTML = elem.alt; 
+  }
+})
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*  Css for BackToList Button----*/
+    .BackToList {
+        width: 150px;
+    }
+
+    .textarea {
+        height: 60px;
+    }
+    /*Mostly USes Css Classes userprofile/footer/backtolist/table/backtotopbtn/smallheading/subh/print --for Accounts Department- start*/
+    .Title {
+        font-size: xx-large;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+        color: black;
+    }
+    #Myimg {
+
+border-radius: 5px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+#Myimg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+padding-top: 100px; /* Location of the box */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgb(0,0,0); /* Fallback color */
+background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+margin: auto;
+display: block;
+width: 80%;
+max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+margin: auto;
+display: block;
+width: 80%;
+max-width: 700px;
+text-align: center;
+color: #ccc;
+padding: 10px 0;
+height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+-webkit-animation-name: zoom;
+-webkit-animation-duration: 0.6s;
+animation-name: zoom;
+animation-duration: 0.6s;
+}
+
+/* The Close Button */
+.close {
+position: absolute;
+top: 15px;
+right: 35px;
+color: #f1f1f1;
+font-size: 40px;
+font-weight: bold;
+transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+color: #bbb;
+text-decoration: none;
+cursor: pointer;
+}
+
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

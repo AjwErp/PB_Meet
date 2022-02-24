@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\source\\repos\\2022\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
+    "D:\\New Project\\AJWManagementPortal\\AJWManagementPortal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\source\\repos\\2022\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj": {
+    "D:\\New Project\\AJWManagementPortal\\AJWManagementPortal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\2022\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
+        "projectUniqueName": "D:\\New Project\\AJWManagementPortal\\AJWManagementPortal.csproj",
         "projectName": "AJWManagementPortal",
-        "projectPath": "C:\\Users\\HP\\source\\repos\\2022\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\source\\repos\\2022\\PB_Meet\\AJWManagementPortal\\obj\\",
+        "projectPath": "D:\\New Project\\AJWManagementPortal\\AJWManagementPortal.csproj",
+        "packagesPath": "C:\\Users\\Chishti-Laptop\\.nuget\\packages\\",
+        "outputPath": "D:\\New Project\\AJWManagementPortal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Chishti-Laptop\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "AspNetCoreHero.ToastNotification": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
             "DinkToPdf": {
               "target": "Package",
               "version": "[1.0.8, )"
@@ -101,6 +105,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.22, 3.1.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -109,7 +131,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

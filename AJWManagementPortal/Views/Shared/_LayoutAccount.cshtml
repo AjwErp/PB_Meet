@@ -329,6 +329,8 @@
     @*<script src="~/js/site.js"></script>
         <script src="~/js/AccountsLayout.js"></script>-->*@
     <script src="~/srtdash/assets/js/vendor/jquery-2.2.4.min.js"></script>
+     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <!-- bootstrap 4 js -->
     <script src="~/srtdash/assets/js/popper.min.js"></script>
     <script src="~/srtdash/assets/js/bootstrap.min.js"></script>
@@ -352,7 +354,7 @@
     <script src="~/js/AccountsLayout.js"></script>
     <!-- search function dashboard-->
 
-
+    @await Component.InvokeAsync("Notyf")
     @RenderSection("Scripts", required: false)
 </body>
 </html>
