@@ -1,10 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\AJWManagementPortal",
-    "\\AJWManagementPortal\\Areas",
     "\\AJWManagementPortal\\Areas\\Account",
     "\\AJWManagementPortal\\Areas\\Account\\Controllers"
   ],
+  "SelectedNode": "\\AJWManagementPortal",
   "PreviewInSolutionExplorer": false
 }

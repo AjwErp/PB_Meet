@@ -25,6 +25,8 @@ namespace AJWManagementPortal.Data
         public DbSet<DailyPlanOut> DailyPlanOut { get; set; }
         public DbSet<DailyPlanInAccounts> DailyPlanInAccountss { get; set; }
         public DbSet<DailyPlanOutAccounts> DailyPlanOutAccountss { get; set; }
+
+
         public DbSet<Img> Img { get; set; }
         public DbSet<AccountDailyContinueSheetM> DailyContinueSheetMs { get; set; }
         public DbSet<aDailyCash> aDailyCashes { get; set; }
@@ -125,7 +127,10 @@ namespace AJWManagementPortal.Data
         public DbSet<MeezanBankMonthlyIncomeExpenseReport> MeezanBankMonthlyIncomeExpenseReports { get; set; }
         public DbSet<MeezanBankMonthlyIncomeExpenseReportImage> MeezanBankMonthlyIncomeExpenseReportImages { get; set; }
         //------------------
-
+        public DbSet<MonthlyGeneralLedgerBook> MonthlyGeneralLedgerBook { get; set; }
+        public DbSet<YearlyGeneralLedgerBook> YearlyGeneralLedgerBook { get; set; }
+        public DbSet<MonthlyMainBankLedgerBook> MonthlyMainBankLedgerBook { get; set; }
+        public DbSet<YearlyMainBankLedgerBook> YearlyMainBankLedgerBook { get; set; }
         //------------------
         //-------------Ended----------------Accounts Department---File Uploading by PDf Form----------------------------------
         //-------------Ended----------------Store Department---Category And Item ----------------------------------
