@@ -135,17 +135,15 @@ namespace AJWManagementPortal.Data
         //-------------Ended----------------Accounts Department---File Uploading by PDf Form----------------------------------
         //-------------Ended----------------Store Department---Category And Item ----------------------------------
         //This referance is used for Category of item just
-        //public DbSet<Category> Categories { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         //This Referance used for Item for Category
-        //public DbSet<Item> Items { get; set; }
+        public DbSet<Item> Items { get; set; }
         //-------------Ended----------------Store Department---Category And Item----------------------------------
         //This is Valid FilesOnDatabase referance and DB Table
-        //public DbSet<StoreFileOnDatabaseModel> StoreFilesOnDatabase { get; set; }
-        //public DbSet<StoreFileOnDatabaseDmsModel> StoreFilesOnDatabaseDms { get; set; }
+        public DbSet<StoreFileOnDatabaseModel> StoreFilesOnDatabase { get; set; }
+        public DbSet<StoreFileOnDatabaseDmsModel> StoreFilesOnDatabaseDms { get; set; }
 
-        //This is Valid  FilesOnFileSystem referance and DB Table
-        //public DbSet<StoreFileOnFileSystem> StoreFilesOnFileSystem { get; set; }
-        //-------------Ended----------------Production Department---File Uploading by PDf Form----------------------------------
+        //-------------Ended----------------Store Department---File Uploading by PDf Form----------------------------------
     }
 }

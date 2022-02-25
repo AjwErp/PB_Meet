@@ -1,4 +1,6 @@
 using AJWManagementPortal.Data;
+using AJWManagementPortal.Extensions.IRepository;
+using AJWManagementPortal.Extensions.Repository;
 using AJWManagementPortal.Models;
 using AJWManagementPortal.Models.Services;
 using AspNetCoreHero.ToastNotification;
@@ -54,6 +56,12 @@ namespace AJWManagementPortal
             services.AddSingleton<IEmailSender, EmailSender>();
             //services.Configure<EmailOptions>(Configuration);
 
+            //This Code use for Monthly + Yearly General Ledger Report By :Yousaf Rakib :Start:
+            services.AddScoped<IMonthlyGeneralLedgerBookRepository, MonthlyGeneralLedgerBookRepository>();
+            services.AddScoped<IYearlyGeneralLedgerBookRepository, YearlyGeneralLedgerBookRepository>();
+            services.AddScoped<IMonthlyMainBankLedgerBookRepository, MonthlyMainBankLedgerBookRepository>();
+            services.AddScoped<IYearlyMainBankLedgerBookRepository, YearlyMainBankLedgerBookRepository>();
+            //This Code use for Monthly + Yearly General Ledger Report By :Yousaf Rakib :End:
             // sessiON
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromMinutes(5);//You can set Time   
