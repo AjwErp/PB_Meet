@@ -13,21 +13,21 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Design\_ViewImports.cshtml"
+#line 1 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Design\Views\_ViewImports.cshtml"
 using AJWManagementPortal;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Design\_ViewImports.cshtml"
+#line 2 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Design\Views\_ViewImports.cshtml"
 using AJWManagementPortal.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"af901bf6f7005972d21298adf5176f168e6b1d30", @"/Areas/Design/Views/DesignSupportGuide/DesignUserGuide.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7f307faba2f459ec4b01c5ef0965c9ff6ff9eef1", @"/Areas/Design/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7f307faba2f459ec4b01c5ef0965c9ff6ff9eef1", @"/Areas/Design/Views/_ViewImports.cshtml")]
     public class Areas_Design_Views_DesignSupportGuide_DesignUserGuide : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("tabled"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -71,9 +71,9 @@ using AJWManagementPortal.Models;
             WriteLiteral("\r\n\r\n");
             WriteLiteral("\r\n");
             WriteLiteral("<br />\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "af901bf6f7005972d21298adf5176f168e6b1d304343", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "af901bf6f7005972d21298adf5176f168e6b1d304361", async() => {
                 WriteLiteral("\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "af901bf6f7005972d21298adf5176f168e6b1d304605", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "af901bf6f7005972d21298adf5176f168e6b1d304623", async() => {
                     WriteLiteral(@"
         <div class=""container-fluid backgroundWhiteBorder10Padding DesignLUBook"">
             <div class=""col-md-12 col-sm-12"">

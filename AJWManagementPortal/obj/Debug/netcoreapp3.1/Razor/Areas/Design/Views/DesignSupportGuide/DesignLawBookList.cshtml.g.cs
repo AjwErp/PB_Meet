@@ -13,21 +13,21 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Design\_ViewImports.cshtml"
+#line 1 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Design\Views\_ViewImports.cshtml"
 using AJWManagementPortal;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Design\_ViewImports.cshtml"
+#line 2 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Design\Views\_ViewImports.cshtml"
 using AJWManagementPortal.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c9d64c172f80ed4c6238ebffe472d9f3a2ae300d", @"/Areas/Design/Views/DesignSupportGuide/DesignLawBookList.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7f307faba2f459ec4b01c5ef0965c9ff6ff9eef1", @"/Areas/Design/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7f307faba2f459ec4b01c5ef0965c9ff6ff9eef1", @"/Areas/Design/Views/_ViewImports.cshtml")]
     public class Areas_Design_Views_DesignSupportGuide_DesignLawBookList : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("type", new global::Microsoft.AspNetCore.Html.HtmlString("button"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -79,7 +79,7 @@ using AJWManagementPortal.Models;
 #nullable disable
             WriteLiteral("\r\n");
             WriteLiteral("\r\n<br />\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9d64c172f80ed4c6238ebffe472d9f3a2ae300d7300", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9d64c172f80ed4c6238ebffe472d9f3a2ae300d7318", async() => {
                 WriteLiteral("\r\n    <div class=\"container-fluid backgroundWhiteBorder10Padding\">\r\n        <div class=\"row\">\r\n            <div class=\"header col-sm-12\">\r\n                <a class=\"logo font-weight-bold font-weight-bolder\">");
 #nullable restore
 #line 19 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Design\Views\DesignSupportGuide\DesignLawBookList.cshtml"
@@ -90,9 +90,9 @@ using AJWManagementPortal.Models;
 #nullable disable
                 WriteLiteral("</a>\r\n            </div>\r\n");
                 WriteLiteral("            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9d64c172f80ed4c6238ebffe472d9f3a2ae300d8198", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9d64c172f80ed4c6238ebffe472d9f3a2ae300d8216", async() => {
                     WriteLiteral("\r\n                <hr />\r\n                <div class=\"col-sm-12 Createbtn\">\r\n                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9d64c172f80ed4c6238ebffe472d9f3a2ae300d8565", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9d64c172f80ed4c6238ebffe472d9f3a2ae300d8583", async() => {
                         WriteLiteral("<i class=\"fas fa-street-view\"> ");
 #nullable restore
 #line 25 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Design\Views\DesignSupportGuide\DesignLawBookList.cshtml"
@@ -178,7 +178,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                    </button>\r\n                                    <div class=\"dropdown-menu\">\r\n                                        ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9d64c172f80ed4c6238ebffe472d9f3a2ae300d13978", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9d64c172f80ed4c6238ebffe472d9f3a2ae300d13996", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> ");
 #nullable restore
 #line 49 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Design\Views\DesignSupportGuide\DesignLawBookList.cshtml"
@@ -206,7 +206,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                        ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9d64c172f80ed4c6238ebffe472d9f3a2ae300d16221", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9d64c172f80ed4c6238ebffe472d9f3a2ae300d16239", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> ");
 #nullable restore
 #line 50 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Design\Views\DesignSupportGuide\DesignLawBookList.cshtml"
@@ -234,7 +234,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                        ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9d64c172f80ed4c6238ebffe472d9f3a2ae300d18456", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9d64c172f80ed4c6238ebffe472d9f3a2ae300d18474", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> ");
 #nullable restore
 #line 51 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Design\Views\DesignSupportGuide\DesignLawBookList.cshtml"
@@ -262,7 +262,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                        ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9d64c172f80ed4c6238ebffe472d9f3a2ae300d20703", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9d64c172f80ed4c6238ebffe472d9f3a2ae300d20721", async() => {
                         WriteLiteral("<i class=\"fas fa-file-download\"></i> ");
 #nullable restore
 #line 52 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Design\Views\DesignSupportGuide\DesignLawBookList.cshtml"

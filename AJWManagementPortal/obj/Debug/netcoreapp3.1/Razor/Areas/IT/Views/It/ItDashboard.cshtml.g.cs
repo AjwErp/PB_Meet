@@ -13,21 +13,21 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\IT\_ViewImports.cshtml"
+#line 1 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\IT\Views\_ViewImports.cshtml"
 using AJWManagementPortal;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\IT\_ViewImports.cshtml"
+#line 2 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\IT\Views\_ViewImports.cshtml"
 using AJWManagementPortal.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"16887317fd709372f771dd2e17756861b1e7f61a", @"/Areas/IT/Views/It/ItDashboard.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7f307faba2f459ec4b01c5ef0965c9ff6ff9eef1", @"/Areas/IT/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7f307faba2f459ec4b01c5ef0965c9ff6ff9eef1", @"/Areas/IT/Views/_ViewImports.cshtml")]
     public class Areas_IT_Views_It_ItDashboard : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

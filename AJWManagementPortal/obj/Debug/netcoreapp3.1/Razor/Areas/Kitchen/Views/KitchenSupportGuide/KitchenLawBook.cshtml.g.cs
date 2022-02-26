@@ -13,21 +13,21 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Kitchen\_ViewImports.cshtml"
+#line 1 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Kitchen\Views\_ViewImports.cshtml"
 using AJWManagementPortal;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Kitchen\_ViewImports.cshtml"
+#line 2 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Kitchen\Views\_ViewImports.cshtml"
 using AJWManagementPortal.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ac2c0ed258be2c4cda86b8888766f61abdb0cf26", @"/Areas/Kitchen/Views/KitchenSupportGuide/KitchenLawBook.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7f307faba2f459ec4b01c5ef0965c9ff6ff9eef1", @"/Areas/Kitchen/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7f307faba2f459ec4b01c5ef0965c9ff6ff9eef1", @"/Areas/Kitchen/Views/_ViewImports.cshtml")]
     public class Areas_Kitchen_Views_KitchenSupportGuide_KitchenLawBook : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("dropdown-item"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -82,9 +82,9 @@ using AJWManagementPortal.Models;
             WriteLiteral("\r\n\r\n");
             WriteLiteral("\r\n");
             WriteLiteral("<br />\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf267735", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf267753", async() => {
                 WriteLiteral("\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf267997", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf268015", async() => {
                     WriteLiteral(@"
         <div class=""container-fluid backgroundWhiteBorder10Padding KitchenLUBook"">
             <div class=""col-md-12 col-sm-12"">
@@ -208,7 +208,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2615059", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2615077", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -229,7 +229,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2616960", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2616978", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -250,7 +250,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2618857", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2618875", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -271,7 +271,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2620750", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2620768", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -332,7 +332,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2625445", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2625463", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -353,7 +353,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2627346", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2627364", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -374,7 +374,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2629243", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2629261", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -395,7 +395,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2631136", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2631154", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -456,7 +456,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2635869", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2635887", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -477,7 +477,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2637770", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2637788", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -498,7 +498,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2639667", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2639685", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -519,7 +519,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2641560", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2641578", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -581,7 +581,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2646336", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2646354", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -602,7 +602,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2648237", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2648255", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -623,7 +623,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2650134", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2650152", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -644,7 +644,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2652027", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2652045", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -705,7 +705,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2656828", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2656846", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -726,7 +726,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2658729", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2658747", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -747,7 +747,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2660626", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2660644", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -768,7 +768,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2662519", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2662537", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -829,7 +829,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2667233", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2667251", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -850,7 +850,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2669134", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2669152", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -871,7 +871,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2671031", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2671049", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -892,7 +892,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2672924", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2672942", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -953,7 +953,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2677663", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2677681", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -974,7 +974,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2679564", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2679582", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -995,7 +995,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2681461", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2681479", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -1016,7 +1016,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2683354", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2683372", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -1077,7 +1077,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2688214", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2688232", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -1098,7 +1098,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2690115", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2690133", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -1119,7 +1119,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2692012", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2692030", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -1140,7 +1140,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2693905", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2693923", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -1201,7 +1201,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2698634", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf2698652", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -1222,7 +1222,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26100535", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26100553", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -1243,7 +1243,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26102433", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26102451", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -1264,7 +1264,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26104327", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26104345", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -1326,7 +1326,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26109101", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26109119", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -1347,7 +1347,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26111003", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26111021", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -1368,7 +1368,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26112901", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26112919", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -1389,7 +1389,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26114795", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26114813", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -1451,7 +1451,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26119500", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26119518", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -1472,7 +1472,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26121402", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26121420", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -1493,7 +1493,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26123300", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26123318", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -1514,7 +1514,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26125194", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26125212", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -1575,7 +1575,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26129937", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26129955", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -1596,7 +1596,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26131839", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26131857", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -1617,7 +1617,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26133737", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26133755", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -1638,7 +1638,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26135631", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26135649", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -1699,7 +1699,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26140355", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26140373", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -1720,7 +1720,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26142257", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26142275", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -1741,7 +1741,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26144155", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26144173", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -1762,7 +1762,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26146049", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26146067", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -1823,7 +1823,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26150747", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26150765", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -1844,7 +1844,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26152649", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26152667", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -1865,7 +1865,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26154547", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26154565", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -1886,7 +1886,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26156441", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26156459", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -1947,7 +1947,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26161227", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26161245", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -1968,7 +1968,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26163129", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26163147", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -1989,7 +1989,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26165027", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26165045", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -2010,7 +2010,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26166921", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26166939", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -2071,7 +2071,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26171780", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26171798", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -2092,7 +2092,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26173682", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26173700", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -2113,7 +2113,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26175580", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26175598", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -2134,7 +2134,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26177474", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26177492", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -2195,7 +2195,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26182372", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26182390", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -2216,7 +2216,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26184274", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26184292", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -2237,7 +2237,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26186172", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26186190", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -2258,7 +2258,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26188066", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26188084", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -2319,7 +2319,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26192833", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26192851", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -2340,7 +2340,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26194735", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26194753", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -2361,7 +2361,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26196633", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26196651", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -2382,7 +2382,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26198527", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26198545", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -2443,7 +2443,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26203652", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26203670", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -2464,7 +2464,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26205554", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26205572", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -2485,7 +2485,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26207452", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26207470", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -2506,7 +2506,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26209346", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26209364", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -2567,7 +2567,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26214061", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26214079", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -2588,7 +2588,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26215963", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26215981", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -2609,7 +2609,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26217861", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26217879", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -2630,7 +2630,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26219755", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26219773", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -2691,7 +2691,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26224515", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26224533", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -2712,7 +2712,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26226417", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26226435", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -2733,7 +2733,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26228315", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26228333", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -2754,7 +2754,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26230209", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26230227", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -2815,7 +2815,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26234989", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26235007", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -2836,7 +2836,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26236891", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26236909", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -2857,7 +2857,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26238789", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26238807", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -2878,7 +2878,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26240683", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26240701", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -2939,7 +2939,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26245361", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26245379", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -2960,7 +2960,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26247263", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26247281", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -2981,7 +2981,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26249161", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26249179", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -3002,7 +3002,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26251055", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26251073", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -3073,7 +3073,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\" style=\"direction:ltr\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26256380", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26256398", async() => {
                         WriteLiteral("<i class=\"fas fa-remove\"></i> Remove Row");
                     }
                     );
@@ -3094,7 +3094,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26258282", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26258300", async() => {
                         WriteLiteral("<i class=\"fas fa-list-alt\"></i> View");
                     }
                     );
@@ -3115,7 +3115,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26260180", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26260198", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> Edit");
                     }
                     );
@@ -3136,7 +3136,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26262074", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26262092", async() => {
                         WriteLiteral("<i class=\"fas fa-trash-alt\"></i> Delete");
                     }
                     );
@@ -3164,7 +3164,7 @@ using AJWManagementPortal.Models;
                                     <tr>
                                         <td scope=""row"" colspan=""15"" class=""actionbtn"">
                                             ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26264301", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26264319", async() => {
 #nullable restore
 #line 602 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Kitchen\Views\KitchenSupportGuide\KitchenLawBook.cshtml"
                                                                                                                                                                                                              Write(localizer["Back To List"]);
@@ -3205,7 +3205,7 @@ using AJWManagementPortal.Models;
 #line hidden
 #nullable disable
                     WriteLiteral("\r\n                                                </button>\r\n                                                <div class=\"dropdown-menu\">\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26267504", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26267522", async() => {
                         WriteLiteral("<i class=\"fas fa-edit\"></i> ");
 #nullable restore
 #line 609 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Kitchen\Views\KitchenSupportGuide\KitchenLawBook.cshtml"
@@ -3233,7 +3233,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26269769", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26269787", async() => {
                         WriteLiteral("<i class=\"fas fa-save\"></i> ");
 #nullable restore
 #line 610 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Kitchen\Views\KitchenSupportGuide\KitchenLawBook.cshtml"
@@ -3261,7 +3261,7 @@ using AJWManagementPortal.Models;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26272034", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2c0ed258be2c4cda86b8888766f61abdb0cf26272052", async() => {
                         WriteLiteral("<i class=\"fas fa-file-download\"></i> ");
 #nullable restore
 #line 611 "C:\Users\HP\source\repos\PB\AJWManagementPortal\Areas\Kitchen\Views\KitchenSupportGuide\KitchenLawBook.cshtml"

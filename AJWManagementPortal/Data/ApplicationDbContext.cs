@@ -143,6 +143,7 @@ namespace AJWManagementPortal.Data
         //This is Valid FilesOnDatabase referance and DB Table
         public DbSet<StoreFileOnDatabaseModel> StoreFilesOnDatabase { get; set; }
         public DbSet<StoreFileOnDatabaseDmsModel> StoreFilesOnDatabaseDms { get; set; }
+        public DbSet<StoreFileOnFileSystem> StoreFilesOnFileSystem { get; set; }
 
         //-------------Ended----------------Store Department---File Uploading by PDf Form----------------------------------
     }
