@@ -113,20 +113,6 @@
     <TypeScriptCompile Remove="wwwroot\startmin-master\**" />
   </ItemGroup>
 
-	
-	
-	
-	
-	
-  <ItemGroup>
-    <Compile Remove="Migrations\20211124084453_Add1ToDatabase.cs" />
-    <Compile Remove="Migrations\20211124084453_Add1ToDatabase.Designer.cs" />
-    <Compile Remove="Migrations\20211124084705_AddHAJToDatabase.cs" />
-    <Compile Remove="Migrations\20211124084705_AddHAJToDatabase.Designer.cs" />
-    <Compile Remove="Migrations\20211124084849_AddHajToDatabase.cs" />
-    <Compile Remove="Migrations\20211124084849_AddHajToDatabase.Designer.cs" />
-  </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
     <PackageReference Include="DinkToPdf" Version="1.0.8" />
