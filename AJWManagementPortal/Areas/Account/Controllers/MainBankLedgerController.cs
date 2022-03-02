@@ -43,9 +43,9 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             DateTime now = DateTime.Now;
             var startDate = new DateTime(now.Year, now.Month, 1);
             var endDate = startDate.AddMonths(1).AddDays(-1);
-            var result = _db.MeezanBankIEReports.ToList();
-            //.Where(z => z.ValueDate >= startDate && z.ValueDate <= endDate && z.DelProduction != 0 && z.DelProduction!=0)
-            //.ToList();
+            var result = _db.MeezanBankIEReports
+            .Where(z => z.ValueDate >= startDate && z.ValueDate <= endDate && z.DelProduction != 0 && z.DelProduction != 0)
+            .ToList();
             return View("MonthlyMainBankLedgerBook", result);
         }
 
@@ -94,9 +94,9 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             DateTime startDate = new DateTime(year, 1, 1);
             DateTime endDate = new DateTime(year, 12, 31);
 
-            List<MonthlyMainBankLedgerBook> monthlyMainBankLadgerBookList = _db.MonthlyMainBankLedgerBook.ToList();
-            //.Where(z => z.MainBankDailyCashDate >= startDate && z.MainBankDailyCashDate <= endDate)
-            //.ToList();
+            List<MonthlyMainBankLedgerBook> monthlyMainBankLadgerBookList = _db.MonthlyMainBankLedgerBook
+            .Where(z => z.MainBankDailyCashDate >= startDate && z.MainBankDailyCashDate <= endDate)
+            .ToList();
             return View("YearlyMainBankLedgerBook", monthlyMainBankLadgerBookList);
         }
 
