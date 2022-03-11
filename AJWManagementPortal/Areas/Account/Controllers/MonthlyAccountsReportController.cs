@@ -23,6 +23,8 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         private readonly INotyfService _notyf;
         private readonly IHostingEnvironment _env;
         private string meezanBankIncomeExportReportFileUploadFolder = "Reports/MezaanBankIncomeExportReport/";
+
+        //This is referance for ApplicationDB || NotifyAlertService || HostingEnvironment 
         public MonthlyAccountsReportController(ApplicationDbContext db, INotyfService notyf, IHostingEnvironment env)
         {
             _db = db;
@@ -39,7 +41,8 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //POST --Title Page--for MonthlyClosingReportTitlePage--start
         //GET ---Title Page--for MonthlyClosingReportTitlePage--ended
 
-        //GET --1---for Monthly Meezan Bank Income/Expense Monthly report--start
+        //GET --02 Sheet |Monthly Closing Report Account Office|-
+        //--for Monthly Meezan Bank Income/Expense Monthly Report--start
         public IActionResult MeezanBankIncomeExpenseMonthlyreport()
         {
             var model = new MeezanBankMonthlyIncomeExpenseReport
@@ -48,9 +51,13 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             };
             return View(model);
         }
+
+        //GET --02 Sheet |Monthly Closing Report Account Office|-
+        //-POST-For Meezan Bank Income/Expense Monthly report
         [HttpPost]
         public IActionResult MeezanBankIncomeExpenseMonthlyreport(MeezanBankMonthlyIncomeExpenseReport model)
         {
+
             var uploadedFile = new List<string>();
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("UploadedFile")))
             {
@@ -252,7 +259,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         {
             if (!ModelState.IsValid)
                 return View(model);
-
+            //If Same Date Sheet Already Exist then Display Message for dont Create Same Date Sheet
             var reportExist = _db.MonthlyClosingReports.Where(x => x.Month == model.ValueDate.Month && x.Year == model.ValueDate.Year);
             if (reportExist.Any())
             {

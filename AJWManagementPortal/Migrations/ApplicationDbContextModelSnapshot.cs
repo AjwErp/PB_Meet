@@ -1734,6 +1734,86 @@ namespace AJWManagementPortal.Migrations
                     b.ToTable("MonthlyGeneralLedgerBook");
                 });
 
+            modelBuilder.Entity("AJWManagementPortal.Models.MonthlyIncomeExpenseInternalAccount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AManagerRemarks")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ClosingBalance")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DelProduction")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DgmRemarks")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ExpenseNoTitleBalance1")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ExpenseNoTitleDesc1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GMRemarks")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("IncomeNoTitleBalance1")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IncomeNoTitleBalance2")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IncomeNoTitleBalance3")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IncomeNoTitleDesc1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IncomeNoTitleDesc2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IncomeNoTitleDesc3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Month")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SignAManager")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SignDgm")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SignGM")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TotalExpense")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TotalIncome")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ValueDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MonthlyIncomeExpenseInternalAccounts");
+                });
+
             modelBuilder.Entity("AJWManagementPortal.Models.MonthlyMainBankLedgerBook", b =>
                 {
                     b.Property<int>("Id")

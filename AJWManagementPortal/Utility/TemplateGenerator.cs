@@ -72,11 +72,23 @@ namespace AJWManagementPortal.Utility
                                     <tr>
                                         <th colspan='4'>Remarks</th>
                                         <th>Production Manager Sign</th>
+                                        <th></th>
+<br>
                                         <th>Production Manager Remarks</th>
+                                        <th></th>
+
                                         <th>GM Sign</th>
+                                        <th></th>
+<br>
                                         <th>GM Remarks</th>
+                                        <th></th>
+<br>
                                         <th>CEO Sign</th>
+                                        <th></th>
+
                                         <th>CEO Remarks</th>
+                                        <th></th>
+
                                     </tr>
             ");
             sb.AppendFormat(@"<tr>
