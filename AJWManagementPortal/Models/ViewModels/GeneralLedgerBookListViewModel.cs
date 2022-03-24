@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace AJWManagementPortal.Models.ViewModels
-{                //This ViewModel Created for Monthly+Yearly General Ledger Book
+{
     public class GeneralLedgerBookListViewModel
     {
         public IEnumerable<YearlyGeneralLedgerBook> YearlyGeneralLedgerBooks;

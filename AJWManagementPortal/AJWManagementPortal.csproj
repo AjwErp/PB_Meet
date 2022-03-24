@@ -113,6 +113,16 @@
     <TypeScriptCompile Remove="wwwroot\startmin-master\**" />
   </ItemGroup>
 
+	
+	
+	
+	
+	
+  <ItemGroup>
+    <Compile Remove="Migrations\20220324102406_AddMonthlyIndustrySupplierLedgerBookToDatabase.cs" />
+    <Compile Remove="Migrations\20220324102406_AddMonthlyIndustrySupplierLedgerBookToDatabase.Designer.cs" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
     <PackageReference Include="DinkToPdf" Version="1.0.8" />

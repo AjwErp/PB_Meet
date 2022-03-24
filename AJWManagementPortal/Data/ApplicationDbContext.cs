@@ -68,6 +68,9 @@ namespace AJWManagementPortal.Data
         public DbSet<YearlyIndustrySupplierLedger> YearlyIndustrySupplierLedger { get; set; }
         public DbSet<MonthlyIndustrySupplierLedger> MonthlyIndustrySupplierLedger { get; set; }
 
+        public DbSet<MonthlyInternalAccountLedgerBook> MonthlyInternalAccountLedgerBook { get; set; }
+        public DbSet<MonthlyIndustrySupplierLedgerBook> MonthlyIndustrySupplierLedgerBook { get; set; }
+
         //-------------Ended----------------LAW Books In Admin Department----------------------------------
 
         //This Valid Referance for AJW Techbnical Staff Working Plan

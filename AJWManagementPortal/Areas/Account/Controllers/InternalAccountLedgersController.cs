@@ -25,7 +25,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         }
         public IActionResult InternalAccountLedgerBookList()
         {
-            var monthlyInternalLedgerList = _monthlyInternalLedgerRepository.GetMonthlyInternalLedger();
+            var monthlyInternalLedgerList = _monthlyInternalLedgerRepository.GetMonthlyInternalLedgerType();
             var yearlyInternalLedgerList = _yearlyInternalLedgerRepository.GetYearlyInternalLedger();
 
             ViewBag.MonthlyInternalLedgerList = new SelectList(monthlyInternalLedgerList, "Id", "LedgerName");

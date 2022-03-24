@@ -3,6 +3,7 @@ using AJWManagementPortal.Extensions.IRepository;
 using AJWManagementPortal.Models;
 using AJWManagementPortal.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -26,21 +27,22 @@ namespace AJWManagementPortal.Areas.Account.Controllers
     public class GeneralLedgerController : Controller
     {
         private readonly ApplicationDbContext _db;
-        //This code Added by Yousaf Shb for General Ledger Monthly + Yearly
         private readonly IMonthlyGeneralLedgerBookRepository _monthlyGeneralLadgerBookRepository;
         private readonly IYearlyGeneralLedgerBookRepository _yearlyGeneralLadgerBookRepository;
-        //This code Added by Yousaf Shb for General Ledger Monthly + Yearly
-        //private readonly IWebHostEnvironment _iwebhost;
-        //IWebHostEnvironment iwebhost
-        //                _iwebhost = iwebhost;
+        private readonly IMonthlyIndustrySupplierLedgerRepository _monthlyIndustrySupplierLedgerRepository;
+        private readonly IYearlyIndustrySupplierLedgerRepository _yearlyIndustrySupplierLedgerRepository;
+        private readonly IYearlyInternalLedgerRepository _yearlyInternalLedgerRepository;
+        private readonly IMonthlyInternalLedgerRepository _monthlyInternalLedgerRepository;
 
-        //This code Added by Yousaf Shb for General Ledger Monthly + Yearly
-        public GeneralLedgerController(ApplicationDbContext db, IMonthlyGeneralLedgerBookRepository monthlyGeneralLadgerBookRepository, IYearlyGeneralLedgerBookRepository yearlyGeneralLadgerBookRepository)
+        public GeneralLedgerController(ApplicationDbContext db, IMonthlyGeneralLedgerBookRepository monthlyGeneralLadgerBookRepository, IYearlyGeneralLedgerBookRepository yearlyGeneralLadgerBookRepository, IMonthlyIndustrySupplierLedgerRepository monthlyIndustrySupplierLedgerRepository, IYearlyIndustrySupplierLedgerRepository yearlyIndustrySupplierLedgerRepository, IYearlyInternalLedgerRepository yearlyInternalLedgerRepository, IMonthlyInternalLedgerRepository monthlyInternalLedgerRepository)
         {
             this._db = db;
             this._monthlyGeneralLadgerBookRepository = monthlyGeneralLadgerBookRepository;
             this._yearlyGeneralLadgerBookRepository = yearlyGeneralLadgerBookRepository;
-
+            this._monthlyIndustrySupplierLedgerRepository = monthlyIndustrySupplierLedgerRepository;
+            this._yearlyIndustrySupplierLedgerRepository = yearlyIndustrySupplierLedgerRepository;
+            this._monthlyInternalLedgerRepository = monthlyInternalLedgerRepository;
+            this._yearlyInternalLedgerRepository = yearlyInternalLedgerRepository;
         }
         //--------------------------------------------------start-----------------general ledger BOOK---Daily/Monthly/Yearly--------------
 
@@ -68,13 +70,49 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //GET 1- for MonthlyGeneralLedgerBook
         public IActionResult MonthlyGeneralLedgerBook()
         {//This code Added by Yousaf Shb for General Ledger Monthly + Yearly
+            List<LedgerTypeViewModel> ledgerTypeViewModels = new List<LedgerTypeViewModel>();
             DateTime now = DateTime.Now;
             var startDate = new DateTime(now.Year, now.Month, 1);
             var endDate = startDate.AddMonths(1).AddDays(-1);
             TransAndBank trans = new TransAndBank();
-            trans.aDailyCashes = _db.aDailyCashes.ToList();
-            //.Where(z => z.ValueDate >= startDate && z.ValueDate<=endDate && z.DelProduction != 0)
-            //.ToList();
+            trans.aDailyCashes = _db.aDailyCashes
+            .Where(z => z.ValueDate >= startDate && z.ValueDate<=endDate && z.DelProduction != 0)
+            .ToList();
+
+            var monthlyIndustrySupplierLedgerList = _monthlyIndustrySupplierLedgerRepository.GetMonthlyIndustrySupplierLedgerType();
+            var yearlyIndustrySupplierLedgerList = _yearlyIndustrySupplierLedgerRepository.GetYearlyIndustrySupplierLedger();
+            var monthlyInternalLedgerList = _monthlyInternalLedgerRepository.GetMonthlyInternalLedgerType();
+            var yearlyInternalLedgerList = _yearlyInternalLedgerRepository.GetYearlyInternalLedger();
+
+            foreach (var result in monthlyIndustrySupplierLedgerList)
+            {
+                LedgerTypeViewModel ledgerTypeViewModel = new LedgerTypeViewModel();
+                ledgerTypeViewModel.LedgerName = result.LedgerName;
+                ledgerTypeViewModels.Add(ledgerTypeViewModel);
+            }
+            foreach (var result in yearlyIndustrySupplierLedgerList)
+            {
+                LedgerTypeViewModel ledgerTypeViewModel = new LedgerTypeViewModel();
+                ledgerTypeViewModel.LedgerName = result.LedgerName;
+                ledgerTypeViewModels.Add(ledgerTypeViewModel);
+            }
+            foreach (var result in monthlyInternalLedgerList)
+            {
+                LedgerTypeViewModel ledgerTypeViewModel = new LedgerTypeViewModel();
+                ledgerTypeViewModel.LedgerName = result.LedgerName;
+                ledgerTypeViewModels.Add(ledgerTypeViewModel);
+            }
+            foreach (var result in yearlyInternalLedgerList)
+            {
+                LedgerTypeViewModel ledgerTypeViewModel = new LedgerTypeViewModel();
+                ledgerTypeViewModel.LedgerName = result.LedgerName;
+                ledgerTypeViewModels.Add(ledgerTypeViewModel);
+            }
+
+            var ledgerType = ledgerTypeViewModels.Distinct().ToList();
+
+            ViewBag.LedgerType = new SelectList(ledgerType, "LedgerName", "LedgerName");
+
             return View("MonthlyGeneralLedgerBook", trans);
         }
         //This code Added by Yousaf Shb for General Ledger Monthly + Yearly

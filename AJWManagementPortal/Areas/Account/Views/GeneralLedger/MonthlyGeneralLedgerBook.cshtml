@@ -84,56 +84,58 @@
                                     <td colspan="3">@item.income</td>
                                     <td colspan="2">@item.pOrder</td>
                                     <td colspan="5">
-                                        <select id="txtName" style="box-sizing:border-box;height:50px;width:170px;margin:auto" class="form-control">
-                                            <option>@item.LedgerType</option>
-                                            <option>@Localizer["Select Ledger Type"]</option>
-                                            <option>@Localizer["Meezan Bank Account"]</option>
-                                            <option>@Localizer["Punjab Bank Account"]</option>
-                                            <option>@Localizer["Petty Cash Account"]</option>
-                                            <option>@Localizer["Industry Mobile Balance"]</option>
-                                            <option>@Localizer["Asim Sahib Special Budget"]  </option>
-                                            <option>@Localizer["Employee Monthly Salary(Bank Account)"]  </option>
-                                            <option>@Localizer["Employee Monthly Salary(Internal Account)"]  </option>
-                                            <option>@Localizer["Social Security Fee"]  </option>
-                                            <option>@Localizer["EOBI Monthly Fee"] </option>
-                                            <option>@Localizer["Industry Internet Package"]  </option>
-                                            <option>@Localizer["Industry Motorcycle Service"]  </option>
-                                            <option>@Localizer["Electric Material"]  </option>
-                                            <option>@Localizer["Accessory Material"] </option>
-                                            <option>@Localizer["Stationary Material"]  </option>
-                                            <option>@Localizer["Store Material"]  </option>
-                                            <option>@Localizer["Civil Work Material"] </option>
-                                            <option>@Localizer["Industry Milk Bill"]  </option>
-                                            <option>@Localizer["Industry Electric Bill"]  </option>
-                                            <option>@Localizer["Transportation"] </option>
-                                            <option>@Localizer["Staff Advance"]  </option>
-                                            <option>@Localizer["Staff Loan"]  </option>
-                                            <option>@Localizer["Accessory Repairing"]  </option>
-                                            <option>@Localizer["Labour Wages"]  </option>
-                                            <option>@Localizer["Mutafariq"]  </option>
-                                            <option>@Localizer["Internal Account Closing Balance Receipt"]  </option>
-                                            <option>@Localizer["Closing Balance + Bank"]  </option>
-                                            <option>@Localizer["Industry Kitchen Material"]  </option>
-                                            <option>@Localizer["Petty Cash Expense(Internal Account)"]</option>
-                                            <option>@Localizer["Gate Pass Expense"]  </option>
-                                            <option>@Localizer["Rafiq Iron(MianChannu)"] </option>
-                                            <option>@Localizer["Salamat Paint House"]  </option>
-                                            <option>@Localizer["Bhutta Agro Hardware(MianChannu)"]  </option>
-                                            <option>@Localizer["Nadeem Jawaid Bearing(MianChannu)"]  </option>
-                                            <option>@Localizer["Ali Sanitary Store(MianChannu)"]  </option>
-                                            <option>@Localizer["Rooba digital(MianChannu)"]  </option>
-                                            <option>@Localizer["Saeed Electric Store(MianChannu)"]  </option>
-                                            <option>@Localizer["Ayoub Petrolium Service(Tulamba)"]</option>
-                                            <option>@Localizer["Sadiq Aluminium(MakhdoomPur)"]  </option>
-                                            <option>@Localizer["Khursheed Iron Store(MianChannu)"]  </option>
-                                            <option>@Localizer["Mughal Iron Store(Tulamba)"]  </option>
-                                            <option>@Localizer["Tariq Autos(Tulamba)"]  </option>
-                                            <option>@Localizer["Live Up Water Supply(Tulamba)"]  </option>
-                                            <option>@Localizer["Mughal Interiors(CNC Plasma Machine)"]  </option>
-                                            <option>@Localizer["Lucky Autos(Tulamba)"]  </option>
-                                            <option>@Localizer["Gillani Shoping Center(Tulamba)"]  </option>
-                                            <option>@Localizer["Markaz Atab(MianChannu)"] </option>
-                                        </select>
+                                        @*@Html.DropDownList(@item.LedgerType, ViewBag.LedgerType as SelectList, new { @style = "text-align: center;width: 165px;height: 30px;font-size:medium" })*@
+                                        @Html.DropDownList("LedgerType", ViewBag.LedgerType as SelectList, new { @style = "text-align: center;width: 165px;height: 30px;font-size:medium" })
+                                        @*<select id="txtName" style="box-sizing:border-box;height:50px;width:170px;margin:auto" class="form-control">
+                                                <option>@item.LedgerType</option>
+                                                <option>@Localizer["Select Ledger Type"]</option>
+                                                <option>@Localizer["Meezan Bank Account"]</option>
+                                                <option>@Localizer["Punjab Bank Account"]</option>
+                                                <option>@Localizer["Petty Cash Account"]</option>
+                                                <option>@Localizer["Industry Mobile Balance"]</option>
+                                                <option>@Localizer["Asim Sahib Special Budget"]  </option>
+                                                <option>@Localizer["Employee Monthly Salary(Bank Account)"]  </option>
+                                                <option>@Localizer["Employee Monthly Salary(Internal Account)"]  </option>
+                                                <option>@Localizer["Social Security Fee"]  </option>
+                                                <option>@Localizer["EOBI Monthly Fee"] </option>
+                                                <option>@Localizer["Industry Internet Package"]  </option>
+                                                <option>@Localizer["Industry Motorcycle Service"]  </option>
+                                                <option>@Localizer["Electric Material"]  </option>
+                                                <option>@Localizer["Accessory Material"] </option>
+                                                <option>@Localizer["Stationary Material"]  </option>
+                                                <option>@Localizer["Store Material"]  </option>
+                                                <option>@Localizer["Civil Work Material"] </option>
+                                                <option>@Localizer["Industry Milk Bill"]  </option>
+                                                <option>@Localizer["Industry Electric Bill"]  </option>
+                                                <option>@Localizer["Transportation"] </option>
+                                                <option>@Localizer["Staff Advance"]  </option>
+                                                <option>@Localizer["Staff Loan"]  </option>
+                                                <option>@Localizer["Accessory Repairing"]  </option>
+                                                <option>@Localizer["Labour Wages"]  </option>
+                                                <option>@Localizer["Mutafariq"]  </option>
+                                                <option>@Localizer["Internal Account Closing Balance Receipt"]  </option>
+                                                <option>@Localizer["Closing Balance + Bank"]  </option>
+                                                <option>@Localizer["Industry Kitchen Material"]  </option>
+                                                <option>@Localizer["Petty Cash Expense(Internal Account)"]</option>
+                                                <option>@Localizer["Gate Pass Expense"]  </option>
+                                                <option>@Localizer["Rafiq Iron(MianChannu)"] </option>
+                                                <option>@Localizer["Salamat Paint House"]  </option>
+                                                <option>@Localizer["Bhutta Agro Hardware(MianChannu)"]  </option>
+                                                <option>@Localizer["Nadeem Jawaid Bearing(MianChannu)"]  </option>
+                                                <option>@Localizer["Ali Sanitary Store(MianChannu)"]  </option>
+                                                <option>@Localizer["Rooba digital(MianChannu)"]  </option>
+                                                <option>@Localizer["Saeed Electric Store(MianChannu)"]  </option>
+                                                <option>@Localizer["Ayoub Petrolium Service(Tulamba)"]</option>
+                                                <option>@Localizer["Sadiq Aluminium(MakhdoomPur)"]  </option>
+                                                <option>@Localizer["Khursheed Iron Store(MianChannu)"]  </option>
+                                                <option>@Localizer["Mughal Iron Store(Tulamba)"]  </option>
+                                                <option>@Localizer["Tariq Autos(Tulamba)"]  </option>
+                                                <option>@Localizer["Live Up Water Supply(Tulamba)"]  </option>
+                                                <option>@Localizer["Mughal Interiors(CNC Plasma Machine)"]  </option>
+                                                <option>@Localizer["Lucky Autos(Tulamba)"]  </option>
+                                                <option>@Localizer["Gillani Shoping Center(Tulamba)"]  </option>
+                                                <option>@Localizer["Markaz Atab(MianChannu)"] </option>
+                                            </select>*@
                                     </td>
                                     <td colspan="5">@item.Description</td>
                                     <td colspan="6">@item.ValueDate</td>

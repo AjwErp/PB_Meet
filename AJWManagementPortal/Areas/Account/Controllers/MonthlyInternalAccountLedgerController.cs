@@ -1,7 +1,9 @@
 ﻿using AJWManagementPortal.Data;
 using AJWManagementPortal.Extensions.IRepository;
 using AJWManagementPortal.Models;
+using AJWManagementPortal.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +49,55 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         {
             ViewBag.LedgerId = id;
             ViewBag.HeaderText = value + " Ledger Book";
-            return View();
+
+            List<MonthlyInternalLedgerViewModel> monthlyInternalLedgerViewModels = new List<MonthlyInternalLedgerViewModel>();
+            monthlyInternalLedgerViewModels = _monthlyInternalLedgerRepository.GetMonthlyInternalLedgers();
+
+            if (monthlyInternalLedgerViewModels == null)
+            {
+                monthlyInternalLedgerViewModels = new List<MonthlyInternalLedgerViewModel>();
+            }
+
+            return View("MonthlyInternalAccountLedgerBook", monthlyInternalLedgerViewModels);
+        }
+
+        public JsonResult InsertMonthlyInternalAccountLedgerBook(List<MonthlyInternalAccountLedgerBook> data)
+        {
+            bool result = false;
+            int response = 0;
+            var monthlyInternalAccountLedgerBookList = _db.MonthlyInternalAccountLedgerBook.AsNoTracking().ToList();
+
+            var existMonthlyInternalAccountLedgerBookList = data
+                                               .Join(monthlyInternalAccountLedgerBookList, NLB => NLB.DailyCashId, ELB => ELB.DailyCashId, (NLB, ELB) => new { NLB, ELB })
+                                               .Where(x => x.NLB.DailyCashId == x.ELB.DailyCashId)
+                                               .Select(x => x.NLB).ToList()
+                                               .ToList();
+
+            var newMonthlyInternalAccountLedgerBookList = (from NLB in data
+                                                           where !(from ELB in monthlyInternalAccountLedgerBookList select ELB.DailyCashId)
+                                                           .Contains(NLB.DailyCashId)
+                                                           select NLB).ToList();
+
+            if (newMonthlyInternalAccountLedgerBookList.Count > 0)
+            {
+                result = _monthlyInternalLedgerRepository.SaveMonthlyInternalAccountLedgerBook(newMonthlyInternalAccountLedgerBookList);
+            }
+
+            if (existMonthlyInternalAccountLedgerBookList.Count > 0)
+            {
+                result = _monthlyInternalLedgerRepository.UpdateMonthlyInternalAccountLedgerBook(existMonthlyInternalAccountLedgerBookList);
+            }
+
+            if (result == true)
+            {
+                response = 1;
+            }
+            else
+            {
+                response = 2;
+            }
+
+            return Json(response);
         }
     }
 }

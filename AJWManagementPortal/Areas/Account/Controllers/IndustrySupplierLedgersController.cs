@@ -26,11 +26,11 @@ namespace AJWManagementPortal.Areas.Account.Controllers
 
         public IActionResult IndustrySupplierLedgerBookList()
         {
-            var monthlyInternalLedgerList = _monthlyIndustrySupplierLedgerRepository.GetMonthlyIndustrySupplierLedger();
-            var yearlyInternalLedgerList = _yearlyIndustrySupplierLedgerRepository.GetYearlyIndustrySupplierLedger();
+            var monthlyIndustrySupplierLedgerList = _monthlyIndustrySupplierLedgerRepository.GetMonthlyIndustrySupplierLedgerType();
+            var yearlyIndustrySupplierLedgerList = _yearlyIndustrySupplierLedgerRepository.GetYearlyIndustrySupplierLedger();
 
-            ViewBag.MonthlyIndustrySupplierLedgerList = new SelectList(monthlyInternalLedgerList, "Id", "LedgerName");
-            ViewBag.YearlyIndustrySupplierLedgerList = new SelectList(yearlyInternalLedgerList, "Id", "LedgerName");
+            ViewBag.MonthlyIndustrySupplierLedgerList = new SelectList(monthlyIndustrySupplierLedgerList, "Id", "LedgerName");
+            ViewBag.YearlyIndustrySupplierLedgerList = new SelectList(yearlyIndustrySupplierLedgerList, "Id", "LedgerName");
             return View();
         }
         //GET- for  IndustrySupplierLedgerBook ended
