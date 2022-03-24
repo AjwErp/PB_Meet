@@ -1,5 +1,7 @@
 ﻿using AJWManagementPortal.Data;
+using AJWManagementPortal.Extensions.IRepository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,18 +14,22 @@ namespace AJWManagementPortal.Areas.Account.Controllers
     public class InternalAccountLedgersController : Controller
     {
         private readonly ApplicationDbContext _db;
-        //private readonly IWebHostEnvironment _iwebhost;
-        //IWebHostEnvironment iwebhost
-        //                _iwebhost = iwebhost;
+        private readonly IYearlyInternalLedgerRepository _yearlyInternalLedgerRepository;
+        private readonly IMonthlyInternalLedgerRepository _monthlyInternalLedgerRepository;
 
-        public InternalAccountLedgersController(ApplicationDbContext db)
+        public InternalAccountLedgersController(ApplicationDbContext db, IYearlyInternalLedgerRepository yearlyInternalLedgerRepository, IMonthlyInternalLedgerRepository monthlyInternalLedgerRepository)
         {
-            _db = db;
-
+            this._db = db;
+            this._monthlyInternalLedgerRepository = monthlyInternalLedgerRepository;
+            this._yearlyInternalLedgerRepository = yearlyInternalLedgerRepository;
         }
-        //GET -- InternalAccountLedgerBook List
         public IActionResult InternalAccountLedgerBookList()
         {
+            var monthlyInternalLedgerList = _monthlyInternalLedgerRepository.GetMonthlyInternalLedger();
+            var yearlyInternalLedgerList = _yearlyInternalLedgerRepository.GetYearlyInternalLedger();
+
+            ViewBag.MonthlyInternalLedgerList = new SelectList(monthlyInternalLedgerList, "Id", "LedgerName");
+            ViewBag.YearlyInternalLedgerList = new SelectList(yearlyInternalLedgerList, "Id", "LedgerName");
             return View();
         }
         //GET -- InternalAccountLedgerBook List ended

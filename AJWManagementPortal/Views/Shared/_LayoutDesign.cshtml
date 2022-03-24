@@ -93,16 +93,17 @@
                                     <li class="border-top"><a asp-controller="DesignSupportGuide" asp-area="Design" asp-action="DesignLawBookList" class="dropdown-item"><span class="">@Localizer["Design Law Book List"]</span></a></li>
                                 </ul>
                             </li>
-
+                            
                             <li class="border-top">
                                 <a asp-area="Design" asp-controller="Repository" asp-action="DailyMonthlyYearlyAuditAccountsReportsListRepository" aria-expanded="true">
                                     <i class="fa fa-building"></i>
                                     <span>@Localizer["Design Repository"]</span>
                                 </a>
-
                             </li>
                             <li class="border-top border-bottom">
-                                <a asp-area="Design" asp-controller="DesignReportPdf" asp-action="DesignPdfReports" aria-expanded="true"><i class="fas fa-file-pdf-o"></i><span>@Localizer["Design PDF Report"]</span></a>
+                                <a asp-area="Design" asp-controller="DesignPdfReport" asp-action="DesignPdfReportList" aria-expanded="true">
+                                <i class="fas fa-file-pdf-o"></i>
+                                <span>@Localizer["Design PDF Report"]</span></a>
                             </li>
                             <li class="border-bottom">
                                 <a asp-area="Design" asp-controller="Design" asp-action="DesignAuditReportsList" aria-expanded="true">

@@ -1,5 +1,7 @@
 ﻿using AJWManagementPortal.Data;
+using AJWManagementPortal.Extensions.IRepository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,19 +14,23 @@ namespace AJWManagementPortal.Areas.Account.Controllers
     public class IndustrySupplierLedgersController : Controller
     {
         private readonly ApplicationDbContext _db;
-        //private readonly IWebHostEnvironment _iwebhost;
-        //IWebHostEnvironment iwebhost
-        //                _iwebhost = iwebhost;
+        private readonly IYearlyIndustrySupplierLedgerRepository _yearlyIndustrySupplierLedgerRepository;
+        private readonly IMonthlyIndustrySupplierLedgerRepository _monthlyIndustrySupplierLedgerRepository;
 
-        public IndustrySupplierLedgersController(ApplicationDbContext db)
+        public IndustrySupplierLedgersController(ApplicationDbContext db, IYearlyIndustrySupplierLedgerRepository yearlyIndustrySupplierLedgerRepository, IMonthlyIndustrySupplierLedgerRepository monthlyIndustrySupplierLedgerRepository)
         {
-            _db = db;
-
+            this._db = db;
+            this._yearlyIndustrySupplierLedgerRepository = yearlyIndustrySupplierLedgerRepository;
+            this._monthlyIndustrySupplierLedgerRepository = monthlyIndustrySupplierLedgerRepository;
         }
-        //-----start------Industry Supplier Ledgers Book-------------Subledger------=-------------------------------------- 
-        //GET- for  IndustrySupplierLedgerBook
+
         public IActionResult IndustrySupplierLedgerBookList()
         {
+            var monthlyInternalLedgerList = _monthlyIndustrySupplierLedgerRepository.GetMonthlyIndustrySupplierLedger();
+            var yearlyInternalLedgerList = _yearlyIndustrySupplierLedgerRepository.GetYearlyIndustrySupplierLedger();
+
+            ViewBag.MonthlyIndustrySupplierLedgerList = new SelectList(monthlyInternalLedgerList, "Id", "LedgerName");
+            ViewBag.YearlyIndustrySupplierLedgerList = new SelectList(yearlyInternalLedgerList, "Id", "LedgerName");
             return View();
         }
         //GET- for  IndustrySupplierLedgerBook ended

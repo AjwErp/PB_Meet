@@ -5,6 +5,7 @@
     ViewData["Title"] = "InternalAccountLedgerBookList";
     Layout = "~/Views/Shared/_LayoutAccount.cshtml";
 }
+@*@using AkraTechFramework.Helpers*@
 @*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
 
 @*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
@@ -12,151 +13,31 @@
 <body>
     <div class="container-fluid backgroundWhiteBorder10Padding">
         <div class="row">
-            <div class="header col-sm-12">
+            <div class="header col-sm-12" style="height:50px">
                 <a class="logo font-weight-bold">@Localizer["Internal Ledger Book Reports List"]</a>
             </div>
-            @*------------------------start---------------------------- Table for Daily InternalLedgerBook List----------------------------------------------------------*@
             <form class="tabled col-sm-12">
-                <!--<hr />
-                <div class="row">
-                    <div class="col-sm-6">
-                        <ul>
-                            <li class="nav-item dropdown text-white-50">
-                                <button style="width:250px;font-size:medium" class="nav-link dropdown-toggle btn btn-primary" href="#" id="navbarDropDownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    @Localizer["Select Internal Ledger Book"]
-                                </button>
-                                <div class="smallfontHeading dropdown-menu" aria-labelledby="navbarDropDownMenuLink">
-
-                                    <a class="dropdown-item " asp-action="MeezanBankAccountLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Meezan Bank Account"]</a>-->
-                                    @*<a class="dropdown-item" asp-action="PunjabBankAccountLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Punjab Bank Account"]</a>*@
-                                    <!--<a class="dropdown-item" asp-action="PettyCashAccountLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Petty Cash Account"]</a>
-                                    <a class="dropdown-item " asp-action="IndustryMobileBalanceLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Industry Mobile Balance"]</a>
-                                    <a class="dropdown-item" asp-action="AsimShabSpecialBudgetLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Asim Shab Special Budget"]</a>
-                                    <a class="dropdown-item" asp-action="EmployeeMonthlySalaryBankAccountLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Employee Monthly Salary(Bank Account)"]</a>
-                                    <a class="dropdown-item" asp-action="EmployeeMonthlySalaryInternalAccountLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Employee Monthly Salary(Internal Account)"]</a>
-                                    <a class="dropdown-item" asp-action="SocialSecurityFeeLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Social Security Fee"]</a>
-                                    <a class="dropdown-item" asp-action="EOBIMonthlyFeeLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["EOBI Monthly Fee"]</a>
-                                    <a class="dropdown-item" asp-action="IndustryInternetPackageLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Industry Internet Package"]</a>
-                                    <a class="dropdown-item" asp-action="IndustryMotorcycleServiceLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Industry Motorcycle Service"] </a>
-                                    <a class="dropdown-item" asp-action="ElectricMaterialLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Electric Material"]</a>
-                                    <a class="dropdown-item" asp-action="AccessoryMaterialLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Accessory Material"]</a>
-                                    <a class="dropdown-item" asp-action="StationaryMaterialLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Stationary Material"]</a>
-                                    <a class="dropdown-item" asp-action="StoreMaterialLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Store Material"]</a>
-                                    <a class="dropdown-item" asp-action="CivlWorkMaterialLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Civl Work Material"]</a>
-                                    <a class="dropdown-item " asp-action="IndustryMilkBillLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Industry Milk Bill"]</a>
-                                    <a class="dropdown-item" asp-action="IndustryElectricBillLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Industry Electric Bill"]</a>
-                                    <a class="dropdown-item" asp-action="TransportationLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Transportation"]</a>
-                                    <a class="dropdown-item" asp-action="StaffAdvanceLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Staff Advance"]</a>
-                                    <a class="dropdown-item" asp-action="StaffLoanLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Staff Loan"]</a>
-                                    <a class="dropdown-item" asp-action="AccessoryRepairingLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Accessory Repairing"]</a>
-                                    <a class="dropdown-item" asp-action="LabourWagesrLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Labour Wages"]</a>
-                                    <a class="dropdown-item" asp-action="MutfarriqLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Mutfarriq"]</a>
-                                    <a class="dropdown-item" asp-action="InternalAccountClosingBalanceReceiptLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Internal Account Closing Balance Receipt"]</a>
-                                    <a class="dropdown-item" asp-action="ClosingBalanceAddBankLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Closing Balance + Bank "]</a>
-                                    <a class="dropdown-item" asp-action="IndustryKitchenMaterialLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Industry Kitchen Material"]</a>
-                                    <a class="dropdown-item" asp-action="PettyCashExpenseInternalAccountLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Petty Cash Expense(Internal Account) "]</a>
-                                    <a class="dropdown-item" asp-action="GatePassExpenseLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Gate Pass Expense"]</a>
-                                    <a class="dropdown-item" asp-action="ToolsMaterialLedger" asp-controller="InternalAccountLedgers" asp-area="Account">@Localizer["Tools Material"]</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 Createbtn">
-                        <a type="button" class="btn btn-primary " asp-area="Account" asp-controller="InternalAccountLedgers" asp-action="DailyInternalAccountLedgerBook"><i class="fas fa-plus"> @Localizer["Create New Daily Internal Account Ledger Book"]</i> </a>
-                    </div>
-                    <div class="col-sm-12 text-center">
-                        <a class="titleAccountofficeReport" scope="col" colspan="10">@Localizer["Daily Internal Account Ledger-Account Office"]</a>
-                    </div>
-                </div>
-                <table class="table table-bordered" id="DIALBook">
-                    <thead>
-                        <tr class="Subhdr SubH">
-                            <th>@Localizer["Action"] </th>
-                            <th>@Localizer["Date"]</th>
-                            <th>@Localizer["Title"]</th>
-                            <th>@Localizer["ID#"]</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="tabbody SubH">
-                            <td class="actionbtn">
-                                <div class="btn-group">
-                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        @Localizer["Action"]
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["View"]</a>
-                                        <a class="dropdown-item " asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["Edit"]</a>
-                                        <a class="dropdown-item " asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to Repository"]</a>
-                                        <a class="dropdown-item " asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to DMS"]</a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td>@Localizer["Daily Internal Account Ledger Book"] </td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>-->
-                @*------------------------ended---------------------------- Table for Daily GeneralLedgerBook List----------------------------------------------------------*@
-
-                @*------------------------start---------------------------- Table for Monthly GeneralLedgerBook List----------------------------------------------------------*@
                 <hr />
-
                 <div class="row">
-                    <div class="col-sm-6">
-
+                    <div class="col-sm-3">
                         <ul>
                             <li class="nav-item dropdown text-white-50">
-                                <button style="width:258px;font-size:medium" class="nav-link dropdown-toggle btn btn-primary" href="#" id="navbarDropDownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    @Localizer["Select Monthly Internal Ledger"]
-                                </button>
-                                <div class="smallfontHeading dropdown-menu" aria-labelledby="navbarDropDownMenuLink">
-
-                                    <a class="dropdown-item " asp-action="MonthlyMeezanBankAccountLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Meezan Bank Account"]</a>
-                                    @*<a class="dropdown-item" asp-action="MonthlyPunjabBankAccountLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Punjab Bank Account"]</a>*@
-                                    <a class="dropdown-item" asp-action="MonthlyPettyCashAccountLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Petty Cash Account"]</a>
-                                    <a class="dropdown-item " asp-action="MonthlyIndustryMobileBalanceLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Industry Mobile Balance"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyAsimShabSpecialBudgetLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Asim Shab Special Budget"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyEmployeeMonthlySalaryBankAccountLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Employee Monthly Salary(Bank Account)"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyEmployeeMonthlySalaryInternalAccountLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Employee Monthly Salary(Internal Account)"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlySocialSecurityFeeLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Social Security Fee"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyEOBIMonthlyFeeLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["EOBI Monthly Fee"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyIndustryInternetPackageLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Industry Internet Package"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyIndustryMotorcycleServiceLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Industry Motorcycle Service"] </a>
-                                    <a class="dropdown-item" asp-action="MonthlyElectricMaterialLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Electric Material"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyAccessoryMaterialLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Accessory Material"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyStationaryMaterialLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Stationary Material"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyStoreMaterialLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Store Material"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyCivilWorkMaterialLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Civl Work Material"]</a>
-                                    <a class="dropdown-item " asp-action="MonthlyIndustryMilkBillLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Industry Milk Bill"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyIndustryElectricBillLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Industry Electric Bill"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyTransportationLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Transportation"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyStaffAdvanceLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Staff Advance"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyStaffLoanLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Staff Loan"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyAccessoryRepairingLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Accessory Repairing"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyLabourWagesLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Labour Wages"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyMutfarriqLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Mutfarriq"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyInternalAccountClosingBalanceReceiptLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Internal Account Closing Balance Receipt"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyClosingBalanceAddBankLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Closing Balance + Bank "]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyIndustryKitchenMaterialLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Industry Kitchen Material"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyPettyCashExpenseInternalAccountLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Petty Cash Expense(Internal Account) "]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyGatePassExpenseLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Gate Pass Expense"]</a>
-                                    <a class="dropdown-item" asp-action="MonthlyToolsMaterialLedger" asp-controller="MonthlyInternalAccountLedger" asp-area="Account">@Localizer["Tools Material"]</a>
-                                </div>
+                                @Html.DropDownList("MonthlyInternalLedger", ViewBag.MonthlyInternalLedgerList as SelectList, "Select Monthly Internal Ledger", new { @class = "nav-link dropdown-toggle btn btn-primary", @style = "width:250px;height:43px; font-size:medium" })
                             </li>
                         </ul>
+                    </div>
+                    <div class="col-sm-3 Createbtn" style="margin-left: -3%; margin-right: 3%;">
+                        <a type="button" class="btn btn-primary" asp-area="Account" asp-controller="MonthlyInternalAccountLedger" asp-action="CreateMonthlyInternalLedger"><i class="fas fa-plus"> @Localizer["Create Monthly Internal Ledger"]</i> </a>
                     </div>
                     <div class="col-sm-6 Createbtn">
                         <a type="button" class="btn btn-primary" asp-area="Account" asp-controller="MonthlyInternalAccountLedger" asp-action="MonthlyInternalAccountLedger"><i class="fas fa-plus"> @Localizer["Create New Monthly Internal Account Ledger"]</i> </a>
-
                     </div>
-                    <br />
+                </div>
+                <br />
+                <div class="row">
                     <div class="col-sm-12 text-center">
                         <a class="titleAccountofficeReport" scope="col" colspan="10">@Localizer["Monthly Internal Account Ledger-Account Office"]</a>
                     </div>
-                    <br />
                 </div>
                 <br />
                 <table class="table table-bordered" id="MIALBook">
@@ -194,57 +75,26 @@
                 @*------------------------start---------------------------- Table for Yearly GeneralLedgerBook List----------------------------------------------------------*@
                 <hr />
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
                         <ul>
                             <li class="nav-item dropdown text-white-50">
-                                <button style="width:250px;font-size:medium" class="nav-link dropdown-toggle btn btn-primary" href="#" id="navbarDropDownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    @Localizer["Select Yearly Internal Ledger"]
-                                </button>
-                                <div class="smallfontHeading dropdown-menu" aria-labelledby="navbarDropDownMenuLink">
-                                    <a class="dropdown-item " asp-action="YearlyMeezanBankAccountLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Meezan Bank Account"]</a>
-                                    @*<a class="dropdown-item" asp-action="YearlyPunjabBankAccountLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Punjab Bank Account"]</a>*@
-                                    <a class="dropdown-item" asp-action="YearlyPettyCashAccountLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Petty Cash Account"]</a>
-                                    <a class="dropdown-item " asp-action="YearlyIndustryMobileBalanceLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Industry Mobile Balance"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyAsimShabSpecialBudgetLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Asim Shab Special Budget"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyEmployeeMonthlySalaryBankAccountLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Employee Monthly Salary(Bank Account)"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyEmployeeMonthlySalaryInternalAccountLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Employee Monthly Salary(Internal Account)"]</a>
-                                    <a class="dropdown-item" asp-action="YearlySocialSecurityFeeLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Social Security Fee"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyEOBIMonthlyFeeLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["EOBI Monthly Fee"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyIndustryInternetPackageLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Industry Internet Package"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyIndustryMotorcycleServiceLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Industry Motorcycle Service"] </a>
-                                    <a class="dropdown-item" asp-action="YearlyElectricMaterialLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Electric Material"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyAccessoryMaterialLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Accessory Material"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyStationaryMaterialLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Stationary Material"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyStoreMaterialLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Store Material"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyCivilWorkMaterialLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Civl Work Material"]</a>
-                                    <a class="dropdown-item " asp-action="YearlyIndustryMilkBillLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Industry Milk Bill"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyIndustryElectricBillLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Industry Electric Bill"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyTransportationLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Transportation"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyStaffAdvanceLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Staff Advance"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyStaffLoanLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Staff Loan"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyAccessoryRepairingLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Accessory Repairing"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyLabourWagesLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Labour Wages"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyMutfarriqLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Mutfarriq"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyInternalAccountClosingBalanceReceiptLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Internal Account Closing Balance Receipt"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyClosingBalanceAddBankLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Closing Balance + Bank "]</a>
-                                    <a class="dropdown-item" asp-action="YearlyIndustryKitchenMaterialLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Industry Kitchen Material"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyPettyCashExpenseInternalAccountLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Petty Cash Expense(Internal Account) "]</a>
-                                    <a class="dropdown-item" asp-action="YearlyGatePassExpenseLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Gate Pass Expense"]</a>
-                                    <a class="dropdown-item" asp-action="YearlyToolsMaterialLedger" asp-controller="YearlyInternalAccountLedger" asp-area="Account">@Localizer["Tools Material"]</a>
-                                </div>
+                                @Html.DropDownList("YearlyInternalLedger", ViewBag.YearlyInternalLedgerList as SelectList, "Select Yearly Internal Ledger", new { @class = "nav-link dropdown-toggle btn btn-primary", @style = "width:250px;height:43px; font-size:medium" })
                             </li>
 
                         </ul>
                     </div>
+                    <div class="col-sm-3 Createbtn" style="margin-left: -5%; margin-right: 5%;">
+                        <a type="button" class="btn btn-primary" asp-area="Account" asp-controller="YearlyInternalAccountLedger" asp-action="CreateYearlyInternalLedger"><i class="fas fa-plus"> @Localizer["Create Yearly Internal Ledger"]</i> </a>
+                    </div>
                     <div class="col-sm-6 Createbtn">
                         <a type="button" class="btn btn-primary" asp-area="Account" asp-controller="YearlyInternalAccountLedger" asp-action="YearlyInternalAccountLedger"><i class="fas fa-plus"> @Localizer["Create New Yearly Internal Account Ledger"]</i> </a>
-
                     </div>
-                    <br />
+                </div>
+                <br />
+                <div class="row">
                     <div class="col-sm-12 text-center">
                         <a class="titleAccountofficeReport" scope="col" colspan="10">@Localizer["Yearly Internal Account Ledger-Account Office"]</a>
                     </div>
-                    <br />
                 </div>
                 <br />
                 <table class="table table-bordered SubH" id="YIALBook">
@@ -290,29 +140,20 @@
 @*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
 @section Scripts{
     <script>
-        /* When the user clicks on the button,
-        toggle between hiding and showing the dropdown content */
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
 
-        function filterFunction() {
-            var input, filter, ul, li, a, i;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            div = document.getElementById("myDropdown");
-            a = div.getElementsByTagName("a");
-            for (i = 0; i < a.length; i++) {
-                txtValue = a[i].textContent || a[i].innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    a[i].style.display = "";
-                } else {
-                    a[i].style.display = "none";
-                }
-            }
-        }
+        $("#YearlyInternalLedger").change(function () {
+            var id = $("#YearlyInternalLedger").val();
+            var value = $("#YearlyInternalLedger option:selected").text();
+            window.location.replace("/Account/YearlyInternalAccountLedger/YearlyInternalAccountLedgerBook?id=" + id + "&value=" + value);
 
-        //------
+        });
+
+        $("#MonthlyInternalLedger").change(function () {
+            var id = $("#MonthlyInternalLedger").val();
+            var value = $("#MonthlyInternalLedger option:selected").text();
+            window.location.replace("/Account/MonthlyInternalAccountLedger/MonthlyInternalAccountLedgerBook?id=" + id + "&value=" + value);
+
+        });
 
         $(document).ready(function () {
             $('#DIALBook').DataTable({
@@ -326,14 +167,14 @@
                 "sPaginationType": "full_numbers"
             });
         });
-                //--------
+        //--------
 
         $(document).ready(function () {
             $('#YIALBook').DataTable({
                 "sPaginationType": "full_numbers"
             });
         });
-                //--------
+                        //--------
 
     </script>
 }
@@ -433,11 +274,13 @@
         width: 150px;
         text-align: center;
     }
+
     .Createbtn {
         font-family: 'Jameel Noori Nastaleeq';
         font-size: large;
         text-align: right;
     }
+
     .titleAccountofficeReport {
         font-family: 'Jameel Noori Nastaleeq';
         font-size: xx-large;
@@ -474,6 +317,7 @@
         vertical-align: middle;
         float: left;
     }
+
     .PrintP {
         margin-left: 985px;
         position: absolute;

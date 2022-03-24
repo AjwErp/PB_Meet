@@ -143,6 +143,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\Account\Views\MonthlyIndustrySupplierLedgers\CreateMonthlyIndustrySupplierLedger.cshtml" />
+    <None Include="Areas\Account\Views\MonthlyIndustrySupplierLedgers\MonthlyIndustrySupplierLedgerBook.cshtml" />
+    <None Include="Areas\Account\Views\MonthlyInternalAccountLedger\CreateMonthlyInternalLedger.cshtml" />
+    <None Include="Areas\Account\Views\MonthlyInternalAccountLedger\MonthlyInternalAccountLedgerBook.cshtml" />
+    <None Include="Areas\Account\Views\YearlyIndustrySupplierLedgers\CreateYearlyIndustrySupplierLedger.cshtml" />
+    <None Include="Areas\Account\Views\YearlyIndustrySupplierLedgers\YearlyIndustrySupplierLedgerBook.cshtml" />
+    <None Include="Areas\Account\Views\YearlyInternalAccountLedger\CreateYearlyInternalLedger.cshtml" />
+    <None Include="Areas\Account\Views\YearlyInternalAccountLedger\YearlyInternalAccountLedgerBook.cshtml" />
     <None Include="Areas\Store\Views\Category\Create.cshtml" />
     <None Include="Areas\Store\Views\Category\Delete.cshtml" />
     <None Include="Areas\Store\Views\Category\Details.cshtml" />

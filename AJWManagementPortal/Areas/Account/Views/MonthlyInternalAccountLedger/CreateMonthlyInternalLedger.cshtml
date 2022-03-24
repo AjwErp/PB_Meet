@@ -1,0 +1,232 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "Monthly Internal Account Ledger";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<br />
+<body>
+    <div class="container-fluid backgroundWhiteBorder10Padding" style="min-height:500px;">
+        <div class="header col-sm-12" style="height:50px;margin-bottom:60px;">
+            <a class="logo font-weight-bold">@Localizer["Create Monthly Internal Ledger"]</a>
+        </div>
+        <form class="col-md-12" style="border: 1px solid; width: 45%; padding-top: 75px; padding-bottom: 75px; margin: auto; border-radius: 5px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" id="txtMonthlyInternalLedger" style="margin: auto; width: 50%; margin-bottom: 10px;" name="txtMonthlyInternalLedger" placeholder="Monthly Internal Ledger" class="form-control" />
+                </div>
+                <div class="col-md-12">
+                    <div class="btn-group" style="width:22%;margin-left:40%">
+                        <button type="button" class="btn btn-primary btn-sm btn-block form-control" id="btnSaveMonthlyInternalLedger" value="Save"><i class="fas fa-save"></i> Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+<a id="button"></a>
+
+@section Scripts{
+    <script>
+        $("body").on("click", "#btnSaveMonthlyInternalLedger", function () {
+
+            var txtMonthlyInternalLedger = $("#txtMonthlyInternalLedger").val();///
+            
+            $.ajax({
+                type: "POST",
+                url: "/Account/MonthlyInternalAccountLedger/InsertMonthlyInternalLedger?txtMonthlyInternalLedger=" + txtMonthlyInternalLedger,
+               /* data: { txtMonthlyInternalLedger: txtMonthlyInternalLedger },*/
+                success: function (data) {
+
+                    if (data === 1) {
+                        alert("Data save successfully!!");
+                        window.location.replace("/Account/InternalAccountLedgers/InternalAccountLedgerBookList");
+                    }
+                    else if (data === 2) {
+                        alert("Data didn't save!!");
+                    }
+                }
+            });
+        });
+    </script>
+}
+
+<style>
+    .dropbtn {
+        background-color: #04AA6D;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #3e8e41;
+        }
+
+    #myInput {
+        box-sizing: border-box;
+        background-image: url('searchicon.png');
+        background-position: 14px 12px;
+        background-repeat: no-repeat;
+        font-size: 16px;
+        padding: 14px 20px 12px 45px;
+        border: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+        #myInput:focus {
+            outline: 3px solid #ddd;
+        }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f6f6f6;
+        min-width: 230px;
+        overflow: auto;
+        border: 1px solid #ddd;
+        z-index: 1;
+    }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+    .dropdown a:hover {
+        background-color: #ddd;
+    }
+
+    .show {
+        display: block;
+    }
+    /*-------------------*/
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .Createbtn {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: large;
+        text-align: right;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*  Css for BackToList Button----*/
+    .BackToList {
+        width: 150px;
+    }
+
+    .textarea {
+        height: 60px;
+    }
+    /*Mostly USes Css Classes userprofile/footer/backtolist/table/backtotopbtn/smallheading/subh/print --for Accounts Department- start*/
+    .Title {
+        font-size: xx-large;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+        color: black;
+    }
+    /*  Css for Small Content Of Accounts----*/
+    .smallfontHeading {
+        font-size: medium;
+    }
+    /* Css for Heading on every Sheet of ccount office----*/
+    .header {
+        overflow: hidden;
+        padding: 10px 10px;
+        font-size: 40px;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+    }
+    /*  Css for Sub Heading of table----*/
+    .Subhdr {
+        color: white;
+        text-align: center;
+        background-color: slategrey;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

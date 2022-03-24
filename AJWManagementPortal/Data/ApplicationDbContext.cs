@@ -63,7 +63,10 @@ namespace AJWManagementPortal.Data
         //This is Valid  FilesOnFileSystem referance and DB Table
         public DbSet<FileOnFileSystem> FilesOnFileSystem { get; set; }
 
-
+        public DbSet<MonthlyInternalLedger> MonthlyInternalLedger { get; set; }
+        public DbSet<YearlyInternalLedger> YearlyInternalLedger { get; set; }
+        public DbSet<YearlyIndustrySupplierLedger> YearlyIndustrySupplierLedger { get; set; }
+        public DbSet<MonthlyIndustrySupplierLedger> MonthlyIndustrySupplierLedger { get; set; }
 
         //-------------Ended----------------LAW Books In Admin Department----------------------------------
 
@@ -148,5 +151,14 @@ namespace AJWManagementPortal.Data
         public DbSet<StoreFileOnFileSystem> StoreFilesOnFileSystem { get; set; }
 
         //-------------Ended----------------Store Department---File Uploading by PDf Form----------------------------------
+        //-------------Ended----------------Design Department---File Uploading by PDf Form----------------------------------
+
+        //This is Valid FilesOnDatabase referance and DB Table
+        public DbSet<DesignFileOnDatabaseModel> DesignFilesOnDatabase { get; set; }
+        public DbSet<DesignFileOnDatabaseDmsModel> DesignFilesOnDatabaseDms { get; set; }
+
+        //This is Valid  FilesOnFileSystem referance and DB Table
+        public DbSet<DesignFileOnFileSystem> DesignFilesOnFileSystem { get; set; }
+        //-------------Ended----------------Production Department---File Uploading by PDf Form----------------------------------
     }
 }
