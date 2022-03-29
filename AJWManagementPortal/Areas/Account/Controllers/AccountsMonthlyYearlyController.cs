@@ -45,7 +45,19 @@ namespace AJWManagementPortal.Areas.Account.Controllers
                                                                    Title = "Meezan Bank Monthly Income/Expence Report"
                                                                }).ToListAsync();
             model.MonthlyAcountReportsViewModel = monthlyClosingReport.Union(meezanBankMonthlyIncomeExpenseReports).OrderBy(x => x.Date);
-            model.AccountsYearlyReportTitlePage = _db.AccountsYearlyReportTitlePages.Where(q => q.DelAccountsYR != 0).ToList().GroupBy(elem => elem.YRDate).Select(group => group.First());
+
+            var yearlyClosingReport = await (from a in _db.YearlyClosingReports
+                                              where a.DelProduction != 0
+                                              select new YearlyAcountReportsViewModel
+                                              {
+                                                  Id = a.Id,
+                                                  Date = a.ValueDate,
+                                                  IsYearlyClosingReport = true,
+                                                  Title = "Yearly Accounts Report"
+                                              }).ToListAsync();
+            model.YearlyAcountReportsViewModel = yearlyClosingReport.OrderBy(x => x.Date);
+
+            //model.AccountsYearlyReportTitlePage = _db.AccountsYearlyReportTitlePages.Where(q => q.DelAccountsYR != 0).ToList().GroupBy(elem => elem.YRDate).Select(group => group.First());
 
             return View(model);
         }

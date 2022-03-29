@@ -1,6 +1,9 @@
 ﻿using AJWManagementPortal.Data;
 using AJWManagementPortal.Models;
+using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,13 +16,20 @@ namespace AJWManagementPortal.Areas.Account.Controllers
     public class YearlyAccountsReportController : Controller
     { //here we create constrauctor of DB class
         private readonly ApplicationDbContext _db;
-        public YearlyAccountsReportController(ApplicationDbContext db)
+        private readonly INotyfService _notyf;
+        private readonly IHostingEnvironment _env;
+        private string meezanBankIncomeExportReportFileUploadFolder = "Reports/MezaanBankIncomeExportReport/";
+
+        //This is referance for ApplicationDB || NotifyAlertService || HostingEnvironment 
+        public YearlyAccountsReportController(ApplicationDbContext db, INotyfService notyf, IHostingEnvironment env)
         {
             _db = db;
+            _notyf = notyf;
+            _env = env;
         }
         //GET --Title Page---for YearlyClosingReportTitlePage--start
-        [HttpGet]
-        public async Task<IActionResult> YearlyClosingReportTitlePage()
+
+        public IActionResult YearlyClosingReportTitlePage()
         {
             return View();
         }
@@ -33,39 +43,86 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //{
         //    return View();
         //}
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> YearlyClosingReportTitlePage(AccountsYearlyReportTitlePage title, string id)
+        #region YEARLY CLOSING REPORT
+        public IActionResult YearlyClosingReport()
         {
-            DateTime today = DateTime.Today;
-
-            if (id == null)
+            var model = new YearlyClosingReport
             {
-                id = today.ToString("yyyy-MM-dd");
-                //return NotFound();
-            }
-            id = id.Replace("-", "/");
-            DateTime dateTime10 = DateTime.Parse(id);
-
-            title.YRTitle = "";
-            title.YRStatus = "3";
-            title.DelAccountsYR = 1;
-            title.DelDgmYR = 1;
-            //v.Remarks = "";
-            _db.Add(title);
-            await _db.SaveChangesAsync();
-            //return RedirectToAction(nameof(DailyMeezanBankVoucherReport));
-
-
-
-            ViewBag.Data = _db.AccountsYearlyReportTitlePages;
-
-
-            ViewBag.Data1 = _db.AccountsYearlyReportTitlePages.ToList();
-            ViewBag.hide = false;
-            return View("AccountsMonthlyYearlyReports", title);
+                ValueDate = System.Convert.ToDateTime(DateTime.Now.ToString("MM-dd-yyyy"))
+            };
+            return View(model);
         }
+        [HttpPost]
+        public ActionResult YearlyClosingReport(YearlyClosingReport model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            //If Same Date Sheet Already Exist then Display Message for dont Create Same Date Sheet
+            var reportExist = _db.YearlyClosingReports.Where(x => x.Month == model.ValueDate.Month && x.Year == model.ValueDate.Year);
+            if (reportExist.Any())
+            {
+                _notyf.Information("Report already exist for month of" + model.ValueDate.ToString("MMMM"));
+                return View(model);
+            }
 
+            model.DelProduction = 1;
+            model.Month = model.ValueDate.Month;
+            model.Year = model.ValueDate.Year;
+            _db.YearlyClosingReports.Add(model);
+            _db.SaveChanges();
+            _notyf.Information("Report successfully added for year" + model.ValueDate.ToString("MMMM"));
+            return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+        }
+        public IActionResult EditYearlyClosingReport(int id, bool IsEdit)
+        {
+            var model = _db.YearlyClosingReports.Where(x => x.Id == id).Select(c => new YearlyClosingReport()
+            {
+                ValueDate = Convert.ToDateTime(c.ValueDate.ToString("MM-dd-yyyy")),
+                SignAManager = c.SignAManager,
+                AManagerRemarks = c.AManagerRemarks,
+                DelProduction = c.DelProduction,
+                Month = c.Month,
+                Year = c.Year,
+                Status = c.Status
+            }).FirstOrDefault();
+            ViewBag.EditStatus = IsEdit;
+
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult EditYearlyClosingReport(YearlyClosingReport model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            _db.Entry(model).State = EntityState.Modified;
+            _db.SaveChanges();
+            _notyf.Success("Edited successfully");
+
+            return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+        }
+        public async Task<IActionResult> DeleteYearlyClosingReport(int id)
+        {
+
+            var report = await _db.YearlyClosingReports.FindAsync(id);
+            if (report == null)
+            {
+                return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+            }
+
+            try
+            {
+                report.DelProduction = 0;
+                _db.Entry(report).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
+                _notyf.Success("Deleted successfully");
+                return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return RedirectToAction("AccountsMonthlyYearlyReports", "AccountsMonthlyYearly");
+            }
+        }
+        #endregion
         //-----------------------------------------------------------------------------------------------------
         //GET ---1-- for YearlyIncomeExpenseBankAndInternalReport---START
         public IActionResult YearlyIncomeExpenseBankAndInternalReport()
@@ -137,8 +194,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //POST---7 for IncomeTaxDeductBankChequeCashAndOtherTax---START
         //POST---7-- for IcomeExpenseIncomeTaxDeductBankChequeCashAndOtherTaxMeezanBankYearlyReport---END
 
-
+       
 
     }
 }
-

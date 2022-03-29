@@ -134,6 +134,10 @@ namespace AJWManagementPortal.Data
         public DbSet<MeezanBankMonthlyIncomeExpenseReportImage> MeezanBankMonthlyIncomeExpenseReportImages { get; set; }
         //#--3rd Sheet-Monthly Report
         public DbSet<MonthlyIncomeExpenseInternalAccount> MonthlyIncomeExpenseInternalAccounts { get; set; }
+
+        //---#Yearly Closing Report Ref...
+        public DbSet<YearlyClosingReport> YearlyClosingReports { get; set; }
+
         //------------------
         public DbSet<MonthlyGeneralLedgerBook> MonthlyGeneralLedgerBook { get; set; }
         public DbSet<YearlyGeneralLedgerBook> YearlyGeneralLedgerBook { get; set; }

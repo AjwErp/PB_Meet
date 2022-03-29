@@ -17117,6 +17117,7 @@ C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Ar
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\YearlyAccountsReport\IncomeTaxDeductBankChequeCashAndOtherTax.cshtml.g.cs
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\YearlyAccountsReport\InternalAccountClosingBalancesAddBankAccount.cshtml.g.cs
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\YearlyAccountsReport\SaleOfficeIncomeWasoolAccountOffice.cshtml.g.cs
+C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\YearlyAccountsReport\YearlyClosingReport.cshtml.g.cs
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\YearlyAccountsReport\YearlyClosingReportTitlePage.cshtml.g.cs
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\YearlyAccountsReport\YearlyIncomeExpenseBankAndInternalReport.cshtml.g.cs
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\YearlyAccountsReport\YearlyInternalAccountExpenseReport.cshtml.g.cs
@@ -17167,6 +17168,7 @@ C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Ar
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Design\Views\DesignPdfReport\DesignPdfReportList.cshtml.g.cs
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Design\Views\DesignPdfReport\DesignPdfReports.cshtml.g.cs
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Design\Views\DesignPdfReport\DesignPdfUploadReport.cshtml.g.cs
+C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Design\Views\DesignPdfReport\ProductionPdfReports.cshtml.g.cs
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Design\Views\DesignSupportGuide\DesignLawBook.cshtml.g.cs
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Design\Views\DesignSupportGuide\DesignLawBookList.cshtml.g.cs
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Design\Views\DesignSupportGuide\DesignUserGuide.cshtml.g.cs
@@ -17575,5 +17577,4 @@ C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManag
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.dll
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.pdb
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.genruntimeconfig.cache
-C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Design\Views\DesignPdfReport\ProductionPdfReports.cshtml.g.cs
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.csproj.AssemblyReference.cache
