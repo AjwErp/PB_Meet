@@ -1,14 +1,11 @@
-﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+﻿@model IEnumerable<AJWManagementPortal.Models.TrialBalanceAccountOffice>
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "TrialBalanceAccountOffice";
     Layout = "~/Views/Shared/_LayoutAccount.cshtml";
 }
-@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
-
-@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
-@*This HTML for ::Monthly Acconts Reports ::*@
 
 <br />
 <body>
@@ -24,102 +21,105 @@
 
                 @*main table*@
                 <div class="table-responsive">
-                    <table class="table table-striped table-hover table-bordered table-sm SubH" id="tblcustomers">
+                    <table class="table table-bordered table-hover table-responsive-sm table-striped SubH" id="tblcustomers">
                         <thead>
                             <tr>
-                                <th colspan="16"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+                                <th colspan="18"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
                             </tr>
                             <tr>
-                                <th class="titleAccountofficeReport" colspan="16">@Localizer["Monthly Account Office Trial Balance Report"]</th>
+                                <th class="titleAccountofficeReport" colspan="18">@Localizer["Daily Suppliers Cash Transaction Report-Account Office"]</th>
                             </tr>
                             <tr>
-                                <th class="text-left" colspan="16"><input type="text" id="" placeholder="Enter Date Like 2021-11-25" style="width:200px;height:40px;" class="form-control" /> </th>
+                                <th class="text-left" colspan="16"> <span class=""> @Localizer["Select Date"]: </span> <input type="date" id="selectDate"> </th>
+                                @*<th class="text-left" colspan="18"> <input type="text" id="" placeholder="Enter Date   :  22-11-2021" style="width:300px;height:30px;" class="form-control" /> </th>*@
                             </tr>
                             <tr>
-                                <th colspan="2">@Localizer["Action"]</th>
+                                <th rowspan="2" colspan="2" scope="col">@Localizer["Delete Row"]</th>
                                 <th colspan="2">@Localizer["Credit"]</th>
                                 <th colspan="2">@Localizer["Debit"]</th>
                                 <th colspan="2">@Localizer["Page"]</th>
-                                <th colspan="6">@Localizer["Description"]</th>
-                                <th colspan="2">@Localizer["ID#"]</th>
+                                <th colspan="8">@Localizer["Description"]</th>
+                                <th rowspan="2" colspan="2" scope="col">@Localizer["Add Row"]</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td colspan="2">
-                                    <div class="btn-group">
-                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            @Localizer["Action"]
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-remove"></i> @Localizer["Remove Row"]</a>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td colspan="2"> <input type="text" id="debit" class="form-control" /></td>
-                                <td colspan="2"> <input type="text" id="debit" class="form-control" /></td>
-                                <td colspan="2"> <input type="text" id="debit" class="form-control" /></td>
-                                <td colspan="6">
-                                    <textarea type="text" id="desc" class="form-control textarea"> Add Description----</textarea>
-                                </td>
-                                <td colspan="2">01</td>
-                            </tr>
-                            
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td colspan="2">
+                                        <input type="button" value="Remove" onclick="Remove(this)" />
+                                    </td>
+                                    <td colspan="2">@Html.DisplayFor(modelItem => item.Credit)</td>
+                                    <td colspan="2">@Html.DisplayFor(modelItem => item.Debit)</td>
+                                    <td colspan="2">@Html.DisplayFor(modelItem => item.Page)</td>
+                                    <td colspan="8">@Html.DisplayFor(modelItem => item.Description)</td>
+                                    <td colspan="2" scope="row">@Html.DisplayFor(modelItem => item.Id)</td>
+                                </tr>
+                            }
 
-                            <tr>
-                                <th colspan="2"></th>
-                                <th colspan="2"></th>
-                                <th colspan="2">87710</th>
-                                <th colspan="2">87710</th>
-                                <th colspan="8">Internal Account Cash Receive & Expense</th>
-                            </tr>
-                            <tr>
-                                <td colspan="16">
-                                    <button type="button" class="btn btn-primary btn-sm btn-block form-control" id="btnSave" value="Save All"><i class="fas fa-save"></i>   Save All Rows</button>
-                                </td>
-                            </tr>
                         </tbody>
                         <tfoot>
+                            <tr>
+                                <th colspan="2"></th>
+                                <th colspan="2"><input type="text" id="Cradit" class="form-control" /></th>
+                                <th colspan="2"><input type="text" id="Debit" class="form-control" /></th>
+                                <th colspan="2"><input type="text" id="Page" class="form-control" /></th>
+                                <th colspan="8"><input type="text" id="Description" class="form-control" /></th>
+                                <th colspan="2">
+                                    <button type="button" id="btnAdd" value="Add" class="btn btn-primary form-control">@Localizer["Add Row"]</button>
+                                </th>
+                            </tr>
+                            @*<tr id="total">
+                                        <th colspan="2" id="t1"></th>
+                                        <th colspan="2" id="t2"></th>
+                                        <th colspan="2" id="t3"></th>
+                                        <th colspan="2" id="t4"></th>
+                                        <th colspan="8" id="t5"></th>
+                                        <th colspan="2" id="t6"></th>
+                                </tr>*@
 
                             <tr>
-                                <th colspan="16">@Localizer["Signature"]</th>
+                                <th colspan="18">@Localizer["Signature"]</th>
                             </tr>
                             <tr>
-                                <th colspan="6">@Localizer["Account Manager"]</th>
-                                <th colspan="4">@Localizer["D.G.M"]</th>
+                                <th scope="row" colspan="6">@Localizer["Account Manager"]</th>
+                                <th colspan="6">@Localizer["D.G.M"]</th>
                                 <th colspan="6">@Localizer["G.M"]</th>
                             </tr>
                             <tr>
                                 <td colspan="6">
+
                                     @Localizer["Signature"]:
-                                    <input type="text" id="paidAmount" class="form-control" />
+                                    <input type="text" id="txtpmsign" name="txtpmsign" class="form-control" />
                                     @Localizer["Remarks"]:
-                                    <input type="text" id="paidAmount" class="form-control" />
-                                </td>
-                                <td colspan="4">
-                                    @Localizer["Signature"]:
-                                    <input type="text" id="paidAmount" class="form-control" />
-                                    @Localizer["Remarks"]:
-                                    <input type="text" id="paidAmount" class="form-control" />
+                                    <input type="text" id="txtpmremarks" name="txtpmremarks" class="form-control" />
+
                                 </td>
                                 <td colspan="6">
+
                                     @Localizer["Signature"]:
-                                    <input type="text" id="paidAmount" class="form-control" />
+                                    <input type="text" id="txtgmsign" name="txtgmsign" class="form-control" />
                                     @Localizer["Remarks"]:
-                                    <input type="text" id="paidAmount" class="form-control" />
+                                    <input type="text" id="txtgmremarks" name="txtgmremarks" class="form-control" />
+
+                                </td>
+                                <td colspan="6">
+
+                                    @Localizer["Signature"]:
+                                    <input type="text" id="txtceosign" name="txtceosign" class="form-control" />
+                                    @Localizer["Remarks"]:
+                                    <input type="text" id="txtceoremarks" name="txtceoremarks" class="form-control" />
+
                                 </td>
 
                             </tr>
+
+                            @*sign table end here*@
                             <tr>
-                                <td colspan="16" class="actionbtn">
-                                    <div class="btn-group">
-                                        <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            @Localizer["Action"]
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-save"></i> @Localizer["Save File"]</a>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore-alt"></i> @Localizer["Clear"]</a>
+                                <td colspan="11">
+                                    <div class="col-md-12">
+                                        <div class="btn-group" style="width:22%;margin-left:72%">
+                                            <button type="button" class="btn btn-primary btn-sm btn-block form-control" id="btnSave" value="Save"><i class="fas fa-save"></i> Save</button>
                                         </div>
                                     </div>
                                 </td>
@@ -140,6 +140,139 @@
 @*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
 @section Scripts{
     <script>
+
+        $("body").on("click", "#btnAdd", function () {
+            //$("#total #t2").text("0");
+            //$("#total #t3").text("0");
+            //var Cradit = $("#Cradit");
+            //var Debit = $("#Debit");
+            //var credit2 = 0, debit2 = 0;
+            //$("#tblcustomers TBODY TR").each(function () {
+            //    var row = $(this);
+
+            //    credit2 = parseInt(credit2)+ parseInt(row.find("TD").eq(1).text());
+
+            //    debit2 = parseInt(debit2) +  parseInt(row.find("TD").eq(2).text());
+
+            //});
+            //var sumCradit = parseInt(Cradit.val()) + parseInt(credit2);
+            //var sumDebit = parseInt(Debit.val()) + parseInt(debit2);
+
+            //$("#total #t2").append(parseInt(sumCradit));
+            //$("#total #t3").append(parseInt(sumDebit));
+
+            //Reference the Name and Country TextBoxes.
+            var Cradit = $("#Cradit");
+            var Debit = $("#Debit");
+            var Page = $("#Page");
+            var Description = $("#Description");
+            var tBody = $("#tblcustomers > TBODY")[0];
+
+            //Add Row.
+            var row = tBody.insertRow(-1);
+
+            var cell = $(row.insertCell(-1));
+            //Add Button cell.
+            var btnRemove = $("<input />");
+            btnRemove.attr("type", "button");
+            btnRemove.attr("onclick", "Remove(this);");
+            btnRemove.val("Remove");
+            cell.attr('colspan', 2);
+
+            cell.html(btnRemove);
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 2);
+            cell.html(Cradit.val());
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 2);
+            cell.html(Debit.val());
+
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 2);
+            cell.html(Page.val());
+
+
+            //Add Country cell.
+            cell = $(row.insertCell(-1));
+            cell.attr('colspan', 10);
+            cell.html(Description.val());
+
+            $("#Cradit").val("");
+            $("#Debit").val("");
+            $("#Page").val("");
+            $("#Description").val("");
+        });
+
+        function Remove(button) {
+            //Determine the reference of the Row using the Button.
+            var row = $(button).closest("TR");
+            var name = $("TD", row).eq(0).html();
+            if (confirm("Do you want to delete this row?")) {
+                //Get the reference of the Table.
+                var table = $("#tblcustomers")[0];
+
+                //Delete the Table row using it's Index.
+                table.deleteRow(row[0].rowIndex);
+            }
+        };
+
+        $("body").on("click", "#btnSave", function () {
+
+            var trialBalanceAccountOffices = new Array();
+            $("#tblcustomers TBODY TR").each(function () {
+                var selectDate = $("#selectDate");
+                var txtpmsign = $("#txtpmsign");
+                var txtpmremarks = $("#txtpmremarks");
+                var txtgmsign = $("#txtgmsign");
+                var txtgmremarks = $("#txtgmremarks");
+                var txtceosign = $("#txtceosign");
+                var txtceoremarks = $("#txtceoremarks");
+
+                var row = $(this);
+                var trialBalanceAccountOffice = {};
+
+                trialBalanceAccountOffice.AMSignature = txtpmsign.val();
+                trialBalanceAccountOffice.AMRemark = txtpmremarks.val();
+                trialBalanceAccountOffice.DGMSignature = txtgmsign.val();
+                trialBalanceAccountOffice.DGMRemark = txtgmremarks.val();
+                trialBalanceAccountOffice.GMSignature = txtceosign.val();
+                trialBalanceAccountOffice.GMRemark = txtceoremarks.val();
+                trialBalanceAccountOffice.SelectedDate = selectDate.val();
+
+                trialBalanceAccountOffice.Credit = row.find("TD").eq(1).text();
+                trialBalanceAccountOffice.Debit = row.find("TD").eq(2).text();
+                trialBalanceAccountOffice.Page = row.find("TD").eq(3).text();
+                trialBalanceAccountOffice.Description = row.find("TD").eq(4).text();
+
+                trialBalanceAccountOffices.push(trialBalanceAccountOffice);
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "/Account/MonthlyAccountsReport/InsertTrialBalanceAccountOffice",
+                data: { data: trialBalanceAccountOffices },
+
+                success: function (data) {
+
+                    if (data === 1) {
+                        alert("Data save successfully!!");
+                        // window.location.replace("/Account/InternalAccountLedgers/InternalAccountLedgerBookList");
+                        window.location.replace("/Account/AccountsMonthlyYearly/AccountsMonthlyYearlyReports");
+                    }
+                    else if (data === 2) {
+                        alert("Data didn't save!!");
+                        window.location.replace("/Account/AccountsMonthlyYearly/AccountsMonthlyYearlyReports");
+                    }
+                }
+            });
+
+        });
     </script>
 }
 @*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@

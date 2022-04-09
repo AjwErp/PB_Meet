@@ -1242,3 +1242,5 @@ C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\AJWMan
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\AJWManagementPortal.dll
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\AJWManagementPortal.pdb
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\AJWManagementPortal.genruntimeconfig.cache
+C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\Razor\Areas\Account\Views\YearlyAccountsReport\EditYearlyClosingReport.cshtml.g.cs
+C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\Razor\Areas\Account\Views\YearlyAccountsReport\YearlyClosingReport.cshtml.g.cs

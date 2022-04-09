@@ -138,6 +138,9 @@ namespace AJWManagementPortal.Data
         //---#Yearly Closing Report Ref...
         public DbSet<YearlyClosingReport> YearlyClosingReports { get; set; }
 
+        public DbSet<MonthlyIncomeExpenceInternalAccountReport> MonthlyIncomeExpenceInternalAccountReport { get; set; }
+        public DbSet<TrialBalanceAccountOffice> TrialBalanceAccountOffice { get; set; }
+
         //------------------
         public DbSet<MonthlyGeneralLedgerBook> MonthlyGeneralLedgerBook { get; set; }
         public DbSet<YearlyGeneralLedgerBook> YearlyGeneralLedgerBook { get; set; }

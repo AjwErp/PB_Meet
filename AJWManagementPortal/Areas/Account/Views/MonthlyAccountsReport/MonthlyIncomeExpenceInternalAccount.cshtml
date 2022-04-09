@@ -1,10 +1,8 @@
 ﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
-@{
-    ViewData["Title"] = "MonthlyIncomeExpenceInternalAccount";
-    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
-}
+@{ ViewData["Title"] = "MonthlyIncomeExpenceInternalAccount";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml"; }
 @*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
 
 @*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
@@ -33,7 +31,9 @@
                                 <th class="titleAccountofficeReport" colspan="11">@Localizer["Monthly Income/Expence Internal Account Report"]</th>
                             </tr>
                             <tr>
-                                <th class="text-left" colspan="11"><input type="text" id="" placeholder="Enter Date Like 2021-11-25" style="width:200px;height:40px;" class="form-control" /> </th>
+                                <th class="text-left" colspan="11"> <span class=""> @Localizer["Select Date"]: </span> <input type="date" id="selectDate"> </th>
+                                @*<th class="text-left" colspan="11"><input class="form-control" id="txtSelectedDateFrom" style="height:32px;padding:16px;width:140px;" type="datetime" name="txtSelectedDateFrom" autocomplete="off" /> </th>*@
+                                @*<th class="text-left" colspan="11"><input type="text" id="selectDate" placeholder="Enter Date Like 2021-11-25" style="width:200px;height:40px;" class="form-control" /> </th>*@
                             </tr>
                             <tr>
 
@@ -41,28 +41,28 @@
                             </tr>
                             <tr>
                                 <th colspan="4">@Localizer["Balance"]</th>
-                                <th colspan="6">@Localizer["Description"]</th>
-                                <th>@Localizer["ID#"]</th>
+                                <th colspan="7">@Localizer["Description"]</th>
+
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td colspan="4"><input type="text" id="debit" class="form-control text-center" value="10000" /></td>
-                                <td colspan="6"><input type="text" id="debit" class="form-control text-center" value="Last Closing Balance Receipt Month November 2020" /></td>
-                                <td>01</td>
+                                <td colspan="4"><input type="text" id="txtIncomeBalance1" class="form-control text-center" value="0" /></td>
+                                <td colspan="7"><input type="text" id="txtDescription1" class="form-control text-center" value="Last Closing Balance Receipt Month November 2020" /></td>
+
                             </tr>
                             <tr>
-                                <td colspan="4"><input type="text" id="debit" class="form-control text-center" value="10000" /></td>
-                                <td colspan="6"><input type="text" id="debit" class="form-control text-center" value="Cash Received Mazen Bank Account" /></td>
-                                <td>02</td>
+                                <td colspan="4"><input type="text" id="txtIncomeBalance2" class="form-control text-center" value="0" /></td>
+                                <td colspan="7"><input type="text" id="txtDescription2" class="form-control text-center" value="Cash Received Mazen Bank Account" /></td>
+
                             </tr>
                             <tr>
-                                <td colspan="4"><input type="text" id="debit" class="form-control text-center" value="10000" /></td>
-                                <td colspan="6"><input type="text" id="debit" class="form-control text-center" value="Cash Received Punjab Bank Account" /></td>
-                                <td>02</td>
+                                <td colspan="4"><input type="text" id="txtIncomeBalance3" class="form-control text-center" value="0" /></td>
+                                <td colspan="7"><input type="text" id="txtDescription3" class="form-control text-center" value="Cash Received Punjab Bank Account" /></td>
+
                             </tr>
                             <tr>
-                                <th colspan="4">1339481</th>
+                                <th colspan="4"><input type="text" id="txtTotalIncome" class="form-control text-center" value="0" /></th>
                                 <th colspan="7">@Localizer["Total Income"]</th>
 
                             </tr>
@@ -70,29 +70,29 @@
                                 <th colspan="11">@Localizer["EXPENCE"]</th>
                             </tr>
                             <tr>
-                                <td colspan="4"><input type="text" id="debit" class="form-control text-center" value="10000" /></td>
-                                <td colspan="6"><input type="text" id="debit" class="form-control text-center" value="Expenses through internal account" /></td>
-                                <td>01</td>
+                                <td colspan="4"><input type="text" id="txtExpenseBalance" class="form-control text-center" value="0" /></td>
+                                <td colspan="7"><input type="text" id="txtExpenseDescription" class="form-control text-center" value="Expenses through internal account" /></td>
+
                             </tr>
 
                             <tr>
-                                <th colspan="4">1192000</th>
+                                <th colspan="4"><input type="text" id="txtTotalExpense" class="form-control text-center" value="0" /></th>
                                 <th colspan="7">@Localizer["Total Expence"]</th>
                             </tr>
                             <tr>
                                 <td colspan="11"></td>
                             </tr>
                             <tr>
-                                <th colspan="4">1339481</th>
+                                <th colspan="4"><input type="text" id="txtTotalIncomeSum" class="form-control text-center" value="0" /></th>
                                 <th colspan="7">@Localizer["Total Income"]</th>
                             </tr>
                             <tr>
-                                <th colspan="4">1265440</th>
+                                <th colspan="4"><input type="text" id="txtTotalExpenseSum" class="form-control text-center" value="0" /></th>
                                 <th colspan="7">@Localizer["Total Expence"]</th>
                             </tr>
                             <tr>
-                                <th colspan="4">74041</th>
-                                <th colspan="7">@Localizer["Closing Balance"] December(2020)</th>
+                                <th colspan="4"><input type="text" id="txtClosingBalance" class="form-control text-center" value="0" /></th>
+                                <th colspan="7"><label style="font-weight: bold;color:black">Closing Balance</label> <label style="font-weight: bold;color:black" id="closingBalanceMonthAndYear"></label></th>
                             </tr>
 
                         </tbody>
@@ -109,34 +109,29 @@
                             <tr>
                                 <td colspan="4">
                                     @Localizer["Signature"]:
-                                    <input type="text" id="paidAmount" class="form-control" />
+                                    <input type="text" id="txtAccountManagerSignature" class="form-control" />
                                     @Localizer["Remarks"]:
-                                    <input type="text" id="paidAmount" class="form-control" />
+                                    <input type="text" id="txtAccountManagerRemarks" class="form-control" />
                                 </td>
                                 <td colspan="3">
                                     @Localizer["Signature"]:
-                                    <input type="text" id="paidAmount" class="form-control" />
+                                    <input type="text" id="txtDGMSignature" class="form-control" />
                                     @Localizer["Remarks"]:
-                                    <input type="text" id="paidAmount" class="form-control" />
+                                    <input type="text" id="txtDGMRemarks" class="form-control" />
                                 </td>
                                 <td colspan="4">
                                     @Localizer["Signature"]:
-                                    <input type="text" id="paidAmount" class="form-control" />
+                                    <input type="text" id="txtGMSignature" class="form-control" />
                                     @Localizer["Remarks"]:
-                                    <input type="text" id="paidAmount" class="form-control" />
+                                    <input type="text" id="txtGMRemarks" class="form-control" />
                                 </td>
 
                             </tr>
                             <tr class="actionbtn">
                                 <td colspan="11">
-                                    <div class="btn-group">
-                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            @Localizer["Action"]
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-save"></i> @Localizer["Save File"]</a>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-restore-alt"></i> @Localizer["Clear"]</a>
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-user-edit"></i> @Localizer["Edit File"]</a>
+                                    <div class="col-md-12">
+                                        <div class="btn-group" style="width:22%;margin-left:0%">
+                                            <button type="button" class="btn btn-primary btn-sm btn-block form-control" id="btnSave" value="Save"><i class="fas fa-save"></i> Save</button>
                                         </div>
                                     </div>
                                 </td>
@@ -155,6 +150,218 @@
 @*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
 @section Scripts{
     <script>
+
+        function monthName(mon) {
+            return ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][mon - 1];
+        }
+
+        $("#txtIncomeBalance1").keyup(function () {
+
+            var selectDate = $("#selectDate").val();
+            if (selectDate != "") {
+                var year = selectDate.substring(0, 4);
+                var month = selectDate.substring(5, 7);
+
+                var monthFullName = monthName(parseInt(month));
+                $("#closingBalanceMonthAndYear").text(monthFullName + " (" + year + ")");
+
+                var incomeBalance1 = $("#txtIncomeBalance1").val();
+                var incomeBalance2 = $("#txtIncomeBalance2").val();
+                var incomeBalance3 = $("#txtIncomeBalance3").val();
+                var totalExpenceBalance = $("#txtTotalExpense").val();
+
+                if (incomeBalance1 == "") { incomeBalance1 = 0; }
+                if (incomeBalance2 == "") { incomeBalance2 = 0; }
+                if (incomeBalance3 == "") { incomeBalance3 = 0; }
+                if (totalExpenceBalance == "") { totalExpenceBalance = 0; }
+
+                const incomeBalanceSum = parseInt(incomeBalance1) + parseInt(incomeBalance2) + parseInt(incomeBalance3);
+                const closingBalance = parseInt(incomeBalanceSum) - parseInt(totalExpenceBalance);
+
+                $("#txtTotalIncome").val(incomeBalanceSum);
+                $("#txtTotalIncomeSum").val(incomeBalanceSum);
+                $("#txtClosingBalance").val(closingBalance);
+            }
+            else {
+                alert('Please select date first!!');
+                $("#txtIncomeBalance1").val(0);
+                document.getElementById("selectDate").focus();
+            }
+        });
+
+        $("#txtIncomeBalance2").keyup(function () {
+            var selectDate = $("#selectDate").val();
+            if (selectDate != "") {
+                var year = selectDate.substring(0, 4);
+                var month = selectDate.substring(5, 7);
+
+                var monthFullName = monthName(parseInt(month));
+                $("#closingBalanceMonthAndYear").text(monthFullName + " (" + year + ")");
+
+                var incomeBalance1 = $("#txtIncomeBalance1").val();
+                var incomeBalance2 = $("#txtIncomeBalance2").val();
+                var incomeBalance3 = $("#txtIncomeBalance3").val();
+                var totalExpenceBalance = $("#txtTotalExpense").val();
+
+                if (incomeBalance1 == "") { incomeBalance1 = 0; }
+                if (incomeBalance2 == "") { incomeBalance2 = 0; }
+                if (incomeBalance3 == "") { incomeBalance3 = 0; }
+                if (totalExpenceBalance == "") { totalExpenceBalance = 0; }
+
+                const incomeBalanceSum = parseInt(incomeBalance1) + parseInt(incomeBalance2) + parseInt(incomeBalance3);
+                const closingBalance = parseInt(incomeBalanceSum) - parseInt(totalExpenceBalance);
+
+                $("#txtTotalIncome").val(incomeBalanceSum);
+                $("#txtTotalIncomeSum").val(incomeBalanceSum);
+                $("#txtClosingBalance").val(closingBalance);
+            }
+            else {
+                alert('Please select date first!!');
+                $("#txtIncomeBalance2").val(0);
+                document.getElementById("selectDate").focus();
+            }
+        });
+
+        $("#txtIncomeBalance3").keyup(function () {
+            var selectDate = $("#selectDate").val();
+            if (selectDate != "") {
+                var year = selectDate.substring(0, 4);
+                var month = selectDate.substring(5, 7);
+
+                var monthFullName = monthName(parseInt(month));
+                $("#closingBalanceMonthAndYear").text(monthFullName + " (" + year + ")");
+
+                var incomeBalance1 = $("#txtIncomeBalance1").val();
+                var incomeBalance2 = $("#txtIncomeBalance2").val();
+                var incomeBalance3 = $("#txtIncomeBalance3").val();
+                var totalExpenceBalance = $("#txtTotalExpense").val();
+
+                if (incomeBalance1 == "") { incomeBalance1 = 0; }
+                if (incomeBalance2 == "") { incomeBalance2 = 0; }
+                if (incomeBalance3 == "") { incomeBalance3 = 0; }
+                if (totalExpenceBalance == "") { totalExpenceBalance = 0; }
+
+                const incomeBalanceSum = parseInt(incomeBalance1) + parseInt(incomeBalance2) + parseInt(incomeBalance3);
+                const closingBalance = parseInt(incomeBalanceSum) - parseInt(totalExpenceBalance);
+
+                $("#txtTotalIncome").val(incomeBalanceSum);
+                $("#txtTotalIncomeSum").val(incomeBalanceSum);
+                $("#txtClosingBalance").val(closingBalance);
+            }
+            else {
+                alert('Please select date first!!');
+                $("#txtIncomeBalance3").val(0);
+                document.getElementById("selectDate").focus();
+            }
+        });
+
+        $("#txtExpenseBalance").keyup(function () {
+            var selectDate = $("#selectDate").val();
+            if (selectDate != "") {
+                var year = selectDate.substring(0, 4);
+                var month = selectDate.substring(5, 7);
+
+                var monthFullName = monthName(parseInt(month));
+                $("#closingBalanceMonthAndYear").text(monthFullName + " (" + year + ")");
+
+                var incomeBalance1 = $("#txtIncomeBalance1").val();
+                var incomeBalance2 = $("#txtIncomeBalance2").val();
+                var incomeBalance3 = $("#txtIncomeBalance3").val();
+                var expenceBalance = $("#txtExpenseBalance").val();
+                if (expenceBalance == "") { expenceBalance = 0; }
+                $("#txtTotalExpense").val(expenceBalance);
+                $("#txtTotalExpenseSum").val(expenceBalance);
+
+                var totalExpenceBalance = $("#txtTotalExpense").val();
+
+                if (incomeBalance1 == "") { incomeBalance1 = 0; }
+                if (incomeBalance2 == "") { incomeBalance2 = 0; }
+                if (incomeBalance3 == "") { incomeBalance3 = 0; }
+                if (totalExpenceBalance == "") { totalExpenceBalance = 0; }
+
+                const incomeBalanceSum = parseInt(incomeBalance1) + parseInt(incomeBalance2) + parseInt(incomeBalance3);
+                const closingBalance = parseInt(incomeBalanceSum) - parseInt(totalExpenceBalance);
+
+                $("#txtTotalIncome").val(incomeBalanceSum);
+                $("#txtTotalIncomeSum").val(incomeBalanceSum);
+                $("#txtClosingBalance").val(closingBalance);
+            }
+            else {
+                alert('Please select date first!!');
+                $("#txtExpenseBalance").val(0);
+                document.getElementById("selectDate").focus();
+            }
+        });
+
+        $("body").on("click", "#btnSave", function () {
+            var txtSelectedDate = $("#selectDate").val();
+
+            var txtIncomeBalance1 = $("#txtIncomeBalance1").val();
+            var txtIncomeBalance2 = $("#txtIncomeBalance2").val();
+            var txtIncomeBalance3 = $("#txtIncomeBalance3").val();
+            var txtDescription1 = $("#txtDescription1").val();
+            var txtDescription2 = $("#txtDescription2").val();
+            var txtDescription3 = $("#txtDescription3").val();
+
+            var txtExpenseBalance = $("#txtExpenseBalance").val();
+            var txtExpenseDescription = $("#txtExpenseDescription").val();
+
+            var txtTotalIncome = $("#txtTotalIncome").val();
+            var txtTotalExpense = $("#txtTotalExpense").val();
+            var txtClosingBalance = $("#txtClosingBalance").val();
+
+            var txtAccountManagerSignature = $("#txtAccountManagerSignature").val();
+            var txtAccountManagerRemarks = $("#txtAccountManagerRemarks").val();
+
+            var txtDGMSignature = $("#txtDGMSignature").val();
+            var txtDGMRemarks = $("#txtDGMRemarks").val();
+
+            var txtGMSignature = $("#txtGMSignature").val();
+            var txtGMRemarks = $("#txtGMRemarks").val();
+
+            var monthlyIncomeExpenseAccountReport =
+            {
+                SelectedDate: txtSelectedDate,
+                IncomeBalance1: txtIncomeBalance1,
+                IncomeBalance2: txtIncomeBalance2,
+                IncomeBalance3: txtIncomeBalance3,
+                IncomeDescription1: txtDescription1,
+                IncomeDescription2: txtDescription2,
+                IncomeDescription3: txtDescription3,
+
+                ExpenceBalance: txtExpenseBalance,
+                ExpenceDescription: txtExpenseDescription,
+
+                TotalIncomeBalance: txtTotalIncome,
+                TotalExpenceBalance: txtTotalExpense,
+                ClosingBalance: txtClosingBalance,
+
+                AMSignature: txtAccountManagerSignature,
+                AMRemark: txtAccountManagerRemarks,
+                DGMSignature: txtDGMSignature,
+                DGMRemark: txtDGMRemarks,
+                GMSignature: txtGMSignature,
+                GMRemark: txtGMRemarks
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "/Account/MonthlyAccountsReport/InsertMonthlyIncomeExpenseAccountReport",
+                data: { data: monthlyIncomeExpenseAccountReport },
+
+                success: function (data) {
+
+                    if (data === 1) {
+                        alert("Data save successfully!!");
+                        window.location.replace("/Account/AccountsMonthlyYearly/AccountsMonthlyYearlyReports");
+                    }
+                    else if (data === 2) {
+                        alert("Data didn't save!!");
+                        window.location.replace("/Account/AccountsMonthlyYearly/AccountsMonthlyYearlyReports");
+                    }
+                }
+            });
+        });
     </script>
 }
 @*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@

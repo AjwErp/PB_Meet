@@ -65,6 +65,8 @@ namespace AJWManagementPortal
             services.AddScoped<IYearlyInternalLedgerRepository, YearlyInternalLedgerRepository>();
             services.AddScoped<IMonthlyIndustrySupplierLedgerRepository, MonthlyIndustrySupplierLedgerRepository>();
             services.AddScoped<IYearlyIndustrySupplierLedgerRepository, YearlyIndustrySupplierLedgerRepository>();
+            services.AddScoped<IMonthlyIncomeExpenseInternalAccountReportRepository, MonthlyIncomeExpenseInternalAccountReportRepository>();
+            services.AddScoped<ITrialBalanceAccountOfficeRepository, TrialBalanceAccountOfficeRepository>();
             //This Code use for Monthly + Yearly General Ledger Report By :Yousaf Rakib :End:
             // sessiON
             services.AddSession(options => {

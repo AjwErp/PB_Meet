@@ -1,4 +1,5 @@
 ﻿using AJWManagementPortal.Data;
+using AJWManagementPortal.Extensions.IRepository;
 using AJWManagementPortal.Helpers;
 using AJWManagementPortal.Models;
 using AspNetCoreHero.ToastNotification.Abstractions;
@@ -22,14 +23,19 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         private readonly ApplicationDbContext _db;
         private readonly INotyfService _notyf;
         private readonly IHostingEnvironment _env;
+        private readonly IMonthlyIncomeExpenseInternalAccountReportRepository _monthlyIncomeExpenseInternalAccountReportRepository;
+        private readonly ITrialBalanceAccountOfficeRepository _trialBalanceAccountOfficeRepository;
+
         private string meezanBankIncomeExportReportFileUploadFolder = "Reports/MezaanBankIncomeExportReport/";
 
         //This is referance for ApplicationDB || NotifyAlertService || HostingEnvironment 
-        public MonthlyAccountsReportController(ApplicationDbContext db, INotyfService notyf, IHostingEnvironment env)
+        public MonthlyAccountsReportController(ApplicationDbContext db, INotyfService notyf, IHostingEnvironment env, IMonthlyIncomeExpenseInternalAccountReportRepository monthlyIncomeExpenseInternalAccountReportRepository, ITrialBalanceAccountOfficeRepository trialBalanceAccountOfficeRepository)
         {
-            _db = db;
-            _notyf = notyf;
-            _env = env;
+            this._db = db;
+            this._monthlyIncomeExpenseInternalAccountReportRepository = monthlyIncomeExpenseInternalAccountReportRepository;
+            this._trialBalanceAccountOfficeRepository = trialBalanceAccountOfficeRepository;
+            this._notyf = notyf;
+            this._env = env;
         }
 
         //GET --Title Page---for MonthlyClosingReportTitlePage--start
@@ -57,7 +63,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         [HttpPost]
         public IActionResult MeezanBankIncomeExpenseMonthlyreport(MeezanBankMonthlyIncomeExpenseReport model)
         {
-
+            //--for Supporting Documents as a image file
             var uploadedFile = new List<string>();
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("UploadedFile")))
             {
@@ -73,13 +79,14 @@ namespace AJWManagementPortal.Areas.Account.Controllers
                 _notyf.Information("Images cannot be more than 20");
                 return View(model);
             }
-
+            //---same date report condition if or else
             var reportExist = _db.MeezanBankMonthlyIncomeExpenseReports.Where(x => x.Month == model.ValueDate.Month && x.Year == model.ValueDate.Year);
             if (reportExist.Any())
             {
                 _notyf.Information("Report already exist for month of " + model.ValueDate.ToString("MMMM"));
                 return View(model);
             }
+            //3333
             model.DelProduction = 1;
             model.Month = model.ValueDate.Month;
             model.Year = model.ValueDate.Year;
@@ -138,9 +145,30 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //POST ---4--for Monthly Income/Expence Main Bank Account BOP--ended
 
         //GET----5--for Monthly Income/Expence Internal Account--start
+       
+
         public IActionResult MonthlyIncomeExpenceInternalAccount()
         {
             return View();
+        }
+
+        public JsonResult InsertMonthlyIncomeExpenseAccountReport(MonthlyIncomeExpenceInternalAccountReport data)
+        {
+            bool result = false;
+            int response = 0;
+
+            result = _monthlyIncomeExpenseInternalAccountReportRepository.SaveMonthlyIncomeExpenseInternalAccount(data);
+
+            if (result == true)
+            {
+                response = 1;
+            }
+            else
+            {
+                response = 2;
+            }
+
+            return Json(response);
         }
         //GET --5--for Monthly Income/Expence Internal Account---ended
         //POST --5--for Monthly Income/Expence Internal Account--start 
@@ -156,9 +184,31 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //POST ---6--for Monthly Income/Expence Petty Account--ended
 
         //GET----7--for Trial Balance Account Office--start
+        
         public IActionResult TrialBalanceAccountOffice()
         {
-            return View();
+            List<TrialBalanceAccountOffice> trans = new List<TrialBalanceAccountOffice>();
+
+            return View(trans);
+        }
+
+        public JsonResult InsertTrialBalanceAccountOffice(List<TrialBalanceAccountOffice> data)
+        {
+            bool result = false;
+            int response = 0;
+
+            result = _trialBalanceAccountOfficeRepository.SaveTrialBalanceAccountOffice(data);
+
+            if (result == true)
+            {
+                response = 1;
+            }
+            else
+            {
+                response = 2;
+            }
+
+            return Json(response);
         }
         //GET --7--for Trial Balance Account Office---ended
         //POST --7--for Trial Balance Account Office--start 

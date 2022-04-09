@@ -15,6 +15,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
     public class AccountsMonthlyYearlyController : Controller
     { //here we create constrauctor of DB class
         private readonly ApplicationDbContext _db;
+        //This Variable use for Sweet alert notification........
         private readonly INotyfService _notyf;
         public AccountsMonthlyYearlyController(ApplicationDbContext db, INotyfService notyf)
         {
@@ -95,6 +96,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
 
             }
             await _db.SaveChangesAsync();
+            //for Sweet alert Notification use this Technique.....................
             _notyf.Success("Report successfully sent to D.G.M office");
             return RedirectToAction("AccountsMonthlyYearlyReports");
         }
