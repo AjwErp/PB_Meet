@@ -16957,9 +16957,7 @@ C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManag
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.RazorAssemblyInfo.cache
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.RazorAssemblyInfo.cs
-C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\en\AJWManagementPortal.resources.cs
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\en\AJWManagementPortal.resources.dll
-C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\ur\AJWManagementPortal.resources.cs
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\ur\AJWManagementPortal.resources.dll
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\staticwebassets\AJWManagementPortal.StaticWebAssets.Manifest.cache
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\staticwebassets\AJWManagementPortal.StaticWebAssets.xml
