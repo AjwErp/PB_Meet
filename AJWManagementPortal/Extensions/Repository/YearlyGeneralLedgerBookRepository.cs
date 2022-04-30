@@ -30,6 +30,23 @@ namespace AJWManagementPortal.Extensions.Repository
             }
         }
 
+        public bool DeleteYearlyGeneralLedgerBookByDate(DateTime date)
+        {
+            var result = false;
+            var data = _repositoryContext.YearlyGeneralLedgerBook
+                 .Where(x => x.DailyCashDate.Year == date.Year).ToList();
+
+            if (data.Count > 0)
+            {
+                Delete(data);
+                if (_repositoryContext.SaveChanges() > 0)
+                {
+                    result = true;
+                }
+            }
+            return result;
+        }
+
         public bool UpdateYearlyGeneralLedgerBookRepository(List<YearlyGeneralLedgerBook> data)
         {
             try

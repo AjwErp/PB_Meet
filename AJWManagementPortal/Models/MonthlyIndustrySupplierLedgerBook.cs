@@ -14,6 +14,7 @@ namespace AJWManagementPortal.Models
         public int Id { get; set; }
         public int DailyCashId { get; set; }
         public string AMSignature { get; set; }
+        public string UniId { get; set; }
         public string AMRemark { get; set; }
         public string DGMSignature { get; set; }
         public string DGMRemark { get; set; }

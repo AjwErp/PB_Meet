@@ -25,6 +25,10 @@
                         <a href="#DR"><button type="button" class="btn btn-outline-dark">Daily Reports</button></a>
                         <a href="#MR"><button type="button" class="btn btn-outline-dark">Monthly Reports</button></a>
                         <a href="#YR"><button type="button" class="btn btn-outline-dark">Yearly Reports</button></a>
+                        <a href="#GL"><button type="button" class="btn btn-outline-dark">General Ledger</button></a>
+                        <a href="#IAL"><button type="button" class="btn btn-outline-dark">Internal Ledger</button></a>
+                        <a href="#ISL"><button type="button" class="btn btn-outline-dark">Industry Ledger</button></a>
+                        <a href="#MBL"><button type="button" class="btn btn-outline-dark">Main Bank Ledger</button></a>
 
                         @*<button type="button" class="btn btn-dark">Right</button>*@
                     </div>
@@ -153,7 +157,158 @@
                     </tbody>
                 </table>
                 @*------------------------ended---------------------------- Table for Yearly Accounts Reports Repository  List----------------------------------------------------------*@
-               
+                @*------------------------start---------------------------- Monthly|Yearly General Ledger----------------------------------------------------------*@
+                <hr />
+                <div class="col-sm-12 text-center">
+                    <a class="TitleDgmOfficeReport" id="GL" colspan="10">@Localizer["Monthly|Yearly General Ledger"]</a>
+                </div>
+                <br />
+                <table class="table table-bordered" id="GLedger">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="SubH">
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Check Report"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To Accounts Error List"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To G.M Office"]</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td>@Localizer["Yearly Accounts Reports Repository"] </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                @*------------------------ended---------------------------- Monthly|Yearly General Ledger----------------------------------------------------------*@
+                @*------------------------start---------------------------- Monthly|Yearly Internal Account Ledger----------------------------------------------------------*@
+                <hr />
+                <div class="col-sm-12 text-center">
+                    <a class="TitleDgmOfficeReport" id="IAL" colspan="10">@Localizer["Monthly|Yearly Internal Account Ledger"]</a>
+                </div>
+                <br />
+                <table class="table table-bordered" id="IALedger">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="SubH">
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Check Report"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To Accounts Error List"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To G.M Office"]</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td>@Localizer["Yearly Accounts Reports Repository"] </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                @*------------------------ended---------------------------- Monthly|Yearly Internal Account Ledger----------------------------------------------------------*@
+                @*------------------------start---------------------------- Monthly|Yearly Internal Account Ledger----------------------------------------------------------*@
+                <hr />
+                <div class="col-sm-12 text-center">
+                    <a class="TitleDgmOfficeReport" id="ISL" colspan="10">@Localizer["Monthly|Yearly Industry Supplier Ledger"]</a>
+                </div>
+                <br />
+                <table class="table table-bordered" id="ISLedger">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="SubH">
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Check Report"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To Accounts Error List"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To G.M Office"]</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td>@Localizer["Yearly Accounts Reports Repository"] </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                @*------------------------ended---------------------------- Monthly|Yearly Internal Account Ledger----------------------------------------------------------*@
+                @*------------------------start---------------------------- Monthly|Yearly Internal Account Ledger----------------------------------------------------------*@
+                <hr />
+                <div class="col-sm-12 text-center">
+                    <a class="TitleDgmOfficeReport" id="MBL" colspan="10">@Localizer["Monthly|Yearly Main Bank Ledger"]</a>
+                </div>
+                <br />
+                <table class="table table-bordered" id="MBLedger">
+                    <thead>
+                        <tr class="Subhdr SubH">
+                            <th>@Localizer["Action"] </th>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["ID#"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="SubH">
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Check Report"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To Accounts Error List"]</a>
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-send"></i> @Localizer["Send To G.M Office"]</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td>@Localizer["Yearly Accounts Reports Repository"] </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                @*------------------------ended---------------------------- Monthly|Yearly Internal Account Ledger----------------------------------------------------------*@
             </form>
         </div>
     </div>
@@ -192,6 +347,26 @@
 
         $(document).ready(function () {
             $('#AARReport').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        $(document).ready(function () {
+            $('#GLedger').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        $(document).ready(function () {
+            $('#IALedger').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        $(document).ready(function () {
+            $('#ISLedger').DataTable({
+                "sPaginationType": "full_numbers"
+            });
+        });
+        $(document).ready(function () {
+            $('#MBLedger').DataTable({
                 "sPaginationType": "full_numbers"
             });
         });

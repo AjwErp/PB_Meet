@@ -16741,7 +16741,6 @@ C:\Users\HP\source\repos\PB\AJWManagementPortal\bin\Debug\netcoreapp3.1\runtimes
 C:\Users\HP\source\repos\PB\AJWManagementPortal\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\HP\source\repos\PB\AJWManagementPortal\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\HP\source\repos\PB\AJWManagementPortal\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.csproj.AssemblyReference.cache
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.Resources.Areas.Account.Controllers.API.LanguageController.en.resources
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.Resources.Areas.Account.Controllers.API.LanguageController.ur.resources
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.Resources.Areas.Account.Views.AccountDMY.AccountDailyReportList.ur.resources
@@ -17579,3 +17578,10 @@ C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManag
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.dll
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.pdb
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.genruntimeconfig.cache
+C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\GeneralLedger\MonthlyGeneralLedgerBookView.cshtml.g.cs
+C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\GeneralLedger\YearlyGeneralLedgerBookView.cshtml.g.cs
+C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\MonthlyInternalAccountLedger\MonthlyInternalAccountLedgerBookView.cshtml.g.cs
+C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.csproj.AssemblyReference.cache
+C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\GeneralLedger\EditMonthlyGeneralLedgerBook.cshtml.g.cs
+C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\GeneralLedger\ViewMonthlyGeneralLedgerBook.cshtml.g.cs
+C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\GeneralLedger\ViewYearlyGeneralLedgerBook.cshtml.g.cs

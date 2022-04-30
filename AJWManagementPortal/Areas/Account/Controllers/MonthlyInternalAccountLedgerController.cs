@@ -21,7 +21,19 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             this._db = db;
             this._monthlyInternalLedgerRepository = monthlyInternalLedgerRepository;
         }
-        
+
+        public IActionResult MonthlyInternalAccountLedgerBookView(string id)
+        {
+            var result = _monthlyInternalLedgerRepository.GetMonthlyInternalLedgersByUniId(id);
+            return View(result);
+        }
+
+        public IActionResult MonthlyInternalAccountLedgerBookDelete(string id)
+        {
+            var result = _monthlyInternalLedgerRepository.DeleteMonthlyInternalLedgersByUniId(id);
+            return RedirectToAction("InternalAccountLedgerBookList", "InternalAccountLedgers");
+        }
+
         public IActionResult CreateMonthlyInternalLedger()
         {
             return View();

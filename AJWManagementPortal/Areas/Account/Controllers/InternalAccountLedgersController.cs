@@ -1,5 +1,6 @@
 ﻿using AJWManagementPortal.Data;
 using AJWManagementPortal.Extensions.IRepository;
+using AJWManagementPortal.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -23,6 +24,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             this._monthlyInternalLedgerRepository = monthlyInternalLedgerRepository;
             this._yearlyInternalLedgerRepository = yearlyInternalLedgerRepository;
         }
+
         public IActionResult InternalAccountLedgerBookList()
         {
             var monthlyInternalLedgerList = _monthlyInternalLedgerRepository.GetMonthlyInternalLedgerType();
@@ -30,8 +32,24 @@ namespace AJWManagementPortal.Areas.Account.Controllers
 
             ViewBag.MonthlyInternalLedgerList = new SelectList(monthlyInternalLedgerList, "Id", "LedgerName");
             ViewBag.YearlyInternalLedgerList = new SelectList(yearlyInternalLedgerList, "Id", "LedgerName");
-            return View();
+
+            var monthlyList = _monthlyInternalLedgerRepository.GetMonthlyInternalAccountLedgerBook();
+            return View(new InternalLedgerBookViewModel
+            {
+                monthlyInternalLedgers = monthlyList,
+                yearlyInternalLedgers = yearlyInternalLedgerList
+            });
         }
+
+        //public IActionResult InternalAccountLedgerBookList()
+        //{
+        //    var monthlyInternalLedgerList = _monthlyInternalLedgerRepository.GetMonthlyInternalLedgerType();
+        //    var yearlyInternalLedgerList = _yearlyInternalLedgerRepository.GetYearlyInternalLedger();
+
+        //    ViewBag.MonthlyInternalLedgerList = new SelectList(monthlyInternalLedgerList, "Id", "LedgerName");
+        //    ViewBag.YearlyInternalLedgerList = new SelectList(yearlyInternalLedgerList, "Id", "LedgerName");
+        //    return View();
+        //}
         //GET -- InternalAccountLedgerBook List ended
         //POST -- InternalAccountLedgerBook List
         //POST -- InternalAccountLedgerBook List ended

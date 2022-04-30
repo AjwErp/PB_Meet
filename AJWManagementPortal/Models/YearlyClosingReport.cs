@@ -15,6 +15,7 @@ namespace AJWManagementPortal.Models
         [Required(ErrorMessage = "Date is required")]
         public DateTime ValueDate { get; set; }
 
+     
 
         [Display(Name = "Account Manager")]
         [Required(ErrorMessage = "Sign is required")]

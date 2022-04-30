@@ -119,5 +119,57 @@ namespace AJWManagementPortal.Extensions.Repository
                 return false;
             }
         }
+
+        public List<MonthlyInternalAccountLedgerBook> GetMonthlyInternalLedgersByUniId(string uniId)
+        {
+            try
+            {
+                var monthlyInternalLedgerViewModels = _repositoryContext.MonthlyInternalAccountLedgerBook
+                    .Where(x => x.UniId == uniId).ToList();
+
+                return monthlyInternalLedgerViewModels;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public List<MonthlyInternalAccountLedgerBook> GetMonthlyInternalAccountLedgerBook()
+        {
+            var result = new List<MonthlyInternalAccountLedgerBook>();
+            var uniqLits = _repositoryContext.MonthlyInternalAccountLedgerBook.GroupBy(x => x.UniId)
+                 .Select(x => x.Key).ToList();
+
+            foreach (var key in uniqLits)
+            {
+                var findFirst = _repositoryContext.MonthlyInternalAccountLedgerBook.Where(x => x.UniId == key).FirstOrDefault();
+                result.Add(findFirst);
+            }
+            return result;
+        }
+
+        public bool DeleteMonthlyInternalLedgersByUniId(string uniId)
+        {
+            var result = false;
+            try
+            {
+                var data = _repositoryContext.MonthlyInternalAccountLedgerBook
+                    .Where(x => x.UniId == uniId).ToList();
+
+                if (data.Count > 0)
+                {
+                    _repositoryContext.MonthlyInternalAccountLedgerBook.RemoveRange(data);
+                    if (_repositoryContext.SaveChanges() > 0) result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+
+            return result;
+        }
     }
 }

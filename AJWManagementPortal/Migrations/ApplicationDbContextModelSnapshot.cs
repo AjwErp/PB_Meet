@@ -2088,6 +2088,9 @@ namespace AJWManagementPortal.Migrations
                     b.Property<int?>("PreOrderCheckNo")
                         .HasColumnType("int");
 
+                    b.Property<string>("UniId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("UpdatedBy")
                         .HasColumnType("int");
 
@@ -2150,6 +2153,9 @@ namespace AJWManagementPortal.Migrations
 
                     b.Property<int?>("PreOrderCheckNo")
                         .HasColumnType("int");
+
+                    b.Property<string>("UniId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("UpdatedBy")
                         .HasColumnType("int");
@@ -2725,6 +2731,10 @@ namespace AJWManagementPortal.Migrations
 
                     b.Property<int>("Month")
                         .HasColumnType("int");
+
+                    b.Property<string>("SYear")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SignAManager")
                         .IsRequired()

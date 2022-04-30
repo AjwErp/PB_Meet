@@ -492,6 +492,7 @@ C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\a6c8e93f-16e1-4338-b9bb-381421807f42.jpg
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\a95a7b73-af6c-4868-933b-fbff381ab4f7.jpg
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\aa7f218e-23c8-4418-8a75-9b727d8d5899.jpg
+C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\aaa960ca-1437-493f-bcf0-cc39e397dc97.png
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\aaf63c00-82f7-47ab-bdff-652c56d93541.png
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\ada13374-bd53-42d5-b909-4a29334d01ca.jpg
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\ae94d6f3-a4f1-442f-98a8-48783badbc63.jpg
@@ -506,10 +507,12 @@ C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\b2cdb771-344a-4e42-939f-e36446cd0e32.jpg
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\b80bac10-dbb5-45f2-8d4a-3548cb4b310c.jpg
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\b82f4fb2-a278-4d73-b547-c44d75ef307d.jpeg
+C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\b9a05a03-354b-4d53-bc0d-0efbee0a5f68.jpg
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\bb59bcae-771f-4bc6-bfba-45263c126538.jpeg
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\bd36438e-0f31-4ae5-a0f6-4c9e48e061d8.jpeg
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\bf40e7b7-ebb1-46cb-87f2-947643495a77.jpg
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\c2e1b7a9-aa0a-4882-a2f1-2ea28b1c4124.jpg
+C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\c3f65096-a740-4dca-9fc5-f0dff5bd829f.png
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\c69e2ae5-1053-4e9f-86f7-080f24c14f78.jpg
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\c9501b41-43c9-43df-948c-e9eb9afdc0db.jpeg
 C:\Users\HP\source\repos\PB\AJWManagementPortal\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Reports\MezaanBankIncomeExportReport\cf8fb842-4859-450c-ad9f-3979d76b8c07.jpeg

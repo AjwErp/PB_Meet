@@ -1,0 +1,99 @@
+﻿/*--------------------
+--------------------*/
+
+/*CSS for General Layout-----*/
+body {
+    font-family: 'Jameel Noori Nastaleeq';
+
+}
+.headr {
+    font-size:20px !important;
+}
+.title {
+    font-size: 30px !important;
+    margin-left:-100px;
+}
+
+@media all and (max-width : 712px) {
+    body {
+        color:black;
+
+    }
+    .title {
+        font-size: 30px !important;
+        margin-left: 10px;
+    }
+}
+
+
+/*
+--------------------
+--------------------*/
+.Headlogo {
+    height:200px;
+    width:200px;
+}
+
+
+
+
+.lang_btn {
+    font-family: "ProximaNova";
+    color: #fff;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    background-color: #C82333;
+    text-transform: uppercase;
+    margin-top: 1.7%;
+    text-decoration: none !important;
+    width: 65px;
+    text-align: center;
+    height: 39px;
+    border: solid 1px #C82333;
+}
+
+/*-----csss for Back To Top*/
+#button {
+    display: inline-block;
+    background-color: #FF9800;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s, opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+    #button::after {
+        content: "\f077";
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 1em;
+        line-height: 50px;
+        color: #fff;
+    }
+
+    #button:hover {
+        cursor: pointer;
+        background-color: #333;
+    }
+
+    #button:active {
+        background-color: #555;
+    }
+
+    #button.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+#button {
+    margin: 30px;
+}

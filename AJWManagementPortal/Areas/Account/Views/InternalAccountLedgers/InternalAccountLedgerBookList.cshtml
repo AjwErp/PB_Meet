@@ -1,4 +1,5 @@
 ﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@model AJWManagementPortal.Models.ViewModels.InternalLedgerBookViewModel;
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
@@ -50,25 +51,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="tabbody SubH">
-                            <td class="actionbtn">
-                                <div class="btn-group">
-                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        @Localizer["Action"]
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["View"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["Edit"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to Repository"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to DMS"]</a>
+                        @foreach (var item in Model.monthlyInternalLedgers)
+                        {
+                            <tr class="tabbody SubH">
+                                <td class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-route-id=@item.UniId asp-action="MonthlyInternalAccountLedgerBookView" asp-controller="MonthlyInternalAccountLedger" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                            <a class="dropdown-item" asp-route-id=@item.UniId asp-action="MonthlyInternalAccountLedgerBookDelete" asp-controller="MonthlyInternalAccountLedger" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to Repository"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to DMS"]</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td>@Localizer["Monthly Internal Account Ledger"] </td>
-                            <td></td>
-                        </tr>
+                                </td>
+                                <td>@item.DailyCashDate</td>
+                                <td>@Localizer["Monthly Internal Account Ledger"] </td>
+                                <td>@item.Id</td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
                 @*------------------------ended---------------------------- Table for Monthly GeneralLedgerBook List----------------------------------------------------------*@
@@ -107,25 +111,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="tabbody SubH">
-                            <td class="actionbtn">
-                                <div class="btn-group">
-                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        @Localizer["Action"]
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["View"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["Edit"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to Repository"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to DMS"]</a>
+                        @foreach (var item in Model.monthlyInternalLedgers)
+                        {
+                            <tr class="tabbody SubH">
+                                <td class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["Edit"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to Repository"]</a>
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to DMS"]</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td>@Localizer["Yearly Internal Account Ledger"] </td>
-                            <td></td>
-                        </tr>
+                                </td>
+                                <td>@item.DailyCashDate</td>
+                                <td>@Localizer["Yearly Internal Account Ledger"] </td>
+                                <td>@item.Id</td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
                 @*------------------------ended---------------------------- Table for Yearly GeneralLedgerBook List----------------------------------------------------------*@
@@ -174,7 +181,7 @@
                 "sPaginationType": "full_numbers"
             });
         });
-                        //--------
+                                //--------
 
     </script>
 }

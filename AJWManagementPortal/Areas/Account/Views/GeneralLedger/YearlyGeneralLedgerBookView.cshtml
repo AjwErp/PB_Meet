@@ -1,0 +1,267 @@
+﻿@model IEnumerable<AJWManagementPortal.Models.MonthlyGeneralLedgerBook>
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "YearlyGeneralLedgerBook";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+@{
+    decimal? Balance = 0;
+
+    MonthlyGeneralLedgerBook teswp = new MonthlyGeneralLedgerBook();
+    DateTime today = DateTime.Today;
+    //if (Model.date != null)
+    //{
+    //    today = Model.date;
+    //}
+}
+
+@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+
+@*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
+@*This HTML For ::Monthly Genenral Ledger =View for Account Office::*@
+
+<br />
+<body>
+    @*main transaction sheet*@
+    <div class="container-fluid backgroundWhiteBorder10Padding">
+        <div class="row">
+            <form class="col-sm-12">
+                <div class="BackToList">
+                    <a type="button" asp-action="GeneralLedgerBookList" asp-area="Account" asp-controller="GeneralLedger" class="btn btn-primary btn-sm form-control"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
+                </div>
+                <div class="PrintP">
+                    <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                </div>
+
+                <table class="table table-bordered table-hover table-striped table-responsive-sm SubH" id="tblcustomers">
+                    <thead>
+                        <tr class="text-center">
+                            <th colspan="29"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+                        </tr>
+                        <tr>
+                            <th class="titleAccountofficeReport" colspan="29">@Localizer["Yearly General Ledger Report-Account Office"] </th>
+                        </tr>
+                        <tr>
+                            <th class="text-left" colspan="29" id="date"><span class=""> @Localizer["Date"]: </span> </th>
+                        </tr>
+                        <tr>
+                            <th class="text-center" colspan="2">@Localizer["ID#"]</th>
+                            <th class="text-center" colspan="3">@Localizer["Balance"]</th>
+                            <th class="text-center" colspan="3">@Localizer["Credit"]</th>
+                            <th class="text-center" colspan="3">@Localizer["Debit"]</th>
+                            <th class="text-center" colspan="2">@Localizer["P-Order"]<br>@Localizer["Checq-No"]</th>
+                            <th class="text-center" scope="col" colspan="5">@Localizer["Ledger Type"]</th>
+                            <th class="text-center" scope="col" colspan="5">@Localizer["Description"]</th>
+                            <th class="text-center" colspan="6">@Localizer["Date"]</th>
+                            <th style="display:none;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            //teswp.ValueDate = @item.ValueDate;
+                            //teswp.Remarks = @item.Remarks;
+                            //teswp.SignPManager = @item.SignPManager;
+                            //teswp.PManagerRemarks = @item.PManagerRemarks;
+                            //teswp.SignGM = item.SignGM;
+                            //teswp.GMRemarks = @item.GMRemarks;
+                            //teswp.SignCeo = @item.SignCeo;
+                            //teswp.CeoRemarks = @item.CeoRemarks;
+
+                            if (item.Credit != 0 || (item.Devit != 0) /*&& item.ValueDate == today)*/)
+                            {
+                                <tr>
+                                    <td colspan="2">@item.DailyCashId</td>
+                                    <td colspan="3">
+                                        @{
+                                            Balance += item.Devit - item.Credit;
+                                        }
+                                        @Balance
+                                    </td>
+                                    <td colspan="3">@item.Credit</td>
+                                    <td colspan="3">@item.Devit</td>
+                                    <td colspan="2">@item.PreOrderCheckNo</td>
+                                    <td colspan="5">@item.LedgerType</td>
+                                    <td colspan="5">@item.Description</td>
+                                    <td colspan="6">@item.DailyCashDate</td>
+                                    <td style="display:none;">@item.Id</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr id="total">
+                            <th colspan="2" id="t"></th>
+                            <th colspan="3" id="t1"></th>
+                            <th colspan="3" id="t2"></th>
+                            <th colspan="3" id="t3"></th>
+                            <th colspan="2" id="t4"></th>
+                            <th colspan="16" id="t5">@Localizer["Total"] : </th>
+                        </tr>
+                        <tr>
+                            <td colspan="29"></td>
+                        </tr>
+
+                        @*2ND TABLE end HERE*@
+                        @*sign table start here*@
+                        <tr>
+                            <th colspan="29">@Localizer["Signature"]</th>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="10">@Localizer["Account Manager"]</th>
+                            <th colspan="9">@Localizer["D.G.M"]</th>
+                            <th colspan="10">@Localizer["G.M"]</th>
+                        </tr>
+                        <tr>
+                            <td colspan="10">
+                                @Localizer["Signature"]:
+                                <p>@Model.FirstOrDefault().SignPManager</p>
+                                @Localizer["Remarks"]:
+                                <p>@Model.FirstOrDefault().PManagerRemarks</p>
+                            </td>
+                            <td colspan="9">
+                                @Localizer["Signature"]:
+                                <p>@Model.FirstOrDefault().SignCeo</p>
+                                @Localizer["Remarks"]:
+                                <p>@Model.FirstOrDefault().CeoRemarks</p>
+                            </td>
+                            <td colspan="10">
+                                @Localizer["Signature"]:
+                                <p>@Model.FirstOrDefault().SignGM</p>
+                                @Localizer["Remarks"]:
+                                <p>@Model.FirstOrDefault().GMRemarks</p>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+            </form>
+            @*main transaction sheet*@
+            <br />
+        </div>
+    </div>
+</body>
+<!-- back to top button-->
+<a id="button"></a>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+        $("body").ready(function () {
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            const date = new Date();
+            $("#date").text(monthNames[date.getMonth()].concat("-", date.getFullYear()));
+
+            var credit = 0, debit = 0;
+            $("#tblcustomers TBODY TR").each(function () {
+                var row = $(this);
+
+                credit += parseInt(row.find("TD").eq(2).text());
+                debit += parseInt(row.find("TD").eq(3).text());
+            });
+
+            $("#total #t2").append(credit);
+            $("#total #t3").append(debit);
+            $("#total #t5").append(credit - debit);
+        });
+
+        
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*  Css for BackToList Button----*/
+    .BackToList {
+        width: 150px;
+    }
+
+    .textarea {
+        height: 60px;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

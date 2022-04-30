@@ -10,5 +10,6 @@ namespace AJWManagementPortal.Extensions.IRepository
     {
         public bool SaveMonthlyGeneralLedgerBookRepository(List<MonthlyGeneralLedgerBook> data);
         public bool UpdateMonthlyGeneralLedgerBookRepository(List<MonthlyGeneralLedgerBook> data);
+        public bool DeleteMonthlyGeneralLedgerBookByDate(DateTime date);
     }
 }

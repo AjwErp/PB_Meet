@@ -36,6 +36,41 @@ namespace AJWManagementPortal.Extensions.Repository
             }
         }
 
+        public List<MonthlyIndustrySupplierLedgerBook> GetMonthlyIndustrySupplierLedgerBooks()
+        {
+            var result = new List<MonthlyIndustrySupplierLedgerBook>();
+            var uniqLits = _repositoryContext.MonthlyIndustrySupplierLedgerBook.GroupBy(x => x.UniId)
+                 .Select(x => x.Key).ToList();
+
+            foreach (var key in uniqLits)
+            {
+                var findFirst = _repositoryContext.MonthlyIndustrySupplierLedgerBook.Where(x => x.UniId == key).FirstOrDefault();
+                result.Add(findFirst);
+            }
+            return result;
+        }
+
+        public List<MonthlyIndustrySupplierLedgerBook> GetMonthlyIndustrySupplierLedgerBooksByUniId(string uniId)
+        {
+            var result = _repositoryContext.MonthlyIndustrySupplierLedgerBook.Where(x => x.UniId == uniId).ToList();
+
+            return result;
+        }
+
+        public bool DeleteMonthlyIndustrySupplierLedgerBooksByUniId(string uniId)
+        {
+            var result = false;
+            var data = _repositoryContext.MonthlyIndustrySupplierLedgerBook.Where(x => x.UniId == uniId).ToList();
+
+            if (data.Count() > 0)
+            {
+                _repositoryContext.MonthlyIndustrySupplierLedgerBook.RemoveRange(data);
+                if (_repositoryContext.SaveChanges() > 0) result = true;
+            }
+
+            return result;
+        }
+
         public List<MonthlyIndustrySupplierLedgerViewModel> GetMonthlyIndustrySupplierLedgers()
         {
             try

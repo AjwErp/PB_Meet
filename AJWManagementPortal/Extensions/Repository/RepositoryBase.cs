@@ -40,5 +40,13 @@ namespace AJWManagementPortal.Extensions.Repository
         {
             RepositoryContext.Set<T>().UpdateRange(entity);
         }
+        public void Delete(T entity)
+        {
+            RepositoryContext.Set<T>().Remove(entity);
+        }
+        public void Delete(List<T> entity)
+        {
+            RepositoryContext.Set<T>().RemoveRange(entity);
+        }
     }
 }

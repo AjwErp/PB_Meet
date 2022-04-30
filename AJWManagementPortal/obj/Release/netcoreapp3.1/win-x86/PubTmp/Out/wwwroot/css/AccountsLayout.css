@@ -1,0 +1,309 @@
+﻿
+/*               CSS form body for each Page'Accounts--Start'*/
+/*body {
+    font-family: 'Jameel Noori Nastaleeq';
+}*/
+/*body {
+    font: 90%/1.45em "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #fff;
+}*/
+
+
+/* Css for Sheet Logo on Each Sheet Logo in Accounts----*/
+/*.SheetLogo {
+    color: white;
+    background-color: slategrey;
+}*/
+
+/* Css for Selector Fields on Each sheets in Accounts----*/
+/*.SelectSheet {
+    box-sizing: border-box;
+    height: 80px;
+    width: 180px;
+}*/
+
+/* Css for TextArea Filds in Accounts----*/
+/*.Textarea {
+    box-sizing: border-box;
+    height: 50px;
+    width: 130px;
+}*/
+
+/* Css for TextArea Filds in Accounts----*/
+/*.textarea {
+    height: 60px;
+}*/
+
+/*//--Css for main Ul Tage of Each Page--------start--------*/
+/*.mainul {
+    font-family: 'Jameel Noori Nastaleeq';
+    font-size: large;
+    margin-bottom: 140px;
+}*/
+
+
+
+/*----CSS For Accounts Support Guide--LAW Book/User Guide--Start-------*/
+/*div {
+    font-family: 'Jameel Noori Nastaleeq';
+    font-size: x-large;
+}
+.AccountsLUBook {
+    text-align: right;
+    text-align: justify;
+    direction: rtl;
+}*/
+
+
+
+/*  Css for Signature Title on Each Sheet In Accounts----*/
+/*.Signrow {
+    text-align: center;
+    font-size: x-large;
+    font-family: 'Jameel Noori Nastaleeq';
+    background-color: slategrey;
+    color: white;
+}*/
+
+/* Css for Signature authority on each sheets in Accounts----*/
+/*.Signature {
+    text-align: center;
+    background-color: slategrey;
+    color: white;
+    font-size: medium;
+}*/
+
+/*  Css for Signature text fields on Each Sheet In Accounts----*/
+/*.signt {
+    position: center;
+    align-content: center;
+    text-align: center;*/
+    /*  margin-left: -120px;*/
+/*}*/
+
+/*Mostly USes Css Classes userprofile/footer/backtolist/table/backtotopbtn/smallheading/subh/print --for Accounts Department- start*/
+/*.Title {
+    font-size: xx-large;
+    font-family: 'Jameel Noori Nastaleeq';
+    text-align: center;
+    color: black;
+}*/
+
+
+
+/*  Css for small Size of Content----*/
+/*.SubH {
+    text-align: center;
+    font-family: 'Jameel Noori Nastaleeq';
+    font-size: medium;
+}*/
+
+/*  Css for User Profile Accounts Layout----*/
+/*.Userprofile {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 30px;
+}*/
+
+/*  Css for footer Accounts Layout----*/
+/*.ajwfooter {
+    font-size: x-small;
+    font-family: 'Jameel Noori Nastaleeq';
+}*/
+
+/*  Css for BackToList Button----*/
+/*.BackToList {
+    width: 150px;
+}*/
+
+/*  Css for Table of Each in Accounts----*/
+/*.table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    table-layout: fixed;
+    width: 100%
+}*/
+/*  Css for Table of each in Accounts----*/
+/*table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+}*/
+/*  Css for TH/TD of Each Table in Accounts----*/
+/*th, td {
+    text-align: center;*/
+    /*padding: 8px;*/
+/*}*/
+
+/*  Css for Transaltorr Button in Accounts----*/
+/*.lang_btn {
+    font-family: "ProximaNova";
+    color: #fff;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    margin-top: 1.7%;
+    text-decoration: none !important;
+    background-color: #C82333;
+    text-transform: uppercase;
+    width: 65px;
+    text-align: center;
+    height: 39px;
+    border: solid 1px #C82333;
+}*/
+
+
+/*page print css----*/
+/*.btn-theme {
+    background: #08818c;
+    color: #fff;
+}
+
+.btn {
+    font-family: arial;
+}
+
+.btn-print {
+    padding: 10px 24px;
+    font-size: 16px;
+    line-height: 1.33;
+    vertical-align: middle;
+    float: left;
+}
+
+.PrintP {
+    margin-left: 985px;
+    position: absolute;
+    margin-top: -45px;
+}*/
+
+/*page print css----*/
+
+/*-----csss for Back To Top*/
+/*#button {
+    display: inline-block;
+    background-color: #FF9800;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s, opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+    #button::after {
+        content: "\f077";
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 1em;
+        line-height: 50px;
+        color: #fff;
+    }
+
+    #button:hover {
+        cursor: pointer;
+        background-color: #333;
+    }
+
+    #button:active {
+        background-color: #555;
+    }
+
+    #button.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+#button {
+    margin: 30px;
+}
+
+
+
+
+.titleLaw {
+    text-align:left;
+    font-weight:bold;
+    
+}*/
+/*Mostly Uses Css Classes for Accounts Department ---------------------------------------------------ended*/
+
+
+/*-----------------Share Classes for Account Office--------------Start---------------*/
+/* Css for Heading on every Sheet of ccount office----*/
+/*.header {
+    overflow: hidden;
+    padding: 10px 10px;
+    font-size: 40px;
+    font-family: 'Jameel Noori Nastaleeq';
+    text-align: center;
+}*/
+/*//--CSS For Create button & Action Button of Each Page------start---------*/
+/*.Createbtn {
+    font-family: 'Jameel Noori Nastaleeq';
+    font-size: large;
+    text-align: right;
+}
+
+.actionbtn {
+    width: 150px;
+    text-align: center;
+}*/
+
+/*----Accounts All Daily Accounts Reportss--css--Start-------*/
+/*.AccountofficeReport {
+    font-family: 'Jameel Noori Nastaleeq';
+    font-size: x-large;
+}
+
+.titleAccountofficeReport {
+    font-family: 'Jameel Noori Nastaleeq';
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.AccountReport {
+    text-align: center;
+    background-color: dimgrey;
+    color: white;
+}
+
+.TitleExp {
+    color: white;
+    background-color: slategray;
+    font-size: xx-large;
+    font-family: 'Jameel Noori Nastaleeq';
+    text-align: center;
+}
+
+.thhead {
+    height: 45px;
+}*/
+/*  Css for Sub Heading of table----*/
+/*.Subhdr {
+    color: white;
+    text-align: center;
+    background-color: slategrey;
+}*/
+/*  Css for Small Content Of Accounts----*/
+/*.smallfontHeading {
+    font-size: medium;
+}*/
+/* Css for Table Body on each page in Accounts----*/
+/*.tabbody {
+    text-align: center;
+    color: black;
+}*/
+
+/*-----------------Share Classes for Account Office--------------Ended---------------*/
