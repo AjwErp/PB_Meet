@@ -12,7 +12,7 @@
 
 
 }
-@*----------Header Code for this Page--------------------------------Ended-------------------Header------------------*@
+@*----------Header Code for this Page---------------------updddddddddddddd-----------Ended-------------------Header------------------*@
 
 @*----------Body Code for this Page----------------------------------Start---------------------Body----------------*@
 <br />
@@ -21,7 +21,7 @@
         <div class="row">
             <form class="col-sm-12" asp-action="DailyMeezanBankVoucherReport">
                 <div class="BackToList">
-                    <a type="button" asp-action="DailyMonthlyYearlyAuditAccountsReportsListRepository" asp-area="Account" asp-controller="Repository" class="btn btn-primary hover btn-block form-control btn-sm"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
+                    <a type="button" asp-action="AccountsBankCheckApprovalVoucherList" asp-area="Ceo" asp-controller="CeoAllDepartmentReports" class="btn btn-primary hover btn-block form-control btn-sm"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
                 </div>
                 <div class="PrintP">
                     <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
@@ -134,7 +134,7 @@
                         </tr>
                         <tr>
                         </tr>
-                       
+
                         <tr>
                             <td colspan="10"></td>
                         </tr>
@@ -148,26 +148,31 @@
                         <tr>
                             <td colspan="5">
                                 @Localizer["Signature"]:
-                                <input type="text" asp-for="@Model.SignPManager"  value="@teswp.SignPManager" class="form-control" />
+                                <input type="text" asp-for="@Model.SignPManager" value="@teswp.SignPManager" class="form-control" />
                                 @Localizer["Remarks"]:
                                 <input type="text" asp-for="@Model.PManagerRemarks" value="@teswp.PManagerRemarks" class="form-control" />
                             </td>
                             <td colspan="5">
-                          
-                                    @Localizer["Signature"]:
-                                    <input  type="text" asp-for="@Model.SignCeo" class="form-control" value="@teswp.SignCeo" />
-                                    @Localizer["Remarks"]:
-                                    <input  type="text" asp-for="@Model.CeoRemarks" value="@teswp.CeoRemarks" class="form-control" />
 
-                                   
+                                @Localizer["Signature"]:
+                                <input type="text" asp-for="@Model.SignCeo" class="form-control" value="@teswp.SignCeo" />
+                                @Localizer["Remarks"]:
+                                <input type="text" asp-for="@Model.CeoRemarks" value="@teswp.CeoRemarks" class="form-control" />
+
+
+                                @*@Localizer["Signature"]:*@
+                                @*<input type="hidden" asp-for="@Model.SignCeo" class="form-control" value="@teswp.SignCeo" />*@
+                                @*@Localizer["Remarks"]:*@
+                                @*<input type="hidden" asp-for="@Model.CeoRemarks" value="@teswp.CeoRemarks" class="form-control" />*@
+
                             </td>
-                  
+
 
                         </tr>
                         <tr>
                             <td scope="row" colspan="10" class="actionbtn">
                                 <div class="btn-group">
-                                    <input type="submit" value="Create" class="btn btn-primary fas fa-save" />
+                                    <i class="fas fa-save"></i><input type="submit" value="Create" class="btn btn-primary" />
 
                                 </div>
                             </td>

@@ -27,6 +27,8 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         public async Task<IActionResult> AccountsMonthlyYearlyReports()
         {
             var model = new AccountsYearlyReportViewModel();
+
+            //--Monthly/Yearly List View for All Sheets---1 -Monthly Closing Page------
             var monthlyClosingReport = await (from a in _db.MonthlyClosingReports
                                               where a.DelProduction != 0
                                               select new MonthlyAcountReportsViewModel
@@ -36,6 +38,8 @@ namespace AJWManagementPortal.Areas.Account.Controllers
                                                   IsMonthlyClosingReport = true,
                                                   Title = "Monthly Accounts Report"
                                               }).ToListAsync();
+
+            //--Monthly/Yearly List View for All Sheets----2 Monthly meezanBankMonthlyIncomeExpenseReports------
             var meezanBankMonthlyIncomeExpenseReports = await (from a in _db.MeezanBankMonthlyIncomeExpenseReports
                                                                where a.DelProduction != 0
                                                                select new MonthlyAcountReportsViewModel
@@ -45,8 +49,32 @@ namespace AJWManagementPortal.Areas.Account.Controllers
                                                                    IsMeezanBankIncomeExpenseReport = true,
                                                                    Title = "Meezan Bank Monthly Income/Expence Report"
                                                                }).ToListAsync();
+            //--Monthly/Yearly List View for All Sheets----3 Monthly meezanBankMonthlyIncomeExpenseReports------
+
+            //var MonthlyIncomeExpenceInternalAccount = await (from a in _db.MeezanBankMonthlyIncomeExpenseReports
+            //                                                   where a.DelProduction != 0
+            //                                                   select new MonthlyAcountReportsViewModel
+            //                                                   {
+            //                                                       Id = a.Id,
+            //                                                       Date = a.ValueDate,
+            //                                                       IsMeezanBankIncomeExpenseReport = true,
+            //                                                       Title = "Meezan Bank Monthly Income/Expence Report"
+            //                                                   }).ToListAsync();
+            //--Monthly/Yearly List View for All Sheets----4 Monthly meezanBankMonthlyIncomeExpenseReports------
+
+            //var meezanBankMonthlyIncomeExpenseReports = await (from a in _db.MeezanBankMonthlyIncomeExpenseReports
+            //                                                   where a.DelProduction != 0
+            //                                                   select new MonthlyAcountReportsViewModel
+            //                                                   {
+            //                                                       Id = a.Id,
+            //                                                       Date = a.ValueDate,
+            //                                                       IsMeezanBankIncomeExpenseReport = true,
+            //                                                       Title = "Meezan Bank Monthly Income/Expence Report"
+            //                                                   }).ToListAsync();
+            //--Monthly/Yearly List View for All Sheets----1+2 Union of MonthlyClosing + MeezanBankIE Reprot ------
             model.MonthlyAcountReportsViewModel = monthlyClosingReport.Union(meezanBankMonthlyIncomeExpenseReports).OrderBy(x => x.Date);
 
+            //--Monthly/Yearly List View for All Sheets----3 Yearly Closing Report------
             var yearlyClosingReport = await (from a in _db.YearlyClosingReports
                                               where a.DelProduction != 0
                                               select new YearlyAcountReportsViewModel
@@ -70,8 +98,11 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         {
             var currentMonthlyReportData = (dynamic)null;
             var currentMeezanBankIncomeExpenseReportData = (dynamic)null;
+
+
             remarks = remarks.Replace("-", "/");
             DateTime dateTime10 = DateTime.Parse(remarks);
+            //Send Monthly Report To DGM Office using This Code 1: MonthlyClosingReports-----
             var monthlyReportData = _db.MonthlyClosingReports.Where(i => i.ValueDate.Equals(dateTime10) && i.DelProduction != 0).FirstOrDefault();
             if (monthlyReportData != null)
             {
@@ -79,6 +110,8 @@ namespace AJWManagementPortal.Areas.Account.Controllers
                 currentMonthlyReportData = await _db.MonthlyClosingReports.FindAsync(monthlyReportData.Id);
 
             }
+            //Send Monthly Report To DGM Office using This Code 2: MeezanBankMonthlyIncomeExpenseReports-----
+
             var meezanBankIncomeExpenseReportData = _db.MeezanBankMonthlyIncomeExpenseReports.Where(i => i.ValueDate.Equals(dateTime10) && i.DelProduction != 0).FirstOrDefault();
             if (meezanBankIncomeExpenseReportData != null)
             {

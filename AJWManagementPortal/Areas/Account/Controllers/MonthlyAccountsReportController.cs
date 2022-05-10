@@ -38,7 +38,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             this._env = env;
         }
 
-        //GET --Title Page---for MonthlyClosingReportTitlePage--start
+        //GET --Title Page---for MonthlyClosingReportTitlePage--start---1---
         public IActionResult MonthlyClosingReportTitlePage()
         {
             return View();
@@ -48,7 +48,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //GET ---Title Page--for MonthlyClosingReportTitlePage--ended
 
         //GET --02 Sheet |Monthly Closing Report Account Office|-
-        //--for Monthly Meezan Bank Income/Expense Monthly Report--start
+        //--for Monthly Meezan Bank Income/Expense Monthly Report--start---2-----
         public IActionResult MeezanBankIncomeExpenseMonthlyreport()
         {
             var model = new MeezanBankMonthlyIncomeExpenseReport
@@ -59,7 +59,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         }
 
         //GET --02 Sheet |Monthly Closing Report Account Office|-
-        //-POST-For Meezan Bank Income/Expense Monthly report
+        //-POST-For Meezan Bank Income/Expense Monthly report----2------
         [HttpPost]
         public IActionResult MeezanBankIncomeExpenseMonthlyreport(MeezanBankMonthlyIncomeExpenseReport model)
         {
@@ -144,7 +144,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //POST --4--for Monthly Income/Expence Main Bank Account BOP--start 
         //POST ---4--for Monthly Income/Expence Main Bank Account BOP--ended
 
-        //GET----5--for Monthly Income/Expence Internal Account--start
+        //GET----5--for Monthly Income/Expence Internal Account--start----3-
        
 
         public IActionResult MonthlyIncomeExpenceInternalAccount()

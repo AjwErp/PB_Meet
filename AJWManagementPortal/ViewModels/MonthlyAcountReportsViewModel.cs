@@ -10,20 +10,23 @@ namespace AJWManagementPortal.ViewModels
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public string Title { get; set; }
+        //- start---Variable for MonthlyClosingReport Account+DGM+GM+AccountError
         public bool IsMonthlyClosingReport { get; set; }
         public bool IsMonthlyClosingReportDgm { get; set; }
         public bool IsMonthlyClosingReportGm { get; set; }
         public bool IsMonthlyClosingReportAccounts { get; set; }
         public bool IsMonthlyClosingReportAccountsError { get; set; }
+        //-------ended----------------------
+        //--start--Variable for MonthlyClosingReport Account+DGM+GM+AccountError
         public bool IsMeezanBankIncomeExpenseReport { get; set; }
         public bool IsMeezanBankIncomeExpenseReportDgm { get; set; }
         public bool IsMeezanBankIncomeExpenseReportGm { get; set; }
         public bool IsMeezanBankIncomeExpenseReportAccounts { get; set; } 
         public bool IsMeezanBankIncomeExpenseReportAccountsError { get; set; }
+        //---------------Ended----------------
 
 
-
-
+        //------Its ViewActionName-------Start------For Accounts Monthly Report----
         private string _viewActionName;
         public string ViewActionName
         {
@@ -54,7 +57,9 @@ namespace AJWManagementPortal.ViewModels
                 return _viewActionName;
             }
         }
+        //------Its ViewActionName-----Ended--------For Accounts Monthly Report----
 
+        //------Its Edit ActionName-----Start--------For Accounts Monthly Report----
         private string _editActionName;
         public string EditActionName
         {
@@ -86,6 +91,9 @@ namespace AJWManagementPortal.ViewModels
             }
 
         }
+        //------Its EditActionName--------Ended-----For Accounts Monthly Report----
+
+        //------Its Delete ActionName-------Start------For Accounts Monthly Report----
 
         private string _deleteActionName;
         public string DeleteActionName
@@ -118,6 +126,9 @@ namespace AJWManagementPortal.ViewModels
             }
 
         }
+        //------Its Delete ActionName---------Ended----For Accounts Monthly Report----
+
+        //------Its Send ActionName------start-------For Accounts Monthly Report----
 
         private string _sendActionName;
         public string SendActionName
@@ -149,6 +160,10 @@ namespace AJWManagementPortal.ViewModels
                 return _sendActionName;
             }
         }
+        //------Its Send ActionName------Ended-------For Accounts Monthly Report----
+
+        //------Its @nd Send ActionName------start-------For Accounts Monthly Report----
+
         private string _secondSendActionName;
         public string SecondSendActionName
         {
@@ -159,10 +174,16 @@ namespace AJWManagementPortal.ViewModels
                     _secondSendActionName = "SendMonthlyClosingReportToAccountErrorList";
                 else if (IsMeezanBankIncomeExpenseReportDgm)
                     _secondSendActionName = "SendMeezanBankIncomeExpenseReportToAccountErrorList";
+                //else if (IsMeezanBankIncomeExpenseReportDgm)
+                //    _secondSendActionName = "SendMeezanBankIncomeExpenseReportToAccountErrorList";
+                //else if (IsMeezanBankIncomeExpenseReportDgm)
+                //    _secondSendActionName = "SendMeezanBankIncomeExpenseReportToAccountErrorList";
                 else
                     _secondSendActionName = "";
                 return _secondSendActionName;
             }
         }
+        //------Its @nd Send ActionName------Ended-------For Accounts Monthly Report----
+
     }
 }

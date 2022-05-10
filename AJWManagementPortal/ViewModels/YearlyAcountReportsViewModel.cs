@@ -10,11 +10,14 @@ namespace AJWManagementPortal.ViewModels
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public string Title { get; set; }
+        //-----Variable for Yearly Closing Report Title Page----start------
         public bool IsYearlyClosingReport { get; set; }
         public bool IsYearlyClosingReportDgm { get; set; }
         public bool IsYearlyClosingReportGm { get; set; }
         public bool IsYearlyClosingReportAccounts { get; set; }
         public bool IsYearlyClosingReportAccountsError { get; set; }
+        //-----Variable for Yearly Closing Report Title Page----Ended------
+
         //public bool IsMeezanBankIncomeExpenseReport { get; set; }
         //public bool IsMeezanBankIncomeExpenseReportDgm { get; set; }
         //public bool IsMeezanBankIncomeExpenseReportGm { get; set; }
@@ -23,6 +26,7 @@ namespace AJWManagementPortal.ViewModels
 
 
 
+        //------Its ViewActionName-------Start------For Accounts Yearly Report----
 
         private string _viewActionName;
         public string ViewActionName
@@ -54,6 +58,8 @@ namespace AJWManagementPortal.ViewModels
                 return _viewActionName;
             }
         }
+        //------Its ViewActionName-------Ended------For Accounts Yearly Report----
+        //------Its Edit ActionName-------Start------For Accounts Yearly Report----
 
         private string _editActionName;
         public string EditActionName
@@ -86,6 +92,8 @@ namespace AJWManagementPortal.ViewModels
             }
 
         }
+        //------Its Edit ActionName-------Ended------For Accounts Yearly Report----
+        //------Its Delete ActionName-------Start------For Accounts Yearly Report----
 
         private string _deleteActionName;
         public string DeleteActionName
@@ -118,6 +126,8 @@ namespace AJWManagementPortal.ViewModels
             }
 
         }
+        //------Its Delete ActionName-------Ended------For Accounts Yearly Report----
+        //------Its SendActionName-------Start------For Accounts Yearly Report----
 
         private string _sendActionName;
         public string SendActionName
@@ -149,6 +159,9 @@ namespace AJWManagementPortal.ViewModels
                 return _sendActionName;
             }
         }
+        //------Its SendActionName-------Ended------For Accounts Yearly Report----
+        //------Its 2nd SendActionName-------Start------For Accounts Yearly Report----
+
         private string _secondSendActionName;
         public string SecondSendActionName
         {
@@ -164,6 +177,8 @@ namespace AJWManagementPortal.ViewModels
                 return _secondSendActionName;
             }
         }
+        //------Its 2nd SendActionName-------ended------For Accounts Yearly Report----
+
     }
 }
 

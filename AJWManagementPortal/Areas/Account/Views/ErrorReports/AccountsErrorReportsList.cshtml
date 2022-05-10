@@ -64,27 +64,29 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach (var item in Model.BankVo)
+                        {
+                            <tr class="tabbody SubH">
+                                <td class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-area="Account" asp-controller="Repository" asp-action="DailyMeezanBankVoucherReport" asp-route-id="@item.dateTime.ToString("yyyy-MM-dd")"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                            <a class="dropdown-item" asp-area="Account" asp-controller="Repository" asp-action="DailyMeezanBankVoucherReport" asp-route-id="@item.dateTime.ToString("yyyy-MM-dd")" asp-route-hide="true"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
+                                            <a class="dropdown-item" asp-area="Account" asp-controller="Repository" asp-action="DeleteMeezanVSheet" asp-route-remarks="@item.dateTime.ToString("yyyy-MM-dd")"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                            <a class="dropdown-item" asp-area="Account" asp-controller="Repository" asp-action="CreatePDFMP"><i class="fas fa-file-download"></i> @Localizer["Download"]</a>
+                                            <a class="dropdown-item " asp-area="Account" asp-action="SendToAccountOffice" asp-controller="Bank" asp-route-remarks="@item.dateTime.ToString("yyyy-MM-dd")"><i class="fas fa-send"></i> @Localizer["Send To C.E.O Office"]</a>
 
-                        <tr class="tabbody SubH">
-                            <td class="actionbtn">
-                                <div class="btn-group">
-                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        @Localizer["Action"]
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" asp-area="Account" asp-controller="ErrorReports" asp-action=""><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
-                                        <a class="dropdown-item" asp-area="Account" asp-controller="ErrorReports" asp-action="" asp-route-id="" asp-route-hide=""><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
-                                        <a class="dropdown-item" asp-area="Account" asp-controller="ErrorReports" asp-action="" asp-route-remarks=""><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
-                                        <a class="dropdown-item" asp-area="Account" asp-controller="ErrorReports" asp-action=""><i class="fas fa-file-download"></i> @Localizer["Download"]</a>
-                                        <a class="dropdown-item " asp-area="Account" asp-action="" asp-controller="Bnk" asp-route-remarks=""><i class="fas fa-send"></i> @Localizer["Send To C.E.O Office"]</a>
-
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <th> </th>
-                            <th>@Localizer["Daily Meezan Bank Income-Expense Voucher Report"] </th>
-                            <th></th>
-                        </tr>
+                                </td>
+                                <th>@item.dateTime </th>
+                                <th>@Localizer["Daily Meezan Bank Income-Expense Voucher Report"] </th>
+                                <th>@item.Id</th>
+                            </tr>
+                        }
 
                     </tbody>
                 </table>

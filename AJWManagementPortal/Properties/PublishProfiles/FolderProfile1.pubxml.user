@@ -6,5 +6,6 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
   <PropertyGroup>
     <_PublishTargetUrl>C:\DotnetCore\AJWManagementPortal</_PublishTargetUrl>
     <History>True|2022-04-25T05:53:26.1982996Z;</History>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
   </PropertyGroup>
 </Project>

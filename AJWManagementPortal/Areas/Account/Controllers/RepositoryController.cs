@@ -172,8 +172,12 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             }
             return RedirectToAction("DailyMonthlyYearlyAuditAccountsReportsListRepository");
         }
-
-
+        //---------------------------------
+        public IActionResult DailyMeezanBankVoucherReport()
+        {
+            return View();
+        }
+        // GET: aDailyCashes/Create
         [HttpGet]
         public IActionResult DailyMeezanBankVoucherReport(String id)
         {
@@ -191,15 +195,17 @@ namespace AJWManagementPortal.Areas.Account.Controllers
                 Where(z => z.ValueDate <= dateTime10)
                 .ToList();
 
-            ViewBag.Data1 = _db.MeezanBankIEVouchers.Where(z => z.dateTime <= dateTime10 && z.DelGm != 0).ToList();
+            ViewBag.Data1 = _db.MeezanBankIEVouchers.Where(z => z.dateTime <= dateTime10 && z.Status == "4").ToList();
             ViewBag.hide = false;
 
-            return View("BankCheckApprovelVoucher");
+            return View();
 
 
         }
 
-
+        // POST: aDailyCashes/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DailyMeezanBankVoucherReport(MeezanBankIEVoucher meezan, string id)
@@ -215,10 +221,9 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             DateTime dateTime10 = DateTime.Parse(id);
 
             meezan.Title = "";
-            meezan.Status = "5";
+            meezan.Status = "4";
             meezan.DelProduction = 1;
             meezan.DelCeo = 1;
-            meezan.DelGm = 1;
             meezan.Remarks = "";
             _db.Add(meezan);
             await _db.SaveChangesAsync();
@@ -230,10 +235,73 @@ namespace AJWManagementPortal.Areas.Account.Controllers
                 Where(z => z.ValueDate <= dateTime10)
                 .ToList();
 
-            ViewBag.Data1 = _db.MeezanBankIEVouchers.Where(z => z.dateTime <= dateTime10 && z.Status == "3").ToList();
+            ViewBag.Data1 = _db.MeezanBankIEVouchers.Where(z => z.dateTime <= dateTime10 && z.Status == "4").ToList();
             ViewBag.hide = false;
-            return View("BankCheckApprovelVoucher", meezan);
+            return View(meezan);
         }
+
+        //---------------------------------
+
+        //[HttpGet]
+        //public IActionResult DailyMeezanBankVoucherReport(String id)
+        //{
+        //    DateTime today = DateTime.Today;
+
+        //    if (id == null)
+        //    {
+        //        id = today.ToString("yyyy-MM-dd");
+        //        //return NotFound();
+        //    }
+        //    id = id.Replace("-", "/");
+        //    DateTime dateTime10 = DateTime.Parse(id);
+
+        //    ViewBag.Data = _db.MeezanBankIEReports.
+        //        Where(z => z.ValueDate <= dateTime10)
+        //        .ToList();
+
+        //    ViewBag.Data1 = _db.MeezanBankIEVouchers.Where(z => z.dateTime <= dateTime10 && z.DelGm != 0).ToList();
+        //    ViewBag.hide = false;
+
+        //    return View("BankCheckApprovelVoucher");
+
+
+        //}
+
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> DailyMeezanBankVoucherReport(MeezanBankIEVoucher meezan, string id)
+        //{
+        //    DateTime today = DateTime.Today;
+
+        //    if (id == null)
+        //    {
+        //        id = today.ToString("yyyy-MM-dd");
+        //        //return NotFound();
+        //    }
+        //    id = id.Replace("-", "/");
+        //    DateTime dateTime10 = DateTime.Parse(id);
+
+        //    meezan.Title = "";
+        //    meezan.Status = "5";
+        //    meezan.DelProduction = 1;
+        //    meezan.DelCeo = 1;
+        //    meezan.DelGm = 1;
+        //    meezan.Remarks = "";
+        //    _db.Add(meezan);
+        //    await _db.SaveChangesAsync();
+        //    //return RedirectToAction(nameof(DailyMeezanBankVoucherReport));
+
+
+
+        //    ViewBag.Data = _db.MeezanBankIEReports.
+        //        Where(z => z.ValueDate <= dateTime10)
+        //        .ToList();
+
+        //    ViewBag.Data1 = _db.MeezanBankIEVouchers.Where(z => z.dateTime <= dateTime10 && z.Status == "3").ToList();
+        //    ViewBag.hide = false;
+        //    return View("BankCheckApprovelVoucher", meezan);
+        //}
         ////Repository for Daily cash continues report list
         //public IActionResult DailyReportRepository()
         //{

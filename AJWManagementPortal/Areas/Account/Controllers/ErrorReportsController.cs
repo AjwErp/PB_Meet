@@ -36,8 +36,10 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             DailyMeezan model = new DailyMeezan();
 
             IEnumerable<aDailyCash> dailycash = _db.aDailyCashes.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 5).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First());
-            IEnumerable<MeezanBankIEReport> a1 = _db.MeezanBankIEReports.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 5).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First());
-            IEnumerable<DailySuppliersCashTransactionReport> a2 = _db.dailySuppliers.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 5).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First());
+            IEnumerable<MeezanBankIEVoucher> a1 = _db.MeezanBankIEVouchers.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 4).ToList().GroupBy(elem => elem.dateTime).Select(group => group.First());
+
+            IEnumerable<MeezanBankIEReport> a2 = _db.MeezanBankIEReports.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 5).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First());
+            IEnumerable<DailySuppliersCashTransactionReport> a3 = _db.dailySuppliers.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 5).ToList().GroupBy(elem => elem.ValueDate).Select(group => group.First());
             IEnumerable<MonthlyClosingReport> monthlyClosingReports = _db.MonthlyClosingReports.Where(i => i.DelProduction != 0 && Convert.ToInt32(i.Status) == 5).ToList();
             var monthlyClosingReport = await (from a in _db.MonthlyClosingReports
                                               where (a.DelProduction != 0 && (Convert.ToInt32(a.Status) == 5))
@@ -59,8 +61,10 @@ namespace AJWManagementPortal.Areas.Account.Controllers
                                                                }).ToListAsync();
             model.MonthlyAcountReportsViewModel = monthlyClosingReport.Union(meezanBankMonthlyIncomeExpenseReports).OrderBy(x => x.Date);
             model.aDailyCashes = dailycash;
-            model.Bank = a1;
-            model.dSuppliers = a2;
+            model.BankVo = a1;
+
+            model.Bank = a2;
+            model.dSuppliers = a3;
             return View(model);
         }
 
@@ -265,6 +269,76 @@ namespace AJWManagementPortal.Areas.Account.Controllers
                 return RedirectToAction("AccountsErrorReportsList");
             }
         }
+
+        //---------------------------------
+        public IActionResult DailyMeezanBankVoucherReport()
+        {
+            return View();
+        }
+        // GET: aDailyCashes/Create
+        [HttpGet]
+        public IActionResult DailyMeezanBankVoucherReport(String id)
+        {
+            DateTime today = DateTime.Today;
+
+            if (id == null)
+            {
+                id = today.ToString("yyyy-MM-dd");
+                //return NotFound();
+            }
+            id = id.Replace("-", "/");
+            DateTime dateTime10 = DateTime.Parse(id);
+
+            ViewBag.Data = _db.MeezanBankIEReports.
+                Where(z => z.ValueDate <= dateTime10)
+                .ToList();
+
+            ViewBag.Data1 = _db.MeezanBankIEVouchers.Where(z => z.dateTime <= dateTime10 && z.Status == "4").ToList();
+            ViewBag.hide = false;
+
+            return View();
+
+
+        }
+
+        // POST: aDailyCashes/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DailyMeezanBankVoucherReport(MeezanBankIEVoucher meezan, string id)
+        {
+            DateTime today = DateTime.Today;
+
+            if (id == null)
+            {
+                id = today.ToString("yyyy-MM-dd");
+                //return NotFound();
+            }
+            id = id.Replace("-", "/");
+            DateTime dateTime10 = DateTime.Parse(id);
+
+            meezan.Title = "";
+            meezan.Status = "4";
+            meezan.DelProduction = 1;
+            meezan.DelCeo = 1;
+            meezan.Remarks = "";
+            _db.Add(meezan);
+            await _db.SaveChangesAsync();
+            //return RedirectToAction(nameof(DailyMeezanBankVoucherReport));
+
+
+
+            ViewBag.Data = _db.MeezanBankIEReports.
+                Where(z => z.ValueDate <= dateTime10)
+                .ToList();
+
+            ViewBag.Data1 = _db.MeezanBankIEVouchers.Where(z => z.dateTime <= dateTime10 && z.Status == "4").ToList();
+            ViewBag.hide = false;
+            return View(meezan);
+        }
+
+        //---------------------------------
 
     }
 
