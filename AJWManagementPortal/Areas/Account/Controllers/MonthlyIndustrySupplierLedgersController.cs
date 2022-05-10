@@ -100,5 +100,16 @@ namespace AJWManagementPortal.Areas.Account.Controllers
 
             return Json(response);
         }
+
+        public IActionResult MonthlyIndustrySupplierLedgerBookView(string id)
+        {
+            var result = _monthlyIndustrySupplierLedgerRepository.GetMonthlyIndustrySupplierLedgerBooksByUniId(id);
+            return View(result);
+        }
+        public IActionResult MonthlyIndustrySupplierLedgerBookDelete(string id)
+        {
+            var result = _monthlyIndustrySupplierLedgerRepository.DeleteMonthlyIndustrySupplierLedgerBooksByUniId(id);
+            return RedirectToAction("IndustrySupplierLedgerBookList", "IndustrySupplierLedgers");
+        }
     }
 }

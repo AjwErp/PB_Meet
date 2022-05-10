@@ -16,19 +16,6 @@ namespace AJWManagementPortal.Extensions.Repository
         {
             this._repositoryContext = repositoryContext;
         }
-        public bool SaveMonthlyGeneralLedgerBookRepository(List<MonthlyGeneralLedgerBook> data)
-        {
-            try
-            {
-                Create(data);
-                _repositoryContext.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
 
         public bool DeleteMonthlyGeneralLedgerBookByDate(DateTime date)
         {
@@ -45,6 +32,20 @@ namespace AJWManagementPortal.Extensions.Repository
                 }
             }
             return result;
+        }
+
+        public bool SaveMonthlyGeneralLedgerBookRepository(List<MonthlyGeneralLedgerBook> data)
+        {
+            try
+            {
+                Create(data);
+                _repositoryContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         public bool UpdateMonthlyGeneralLedgerBookRepository(List<MonthlyGeneralLedgerBook> data)

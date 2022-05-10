@@ -12,7 +12,10 @@ namespace AJWManagementPortal.Extensions.IRepository
         bool SaveMonthlyIndustrySupplierLedger(string txtMonthlyIndustrySupplierLedger);
         List<MonthlyIndustrySupplierLedgerViewModel> GetMonthlyIndustrySupplierLedgers();
         List<MonthlyIndustrySupplierLedger> GetMonthlyIndustrySupplierLedgerType();
+        List<MonthlyIndustrySupplierLedgerBook> GetMonthlyIndustrySupplierLedgerBooks();
         bool SaveMonthlyIndustrySupplierLedgerBook(List<MonthlyIndustrySupplierLedgerBook> data);
         bool UpdateMonthlyIndustrySupplierLedgerBook(List<MonthlyIndustrySupplierLedgerBook> data);
+        List<MonthlyIndustrySupplierLedgerBook> GetMonthlyIndustrySupplierLedgerBooksByUniId(string uniId);
+        bool DeleteMonthlyIndustrySupplierLedgerBooksByUniId(string uniId);
     }
 }

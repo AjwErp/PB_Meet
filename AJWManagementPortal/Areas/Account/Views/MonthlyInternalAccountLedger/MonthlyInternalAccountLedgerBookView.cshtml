@@ -1,6 +1,4 @@
-﻿@*Shakil*@
-
-@model IEnumerable<AJWManagementPortal.Models.MonthlyInternalAccountLedgerBook>
+﻿@model IEnumerable<AJWManagementPortal.Models.MonthlyInternalAccountLedgerBook>
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 @{
     ViewData["Title"] = "MonthlyInternalAccountLedgerBook";
@@ -39,12 +37,12 @@
                             </tr>
                             <tr><th colspan="22"></th></tr>
                             @*<tr>
-                                <th colspan="2"> <label>Balance: </label> </th>
-                                <th colspan="4"></th>
+                                    <th colspan="2"> <label>Balance: </label> </th>
+                                    <th colspan="4"></th>
 
-                                <th colspan="2"> <label>Mobile No.: </label> </th>
-                                <th colspan="14"><input type="text" id="mobileNo" class="form-control" /></th>
-                            </tr>*@
+                                    <th colspan="2"> <label>Mobile No.: </label> </th>
+                                    <th colspan="14"><input type="text" id="mobileNo" class="form-control" /></th>
+                                </tr>*@
                             <tr>
                                 <th colspan="2">@Localizer["Balance"]</th>
                                 <th colspan="2">@Localizer["Credit(Rs)"]</th>
@@ -112,7 +110,7 @@
                                     <p>@Model.FirstOrDefault().GMRemark</p>
                                 </td>
                             </tr>
-                            
+
                         </tfoot>
                     </table>
                 </div>
@@ -175,57 +173,6 @@
                     }
                 });
             }
-        });
-
-        $("body").on("click", "#btnMonthlyInternalAccountLedgerSave", function () {
-
-            var monthlyInternalAccountLedgerList = new Array();
-            $("#tblcustomers TBODY TR").each(function () {
-                var AMSignature = $("#AMSignature");///
-                var AMRemark = $("#AMRemark");///
-                var DGMSignature = $("#DGMSignature");///
-                var DGMRemark = $("#DGMRemark");///
-                var GMSignature = $("#GMSignature");///
-                var GMRemark = $("#GMRemark");///
-                var row = $(this);
-                var monthlyInternalAccountLedgerBook = {};
-
-                monthlyInternalAccountLedgerBook.AMSignature = AMSignature.val();///
-                monthlyInternalAccountLedgerBook.AMRemark = AMRemark.val();///
-                monthlyInternalAccountLedgerBook.DGMSignature = DGMSignature.val();///
-                monthlyInternalAccountLedgerBook.DGMRemark = DGMRemark.val();///
-                monthlyInternalAccountLedgerBook.GMSignature = GMSignature.val();///
-                monthlyInternalAccountLedgerBook.GMRemark = GMRemark.val();///
-
-                monthlyInternalAccountLedgerBook.Balance = row.find("TD").eq(1).text().trim();
-                monthlyInternalAccountLedgerBook.Credit = row.find("TD").eq(2).text();
-                monthlyInternalAccountLedgerBook.Devit = row.find("TD").eq(3).text();
-                monthlyInternalAccountLedgerBook.PreOrderCheckNo = row.find("TD").eq(4).text();
-                monthlyInternalAccountLedgerBook.Description = row.find("TD").eq(5).text();
-                monthlyInternalAccountLedgerBook.DailyCashDate = row.find("TD").eq(6).text();
-                monthlyInternalAccountLedgerBook.DailyCashId = row.find("TD").eq(7).text();
-                monthlyInternalAccountLedgerBook.CreatedDate = new Date();
-
-                monthlyInternalAccountLedgerList.push(monthlyInternalAccountLedgerBook);
-            });
-
-            //Send the JSON array to Controller using AJAX.
-            $.ajax({
-                type: "POST",
-                url: "/Account/MonthlyInternalAccountLedger/InsertMonthlyInternalAccountLedgerBook",
-                data: { data: monthlyInternalAccountLedgerList },
-                success: function (data) {
-
-                    if (data === 1) {
-                        alert("Data save & update successfully!");
-                        window.location.replace("/Account/InternalAccountLedgers/InternalAccountLedgerBookList");
-                    }
-                    else if (data === 2) {
-                        alert("Data didn't save & update successfully!!");
-                        window.location.replace("/Account/InternalAccountLedgers/InternalAccountLedgerBookList");
-                    }
-                }
-            });
         });
     </script>
 }

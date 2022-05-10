@@ -29,7 +29,7 @@
                     <thead>
                         <tr class="Subhdr SubH">
                             <th>@Localizer["ID#"]</th>
-                            @*<th>@Localizer["Action"] </th>*@
+                            <th>@Localizer["Action"] </th>
                             <th>@Localizer["Date"]</th>
                             <th>@Localizer["Title"]</th>
                         </tr>
@@ -39,19 +39,16 @@
                         {
                             <tr>
                                 <td class="text-center" scope="col">@item.MainBankDailyCashId</td>
-                                @*<td class="actionbtn">
-                                        <div class="btn-group">
-                                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                @Localizer["Action"]
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" asp-action="DailyGeneralLedgerReport" asp-route-Id="@item.MainBankDailyCashDate.ToString("yyyy-MM-dd")" asp-route-hide="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
-                                                <a class="dropdown-item" asp-action="DailyGeneralLedgerReport" asp-route-Id="@item.MainBankDailyCashDate.ToString("yyyy-MM-dd")" asp-route-hide="false"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
-                                                <a class="dropdown-item" asp-action="DeleteSheet" asp-route-remarks="@item.MainBankDailyCashDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
-                                                <a class="dropdown-item " asp-action="" asp-route-remarks="" asp-route-redirect=""><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
-                                            </div>
+                                <td class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="ViewMonthlyMainBankLedgerBook" asp-route-Id="@item.MainBankDailyCashDate.ToString("yyyy-MM-dd")" asp-route-hide="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
                                         </div>
-                                    </td>*@
+                                    </div>
+                                </td>
                                 <td class="text-center" scope="col">@item.MainBankDailyCashDate </td>
                                 <td class="text-center" scope="col">Monthly Main Bank Ledger report</td>
                             </tr>
@@ -72,7 +69,7 @@
                     <thead>
                         <tr class="Subhdr SubH">
                             <th>@Localizer["ID#"]</th>
-                            @*<th>@Localizer["Action"] </th>*@
+                            <th>@Localizer["Action"] </th>
                             <th>@Localizer["Date"]</th>
                             <th>@Localizer["Title"]</th>
                         </tr>
@@ -83,19 +80,16 @@
                         {
                             <tr>
                                 <td class="text-center" scope="col">@item.MainBankDailyCashId</td>
-                                @*<td class="actionbtn">
-                                        <div class="btn-group">
-                                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                @Localizer["Action"]
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" asp-action="DailyGeneralLedgerReport" asp-route-Id="@item.MainBankDailyCashDate.ToString("yyyy-MM-dd")" asp-route-hide="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
-                                                <a class="dropdown-item" asp-action="DailyGeneralLedgerReport" asp-route-Id="@item.MainBankDailyCashDate.ToString("yyyy-MM-dd")" asp-route-hide="false"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
-                                                <a class="dropdown-item" asp-action="DeleteSheet" asp-route-remarks="@item.MainBankDailyCashDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
-                                                <a class="dropdown-item " asp-action="" asp-route-remarks="" asp-route-redirect=""><i class="fas fa-send"></i> @Localizer["Send To D.G.M Office"]</a>
-                                            </div>
+                                <td class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="ViewYearlyMainBankLedgerBook" asp-route-Id="@item.MainBankDailyCashDate.ToString("yyyy-MM-dd")" asp-route-hide="true"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
                                         </div>
-                                    </td>*@
+                                    </div>
+                                </td>
                                 <td class="text-center" scope="col">@item.MainBankDailyCashDate </td>
                                 <td class="text-center" scope="col">Yearly Main Bank Ledger report</td>
                             </tr>

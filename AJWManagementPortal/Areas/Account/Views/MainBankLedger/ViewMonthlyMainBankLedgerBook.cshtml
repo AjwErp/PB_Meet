@@ -1,8 +1,8 @@
-﻿@model IEnumerable<AJWManagementPortal.Models.MeezanBankIEReport>
+﻿@model IEnumerable<AJWManagementPortal.Models.MonthlyMainBankLedgerBook>
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = "DailyMainBankLedgerBook";
+    ViewData["Title"] = "ViewDailyMainBankLedgerBook";
     Layout = "~/Views/Shared/_LayoutAccount.cshtml";
 }
 
@@ -29,10 +29,10 @@
                                 <th colspan="29"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
                             </tr>
                             <tr>
-                                <th class="titleAccountofficeReport" colspan="29">@Localizer["Monthly Meezan Bank(Main Bank Account Ledger Book)-Account Office"] </th>
+                                <th class="titleAccountofficeReport" colspan="29">@Localizer["View Monthly Meezan Bank(Main Bank Account Ledger Book)-Account Office"] </th>
                             </tr>
                             <tr>
-                                <th class="text-left" colspan="29" id="date"><span class=""> @Localizer["Date"]: </span> </th>
+                                <th class="text-left" colspan="29" id="date"><span class="">Date : @ViewBag.MonthYear</span> </th>
                             </tr>
                             <tr>
                                 <th class="text-center" colspan="2">@Localizer["ID#"]</th>
@@ -52,12 +52,12 @@
                                     <td colspan="4">
                                         @item.Balance
                                     </td>
-                                    <td colspan="4">@item.Cradit</td>
-                                    <td colspan="4">@item.Debit</td>
+                                    <td colspan="4">@item.Credit</td>
+                                    <td colspan="4">@item.Devit</td>
                                     <td colspan="3">@item.CDO</td>
 
                                     <td colspan="6">@item.Description</td>
-                                    <td colspan="6">@item.ValueDate</td>
+                                    <td colspan="6">@item.MainBankDailyCashDate</td>
                                 </tr>
                             }
                         </tbody>
@@ -84,9 +84,9 @@
                             <tr>
                                 <td colspan="10">
                                     @Localizer["Signature"]:
-                                    <input type="text" id="txtpmsign" name="txtpmsign" value="@teswp.SignPManager" class="form-control" />
+                                    <input type="text" id="AMSignature" class="form-control" value="@ViewBag.SignPManager" readonly />
                                     @Localizer["Remarks"]:
-                                    <input type="text" id="txtpmremarks" name="txtpmremarks" value="@teswp.PManagerRemarks" class="form-control" />
+                                    <input type="text" id="AMRemark" class="form-control" value="@ViewBag.PManagerRemarks" readonly />
                                 </td>
                                 <td colspan="9">
                                     <input hidden type="text" id="txtgmsign" name="txtgmsign" class="form-control" value="@teswp.SignGM" />
@@ -95,13 +95,6 @@
                                 <td colspan="10">
                                     <input hidden type="text" id="txtceosign" name="txtceosign" class="form-control" value="@teswp.SignCeo" />
                                     <input hidden type="text" id="txtceoremarks" name="txtceoremarks" class="form-control" value="@teswp.CeoRemarks" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td scope="row" colspan="29" class="actionbtn">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-primary btn-sm btn-block form-control" id="btnMonthlyMainBankLedgerSave" value="Save"><i class="fas fa-save"></i> Save</button>
-                                    </div>
                                 </td>
                             </tr>
                         </tfoot>
@@ -118,12 +111,7 @@
 @section Scripts{
     <script>
         $("body").ready(function () {
-            const monthNames = ["January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"
-            ];
-            const date = new Date();
-            $("#date").text(monthNames[date.getMonth()].concat("-", date.getFullYear()));
-
+            
             var credit = 0, debit = 0;
             $("#tblcustomers TBODY TR").each(function () {
                 var row = $(this);
@@ -137,55 +125,6 @@
             $("#total #t5").append(credit - debit);
         });
 
-        $("body").on("click", "#btnMonthlyMainBankLedgerSave", function () {
-
-            var monthlyMainBankLedgerBookList = new Array();
-            $("#tblcustomers TBODY TR").each(function () {
-                var txtpmsign = $("#txtpmsign");///
-                var txtpmremarks = $("#txtpmremarks");///
-                var txtgmsign = $("#txtgmsign");///
-                var txtgmremarks = $("#txtgmremarks");///
-                var txtceosign = $("#txtceosign");///
-                var txtceoremarks = $("#txtceoremarks");///
-                var row = $(this);
-                var monthlyMainBankLedgerBook = {};
-
-                monthlyMainBankLedgerBook.SignPManager = txtpmsign.val();///
-                monthlyMainBankLedgerBook.PManagerRemarks = txtpmremarks.val();///
-                monthlyMainBankLedgerBook.SignGM = txtgmsign.val();///
-                monthlyMainBankLedgerBook.GMRemarks = txtgmremarks.val();///
-                monthlyMainBankLedgerBook.SignCeo = txtceosign.val();///
-                monthlyMainBankLedgerBook.CeoRemarks = txtceoremarks.val();///
-
-                monthlyMainBankLedgerBook.MainBankDailyCashId = row.find("TD").eq(0).text();
-                monthlyMainBankLedgerBook.Balance = row.find("TD").eq(1).text().trim();
-                monthlyMainBankLedgerBook.Credit = row.find("TD").eq(2).text();
-                monthlyMainBankLedgerBook.Devit = row.find("TD").eq(3).text();
-                monthlyMainBankLedgerBook.CDO = row.find("TD").eq(4).text();
-                monthlyMainBankLedgerBook.Description = row.find("TD").eq(5).text();
-                monthlyMainBankLedgerBook.MainBankDailyCashDate = row.find("TD").eq(6).text();
-                monthlyMainBankLedgerBook.CreatedDate = new Date();
-
-                monthlyMainBankLedgerBookList.push(monthlyMainBankLedgerBook);
-            });
-
-            $.ajax({
-                type: "POST",
-                url: "/Account/MainBankLedger/InsertMonthlyGeneralLedgerBook",
-                data: { data: monthlyMainBankLedgerBookList },
-                success: function (data) {
-
-                    if (data === 1) {
-                        alert("Data save & update successfully!");
-                        window.location.replace("/Account/MainBankLedger/MainBankLedgerBookList");
-                    }
-                    else if (data === 2) {
-                        alert("Data didn't save & update successfully!!");
-                        window.location.replace("/Account/MainBankLedger/MainBankLedgerBookList");
-                    }
-                }
-            });
-        });
     </script>
 }
 

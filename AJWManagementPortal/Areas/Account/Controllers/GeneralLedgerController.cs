@@ -60,6 +60,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //POST 1- for General ledger Report List
         //POST 1- for General ledger Report List ended
 
+        //GET 1- for YearlyGeneralLedgerBook
         public IActionResult EditMonthlyGeneralLedgerBook(string id)
         {
             List<MonthlyGeneralLedgerBook> monthlyGeneralLadgerBookListData = new List<MonthlyGeneralLedgerBook>();
@@ -310,14 +311,49 @@ namespace AJWManagementPortal.Areas.Account.Controllers
 
         //GET 1- for YearlyGeneralLedgerBook
         public IActionResult YearlyGeneralLedgerBook()
-        {//This code Added by Yousaf Shb for General Ledger Monthly + Yearly
+        {
+            List<LedgerTypeViewModel> ledgerTypeViewModels = new List<LedgerTypeViewModel>();
             int year = DateTime.Now.Year;
             DateTime startDate = new DateTime(year, 1, 1);
             DateTime endDate = new DateTime(year, 12, 31);
 
-            List<MonthlyGeneralLedgerBook> monthlyGeneralLadgerBookList = _db.MonthlyGeneralLedgerBook.ToList();
-            //.Where(z => z.DailyCashDate >= startDate && z.DailyCashDate <= endDate)
-            //.ToList();
+            List<MonthlyGeneralLedgerBook> monthlyGeneralLadgerBookList = _db.MonthlyGeneralLedgerBook.ToList()
+            .Where(z => z.DailyCashDate >= startDate && z.DailyCashDate <= endDate)
+            .ToList();
+
+            var monthlyIndustrySupplierLedgerList = _monthlyIndustrySupplierLedgerRepository.GetMonthlyIndustrySupplierLedgerType();
+            var yearlyIndustrySupplierLedgerList = _yearlyIndustrySupplierLedgerRepository.GetYearlyIndustrySupplierLedger();
+            var monthlyInternalLedgerList = _monthlyInternalLedgerRepository.GetMonthlyInternalLedgerType();
+            var yearlyInternalLedgerList = _yearlyInternalLedgerRepository.GetYearlyInternalLedger();
+
+            foreach (var result in monthlyIndustrySupplierLedgerList)
+            {
+                LedgerTypeViewModel ledgerTypeViewModel = new LedgerTypeViewModel();
+                ledgerTypeViewModel.LedgerName = result.LedgerName;
+                ledgerTypeViewModels.Add(ledgerTypeViewModel);
+            }
+            foreach (var result in yearlyIndustrySupplierLedgerList)
+            {
+                LedgerTypeViewModel ledgerTypeViewModel = new LedgerTypeViewModel();
+                ledgerTypeViewModel.LedgerName = result.LedgerName;
+                ledgerTypeViewModels.Add(ledgerTypeViewModel);
+            }
+            foreach (var result in monthlyInternalLedgerList)
+            {
+                LedgerTypeViewModel ledgerTypeViewModel = new LedgerTypeViewModel();
+                ledgerTypeViewModel.LedgerName = result.LedgerName;
+                ledgerTypeViewModels.Add(ledgerTypeViewModel);
+            }
+            foreach (var result in yearlyInternalLedgerList)
+            {
+                LedgerTypeViewModel ledgerTypeViewModel = new LedgerTypeViewModel();
+                ledgerTypeViewModel.LedgerName = result.LedgerName;
+                ledgerTypeViewModels.Add(ledgerTypeViewModel);
+            }
+
+            var ledgerType = ledgerTypeViewModels.Distinct().ToList();
+
+            ViewBag.LedgerType = new SelectList(ledgerType, "LedgerName", "LedgerName");
             return View("YearlyGeneralLedgerBook", monthlyGeneralLadgerBookList);
         }
 
@@ -360,10 +396,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             return Json(response);
 
         }
-        //GET 1- for YearlyGeneralLedgerBook report ended
-        //POST 1- for YearlyGeneralLedgerBook Report
-        //POST 1- for YearlyGeneralLedgerBook Report ended
-        //--------------------------------------------------ended-----------------general ledger BOOK---Daily/Monthly/Yearly--------------
+
 
         public IActionResult YearlyGeneralLedgerBookView(string id)
         {
@@ -429,5 +462,6 @@ namespace AJWManagementPortal.Areas.Account.Controllers
 
             return RedirectToAction("GeneralLedgerBookList");
         }
+
     }
 }

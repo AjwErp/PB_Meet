@@ -1,5 +1,6 @@
 ﻿using AJWManagementPortal.Data;
 using AJWManagementPortal.Extensions.IRepository;
+using AJWManagementPortal.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace AJWManagementPortal.Areas.Account.Controllers
-{ 
+{
     //This Controoler For ::Industry Supplier Ledger for Account Office::
     [Area("Account")]
     public class IndustrySupplierLedgersController : Controller
@@ -31,7 +32,13 @@ namespace AJWManagementPortal.Areas.Account.Controllers
 
             ViewBag.MonthlyIndustrySupplierLedgerList = new SelectList(monthlyIndustrySupplierLedgerList, "Id", "LedgerName");
             ViewBag.YearlyIndustrySupplierLedgerList = new SelectList(yearlyIndustrySupplierLedgerList, "Id", "LedgerName");
-            return View();
+
+            var monthlyList = _monthlyIndustrySupplierLedgerRepository.GetMonthlyIndustrySupplierLedgerBooks();
+            return View(new IndustrySupplierLedgerBookViewModel
+            {
+                monthlyIndustrySupplierLedgers = monthlyList,
+                yearlyIndustrySupplierLedgers = yearlyIndustrySupplierLedgerList
+            });
         }
         //GET- for  IndustrySupplierLedgerBook ended
         //POST- for  IndustrySupplierLedgerBook 

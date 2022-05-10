@@ -14,6 +14,7 @@ namespace AJWManagementPortal.Extensions.IRepository
         List<MonthlyInternalLedgerViewModel> GetMonthlyInternalLedgers();
         bool SaveMonthlyInternalAccountLedgerBook(List<MonthlyInternalAccountLedgerBook> data);
         bool UpdateMonthlyInternalAccountLedgerBook(List<MonthlyInternalAccountLedgerBook> data);
+
         List<MonthlyInternalAccountLedgerBook> GetMonthlyInternalAccountLedgerBook();
         List<MonthlyInternalAccountLedgerBook> GetMonthlyInternalLedgersByUniId(string uniId);
         bool DeleteMonthlyInternalLedgersByUniId(string uniId);

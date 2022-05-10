@@ -77,8 +77,10 @@ namespace AJWManagementPortal.Extensions.Repository
         {
             try
             {
+                var uniId = Guid.NewGuid().ToString();
                 foreach (var result in data)
                 {
+                    result.UniId = uniId;
                     _repositoryContext.MonthlyInternalAccountLedgerBook.Add(result);
                     _repositoryContext.SaveChanges();
                 }
@@ -92,10 +94,13 @@ namespace AJWManagementPortal.Extensions.Repository
 
         public bool UpdateMonthlyInternalAccountLedgerBook(List<MonthlyInternalAccountLedgerBook> data)
         {
+            var result1 = _repositoryContext.MonthlyInternalAccountLedgerBook.GroupBy(x => x.UniId)
+                 .SelectMany(s => s.OrderBy(o => o.Id).Take(1)).ToList();
             try
             {
                 foreach (var model in data)
                 {
+
                     var result = _repositoryContext.MonthlyInternalAccountLedgerBook.Where(x => x.DailyCashId == model.DailyCashId).FirstOrDefault();
                     result.AMSignature = model.AMSignature;
                     result.AMRemark = model.AMRemark;

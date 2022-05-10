@@ -1,4 +1,5 @@
 ﻿@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@model AJWManagementPortal.Models.ViewModels.IndustrySupplierLedgerBookViewModel;
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 @{
     ViewData["Title"] = "IndustrySupplierLedgerBookList";
@@ -51,25 +52,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="tabbody smallfontHeading">
-                            <td class="actionbtn">
-                                <div class="btn-group">
-                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        @Localizer["Action"]
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["View"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["Edit"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to Repository"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to DMS"]</a>
+                        @foreach (var item in Model.monthlyIndustrySupplierLedgers)
+                        {
+                            <tr class="tabbody SubH">
+                                <td class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-route-id=@item.UniId asp-action="MonthlyIndustrySupplierLedgerBookView" asp-controller="MonthlyIndustrySupplierLedgers" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                            <a class="dropdown-item" asp-route-id=@item.UniId asp-action="MonthlyIndustrySupplierLedgerBookDelete" asp-controller="MonthlyIndustrySupplierLedgers" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td>@Localizer["Monthly Industry Suppliers Ledger"] </td>
-                            <td></td>
-                        </tr>
+                                </td>
+                                <td>@item.DailyCashDate</td>
+                                <td>@Localizer["Monthly Industry Suppliers Ledger"] </td>
+                                <td>@item.Id</td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
                 <hr />
@@ -105,25 +106,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="tabbody smallfontHeading">
-                            <td class="actionbtn">
-                                <div class="btn-group">
-                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        @Localizer["Action"]
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["View"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["Edit"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to Repository"]</a>
-                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-upload"></i> @Localizer["Upload to DMS"]</a>
+                        @foreach (var item in Model.monthlyIndustrySupplierLedgers)
+                        {
+                            <tr class="tabbody SubH">
+                                <td class="actionbtn">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Action"]
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td>@Localizer["Yearly Industry Suppliers Ledger"] </td>
-                            <td></td>
-                        </tr>
+                                </td>
+                                <td>@item.DailyCashDate</td>
+                                <td>@Localizer["Yearly Industry Suppliers Ledger"] </td>
+                                <td>@item.Id</td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </form>

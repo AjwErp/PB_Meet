@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -88,6 +89,31 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             return Json(response);
         }
 
+        public IActionResult ViewMonthlyMainBankLedgerBook(string id)
+        {
+            int year = Convert.ToDateTime(id).Year;
+            int month = Convert.ToDateTime(id).Month;
+            string monthName = new DateTimeFormatInfo().GetMonthName(month);
+            string monthAndYear = monthName + " - " + year;
+
+            List<MonthlyMainBankLedgerBook> monthlyMainBankLadgerBookList = _db.MonthlyMainBankLedgerBook
+            .Where(z => z.MainBankDailyCashDate.Month == month && z.MainBankDailyCashDate.Year == year)
+            .ToList();
+
+            MonthlyMainBankLedgerBook monthlyMainBankLedgerBook = _db.MonthlyMainBankLedgerBook
+                .Where(z => z.MainBankDailyCashDate.Month == month && z.MainBankDailyCashDate.Year == year).FirstOrDefault();
+
+            ViewBag.SignPManager = monthlyMainBankLedgerBook.SignPManager;
+            ViewBag.PManagerRemarks = monthlyMainBankLedgerBook.PManagerRemarks;
+            ViewBag.SignGM = monthlyMainBankLedgerBook.SignGM;
+            ViewBag.GMRemarks = monthlyMainBankLedgerBook.GMRemarks;
+            ViewBag.SignCeo = monthlyMainBankLedgerBook.SignCeo;
+            ViewBag.CeoRemarks = monthlyMainBankLedgerBook.CeoRemarks;
+            ViewBag.MonthYear = monthAndYear;
+
+            return View("ViewMonthlyMainBankLedgerBook", monthlyMainBankLadgerBookList);
+        }
+
         public IActionResult YearlyMainBankLedgerBook()
         {
             int year = DateTime.Now.Year;
@@ -137,6 +163,28 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             }
 
             return Json(response);
+        }
+
+        public IActionResult ViewYearlyMainBankLedgerBook(string id)
+        {
+            int year = Convert.ToDateTime(id).Year;
+
+            List<YearlyMainBankLedgerBook> yearlyMainBankLedgerBookList = _db.YearlyMainBankLedgerBook
+            .Where(z => z.MainBankDailyCashDate.Year == year)
+            .ToList();
+
+            YearlyMainBankLedgerBook yearlyMainBankLedgerBook = _db.YearlyMainBankLedgerBook
+                .Where(z => z.MainBankDailyCashDate.Year == year).FirstOrDefault();
+
+            ViewBag.SignPManager = yearlyMainBankLedgerBook.AMSignature;
+            ViewBag.PManagerRemarks = yearlyMainBankLedgerBook.AMRemark;
+            ViewBag.SignGM = yearlyMainBankLedgerBook.GMSignature;
+            ViewBag.GMRemarks = yearlyMainBankLedgerBook.GMRemark;
+            ViewBag.SignCeo = yearlyMainBankLedgerBook.DGMSignature;
+            ViewBag.CeoRemarks = yearlyMainBankLedgerBook.DGMRemark;
+            ViewBag.Year = year;
+
+            return View("ViewYearlyMainBankLedgerBook", yearlyMainBankLedgerBookList);
         }
     }
 }
