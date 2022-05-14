@@ -15,10 +15,7 @@
 		</EmbeddedResource>
 	</ItemGroup>
 
-	
-	
-	
-	
+
 	
   <ItemGroup>
     <Compile Remove="Areas\Home\Data\**" />

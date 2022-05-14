@@ -9350,23 +9350,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\YOUSUF RAKIB\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\HP\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projects\\Freelancing Projects\\Saqib (Pakistan)\\10-05-2022\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\source\\repos\\11-5-2022\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
       "projectName": "AJWManagementPortal",
-      "projectPath": "E:\\Projects\\Freelancing Projects\\Saqib (Pakistan)\\10-05-2022\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
-      "packagesPath": "C:\\Users\\YOUSUF RAKIB\\.nuget\\packages\\",
-      "outputPath": "E:\\Projects\\Freelancing Projects\\Saqib (Pakistan)\\10-05-2022\\PB_Meet\\AJWManagementPortal\\obj\\",
+      "projectPath": "C:\\Users\\HP\\source\\repos\\11-5-2022\\PB_Meet\\AJWManagementPortal\\AJWManagementPortal.csproj",
+      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\HP\\source\\repos\\11-5-2022\\PB_Meet\\AJWManagementPortal\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\YOUSUF RAKIB\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9457,12 +9453,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.1.24, 3.1.24]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -9471,7 +9461,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }
