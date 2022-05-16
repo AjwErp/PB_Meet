@@ -35,7 +35,7 @@ namespace AJWManagementPortal.Extensions.Repository
             }
         }
 
-        public List<MonthlyInternalLedgerViewModel> GetMonthlyInternalLedgers()
+        public List<MonthlyInternalLedgerViewModel> GetMonthlyInternalLedgers(string id)
         {
             try
             {
@@ -47,6 +47,7 @@ namespace AJWManagementPortal.Extensions.Repository
 
                 monthlyInternalLedgerViewModels = _repositoryContext.MonthlyInternalLedger
                     .Join(_repositoryContext.MonthlyGeneralLedgerBook, MIL => MIL.LedgerName, MGLB => MGLB.LedgerType, (MIL, MGLB) => new { MIL, MGLB })
+                    .Where(x => x.MIL.Id == Convert.ToInt32(id))
                     //.Where(z => z.MGLB.DailyCashDate >= startDate && z.MGLB.DailyCashDate <= endDate)
                     .Select(x => new MonthlyInternalLedgerViewModel
                     {

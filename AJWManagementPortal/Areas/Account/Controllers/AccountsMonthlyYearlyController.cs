@@ -49,6 +49,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
                                                                    IsMeezanBankIncomeExpenseReport = true,
                                                                    Title = "Meezan Bank Monthly Income/Expence Report"
                                                                }).ToListAsync();
+
             //--Monthly/Yearly List View for All Sheets----3 Monthly meezanBankMonthlyIncomeExpenseReports------
 
             //var MonthlyIncomeExpenceInternalAccount = await (from a in _db.MeezanBankMonthlyIncomeExpenseReports
@@ -72,18 +73,49 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             //                                                       Title = "Meezan Bank Monthly Income/Expence Report"
             //                                                   }).ToListAsync();
             //--Monthly/Yearly List View for All Sheets----1+2 Union of MonthlyClosing + MeezanBankIE Reprot ------
-            model.MonthlyAcountReportsViewModel = monthlyClosingReport.Union(meezanBankMonthlyIncomeExpenseReports).OrderBy(x => x.Date);
+
+            //----Monthly Income Expence Internal Account Report List---
+            var monthlyIncomeExpenceInternalAccount = await (from a in _db.MonthlyIncomeExpenceInternalAccountReport
+
+                                                             select new MonthlyAcountReportsViewModel
+                                                             {
+                                                                 Id = a.Id,
+                                                                 Date = Convert.ToDateTime(a.SelectedDate),
+                                                                 IsMonthlyIncomeExpenceInternalAccountReport = true,
+                                                                 Title = "Monthly Income Expence Internal Account Report"
+                                                             }).ToListAsync();
+
+            var trialBalance = _db.TrialBalanceAccountOffice.Select(x => new
+            {
+                SelectedDate = x.SelectedDate.Substring(0, 10),
+                KeyValue = x.KeyValue
+            }).ToList();
+            var trialBalance2 = trialBalance.GroupBy(n => new { n.SelectedDate, n.KeyValue }).Select(x => new { x.Key.SelectedDate, x.Key.KeyValue }).ToList();
+
+            var trialBalanceAccountOffice = (from a in trialBalance2
+
+                                             select new MonthlyAcountReportsViewModel
+                                             {
+                                                 Id = a.KeyValue == null ? 0 : Convert.ToInt32(a.KeyValue),
+                                                 Date = Convert.ToDateTime(a.SelectedDate),
+                                                 IsTrialBalanceAccountOfficeReport = true,
+                                                 Title = "Monthly Trial Balance Account Office Report"
+                                             }).ToList();
+
+            model.MonthlyAcountReportsViewModel = monthlyClosingReport.Union(meezanBankMonthlyIncomeExpenseReports).Union(monthlyIncomeExpenceInternalAccount).Union(trialBalanceAccountOffice).OrderBy(x => x.Date);
+
+            //model.MonthlyAcountReportsViewModel = model.MonthlyAcountReportsViewModel.Union(monthlyIncomeExpenceInternalAccount).OrderBy(x => x.Date);
 
             //--Monthly/Yearly List View for All Sheets----3 Yearly Closing Report------
             var yearlyClosingReport = await (from a in _db.YearlyClosingReports
-                                              where a.DelProduction != 0
-                                              select new YearlyAcountReportsViewModel
-                                              {
-                                                  Id = a.Id,
-                                                  Date = a.ValueDate,
-                                                  IsYearlyClosingReport = true,
-                                                  Title = "Yearly Accounts Report"
-                                              }).ToListAsync();
+                                             where a.DelProduction != 0
+                                             select new YearlyAcountReportsViewModel
+                                             {
+                                                 Id = a.Id,
+                                                 Date = a.ValueDate,
+                                                 IsYearlyClosingReport = true,
+                                                 Title = "Yearly Accounts Report"
+                                             }).ToListAsync();
             model.YearlyAcountReportsViewModel = yearlyClosingReport.OrderBy(x => x.Date);
 
             //model.AccountsYearlyReportTitlePage = _db.AccountsYearlyReportTitlePages.Where(q => q.DelAccountsYR != 0).ToList().GroupBy(elem => elem.YRDate).Select(group => group.First());

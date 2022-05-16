@@ -1,0 +1,269 @@
+﻿@model IEnumerable<AJWManagementPortal.Models.TrialBalanceAccountOffice>
+@*----------Header Code for this Page--------------------------------Start-------------------Header------------------*@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "TrialBalanceAccountOffice";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<br />
+<body>
+    <div class="container-fluid backgroundWhiteBorder10Padding">
+        <div class="row">
+            <form class="col-sm-12">
+                <div class="BackToList">
+                    <a type="button" asp-action="AccountsMonthlyYearlyReports" asp-area="Account" asp-controller="AccountsMonthlyYearly" class="btn btn-primary btn-lg form-control"><i class="fas fa-backward"></i> @Localizer["Back to List"]</a>
+                </div>
+                <div class="PrintP">
+                    <button class="btn btn-theme btn-print" onclick="myFunction()"> Print <i class="fa fa-print" aria-hidden="true"></i></button>
+                </div>
+
+                @*main table*@
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-responsive-sm table-striped SubH" id="tblcustomers">
+                        <thead>
+                            <tr>
+                                <th colspan="18"><img src="~/Image/1.png" alt="Image" width="100" height="100" /></th>
+                            </tr>
+                            <tr>
+                                <th class="titleAccountofficeReport" colspan="18">@Localizer["Daily Suppliers Cash Transaction Report-Account Office"]</th>
+                            </tr>
+                            <tr>
+                                <th class="text-left" colspan="18"> <span class=""> @Localizer["Select Date"]: </span> <input type="date" id="selectDate" readonly value="@Model.Select(x=>x.SelectedDate).FirstOrDefault()"> </th>
+                                @*<th class="text-left" colspan="18"> <input type="text" id="" placeholder="Enter Date   :  22-11-2021" style="width:300px;height:30px;" class="form-control" /> </th>*@
+                            </tr>
+                            <tr>
+                                <th colspan="3">@Localizer["Credit"]</th>
+                                <th colspan="3">@Localizer["Debit"]</th>
+                                <th colspan="4">@Localizer["Page"]</th>
+                                <th colspan="8">@Localizer["Description"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td colspan="3" readonly>@Html.DisplayFor(modelItem => item.Credit)</td>
+                                    <td colspan="3" readonly>@Html.DisplayFor(modelItem => item.Debit)</td>
+                                    <td colspan="4" readonly>@Html.DisplayFor(modelItem => item.Page)</td>
+                                    <td colspan="8" readonly>@Html.DisplayFor(modelItem => item.Description)</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                        <tfoot>
+                            @*<tr>
+                                <th colspan="2"></th>
+                                <th colspan="2"><input type="text" id="Cradit" class="form-control" /></th>
+                                <th colspan="2"><input type="text" id="Debit" class="form-control" /></th>
+                                <th colspan="2"><input type="text" id="Page" class="form-control" /></th>
+                                <th colspan="8"><input type="text" id="Description" class="form-control" /></th>
+                                <th colspan="2">
+                                    <button type="button" id="btnAdd" value="Add" class="btn btn-primary form-control">@Localizer["Add Row"]</button>
+                                </th>
+                            </tr>*@
+                            <tr>
+                                <th colspan="18">@Localizer["Signature"]</th>
+                            </tr>
+                            <tr>
+                                <th scope="row" colspan="6">@Localizer["Account Manager"]</th>
+                                @*<th colspan="6">@Localizer["D.G.M"]</th>
+                                <th colspan="6">@Localizer["G.M"]</th>*@
+                            </tr>
+                            @if (ViewBag.EditStatus == true)
+                            {
+                                <tr>
+                                    <td colspan="6">
+                                        @Localizer["Signature"]:
+                                        <input type="text" id="txtAccountManagerSignature" value="@Model.Select(x=>x.AMSignature).FirstOrDefault()" class="form-control" />
+                                        @Localizer["Remarks"]:
+                                        <input type="text" id="txtAccountManagerRemarks" value="@Model.Select(x=>x.AMRemark).FirstOrDefault()" class="form-control" />
+                                    </td>
+                                </tr>
+
+                                <tr class="actionbtn">
+                                    <td colspan="11">
+                                        <div class="col-md-12">
+                                            <div class="btn-group" style="width:22%;margin-left:0%">
+                                                <button type="button" class="btn btn-primary btn-sm btn-block form-control" id="btnEdit" value="Save"><i class="fas fa-save"></i> Save</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="6">
+                                        @Localizer["Signature"]:
+                                        <input type="text" id="txtpmsign" value="@Model.Select(x=>x.AMSignature).FirstOrDefault()" readonly class="form-control" />
+                                        @Localizer["Remarks"]:
+                                        <input type="text" id="txtpmremarks" value="@Model.Select(x=>x.AMRemark).FirstOrDefault()" readonly class="form-control" />
+                                    </td>
+                                </tr>
+                            }
+                        </tfoot>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+<!-- back to top button-->
+<a id="button"></a>
+@*----------Body Code for this Page----------------------------------Ended---------------------Body----------------*@
+
+@*----------JS for this Page-----------------------------------------Start---------------------JS----------------*@
+@section Scripts{
+    <script>
+
+        $("body").on("click", "#btnSave", function () {
+
+            var trialBalanceAccountOffices = new Array();
+            $("#tblcustomers TBODY TR").each(function () {
+                var selectDate = $("#selectDate");
+                var txtpmsign = $("#txtpmsign");
+                var txtpmremarks = $("#txtpmremarks");
+
+                var row = $(this);
+                var trialBalanceAccountOffice = {};
+
+                trialBalanceAccountOffice.AMSignature = txtpmsign.val();
+                trialBalanceAccountOffice.AMRemark = txtpmremarks.val();
+                trialBalanceAccountOffice.DGMSignature = '';
+                trialBalanceAccountOffice.DGMRemark = '';
+                trialBalanceAccountOffice.GMSignature = '';
+                trialBalanceAccountOffice.GMRemark = '';
+                trialBalanceAccountOffice.SelectedDate = selectDate.val();
+
+                trialBalanceAccountOffice.Credit = row.find("TD").eq(1).text();
+                trialBalanceAccountOffice.Debit = row.find("TD").eq(2).text();
+                trialBalanceAccountOffice.Page = row.find("TD").eq(3).text();
+                trialBalanceAccountOffice.Description = row.find("TD").eq(4).text();
+
+                trialBalanceAccountOffices.push(trialBalanceAccountOffice);
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "/Account/MonthlyAccountsReport/InsertTrialBalanceAccountOffice",
+                data: { data: trialBalanceAccountOffices },
+
+                success: function (data) {
+
+                    if (data === 1) {
+                        alert("Data save successfully!!");
+                        // window.location.replace("/Account/InternalAccountLedgers/InternalAccountLedgerBookList");
+                        window.location.replace("/Account/AccountsMonthlyYearly/AccountsMonthlyYearlyReports");
+                    }
+                    else if (data === 2) {
+                        alert("Data didn't save!!");
+                        window.location.replace("/Account/AccountsMonthlyYearly/AccountsMonthlyYearlyReports");
+                    }
+                }
+            });
+
+        });
+    </script>
+}
+@*----------JS for this Page-----------------------------------------Ended----------------------JS---------------*@
+
+@*----------CSS for this Page----------------------------------------Start----------------------CSS---------------*@
+<style>
+    body {
+        font-family: 'Jameel Noori Nastaleeq';
+    }
+    /*-----these clases is for Background  Account Office----*/
+    .search-background {
+        background: url('../Image/dust_scratches.png');
+    }
+
+    .backgroundWhite {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .backgroundWhiteBorder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+    }
+
+    .backgroundWhiteBorder10Padding {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .actionbtn {
+        width: 150px;
+        text-align: center;
+    }
+
+    .titleAccountofficeReport {
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    /*  Css for Table of Each in Accounts----*/
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+        width: 100%
+    }
+    /*  Css for small Size of Content----*/
+    .SubH {
+        text-align: center;
+        font-family: 'Jameel Noori Nastaleeq';
+        font-size: medium;
+    }
+    /*page print css----*/
+    .btn-theme {
+        background: #08818c;
+        color: #fff;
+    }
+
+    .btn {
+        font-family: arial;
+    }
+
+    .btn-print {
+        padding: 10px 24px;
+        font-size: 16px;
+        line-height: 1.33;
+        vertical-align: middle;
+        float: left;
+    }
+
+    .PrintP {
+        margin-left: 985px;
+        position: absolute;
+        margin-top: -45px;
+    }
+    /*  Css for BackToList Button----*/
+    .BackToList {
+        width: 150px;
+    }
+
+    .textarea {
+        height: 60px;
+    }
+    /*Mostly USes Css Classes userprofile/footer/backtolist/table/backtotopbtn/smallheading/subh/print --for Accounts Department- start*/
+    .Title {
+        font-size: xx-large;
+        font-family: 'Jameel Noori Nastaleeq';
+        text-align: center;
+        color: black;
+    }
+</style>
+@*----------CSS for this Page----------------------------------------Ended-----------------------CSS--------------*@

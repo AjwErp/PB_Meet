@@ -34,7 +34,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             ViewBag.HeaderText = value + " Ledger Book";
 
             List<MonthlyIndustrySupplierLedgerViewModel> monthlyIndustrySupplierLedgerViewModel = new List<MonthlyIndustrySupplierLedgerViewModel>();
-            monthlyIndustrySupplierLedgerViewModel = _monthlyIndustrySupplierLedgerRepository.GetMonthlyIndustrySupplierLedgers();
+            monthlyIndustrySupplierLedgerViewModel = _monthlyIndustrySupplierLedgerRepository.GetMonthlyIndustrySupplierLedgers(id);
 
             if (monthlyIndustrySupplierLedgerViewModel == null)
             {

@@ -10,7 +10,7 @@ namespace AJWManagementPortal.Extensions.IRepository
     public interface IMonthlyIndustrySupplierLedgerRepository
     {
         bool SaveMonthlyIndustrySupplierLedger(string txtMonthlyIndustrySupplierLedger);
-        List<MonthlyIndustrySupplierLedgerViewModel> GetMonthlyIndustrySupplierLedgers();
+        List<MonthlyIndustrySupplierLedgerViewModel> GetMonthlyIndustrySupplierLedgers(string id);
         List<MonthlyIndustrySupplierLedger> GetMonthlyIndustrySupplierLedgerType();
         List<MonthlyIndustrySupplierLedgerBook> GetMonthlyIndustrySupplierLedgerBooks();
         bool SaveMonthlyIndustrySupplierLedgerBook(List<MonthlyIndustrySupplierLedgerBook> data);

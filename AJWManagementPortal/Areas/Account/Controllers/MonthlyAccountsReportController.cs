@@ -145,7 +145,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //POST ---4--for Monthly Income/Expence Main Bank Account BOP--ended
 
         //GET----5--for Monthly Income/Expence Internal Account--start----3-
-       
+
 
         public IActionResult MonthlyIncomeExpenceInternalAccount()
         {
@@ -170,6 +170,14 @@ namespace AJWManagementPortal.Areas.Account.Controllers
 
             return Json(response);
         }
+
+        public IActionResult EditMonthlyIncomeExpenceInternalAccountReport(int id, bool IsEdit)
+        {
+            var model = _db.MonthlyIncomeExpenceInternalAccountReport.Where(x => x.Id == id).FirstOrDefault();
+
+            ViewBag.EditStatus = IsEdit;
+            return View(model);
+        }
         //GET --5--for Monthly Income/Expence Internal Account---ended
         //POST --5--for Monthly Income/Expence Internal Account--start 
         //POST ---5--for Monthly Income/Expence Internal Account--ended
@@ -184,7 +192,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         //POST ---6--for Monthly Income/Expence Petty Account--ended
 
         //GET----7--for Trial Balance Account Office--start
-        
+
         public IActionResult TrialBalanceAccountOffice()
         {
             List<TrialBalanceAccountOffice> trans = new List<TrialBalanceAccountOffice>();
@@ -196,8 +204,48 @@ namespace AJWManagementPortal.Areas.Account.Controllers
         {
             bool result = false;
             int response = 0;
+            int key = 0;
+            List<TrialBalanceAccountOffice> trialBalanceAccountOffices = new List<TrialBalanceAccountOffice>();
+            var trialBalance = _db.TrialBalanceAccountOffice.FirstOrDefault();
 
-            result = _trialBalanceAccountOfficeRepository.SaveTrialBalanceAccountOffice(data);
+            if (trialBalance != null)
+            {
+                var keyValue = _db.TrialBalanceAccountOffice.Select(x => x.KeyValue).LastOrDefault();
+                if (keyValue != null || keyValue != 0)
+                {
+                    key = 1;
+                }
+                else
+                {
+                    key = Convert.ToInt32(keyValue) + 1;
+                }
+            }
+            else
+            {
+                key = 1;
+            }
+
+            foreach (var value in data)
+            {
+                TrialBalanceAccountOffice balanceAccountOffice = new TrialBalanceAccountOffice();
+
+                balanceAccountOffice.SelectedDate = value.SelectedDate;
+                balanceAccountOffice.KeyValue = key;
+                balanceAccountOffice.Credit = value.Credit;
+                balanceAccountOffice.Debit = value.Debit;
+                balanceAccountOffice.Page = value.Page;
+                balanceAccountOffice.Description = value.Description;
+                balanceAccountOffice.AMSignature = value.AMSignature;
+                balanceAccountOffice.AMRemark = value.AMRemark;
+                balanceAccountOffice.DGMSignature = value.DGMSignature;
+                balanceAccountOffice.DGMRemark = value.DGMRemark;
+                balanceAccountOffice.GMSignature = value.GMSignature;
+                balanceAccountOffice.GMRemark = value.GMRemark;
+                balanceAccountOffice.CreatedDate = DateTime.Now;
+                trialBalanceAccountOffices.Add(balanceAccountOffice);
+            }
+
+            result = _trialBalanceAccountOfficeRepository.SaveTrialBalanceAccountOffice(trialBalanceAccountOffices);
 
             if (result == true)
             {
@@ -209,6 +257,14 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             }
 
             return Json(response);
+        }
+
+        public IActionResult EditTrialBalanceAccountOfficeReport(int id, bool IsEdit)
+        {
+            var model = _db.TrialBalanceAccountOffice.Where(x => x.KeyValue == id).ToList();
+
+            ViewBag.EditStatus = IsEdit;
+            return View(model);
         }
         //GET --7--for Trial Balance Account Office---ended
         //POST --7--for Trial Balance Account Office--start 

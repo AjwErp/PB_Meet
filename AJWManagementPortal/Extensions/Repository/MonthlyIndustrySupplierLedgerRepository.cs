@@ -36,7 +36,7 @@ namespace AJWManagementPortal.Extensions.Repository
             }
         }
 
-        public List<MonthlyIndustrySupplierLedgerViewModel> GetMonthlyIndustrySupplierLedgers()
+        public List<MonthlyIndustrySupplierLedgerViewModel> GetMonthlyIndustrySupplierLedgers(string id)
         {
             try
             {
@@ -48,7 +48,8 @@ namespace AJWManagementPortal.Extensions.Repository
 
                 monthlyIndustrySupplierLedgerViewModels = _repositoryContext.MonthlyIndustrySupplierLedger
                     .Join(_repositoryContext.MonthlyGeneralLedgerBook, MIL => MIL.LedgerName, MGLB => MGLB.LedgerType, (MIL, MGLB) => new { MIL, MGLB })
-                    .Where(z => z.MGLB.DailyCashDate >= startDate && z.MGLB.DailyCashDate <= endDate)
+                    .Where(x => x.MIL.Id == Convert.ToInt32(id))
+                    //.Where(z => z.MGLB.DailyCashDate >= startDate && z.MGLB.DailyCashDate <= endDate)
                     .Select(x => new MonthlyIndustrySupplierLedgerViewModel
                     {
                         DailyCashId = x.MGLB.DailyCashId,

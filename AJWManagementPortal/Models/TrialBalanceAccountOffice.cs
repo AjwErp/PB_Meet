@@ -12,6 +12,8 @@ namespace AJWManagementPortal.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         [Key]
         public int Id { get; set; }
+        public int? KeyValue { get; set; }
+        
         public string SelectedDate { get; set; }
 
         public decimal? Credit { get; set; }

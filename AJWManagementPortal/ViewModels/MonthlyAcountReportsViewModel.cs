@@ -11,6 +11,9 @@ namespace AJWManagementPortal.ViewModels
         public DateTime Date { get; set; }
         public string Title { get; set; }
         //- start---Variable for MonthlyClosingReport Account+DGM+GM+AccountError
+
+        public bool IsMonthlyIncomeExpenceInternalAccountReport { get; set; }
+        public bool IsTrialBalanceAccountOfficeReport { get; set; }
         public bool IsMonthlyClosingReport { get; set; }
         public bool IsMonthlyClosingReportDgm { get; set; }
         public bool IsMonthlyClosingReportGm { get; set; }
@@ -21,7 +24,7 @@ namespace AJWManagementPortal.ViewModels
         public bool IsMeezanBankIncomeExpenseReport { get; set; }
         public bool IsMeezanBankIncomeExpenseReportDgm { get; set; }
         public bool IsMeezanBankIncomeExpenseReportGm { get; set; }
-        public bool IsMeezanBankIncomeExpenseReportAccounts { get; set; } 
+        public bool IsMeezanBankIncomeExpenseReportAccounts { get; set; }
         public bool IsMeezanBankIncomeExpenseReportAccountsError { get; set; }
         //---------------Ended----------------
 
@@ -36,6 +39,10 @@ namespace AJWManagementPortal.ViewModels
                     _viewActionName = "EditMonthlyClosingReport";
                 else if (IsMeezanBankIncomeExpenseReport)
                     _viewActionName = "EditMeezanBankIncomeExpenseReport";
+                else if (IsMonthlyIncomeExpenceInternalAccountReport)
+                    _viewActionName = "EditMonthlyIncomeExpenceInternalAccountReport";
+                else if (IsTrialBalanceAccountOfficeReport)
+                    _viewActionName = "EditTrialBalanceAccountOfficeReport";
                 else if (IsMonthlyClosingReportDgm)
                     _viewActionName = "EditMonthlyClosingReport";
                 else if (IsMeezanBankIncomeExpenseReportDgm)
@@ -69,6 +76,10 @@ namespace AJWManagementPortal.ViewModels
                     _editActionName = "EditMonthlyClosingReport";
                 else if (IsMeezanBankIncomeExpenseReport)
                     _editActionName = "EditMeezanBankIncomeExpenseReport";
+                else if (IsMonthlyIncomeExpenceInternalAccountReport)
+                    _editActionName = "EditMonthlyIncomeExpenceInternalAccountReport";
+                else if (IsTrialBalanceAccountOfficeReport)
+                    _editActionName = "EditTrialBalanceAccountOfficeReport";
                 else if (IsMonthlyClosingReportDgm)
                     _editActionName = "EditMonthlyClosingReport";
                 else if (IsMeezanBankIncomeExpenseReportDgm)
@@ -104,6 +115,10 @@ namespace AJWManagementPortal.ViewModels
                     _deleteActionName = "DeleteMonthlyClosingReport";
                 else if (IsMeezanBankIncomeExpenseReport)
                     _deleteActionName = "DeleteMeezanBankIncomeExpenseReport";
+                else if (IsMonthlyIncomeExpenceInternalAccountReport)
+                    _deleteActionName = "DeleteMonthlyIncomeExpenceInternalAccountReport";
+                else if (IsTrialBalanceAccountOfficeReport)
+                    _deleteActionName = "DeleteTrialBalanceAccountOfficeReport";
                 else if (IsMonthlyClosingReportDgm)
                     _deleteActionName = "DeleteMonthlyClosingReport";
                 else if (IsMeezanBankIncomeExpenseReportDgm)
@@ -139,6 +154,10 @@ namespace AJWManagementPortal.ViewModels
                     _sendActionName = "SendMonthlyClosingReportToDgmOffice";
                 else if (IsMeezanBankIncomeExpenseReport)
                     _sendActionName = "SendMeezanBankIncomeExpenseReportToDgmOffice";
+                else if (IsMonthlyIncomeExpenceInternalAccountReport)
+                    _sendActionName = "SendMonthlyIncomeExpenceInternalAccountReport";
+                else if (IsTrialBalanceAccountOfficeReport)
+                    _sendActionName = "SendTrialBalanceAccountOfficeReport";
                 else if (IsMonthlyClosingReportDgm)
                     _sendActionName = "SendMonthlyClosingReportToGmOffice";
                 else if (IsMeezanBankIncomeExpenseReportDgm)
@@ -169,8 +188,8 @@ namespace AJWManagementPortal.ViewModels
         {
             get
             {
-               
-                 if (IsMonthlyClosingReportDgm)
+
+                if (IsMonthlyClosingReportDgm)
                     _secondSendActionName = "SendMonthlyClosingReportToAccountErrorList";
                 else if (IsMeezanBankIncomeExpenseReportDgm)
                     _secondSendActionName = "SendMeezanBankIncomeExpenseReportToAccountErrorList";

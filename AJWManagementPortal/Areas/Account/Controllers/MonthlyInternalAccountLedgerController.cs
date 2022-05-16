@@ -63,7 +63,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
             ViewBag.HeaderText = value + " Ledger Book";
 
             List<MonthlyInternalLedgerViewModel> monthlyInternalLedgerViewModels = new List<MonthlyInternalLedgerViewModel>();
-            monthlyInternalLedgerViewModels = _monthlyInternalLedgerRepository.GetMonthlyInternalLedgers();
+            monthlyInternalLedgerViewModels = _monthlyInternalLedgerRepository.GetMonthlyInternalLedgers(id);
 
             if (monthlyInternalLedgerViewModels == null)
             {
