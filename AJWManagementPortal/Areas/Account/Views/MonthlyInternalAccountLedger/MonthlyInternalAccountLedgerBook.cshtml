@@ -59,7 +59,7 @@
                             {
                                 <tr>
                                     <td colspan="2">
-                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @*<button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             @Localizer["Action"]
                                         </button>
                                         <div class="dropdown-menu">
@@ -67,7 +67,7 @@
                                             <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
                                             <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-edit"></i> @Localizer["Edit"]</a>
                                             <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
-                                        </div>
+                                        </div>*@
                                     </td>
                                     <td colspan="2"></td>
                                     <td colspan="2">@item.Credit</td>
@@ -150,7 +150,7 @@
                 "July", "August", "September", "October", "November", "December"
             ];
             const date = new Date();
-            $("#date").text(monthNames[date.getMonth()].concat("-", date.getFullYear()));
+            $("#date").text(monthNames[date.getMonth()].concat("_", date.getFullYear()));
 
             var credit = 0, debit = 0;
             $("#tblcustomers TBODY TR").each(function () {

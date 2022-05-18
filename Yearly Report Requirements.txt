@@ -1,0 +1,35 @@
+Accounts Office Yearly Reports Requirements
+
+[ 6 form Monthly Reports]
+[ 6 form Yearly Reports]
+
+Total Estimated time 20 days
+
+Given same follow use above Reports
+
+1:On Index Page,at the top of index dropdown and select Accounts Office Department
+https://localhost:44347/
+2:system go the Accounts Dashboard
+https://localhost:44347/Account/Account/AccountDashboard
+3:In side-bar option, Accounts M/Y Reports
+https://localhost:44347/Account/AccountsMonthlyYearly/AccountsMonthlyYearlyReports
+4:System display,list of Monthly Report and Yearly Report
+5:On list view,select yearly reports 1st form,click on it,
+   system display selected form and user input required data and save it,
+then created form ave in list view,
+https://localhost:44347/Account/YearlyAccountsReport/YearlyClosingReport
+6: Perform CRUD operations, and go on....
+7: In Yearly Reports,6 forms.
+8: All Yearly Reports form save in list view then Accounts manager add signature & Remarks and send to DGM offcie
+9: form display in sidebar DMG office select>> All Departments Reports>>Account Offcie Reports>>Daily/Mothly/Yearly Reports(R)
+https://localhost:44347/Dgm/DgmAllDepartmentReports/DgmAccountsDepartmentReportsList
+10:system display list view in DGM office,here DGM click on EDit option and add signature & Remarks,
+   can perform View,Edit,Delete,send to GM office operations
+11:DGM click on option >>Send to GM Offcie
+12:In GM Office Sidebar>>select All Departments Reports>>Account Offcie Reports>>Daily/Mothly/Yearly Reports(R)
+https://localhost:44347/Gm/GmAllDepartmentReports/GmAccountsDepartmentReportsList
+13: System display List View for it,GM can perform view,Edit,Delete,send to Account office
+14: system display this send form in >>Accounts Reports Repository>> system display list view of it.
+https://localhost:44347/Account/Repository/DailyMonthlyYearlyAuditAccountsReportsListRepository
+15: Accounts Manager view report and download it as a pdf or word  file.
+16:on each action perform sweet alert.  

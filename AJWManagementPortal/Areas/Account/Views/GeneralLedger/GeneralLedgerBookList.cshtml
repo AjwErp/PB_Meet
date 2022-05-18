@@ -54,7 +54,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-center" scope="col">@item.DailyCashDate </td>
+                                <td class="text-center" scope="col"> @item.DailyCashDate.ToString("MMMM") - @Convert.ToDateTime(@item.DailyCashDate).Year </td>
                                 <td class="text-center" scope="col">Monthly Industry Internal Account-General Ledger report</td>
                             </tr>
                         }
@@ -96,7 +96,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-center" scope="col">@item.DailyCashDate </td>
+                                <td class="text-center" scope="col">@Convert.ToDateTime(@item.DailyCashDate).Year</td>
                                 <td class="text-center" scope="col">Yearly Industry Internal Account-General Ledger report</td>
                             </tr>
                         }

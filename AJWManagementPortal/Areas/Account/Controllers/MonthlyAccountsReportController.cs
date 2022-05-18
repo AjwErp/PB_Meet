@@ -210,7 +210,7 @@ namespace AJWManagementPortal.Areas.Account.Controllers
 
             if (trialBalance != null)
             {
-                var keyValue = _db.TrialBalanceAccountOffice.Select(x => x.KeyValue).LastOrDefault();
+                var keyValue = _db.TrialBalanceAccountOffice.OrderByDescending(x=>x.Id).Select(x => x.KeyValue==null?0:x.KeyValue).FirstOrDefault();
                 if (keyValue != null || keyValue != 0)
                 {
                     key = 1;

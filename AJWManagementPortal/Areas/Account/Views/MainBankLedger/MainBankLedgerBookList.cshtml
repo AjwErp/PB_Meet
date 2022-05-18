@@ -49,7 +49,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-center" scope="col">@item.MainBankDailyCashDate </td>
+                                <td class="text-center" scope="col">@item.MainBankDailyCashDate.ToString("MMMM") - @Convert.ToDateTime(@item.MainBankDailyCashDate).Year </td>
                                 <td class="text-center" scope="col">Monthly Main Bank Ledger report</td>
                             </tr>
                         }
@@ -90,7 +90,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-center" scope="col">@item.MainBankDailyCashDate </td>
+                                <td class="text-center" scope="col"> @Convert.ToDateTime(@item.MainBankDailyCashDate).Year </td>
                                 <td class="text-center" scope="col">Yearly Main Bank Ledger report</td>
                             </tr>
                         }

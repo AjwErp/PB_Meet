@@ -2677,6 +2677,9 @@ namespace AJWManagementPortal.Migrations
                     b.Property<string>("GMSignature")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("KeyValue")
+                        .HasColumnType("int");
+
                     b.Property<string>("Page")
                         .HasColumnType("nvarchar(max)");
 
@@ -2731,10 +2734,6 @@ namespace AJWManagementPortal.Migrations
 
                     b.Property<int>("Month")
                         .HasColumnType("int");
-
-                    b.Property<string>("SYear")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SignAManager")
                         .IsRequired()
