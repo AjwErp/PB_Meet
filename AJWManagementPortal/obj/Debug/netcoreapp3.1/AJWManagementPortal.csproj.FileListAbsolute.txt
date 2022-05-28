@@ -20101,9 +20101,9 @@ E:\Projects\Freelancing Projects\Saqib (Pakistan)\10-05-2022\PB_Meet\AJWManageme
 E:\Projects\Freelancing Projects\Saqib (Pakistan)\10-05-2022\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\AJWManagementPortal.genruntimeconfig.cache
 E:\Projects\Freelancing Projects\Saqib (Pakistan)\10-05-2022\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\MonthlyAccountsReport\EditMonthlyIncomeExpenceInternalAccountReport.cshtml.g.cs
 E:\Projects\Freelancing Projects\Saqib (Pakistan)\10-05-2022\PB_Meet\AJWManagementPortal\obj\Debug\netcoreapp3.1\Razor\Areas\Account\Views\MonthlyAccountsReport\EditTrialBalanceAccountOfficeReport.cshtml.g.cs
+C:\Users\HP\source\repos\16-05-2022\PB_Meet\AJWManagementPortal\bin\Debug\netcoreapp3.1\web.config
 C:\Users\HP\source\repos\16-05-2022\PB_Meet\AJWManagementPortal\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\HP\source\repos\16-05-2022\PB_Meet\AJWManagementPortal\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\HP\source\repos\16-05-2022\PB_Meet\AJWManagementPortal\bin\Debug\netcoreapp3.1\web.config
 C:\Users\HP\source\repos\16-05-2022\PB_Meet\AJWManagementPortal\bin\Debug\netcoreapp3.1\libman.json
 C:\Users\HP\source\repos\16-05-2022\PB_Meet\AJWManagementPortal\bin\Debug\netcoreapp3.1\AJWManagementPortal.StaticWebAssets.xml
 C:\Users\HP\source\repos\16-05-2022\PB_Meet\AJWManagementPortal\bin\Debug\netcoreapp3.1\AJWManagementPortal.exe

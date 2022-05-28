@@ -77,27 +77,7 @@
                                     </div>
                                 </div>
                             </td>
-                            @*<td scope="row" style="width:150px">
-
-            <div class="btn-group" role="group">
-
-                <a class="btn btn-danger text-white" asp-action="SendToAccountOffice" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
-                    <i class="fad fa-backward"></i>
-                </a>
-                <a class="btn btn-primary text-white" asp-action="IndexByName" asp-route-id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
-                    <i class="fas fa-edit"></i>
-                </a>
-                <a class="btn btn-success text-white" asp-action="IndexByName" asp-route-id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
-                    <i class="fas fa-list-alt"></i>
-                </a>
-                <a class="btn btn-danger text-white" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
-                    <i class="fas fa-trash-alt"></i>
-                </a>
-                <a class="btn btn-danger text-white" asp-action="SendToGmOffice" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
-                    <i class="fad fa-forward"></i>
-                </a>
-            </div>
-        </td>*@
+           
                             <td class="text-center" scope="col">@item.ValueDate </td>
                             <td class="text-center" scope="col">Daily Cash Continue Report </td>
                             <td class="text-center" scope="col">@item.Id</td>
@@ -144,20 +124,7 @@
                                     </div>
                                 </div>
                             </td>
-                            @*<td scope="row" style="width:150px">
-
-            <div class="btn-group" role="group">
-                <a class="btn btn-primary text-white" asp-action="TransactionSheet" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
-                    <i class="fas fa-edit"></i>
-                </a>
-                <a class="btn btn-success text-white" asp-action="TransactionSheet" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
-                    <i class="fas fa-list-alt"></i>
-                </a>
-                <a class="btn btn-danger text-white" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
-                    <i class="fas fa-trash-alt"></i>
-                </a>
-            </div>
-        </td>*@
+                          
                             <td class="text-center" scope="col">@item.ValueDate </td>
                             <td class="text-center" scope="col">Daily Cash Transaction Report </td>
                             <td class="text-center" scope="col">@item.Id</td>
@@ -206,31 +173,7 @@
                                     </div>
                                 </div>
                             </td>
-                            @*<td class="actionbtn">
-            <div class="btn-group">
-                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @Localizer["Action"]
-                </button>
-                <div class="dropdown-menu">
-
-                    <a class="btn btn-danger text-white" asp-action="SendToAccountOfficeBank" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
-                        <i class="fas fa-arrow-alt-circle-left"></i>
-                    </a>
-                    <a class="btn btn-primary text-white" asp-action="DailyMeezanBankIEReport2" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
-                        <i class="fas fa-edit"></i>
-                    </a>
-                    <a class="btn btn-success text-white" asp-action="DailyMeezanBankIEReport2" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
-                        <i class="fas fa-list-alt"></i>
-                    </a>
-                    <a class="btn btn-danger text-white" asp-action="DeleteMeezanSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="MeezanbankReportList">
-                        <i class="fas fa-trash-alt"></i>
-                    </a>
-                    <a class="btn btn-danger text-white" asp-action="SendToGmOfficeBank" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
-                        <i class="fas fa-arrow-alt-circle-right"></i>
-                    </a>
-                </div>
-            </div>
-        </td>*@
+                          
                             <td class="text-center" scope="row">@item.ValueDate</td>
                             <td class="text-center" scope="row">Daily Meezan Bank IE Report</td>
                             <td class="text-center" scope="row">@item.Id</td>
@@ -320,20 +263,7 @@
                                     </div>
                                 </div>
                             </td>
-                            @*<td scope="row" style="width:150px">
-
-            <div class="btn-group" role="group">
-                <a class="btn btn-primary text-white" asp-action="BnkIndex" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
-                    <i class="fas fa-edit"></i>
-                </a>
-                <a class="btn btn-success text-white" asp-action="BnkIndex" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
-                    <i class="fas fa-list-alt"></i>
-                </a>
-                <a class="btn btn-danger text-white" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
-                    <i class="fas fa-trash-alt"></i>
-                </a>
-            </div>
-        </td>*@
+                           
                             <td class="text-center" scope="col">@item.ValueDate </td>
                             <td class="text-center" scope="col">Daily Cash Closing Report</td>
                             <td class="text-center" scope="col">@item.Id</td>
@@ -468,20 +398,7 @@
                                     </div>
                                 </div>
                             </td>
-                            @*<td scope="row" style="width:150px">
-
-            <div class="btn-group" role="group">
-                <a class="btn btn-primary text-white" asp-action="closngVoucher" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
-                    <i class="fas fa-edit"></i>
-                </a>
-                <a class="btn btn-success text-white" asp-action="closngVoucher" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
-                    <i class="fas fa-list-alt"></i>
-                </a>
-                <a class="btn btn-danger text-white" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
-                    <i class="fas fa-trash-alt"></i>
-                </a>
-            </div>
-        </td>*@
+                           
                             <td class="text-center" scope="col">@item.ValueDate </td>
                             <td class="text-center" scope="col">Daily Cash Closing Voucher Report</td>
                             <td class="text-center" scope="col">@item.Id</td>
@@ -527,20 +444,7 @@
                                     </div>
                                 </div>
                             </td>
-                            @*<td scope="row" style="width:150px">
-
-            <div class="btn-group" role="group">
-                <a class="btn btn-primary text-white" asp-action="DailyGeneralLedgerReport" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
-                    <i class="fas fa-edit"></i>
-                </a>
-                <a class="btn btn-success text-white" asp-action="DailyGeneralLedgerReport" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
-                    <i class="fas fa-list-alt"></i>
-                </a>
-                <a class="btn btn-danger text-white" asp-action="DeleteSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
-                    <i class="fas fa-trash-alt"></i>
-                </a>
-            </div>
-        </td>*@
+                            
                             <td class="text-center" scope="col">@item.ValueDate </td>
                             <td class="text-center" scope="col">Daily General Ledger Report</td>
                             <td class="text-center" scope="col">@item.Id</td>
@@ -588,26 +492,7 @@
                                     </div>
                                 </div>
                             </td>
-                            @*<td scope="row" style="width:150px">
-
-            <div class="btn-group" role="group">
-                <a class="btn btn-danger text-white" asp-action="SendToAccountOfficeSupplier" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
-                    <i class="fas fa-arrow-alt-circle-left"></i>
-                </a>
-                <a class="btn btn-primary text-white" asp-action="DailySuppliersCashTransactionReport2" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="false">
-                    <i class="fas fa-edit"></i>
-                </a>
-                <a class="btn btn-success text-white" asp-action="DailySuppliersCashTransactionReport2" asp-route-Id="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-hide="true">
-                    <i class="fas fa-list-alt"></i>
-                </a>
-                <a class="btn btn-danger text-white" asp-action="DeleteSuppliersSheet" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
-                    <i class="fas fa-trash-alt"></i>
-                </a>
-                <a class="btn btn-danger text-white" asp-action="SendToGmOfficeSuppliers" asp-route-remarks="@item.ValueDate.ToString("yyyy-MM-dd")" asp-route-redirect="AllDailyAccountsReports">
-                    <i class="fad fa-arrow-alt-circle-right"></i>
-                </a>
-            </div>
-        </td>*@
+                          
                             <td class="text-center" scope="col">@item.ValueDate </td>
                             <td class="text-center" scope="col">Daily Supplier Cash Transaction Report</td>
                             <td class="text-center" scope="col">@item.Id</td>

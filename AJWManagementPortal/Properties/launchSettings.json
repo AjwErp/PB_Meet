@@ -15,6 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
+
     "AJWManagementPortal": {
       "commandName": "Project",
       "launchBrowser": true,

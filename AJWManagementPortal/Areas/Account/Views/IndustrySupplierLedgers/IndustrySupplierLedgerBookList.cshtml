@@ -54,22 +54,24 @@
                     <tbody>
                         @foreach (var item in Model.monthlyIndustrySupplierLedgers)
                         {
-                            <tr class="tabbody SubH">
-                                <td class="actionbtn">
-                                    <div class="btn-group">
-                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            @Localizer["Action"]
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" asp-route-id=@item.UniId asp-action="MonthlyIndustrySupplierLedgerBookView" asp-controller="MonthlyIndustrySupplierLedgers" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
-                                            <a class="dropdown-item" asp-route-id=@item.UniId asp-action="MonthlyIndustrySupplierLedgerBookDelete" asp-controller="MonthlyIndustrySupplierLedgers" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
-                                        </div>
+                        <tr class="tabbody SubH">
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-route-id=@item.UniId asp-action="MonthlyIndustrySupplierLedgerBookView" asp-controller="MonthlyIndustrySupplierLedgers" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
+                                        <a class="dropdown-item" asp-route-id=@item.UniId asp-action="MonthlyIndustrySupplierLedgerBookDelete" asp-controller="MonthlyIndustrySupplierLedgers" asp-area="Account"><i class="fas fa-trash-alt"></i> @Localizer["Delete"]</a>
                                     </div>
-                                </td>
-                                <td>@item.DailyCashDate</td>
-                                <td>@Localizer["Monthly Industry Suppliers Ledger"] </td>
-                                <td>@item.Id</td>
-                            </tr>
+                                </div>
+                            </td>
+                            <td class="text-center" scope="col">@item.DailyCashDate.ToString("MMMM") - @Convert.ToDateTime(@item.DailyCashDate).Year </td>
+
+                            @*<td>@item.DailyCashDate</td>*@
+                            <td>@Localizer["Monthly Industry Suppliers Ledger"] </td>
+                            <td>@item.Id</td>
+                        </tr>
                         }
                     </tbody>
                 </table>
@@ -108,21 +110,23 @@
                     <tbody>
                         @foreach (var item in Model.monthlyIndustrySupplierLedgers)
                         {
-                            <tr class="tabbody SubH">
-                                <td class="actionbtn">
-                                    <div class="btn-group">
-                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            @Localizer["Action"]
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
-                                        </div>
+                        <tr class="tabbody SubH">
+                            <td class="actionbtn">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Action"]
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="" asp-controller="" asp-area="Account"><i class="fas fa-list-alt"></i> @Localizer["View"]</a>
                                     </div>
-                                </td>
-                                <td>@item.DailyCashDate</td>
-                                <td>@Localizer["Yearly Industry Suppliers Ledger"] </td>
-                                <td>@item.Id</td>
-                            </tr>
+                                </div>
+                            </td>
+                            <td class="text-center" scope="col"> @Convert.ToDateTime(@item.DailyCashDate).Year </td>
+
+                            @*<td>@item.DailyCashDate</td>*@
+                            <td>@Localizer["Yearly Industry Suppliers Ledger"] </td>
+                            <td>@item.Id</td>
+                        </tr>
                         }
                     </tbody>
                 </table>
